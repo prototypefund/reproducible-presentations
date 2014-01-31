@@ -19,8 +19,8 @@ Why?
  * Debugging: ensure known source; create missing debug symbols
  * Help building `Multi-Arch: same` packages (Debian specific)
 
-How did this started?
----------------------
+How did this start?
+-------------------
 
 \begin{center}
 \includegraphics[width=0.8\textwidth]{images/tor-blog}
