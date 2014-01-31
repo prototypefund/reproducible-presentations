@@ -47,8 +47,8 @@ integricity of binary packages.
 \url{https://lists.debian.org/debian-devel/2007/09/msg00746.html}
 \end{flushright}
 
-Although, reactions were not enthuastic
----------------------------------------
+Although, reactions were not enthusiastic
+-----------------------------------------
 
 \texttt{\footnotesize%
 From: Neil Williams <codehelp@debian.org> \\
@@ -70,8 +70,8 @@ Why? I see no benefit.
 \url{https://lists.debian.org/debian-devel/2007/09/msg00747.html}
 \end{flushright}
 
-Although, reactions were not enthuastic
----------------------------------------
+Although, reactions were not enthusiastic
+-----------------------------------------
 
 \texttt{\footnotesize%
 From: Manoj Srivastava <srivasta@debian.org> \\
