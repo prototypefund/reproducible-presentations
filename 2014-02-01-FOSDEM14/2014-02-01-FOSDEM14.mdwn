@@ -223,6 +223,103 @@ The hard path
  * Patch build systems:  
    `gzip -n`
 
+Experiment
+----------
+
+ * Build and rebuild of many source packages
+ * Using EC2 VM instances from Amazon Web Services
+ * Many thanks David Suárez!
+
+Experiment
+----------
+
+ * Build packages twice
+ * Setup clean chroot, unpack source code, install build-deps, build
+ * And again…
+ * Pass the timestamp of the first build to dpkg through environment variable
+
+Experiment
+----------
+
+Variations in this context:
+
+ * Time
+ * Build path
+
+No changes in hostname, username, uname, file order, locale…
+
+Experiment
+----------
+
+Modified packages:
+
+ * dpkg: use single timestamp in the archives
+ * dpkg: re-use timestamp from environment if given
+ * dpkg: stable file order in the archives
+ * debhelper: dh_strip calls `debugedit`
+ * dpkg: pass `-fno-merge-debug-strings` through `dpkg-buildflags`
+ * binutils: built with `--enable-deterministic-archives`
+
+Experiment
+----------
+
+ * Upon 5151 source packages
+ * 3196 produced identical binary packages
+
+Experiment
+----------
+
+\begin{center}
+\Huge 62\%
+\end{center}
+
+Waow.
+
+Already reproducible
+--------------------
+
+    source name            popcon insts
+    ---------------------  ------------
+    findutils                    164641
+    wget                         164512
+    klibc                        163312
+    busybox                      161494
+    installation-report          157494
+    laptop-detect                157352
+    python-support               155075
+    netkit-ftp                   145548
+
+Failures in the remaining packages
+----------------------------------
+
+      1017 build-id-mismatch
+       295 unknown
+       108 jar-file
+       106 haskell-prof
+       103 haskell-dev
+       101 php-registry
+       101 html-mismatch
+        63 same-depends-different-order
+        62 r-rds
+        52 gzip-timestamp
+        46 kde-doc-index
+
+Failures in the remaining packages
+----------------------------------
+
+        45 mono
+        35 specific
+        33 docbook-to-man-timestamp
+        23 do-not-use-dpkg-buildflags
+        21 debugedit-not-run-or-failed
+        16 puredata
+        13 perl-manpage
+        11 rdoc-timestamp
+        10 zip-file
+         8 ocaml-md5sums
+         7 fonts
+         7 erlang
+
 Other distributions
 -------------------
 
