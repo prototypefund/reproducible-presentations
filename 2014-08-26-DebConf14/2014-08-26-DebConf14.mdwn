@@ -1,4 +1,4 @@
-% Reproducible Builds for Debian, a year later
+% Reproducible Builds, a year later
 % Lunar \<lunar@debian.org\>
 % 2014-08-26 DebConf14
 
@@ -18,7 +18,7 @@ Why?
  * Prevent targeted attacks
  * Debugging: ensure known source; create missing debug symbols
  * Ensure packages can be built from source
- * Help building `Multi-Arch: same` packages (Debian specific)
+ * Help building `Multi-Arch: same` packages
  * Similar `.deb`: deduplication, small deltas
  * Different build profiles, same common packages
 
