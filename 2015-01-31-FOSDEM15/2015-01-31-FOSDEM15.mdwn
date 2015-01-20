@@ -84,16 +84,16 @@ How small can a backdoor be?
 
 OpenSSH 3.0.2 (CVE-2002-0083) – exploitable security bug (privilege escalation: user can get root)
 
-<pre>
+~~~~
 {
   Channel *c;
 -     if (id < 0 || id > channels_alloc) {
 +     if (id < 0 || id >= channels_alloc) {
   log("channel_lookup: %d: bad id", id);
   return
-</pre>
+~~~~
 
-FIXME: the above code is not displayed at all and the - line should be red, and the + line should be green...
+FIXME: the - line should be red, and the + line should be green...
 
 Why
 ---
