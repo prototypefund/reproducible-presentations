@@ -16,9 +16,9 @@ binary packages from a given source
 -------------------
 
  * FOSS ethos: Users should have the source code to their programs
-  * For both individual freedom and software security
+	* For both individual freedom and software security
  * But: The only proof that binary packages correspond to the source code is that someone said so
-  * Without build system info, verification is almost impossible (and sometimes even with it)
+	* Without build system info, verification is almost impossible (and sometimes even with it)
  * This is inadequate for fostering trust in our software's functionality and security
 
 “But I'm the developer!”
@@ -38,7 +38,7 @@ Unpleasant thoughts
 
  * We think of software development as a fundamentally benign activity. “I'm not that interesting.”
  * But attackers target a project's users through its developers
-  * See Dullien “Offensive work and addiction” (2014)
+	* See Dullien “Offensive work and addiction” (2014)
  * Known successful attacks against infrastructure used by Linux (2003), FreeBSD (2013)
 
 Single points of failure
@@ -50,26 +50,26 @@ Single points of failure
 ------------------------
 
  * Can that computer still remain secure if:
-  * It is networked?
-  * It is mobile or is physically accessible by others?
-  * It regularly has arbitrary USB devices connected?
-  * It must run Windows (in a VM)?
-  * It regularly runs unauthenticated HTML+JS?
-  * Several nation-states want access to it?
+	* It is networked?
+	* It is mobile or is physically accessible by others?
+	* It regularly has arbitrary USB devices connected?
+	* It must run Windows (in a VM)?
+	* It regularly runs unauthenticated HTML+JS?
+	* Several nation-states want access to it?
 
 Single points of failure
 ------------------------
 
  * What if:
-  * Compromising that one computer gave access to:
-   * Hundreds of millions of other computers?
-   * Every bank account in the world?
-   * Every Windows computer in the world?
-   *Every Linux server in the world?
-  * Compromising that computer was worth:
-   * $100k USD? (Market price of remote 0day)
-   * $100M USD? (Censorship budget of Iran/yr)
-   * $4B USD? (Bitcoin market cap)
+	* Compromising that one computer gave access to:
+		* Hundreds of millions of other computers?
+		* Every bank account in the world?
+		* Every Windows computer in the world?
+		*Every Linux server in the world?
+	* Compromising that computer was worth:
+		* $100k USD? (Market price of remote 0day)
+		* $100M USD? (Censorship budget of Iran/yr)
+		* $4B USD? (Bitcoin market cap)
 
 Bitcoin's motivation
 --------------------
