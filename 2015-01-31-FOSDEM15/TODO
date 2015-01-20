@@ -1,0 +1,40 @@
+mention 
+	ssh CVE one bit example from 31c3 talk
+	bitcoin started this
+	the team in debian
+	other noteworthy people
+	git repos:
+		notes.git -> master
+		jenkins.d.n/bin/reproducible* -> master
+		dpkg.git -> pu/reproducible_builds
+		debhelper.git -> pu/reproducible_builds
+		cdbs.git -> pu/reproducible_builds
+		...
+	PTS integration
+	new cleaned up wiki (screenshot)
+	pkg stats graph
+	issues graph
+	notes graph
+	usertags graph
+	issues list (screenshots too)
+	
+	pkg sets:
+		essential
+		build essential
+		popcon 1337
+		dsa installed
+		tails
+		grml
+	describe jenkins setup
+		scheduler
+		3 builds in tmpfs
+		html pages
+		.json
+	.buildinfo support in dpkg
+	strip_nondeterminism and dh_stripnoterminism
+	srebuild
+	help: provide tool to display local packages reproducible build status
+	help: reproducible fedora
+	goal: all issues identified
+	goal: dak integration, .buildinfo files integrated in the archive #bugnumber
+	include status+next from main wiki page
