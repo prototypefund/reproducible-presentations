@@ -84,21 +84,115 @@ How small can a backdoor be?
 
 OpenSSH 3.0.2 (CVE-2002-0083) – exploitable security bug (privilege escalation: user can get root)
 
-~~~~
+~~~~diff
 {
   Channel *c;
 -     if (id < 0 || id > channels_alloc) {
 +     if (id < 0 || id >= channels_alloc) {
   log("channel_lookup: %d: bad id", id);
   return
-~~~~
+~~~~diff
 
-FIXME: the - line should be red, and the + line should be green...
+Result of fixing the bug (asm)
+------------------------------
 
-Why
----
+~~~diff
+~~~
 
- * FIXME: one bit matters, show ssh CVE example from 31C3 talk
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cmpl $0x0,0x8(%ebp)      cmpl $0x0,0x8(%ebp)}
+\NormalTok{js 16                    js 16}
+\NormalTok{mov 0x4,%eax             mov 0x4,%eax}
+\NormalTok{cmp %eax,0x8(%ebp)       cmp %eax,0x8(%ebp)}
+\NormalTok{jle 30                   jl 30}
+\NormalTok{mov 0x8(%ebp),%eax       mov 0x8(%ebp),%eax}
+\NormalTok{mov %eax,0x4(%esp)       mov %eax,0x4(%esp)}
+\NormalTok{movl $0x4c,(%esp)        movl $0x4c,(%esp)}
+\NormalTok{call 25                  call 25}
+\end{Highlighting}
+\end{Shaded}
+
+Result of fixing the bug (asm)
+------------------------------
+
+~~~diff
+~~~
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cmpl $0x0,0x8(%ebp)      cmpl $0x0,0x8(%ebp)}
+\NormalTok{js 16                    js 16}
+\NormalTok{mov 0x4,%eax             mov 0x4,%eax}
+\NormalTok{cmp %eax,0x8(%ebp)       cmp %eax,0x8(%ebp)}
+\StringTok{jle}\NormalTok{ 30                   }\OtherTok{jl}\NormalTok{ 30}
+\NormalTok{mov 0x8(%ebp),%eax       mov 0x8(%ebp),%eax}
+\NormalTok{mov %eax,0x4(%esp)       mov %eax,0x4(%esp)}
+\NormalTok{movl $0x4c,(%esp)        movl $0x4c,(%esp)}
+\NormalTok{call 25                  call 25}
+\end{Highlighting}
+\end{Shaded}
+
+Resulting difference in the binary
+----------------------------------
+
+What's the difference between \texttt{\StringTok{if (a > b)}} and \texttt{\OtherTok{if (a >= b)}} in x86 assembly?
+
+----------   ---------------------------------------   --------------------------------------
+assembly:                   \texttt{\StringTok{JLE}}   \texttt{\OtherTok{JL}}
+opcode:                    \texttt{0x7\StringTok{E}}   \texttt{0x7\OtherTok{C}}
+binary:       \texttt{011111\StringTok{\textbf{1}}0}   \texttt{011111\OtherTok{\textbf{0}}0}
+----------   ---------------------------------------   --------------------------------------
+
+\begin{center}\Huge
+A single bit!
+\end{center}
+
+Other corresponding opcode pairs also differ by just a single bit (JGE=0x7D, JG=0x7F)
+
+Result of fixing the bug (hex)
+------------------------------
+
+\setupctable{maxwidth=\textwidth}
+
+---------------------------------------------------------------------------
+Vulnerable                            Fixed
+------------------------------------- -------------------------------------
+\texttt{\NormalTok{55 89 e5 83 ec}}\  \texttt{\NormalTok{55 89 e5 83 ec}}\
+\texttt{\NormalTok{28 83 7d 08 00}}\  \texttt{\NormalTok{28 83 7d 08 00}}\
+\texttt{\NormalTok{78 0a a1 04 00}}\  \texttt{\NormalTok{78 0a a1 04 00}}\
+\texttt{\NormalTok{00 00 39 45 08}}\  \texttt{\NormalTok{00 00 39 45 08}}\
+\texttt{\NormalTok{7e 1a 8b 45 08}}\  \texttt{\NormalTok{7c 1a 8b 45 08}}\
+\texttt{\NormalTok{89 44 24 04 c7}}\  \texttt{\NormalTok{89 44 24 04 c7}}\
+\texttt{\NormalTok{04 24 4c 00 00}}\  \texttt{\NormalTok{04 24 4c 00 00}}\
+\texttt{\NormalTok{00 e8 fc ff ff}}\  \texttt{\NormalTok{00 e8 fc ff ff}}\
+\texttt{\NormalTok{ff b8 00 00 00}}\  \texttt{\NormalTok{ff b8 00 00 00}}\
+\texttt{\NormalTok{00 eb 35      }}\  \texttt{\NormalTok{00 eb 35      }}\
+---------------------------------------------------------------------------
+
+Overall file size: approx. 500 kB
+
+Result of fixing the bug (hex)
+------------------------------
+
+\setupctable{maxwidth=\textwidth}
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+Vulnerable                                                             Fixed
+---------------------------------------------------------------------- ---------------------------------------------------------------------
+\texttt{\NormalTok{55 89 e5 83 ec}}\                                   \texttt{\NormalTok{55 89 e5 83 ec}}\
+\texttt{\NormalTok{28 83 7d 08 00}}\                                   \texttt{\NormalTok{28 83 7d 08 00}}\
+\texttt{\NormalTok{78 0a a1 04 00}}\                                   \texttt{\NormalTok{78 0a a1 04 00}}\
+\texttt{\NormalTok{00 00 39 45 08}}\                                   \texttt{\NormalTok{00 00 39 45 08}}\
+\texttt{\NormalTok{7}\StringTok{\textbf{e}}\NormalTok{ 1a 8b 45 08}}\  \texttt{\NormalTok{7}\OtherTok{\textbf{c}}\NormalTok{ 1a 8b 45 08}}\
+\texttt{\NormalTok{89 44 24 04 c7}}\                                   \texttt{\NormalTok{89 44 24 04 c7}}\
+\texttt{\NormalTok{04 24 4c 00 00}}\                                   \texttt{\NormalTok{04 24 4c 00 00}}\
+\texttt{\NormalTok{00 e8 fc ff ff}}\                                   \texttt{\NormalTok{00 e8 fc ff ff}}\
+\texttt{\NormalTok{ff b8 00 00 00}}\                                   \texttt{\NormalTok{ff b8 00 00 00}}\
+\texttt{\NormalTok{00 eb 35      }}\                                   \texttt{\NormalTok{00 eb 35      }}\
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+Overall file size: approx. 500 kB
 
 How did this start?
 -------------------
