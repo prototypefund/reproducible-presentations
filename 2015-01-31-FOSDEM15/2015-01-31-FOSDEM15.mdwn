@@ -12,6 +12,24 @@ enable anyone to reproduce the exact same
 binary packages from a given source
 \end{center}
 
+Oh wow, TMI
+-----------
+
+ * *Reproducible builds for Debian and beyond* is a quite complex topic.
+ * We have 50min and 77 slides. I'll expect there'll be 10-15min for questions in the end :-)
+
+What are reproducible builds?
+-----------------------------
+
+\begin{center}
+\Large
+“reproducible” builds
+enable anyone to reproduce the exact same
+binary packages from a given source
+\end{center}
+
+Who knows about reproducible talks already?
+
 “I want to believe”
 -------------------
 
@@ -70,14 +88,6 @@ Single points of failure
 		* $100k USD? (Market price of remote 0day)
 		* $100M USD? (Censorship budget of Iran/yr)
 		* $4B USD? (Bitcoin market cap)
-
-Bitcoin's motivation
---------------------
-
- * Malicious modifications to Bitcoin binaries could result in irrevocable theft of large amounts of money
- * Individual developers could be blamed for such modifications
- * Users might not believe that a developer's machine was hacked
- * Reproducible builds protect developers
 
 How small can a backdoor be?
 ----------------------------
@@ -197,7 +207,16 @@ Overall file size: approx. 500 kB
 How did this start?
 -------------------
 
- * FIXME: bitcoin
+ * Bitcoin were the first to release reproducible binaries.
+
+Bitcoin's motivation
+--------------------
+
+ * Malicious modifications to Bitcoin binaries could result in irrevocable theft of large amounts of money
+ * Individual developers could be blamed for such modifications
+ * Users might not believe that a developer's machine was hacked
+ * Reproducible builds protect developers
+
 
 How did this start?
 -------------------
@@ -206,8 +225,8 @@ How did this start?
 \includegraphics[width=0.8\textwidth]{images/tor-blog}
 \end{center}
 
-Nothing new
------------
+Nothing new though
+------------------
 
 \texttt{\footnotesize%
 From: Martin Uecker <muecker@gmx.de> \\
@@ -230,7 +249,7 @@ integricity of binary packages.
 FOSDEM14 talk
 -------------
 
- * after bitcoin and TOR did this, Lunar went out to spread the idea in the Debian world again
+ * After Bitcoin and TOR did this, Lunar went out to spread the idea in the Debian world again
 
 BoF during DebConf13
 --------------------

@@ -45,18 +45,28 @@ mention
 		html pages
 		.json
 		irc notifications
-	.buildinfo support in dpkg
-	strip_nondeterminism and dh_stripnoterminism
-	srebuild
-	help: provide tool to display local packages reproducible build status
-	help: reproducible fedora
-	help: i use python-r badly - help welcome. please talk to me if you can help here.
-	goal: all issues identified
-	goal: dak integration, .buildinfo files integrated in the archive #bugnumber
-	goal: reproducible.debian.org (and jenkins.debian.org)
-	goal: funding. do you think this is something which should be funded by the linux foundation?
+	status
+		.buildinfo support in dpkg
+		strip_nondeterminism and dh_stripnoterminism
+		srebuild
+	whats next
+		help: provide tool to display local packages reproducible build status
+		help: reproducible fedora
+		help: i use python-r badly - help welcome. please talk to me if you can help here.
+		help: dak integration, .buildinfo files integrated in the archive #bugnumber
+	goals for fosdem 2016
+		all issues identified
+		reproducible.debian.org (and jenkins.debian.org)
+		funding. do you think this is something which should be funded by the linux foundation?
+	stretch release goals (2017)
+		foo
+		bar
+	buster (ca 2019)
+		foo
+		bar
+
 	include status+next from main wiki page
-	"jenkins.d.n is just a QA tool", no real results yet. post jessie.
+		"jenkins.d.n is just a QA tool", no real results yet. post jessie.
 
 	use a darker grey for the slide headings
 
