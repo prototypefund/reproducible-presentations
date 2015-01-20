@@ -1,4 +1,6 @@
 mention 
+	add thanks for stealing the intro from 31c3 talk, the layout from lunars talk, the tango icons,
+		everybody contributing
 	who are we?
 		the team in debian
 		other noteworthy people
@@ -25,6 +27,7 @@ mention
 		3 builds in tmpfs
 		html pages
 		.json
+		irc notifications
 	.buildinfo support in dpkg
 	strip_nondeterminism and dh_stripnoterminism
 	srebuild

@@ -12,12 +12,88 @@ enable anyone to reproduce the exact same
 binary packages from a given source
 \end{center}
 
-Why?
-----
+“I want to believe”
+-------------------
 
- * Prevent targeted attacks
- * Debugging: ensure known source; create missing debug symbols
- * FIXME: use list from 31c3 talk
+ * FOSS ethos: Users should have the source code to their programs
+  * For both individual freedom and software security
+ * But: The only proof that binary packages correspond to the source code is that someone said so
+  * Without build system info, verification is almost impossible (and sometimes even with it)
+ * This is inadequate for fostering trust in our software's functionality and security
+
+“But I'm the developer!”
+------------------------
+
+ * “I know what's in the binary because I compiled it myself!”
+ * “I'm an upstanding, careful, and responsible individual!”
+ * “Why should I have to worry about hypothetical risks about the contents of my binaries?”
+
+“But the build daemons are maintained well”
+-------------------------------------------
+
+ * How you can be sure this is the case?
+
+Unpleasant thoughts
+-------------------
+
+ * We think of software development as a fundamentally benign activity. “I'm not that interesting.”
+ * But attackers target a project's users through its developers
+  * See Dullien “Offensive work and addiction” (2014)
+ * Known successful attacks against infrastructure used by Linux (2003), FreeBSD (2013)
+
+Single points of failure
+------------------------
+
+ * Imagine the most secure computer in the world...
+
+Single points of failure
+------------------------
+
+ * Can that computer still remain secure if:
+  * It is networked?
+  * It is mobile or is physically accessible by others?
+  * It regularly has arbitrary USB devices connected?
+  * It must run Windows (in a VM)?
+  * It regularly runs unauthenticated HTML+JS?
+  * Several nation-states want access to it?
+
+Single points of failure
+------------------------
+
+ * What if:
+  * Compromising that one computer gave access to:
+   * Hundreds of millions of other computers?
+   * Every bank account in the world?
+   * Every Windows computer in the world?
+   *Every Linux server in the world?
+  * Compromising that computer was worth:
+   * $100k USD? (Market price of remote 0day)
+   * $100M USD? (Censorship budget of Iran/yr)
+   * $4B USD? (Bitcoin market cap)
+
+Bitcoin's motivation
+--------------------
+
+ * Malicious modifications to Bitcoin binaries could result in irrevocable theft of large amounts of money
+ * Individual developers could be blamed for such modifications
+ * Users might not believe that a developer's machine was hacked
+ * Reproducible builds protect developers
+
+How small can a backdoor be?
+----------------------------
+
+OpenSSH 3.0.2 (CVE-2002-0083) – exploitable security bug (privilege escalation: user can get root)
+
+<pre>
+{
+  Channel *c;
+-     if (id < 0 || id > channels_alloc) {
++     if (id < 0 || id >= channels_alloc) {
+  log("channel_lookup: %d: bad id", id);
+  return
+</pre>
+
+FIXME: the above code is not displayed at all and the - line should be red, and the + line should be green...
 
 Why
 ---
@@ -222,7 +298,8 @@ More goodies
 
  * https://reproducible.debian.net/$package
  * integration in tracker.debian.org (the new PTS)
-
+ * IRC notifications thanks to KGB
+ * FIXME: index_dd-list.html
 
 How?
 ----
