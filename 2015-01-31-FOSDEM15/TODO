@@ -1,8 +1,7 @@
 mention 
-	ssh CVE one bit example from 31c3 talk
-	bitcoin started this
-	the team in debian
-	other noteworthy people
+	who are we?
+		the team in debian
+		other noteworthy people
 	git repos:
 		notes.git -> master
 		jenkins.d.n/bin/reproducible* -> master
@@ -10,13 +9,12 @@ mention
 		debhelper.git -> pu/reproducible_builds
 		cdbs.git -> pu/reproducible_builds
 		...
-	PTS integration
-	new cleaned up wiki (screenshot)
-	pkg stats graph
-	issues graph
-	notes graph
-	usertags graph
+	rp.d.n website screenshots
+		ftbr
+		ftbfs
 	issues list (screenshots too)
+	rp.d.n/$your_package
+	PTS integration
 	
 	pkg sets:
 		essential
@@ -35,6 +33,12 @@ mention
 	srebuild
 	help: provide tool to display local packages reproducible build status
 	help: reproducible fedora
+	help: i use python-r badly - help welcome. please talk to me if you can help here.
 	goal: all issues identified
 	goal: dak integration, .buildinfo files integrated in the archive #bugnumber
+	goal: reproducible.debian.org (and jenkins.debian.org)
+	goal: funding. do you think this is something which should be funded by the linux foundation?
 	include status+next from main wiki page
+	"jenkins.d.n is just a QA tool", no real results yet. post jessie.
+
+	use a darker grey for the slide headings
