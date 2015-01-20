@@ -17,10 +17,7 @@ Why?
 
  * Prevent targeted attacks
  * Debugging: ensure known source; create missing debug symbols
- * Ensure packages can be built from source
- * Help building `Multi-Arch: same` packages
- * Similar `.deb`: deduplication, small deltas
- * Different build profiles, same common packages
+ * FIXME: use list from 31c3 talk
 
 Why
 ---
@@ -106,12 +103,125 @@ Identified issues
 \includegraphics[width=0.9\textwidth]{images/stats_issues}
 \end{center}
 
+Basically three types of issues:
+
+ * timestamps
+ * random ordering of arrays or files (or something else)
+ * build IDs, document section IDs
+
+List of issues (as of 2015-01-20)
+--------------
+\tiny
+
+ * timestamp_in_java_bnd_manifest_issue
+ * timestamps_from_cpp_macros_issue
+ * timestamps_generated_by_docbook_to_man_issue
+ * timestamps_in_beam_files_issue
+ * timestamps_in_documentation_generated_by_doxygen_issue
+ * timestamps_in_documentation_generated_by_groff_issue
+ * timestamps_in_documentation_generated_by_htmldoc_issue
+ * timestamps_in_documentation_generated_by_javadoc_issue
+ * timestamps_in_documentation_generated_by_man2html_issue
+ * timestamps_in_documentation_generated_by_yard_issue
+ * timestamps_in_dvi_generated_by_latex_issue
+ * timestamps_in_erlc_beam_issue
+ * timestamps_in_gzip_headers_issue
+ * timestamps_in_jar_issue
+ * timestamps_in_maven_pom_files_issue
+ * timestamps_in_pdf_generated_by_apache_fop_issue
+ * timestamps_in_pdf_generated_by_latex_issue
+ * timestamps_in_pe_binaries_issue
+ * timestamps_in_php_registry_files_issue
+ * timestamps_in_png_issue
+ * timestamps_in_python_code_generated_by_cheetah_issue
+ * timestamps_in_python_docutils_issue
+ * timestamps_in_source_generated_by_pyqt4_ui_issue
+ * timestamps_in_static_libraries_issue
+ * timestamps_in_tarball_issue
+ * timestamps_in_zip_issue
+
+List of issues (continued)
+--------------------------
+
+\tiny
+
+ * random_ids_in_docbook_xsl_issue
+ * randomness_in_gcj_output_issue
+ * randomness_in_html_generated_by_texi2html_issue
+ * random_order_in_egg_info_top_level_txt_issue
+ * random_order_in_files_generated_by_extutils_depends_issue
+ * random_order_in_java_jar_manifest_mf_issue
+ * random_order_in_naturaldocs_issue
+ * random_order_in_python_environment_pickle_issue
+
+List of issues (continued)
+--------------------------
+
+\tiny
+
+ * fontforge_reset_modification_time_issue
+ * gtk_doc_api_index_full_issue
+ * pdf_created_by_ghostscript_issue
+ * python_wheel_package_issue
+ * serial_numbers_in_ogg_issue
+ * shlibs_order_varies_issue
+ * unsorted_filelist_python_support_private_issue
+ * update_icons_order_varies_issue
+ * use_epydoc_issue
+ * user_in_java_jar_manifest_issue
+ * users_and_groups_in_tarball_issue
+ * xpi_pack_saves_extra_attributes_in_jar_issue
+
+List of issues (continued)
+--------------------------
+
+\tiny
+
+ * blacklisted_on_jenkins_issue
+ * debbindiff_runs_forever_issue
+ * not_using_dh_builddeb_issue
+ * dh_fixmtimes_runs_before_dh_always_exclude_issue
+ * dh_usrlocal_order_varies_issue
+
+Example issue list
+------------------
+
+ * FIXME: add screenshot of https://reproducible.debian.net/index_issues.html
+
+Example issue
+-------------
+
+ * FIXME: add screenshot of https://reproducible.debian.net/issues/timestamps_in_jar_issue.html or such
+
+Example package
+---------------
+
+ * FIXME: add screenshot of https://reproducible.debian.net/rb-pkg/arduino.html
+
+Example .buildinfo
+------------------
+
+ * FIXME: add screenshot of one
+
+Example debbindiff output
+-------------------------
+
+ * FIXME: add screenshot of one
+
+
 Bugs filed
 ----------
 
 \begin{center}
 \includegraphics[width=0.9\textwidth]{images/stats_bugs}
 \end{center}
+
+
+More goodies
+------------
+
+ * https://reproducible.debian.net/$package
+ * integration in tracker.debian.org (the new PTS)
 
 
 How?
@@ -132,56 +242,6 @@ Reproduce the build environment
 
 `snapshot.debian.org`
 
-Source of variations
---------------------
-
- * Timestamps
- * Build paths
- * File order
- * Locale
- * …
-
-Timestamps
-----------
-
-`gzip` stores a timestamp.
-
-\tiny
-
-    $ file README.txt.gz
-    README.txt.gz: gzip compressed data, was "README.txt", from Unix,
-    last modified: Mon Mar  5 00:05:49 2012, max compression
-
-Timestamps
-----------
-
-`ar`, `tar`, `zip`, `jar`… store timestamps.
-
-\tiny
-
-    $ tar ztvf copyright-format.xml.tar.gz
-    -rw-r--r-- pbuilder/pbuilder   473 2012-03-05 00:02 Makefile
-    -rw-r--r-- pbuilder/pbuilder 56918 2012-03-05 00:05 copyright-format-1.0.html
-    -rw-r--r-- pbuilder/pbuilder 37218 2012-03-05 00:05 copyright-format-1.0.txt
-    -rw-r--r-- pbuilder/pbuilder 10007 2012-03-05 00:05 copyright-format-1.0.txt.gz
-    -rw-r--r-- pbuilder/pbuilder 53917 2012-03-05 00:02 copyright-format-1.0.xml
-    -rw-r--r-- pbuilder/pbuilder   808 2012-03-05 00:02 html.dsl
-    -rw-r--r-- pbuilder/pbuilder    97 2012-03-05 00:05 version.xml
-
-Timestamps
-----------
-
-`javadoc` writes timestamps:
-
-\tiny
-
-    $ head -n 5 /usr/share/doc/libjaxe-java-doc/api/serialized-form.html
-    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-    <!-- NewPage -->
-    <html lang="en">
-    <head>
-    <!-- Generated by javadoc (version 1.6.0_27) on Sat Jul 13 17:27:51 UTC 2013 -->
-
 Build paths
 -----------
 
@@ -194,6 +254,10 @@ Build path is embedded in debug symbols:
     <15>     DW_AT_comp_dir    : /tmp/buildd/pidgin-2.10.6/build/pidgin
     <402d>   DW_AT_name        : /tmp/buildd/pidgin-2.10.6/./pidgin/gtkaccount.c
     <4031>   DW_AT_comp_dir    : /tmp/buildd/pidgin-2.10.6/build/pidgin
+
+\%
+
+We store it in .buildinfo files.
 
 File order
 ----------
@@ -217,12 +281,6 @@ Behaviour can change depending on configured locale:
     à
     b
 
-Misc.
------
-
- * Hostname
- * Uname output
- * Username
 
 The hard path
 -------------
@@ -243,35 +301,6 @@ Experiment
 
 Waow.
 
-Already reproducible
---------------------
-
-    source name            popcon insts
-    ---------------------  ------------
-    findutils                    164641
-    wget                         164512
-    klibc                        163312
-    busybox                      161494
-    installation-report          157494
-    laptop-detect                157352
-    python-support               155075
-    netkit-ftp                   145548
-
-Failures in the remaining packages
-----------------------------------
-
-      1017 build-id-mismatch
-       295 unknown
-       108 jar-file
-       106 haskell-prof
-       103 haskell-dev
-       101 php-registry
-       101 html-mismatch
-        63 same-depends-different-order
-        62 r-rds
-        52 gzip-timestamp
-        46 kde-doc-index
-
 Other distributions
 -------------------
 
@@ -287,14 +316,8 @@ Want to help?
 
 Triage:
 
- * Let's make a new archive-wide rebuild and sort the result.
+ * Let's classify all the issues!
 
-Want to help?
--------------
-
-Specify:
-
- * Think about the best way to record the environment.
 
 Want to help?
 -------------
@@ -308,9 +331,6 @@ Code:
 Want to help?
 -------------
 
-Project management:
-
- * Coordinate the baby steps needed to move this forward.
 
 Want to help?
 -------------
@@ -319,9 +339,10 @@ Stay in touch:
 
  * Subscribe to the `ReproducibleBuilds` wiki page.
  * Subscribe to the `reproducible-builds@l.a.d.o` mailing list.
+ * Join #debian-reproducible on irc.oftc.net
 
 Reproducible Fedora ? SLES ? BSD ?
----
+----------------------------------
 
 \begin{center}
 Please find me and talk to me. I'd love to help kickstart that.
