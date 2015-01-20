@@ -1,10 +1,17 @@
-.PHONY: all source
+.PHONY: all source images
 
 PRESENTATION = 2015-01-31-FOSDEM15
 
 all: $(PRESENTATION).pdf
 
 source: $(PRESENTATION)-src.tar.gz
+
+images:
+	cd images ; \
+	for i in stats_pkg_state stats_notes stats_issues stats_bugs ; do \
+		rm $$i.png ; \
+		wget https://reproducible.debian.net/userContent/$$i.png ; \
+	done
 
 IMGS = \
 	images/swirl-lightest.pdf \
