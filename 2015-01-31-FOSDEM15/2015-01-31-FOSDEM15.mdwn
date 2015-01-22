@@ -397,8 +397,8 @@ Identified issues (cont.)
  * CPU and memory related:
        - Code optimizations for current CPU class
        - Recording of memory addresses
- * Locale
  * ~~Build-path~~
+ * Others, eg. locale settings
 
 Identified issues (cont.)
 -------------------------
