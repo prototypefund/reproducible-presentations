@@ -455,10 +455,8 @@ Timestamps in PHP registry
 
 \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_php_reg}
 
-Timestamps in random Python
----------------------------
-
-No compilation required? Still, let's add timestamps!
+Timestamps by a template engine
+-------------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_random_py}
 
