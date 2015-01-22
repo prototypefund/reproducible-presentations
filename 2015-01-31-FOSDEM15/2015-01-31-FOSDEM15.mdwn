@@ -278,12 +278,101 @@ reproducible.debian.net overall stats
 \includegraphics[width=0.9\textwidth]{images/stats_pkg_state}
 \end{center}
 
-Investigated packages (out of 4k failues in sid)
-------------------------------------------------
+Investigating packages
+----------------------
+
+    $ diff -u \
+        <(xxd b1/numconv_2.7-1.1_amd64.deb) \
+        <(xxd b2/numconv_2.7-1.1_amd64.deb)
+
+Investigating packages (cont.)
+------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/diffs/diff_deb}
+
+Investigating packages (cont.)
+------------------------------
+
+    $ ar p b1/numconv_2.7-1.1_amd64.deb \
+          control.tar.gz > /tmp/a.tar.gz
+    $ ar p b2/numconv_2.7-1.1_amd64.deb \
+          control.tar.gz > /tmp/b.tar.gz
+    $ diff -u \
+          <(xxd /tmp/a.tar.gz) \
+          <(xxd /tmp/b.tar.gz) | less
+
+Investigating packages (cont.)
+------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/diffs/diff_control_tar_gz}
+
+Investigating packages (cont.)
+------------------------------
+
+    $ gunzip /tmp/a.tar.gz
+    $ gunzip /tmp/b.tar.gz
+    $ diff -u \
+          <(xxd /tmp/a.tar) \
+          <(xxd /tmp/b.tar) | less
+
+Investigating packages (cont.)
+------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/diffs/diff_control_tar}
+
+Investigating packages (cont.)
+------------------------------
+
+    $ tar tf /tmp/a.tar
+    ./
+    ./control
+    ./md5sums
+
+Investigating packages (cont.)
+------------------------------
+
+    $ tar xOf /tmp/a.tar ./md5sums > /tmp/a
+    $ tar xOf /tmp/b.tar ./md5sums > /tmp/b
+    $ diff -u /tmp/a /tmp/b | less
+
+Investigating packages (cont.)
+------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/diffs/diff_md5sums}
+
+Investigating packages (cont.)
+------------------------------
+
+\begin{center}\Huge
+Tedious process.
+\end{center}
+
+Investigating packages (cont.)
+------------------------------
+
+[debbindiff](https://packages.debian.org/sid/debbindiff) :
+
+ * Two files → HTML
+ * Recursively unpack archives
+ * Seeks human readability:
+       - uncompress PDF
+       - disassemble binaries,
+       - unpack Gettext files,
+       - … *easy to extend to new file formats*
+ * Falls back to binary comparison
+
+\begin{flushright}\small
+1,068 lines of Python according to SLOC
+\end{flushright}
+
+Investigated packages
+---------------------
 
 \begin{center}
 \includegraphics[width=0.9\textwidth]{images/stats_notes}
 \end{center}
+
+(out of 4k failures in Debian *unstable*)
 
 Identified issues
 -----------------
@@ -292,100 +381,287 @@ Identified issues
 \includegraphics[width=0.9\textwidth]{images/stats_issues}
 \end{center}
 
-Basically three types of issues:
+Identified issues
+-----------------
 
- * timestamps
- * random ordering of arrays or files (or something else)
- * build IDs, document section IDs
+ * Timestamps (recording current time)
+ * File order
+ * (Pseudo-)randomness:
+       - Temporary file paths
+       - UUID
+       - Protection against complexity attacks
 
-List of issues (as of 2015-01-20)
---------------
-\tiny
+Identified issues (cont.)
+-------------------------
 
- * timestamp_in_java_bnd_manifest_issue
- * timestamps_from_cpp_macros_issue
- * timestamps_generated_by_docbook_to_man_issue
- * timestamps_in_beam_files_issue
- * timestamps_in_documentation_generated_by_doxygen_issue
- * timestamps_in_documentation_generated_by_groff_issue
- * timestamps_in_documentation_generated_by_htmldoc_issue
- * timestamps_in_documentation_generated_by_javadoc_issue
- * timestamps_in_documentation_generated_by_man2html_issue
- * timestamps_in_documentation_generated_by_yard_issue
- * timestamps_in_dvi_generated_by_latex_issue
- * timestamps_in_erlc_beam_issue
- * timestamps_in_gzip_headers_issue
- * timestamps_in_jar_issue
- * timestamps_in_maven_pom_files_issue
- * timestamps_in_pdf_generated_by_apache_fop_issue
- * timestamps_in_pdf_generated_by_latex_issue
- * timestamps_in_pe_binaries_issue
- * timestamps_in_php_registry_files_issue
- * timestamps_in_png_issue
- * timestamps_in_python_code_generated_by_cheetah_issue
- * timestamps_in_python_docutils_issue
- * timestamps_in_source_generated_by_pyqt4_ui_issue
- * timestamps_in_static_libraries_issue
- * timestamps_in_tarball_issue
- * timestamps_in_zip_issue
+ * CPU and memory related:
+       - Code optimizations for current CPU class
+       - Recording of memory addresses
+ * Locale
+ * ~~Build-path~~
 
-List of issues (continued)
+Identified issues (cont.)
+-------------------------
+
+\begin{center}\Huge
+Examples\Large
+
+Timestamps by build systems
+\end{center}
+
+Timestamps in static libraries
+------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_dot_a}
+
+Timestamps in static libraries (cont.)
+--------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_static_library}
+
+Timestamps written by Maven
+---------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_maven}
+
+Timestamps written by PyQt4
+---------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_pyqt4}
+
+Timestamps written by Erlang compiler
+-------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_beam}
+
+Timestamps in PE binaries
+-------------------------
+
+Windows, UEFI, Mono…
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_pe}
+
+Timestamps in Java jar
+----------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_jar}
+
+\begin{flushright}\small
+They are Zip archives, really.
+\end{flushright}
+
+Timestamps in PHP registry
 --------------------------
 
-\tiny
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_php_reg}
 
- * random_ids_in_docbook_xsl_issue
- * randomness_in_gcj_output_issue
- * randomness_in_html_generated_by_texi2html_issue
- * random_order_in_egg_info_top_level_txt_issue
- * random_order_in_files_generated_by_extutils_depends_issue
- * random_order_in_java_jar_manifest_mf_issue
- * random_order_in_naturaldocs_issue
- * random_order_in_python_environment_pickle_issue
+Timestamps in random Python
+---------------------------
 
-List of issues (continued)
+No compilation required? Still, let's add timestamps!
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_random_py}
+
+Identified issues (cont.)
+-------------------------
+
+\begin{center}\Huge
+Examples\Large
+
+Archives
+\end{center}
+
+Timestamps in gzip headers
 --------------------------
 
-\tiny
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_gzip}
 
- * fontforge_reset_modification_time_issue
- * gtk_doc_api_index_full_issue
- * pdf_created_by_ghostscript_issue
- * python_wheel_package_issue
- * serial_numbers_in_ogg_issue
- * shlibs_order_varies_issue
- * unsorted_filelist_python_support_private_issue
- * update_icons_order_varies_issue
- * use_epydoc_issue
- * user_in_java_jar_manifest_issue
- * users_and_groups_in_tarball_issue
- * xpi_pack_saves_extra_attributes_in_jar_issue
-
-List of issues (continued)
+Timestamps in Zip archives
 --------------------------
 
-\tiny
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_zip}
 
- * blacklisted_on_jenkins_issue
- * debbindiff_runs_forever_issue
- * not_using_dh_builddeb_issue
- * dh_fixmtimes_runs_before_dh_always_exclude_issue
- * dh_usrlocal_order_varies_issue
+Timestamps in tarballs
+----------------------
 
-Example issue list
-------------------
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_tarball}
 
- * FIXME: add screenshot of https://reproducible.debian.net/index_issues.html
+Users and groups in tarballs
+----------------------------
 
-Example issue
--------------
+\includegraphics[width=0.9\textwidth]{images/examples/user_and_group_in_tarball}
 
- * FIXME: add screenshot of https://reproducible.debian.net/issues/timestamps_in_jar_issue.html or such
+Identified issues (cont.)
+-------------------------
 
-Example package
----------------
+\begin{center}\Huge
+Examples\Large
 
- * FIXME: add screenshot of https://reproducible.debian.net/rb-pkg/arduino.html
+Timestamps in documentation
+\end{center}
+
+Timestamps written by Doxygen
+-----------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_doxygen}
+
+Timestamps written by docbook-to-man
+------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/docbook-to-man}
+
+Timestamps written by Ghostscript
+---------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_ghostscript}
+
+Timestamps written by Ghostscript (cont.)
+-----------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_ghostscript_cont}
+
+Timestamps written by GNU groff
+-------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_groff}
+
+Timestamps written by Javadoc
+-----------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_javadoc}
+
+Timestamps written by man2html
+------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_man2html}
+
+Timestamps in TeX output (.dvi)
+-------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_dvi}
+
+Identified issues (cont.)
+-------------------------
+
+\begin{center}\Huge
+Examples\Large
+
+“Compiled at/on/by”
+\end{center}
+
+Build time recorded through C pre-processor macros
+--------------------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/cpp_macros_1}
+
+Build time recorded through C pre-processor macros (cont.)
+----------------------------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/cpp_macros_2}
+
+Build time recorded through Makefile
+------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/build_date_in_makefile}
+
+Hostname recorded through ./configure
+-------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/hostname_in_configure}
+
+Build time recorded through ./configure
+---------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/date_in_configure}
+
+m4 macros for autoconf (build time)
+-----------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/date_in_m4}
+
+m4 macros for autoconf (username)
+---------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/whoami_in_m4}
+
+m4 macros for autoconf (hostname)
+--------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/hostname_in_m4}
+
+Identified issues (cont.)
+-------------------------
+
+\begin{center}\Huge
+Examples\Large
+
+File ordering
+\end{center}
+
+File ordering in python-support files
+-------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/fileorder_python-support}
+
+Identified issues (cont.)
+-------------------------
+
+\begin{center}\Huge
+Examples\Large
+
+Randomness
+\end{center}
+
+Random Perl hash order
+----------------------
+
+See *Algorithmic complexity attacks* in
+[perlsec(1)](http://perldoc.perl.org/perlsec.html#Algorithmic-Complexity-Attacks).
+
+\includegraphics[width=0.9\textwidth]{images/examples/random_perl_hash_order}
+
+Random serial numbers in Ogg streams
+------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/random_serials_in_ogg}
+
+Identified issues (cont.)
+-------------------------
+
+\begin{center}\Huge
+Examples\Large
+
+Even more timestamps!
+\end{center}
+
+Timestamps in PNG
+-----------------
+
+Even images!
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_png}
+
+Timestamps in TrueType font files
+---------------------------------
+
+And fonts!
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_ttf}
+
+----------------------------------
+
+\begin{center}\Huge
+Please help!
+\end{center}
+
+Please help!
+------------
+
+ * Do not record time, username, hostname, kernel version…
+     - … or make it optional.
+ * Sort file paths.
+ * Sort dictionary keys.
+ * Merge our patches!
 
 Example .buildinfo
 ------------------
