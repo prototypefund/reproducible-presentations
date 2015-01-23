@@ -78,3 +78,8 @@ mention
 	FIXME: add screenshot of https://reproducible.debian.net/issues/timestamps_in_jar_issue.html or such
 	FIXME: add screenshot of https://reproducible.debian.net/rb-pkg/arduino.html
 
+	add list of fixed packages in our repo
+	add list of variations we dont test:
+		- uname
+		- build date (we do have time)
+
