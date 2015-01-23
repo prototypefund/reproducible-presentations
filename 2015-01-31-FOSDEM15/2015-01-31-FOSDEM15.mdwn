@@ -805,12 +805,20 @@ Stay in touch:
  * Subscribe to the `reproducible-builds@l.a.d.o` mailing list.
  * Join #debian-reproducible on irc.oftc.net
 
-Reproducible Fedora ? SLES ? BSD ?
-----------------------------------
+Reproducible Fedora ?!!
+-----------------------
 
-\begin{center}
-Please find me and talk to me. I'd love to help kickstart that.
-\end{center}
+ * I'd love to help kickstart **reproducible fedora** ! 
+ * Please find me and talk to me.
+
+\includegraphics[width=0.9\textwidth]{images/fedoralogo}
+
+Reproducible BSD ?!! SLES ?!! Foo ?!?
+-------------------------------------
+
+ * I'd love to help kickstart **reproducible everything** ! 
+ * Please find me and talk to me.
+ * FIXME: add other logos here
 
 tl;dr;
 ------
