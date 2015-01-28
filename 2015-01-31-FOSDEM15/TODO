@@ -1,22 +1,5 @@
 mention 
 	add thanks for stealing the intro from 31c3 talk, the layout from lunars talk, the tango icons,
-		everybody contributing:
-	jenkins.debian.net.git/bin$ git log reproducible_*|grep Author|sort -u
-		Author: Holger Levsen <holger@layer-acht.org>
-		Author: Jérémy Bobbio <lunar@debian.org>
-		Author: josch <j.schauer@email.de>
-		Author: Mattia Rizzolo <mattia@mapreri.org>
-		Author: Reiner Herrmann <reiner@reiner-h.de>
-	do the same for notes.git
-	reproducible/notes.git$ git log |grep Author|sort -u
-		Author: akira <marivalenm@gmail.com>
-		Author: Andrew Ayer <agwa@andrewayer.name>
-		Author: Chris West (Faux) <git@goeswhere.com>
-		Author: Holger Levsen <holger@layer-acht.org>
-		Author: Jérémy Bobbio <lunar@debian.org>
-		Author: Mattia Rizzolo <mattia@mapreri.org>
-		Author: Peter De Wachter <pdewacht@gmail.com>
-		Author: Reiner Herrmann <reiner@reiner-h.de>
 
 	who are we?
 		the team in debian
