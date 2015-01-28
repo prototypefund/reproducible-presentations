@@ -684,6 +684,7 @@ More goodies
  * https://reproducible.debian.net/$package
  * integration in tracker.debian.org (the new PTS)
  * IRC notifications thanks to KGB
+ * on demand scheduling of packages
  * FIXME: index_dd-list.html
 
 How?
