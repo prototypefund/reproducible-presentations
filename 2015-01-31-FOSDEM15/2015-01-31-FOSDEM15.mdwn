@@ -797,11 +797,13 @@ Want to help?
 Want to help?
 -------------
 
-Stay in touch:
+[Stay in touch](https://wiki.debian.org/ReproducibleBuilds/Contribute#Stay_in_touch):
 
  * Subscribe to the `ReproducibleBuilds` wiki page.
- * Subscribe to the `reproducible-builds@l.a.d.o` mailing list.
- * Join #debian-reproducible on irc.oftc.net
+ * Mailing lists:
+     - `reproducible-builds@lists.alioth.debian.org`
+     - `reproducible-commits@lists.alioth.debian.org`
+ * Join `#debian-reproducible` on `irc.oftc.net`
 
 Reproducible Fedora ?!!
 -----------------------
