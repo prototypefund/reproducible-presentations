@@ -45,6 +45,10 @@ Why?
 Reproducible builds allow **independent verifications** that a binary matches
 what the source intended to produce.
 
+\begin{flushright}
+… and other nice things.
+\end{flushright}
+
 But I'm the developer!
 ----------------------
 
