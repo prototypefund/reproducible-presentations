@@ -197,6 +197,13 @@ Vulnerable                                                             Fixed
 
 Overall file size: approx. 500 kB
 
+How did this start?
+-------------------
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{images/tor-blog}
+\end{center}
+
 Bitcoin's motivation
 --------------------
 
@@ -204,14 +211,6 @@ Bitcoin's motivation
  * Individual developers could be blamed for such modifications
  * Users might not believe that a developer's machine was hacked
  * Reproducible builds protect developers
-
-
-How did this start?
--------------------
-
-\begin{center}
-\includegraphics[width=0.8\textwidth]{images/tor-blog}
-\end{center}
 
 Nothing new though
 ------------------
