@@ -402,8 +402,6 @@ Investigated packages
 \includegraphics[width=0.9\textwidth]{images/stats_notes}
 \end{center}
 
-(out of 4k failures in Debian *unstable*)
-
 Identified issues
 -----------------
 
