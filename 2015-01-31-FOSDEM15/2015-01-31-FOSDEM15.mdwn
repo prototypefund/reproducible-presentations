@@ -5,9 +5,10 @@ What are reproducible builds?
 
 \begin{center}
 \Large
-“reproducible” builds
-enable anyone to reproduce the exact same
-binary packages from a given source
+“reproducible builds”\\
+enable anyone to reproduce\\
+the exact same binary packages\\
+from a given source
 \end{center}
 
 What are reproducible builds?
