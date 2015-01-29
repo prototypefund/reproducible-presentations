@@ -299,6 +299,14 @@ Reproduce the build environment
 
 On 2015-01-29, 28 terabytes of data in almost 17 million files.
 
+srebuild
+--------
+
+ * Thin wrapper around `sbuild`
+ * Find the right archive snapshot
+ * Install packages listed in *buildinfo*
+ * Start the build
+
 Investigating packages
 ----------------------
 
