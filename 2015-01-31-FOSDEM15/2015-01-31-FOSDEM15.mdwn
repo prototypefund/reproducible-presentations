@@ -292,7 +292,7 @@ Reproduce the build environment
 
 `snapshot.debian.org` archives every state of the Debian archive.
 
-On 2014-06-29, 28 terabytes of data in almost 17 million files.
+On 2015-01-29, 28 terabytes of data in almost 17 million files.
 
 Investigating packages
 ----------------------
