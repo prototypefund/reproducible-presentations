@@ -368,6 +368,7 @@ Shell script gone wild
 ----------------------
 
 * FIXME: add first 10 liner from lunar which got me started
+* FIXME: insert extra slides to explain reproducible.debian.net
 
 reproducible.debian.net overall stats
 -------------------------------------
