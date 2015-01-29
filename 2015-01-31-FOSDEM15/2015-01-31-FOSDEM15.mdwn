@@ -246,7 +246,8 @@ Record the build environment
 
 New control file `.buildinfo` which records:
 
- * Build dependencies (and their dependencies) used for the build.
+ * Versions of build dependencies
+     - … and their dependencies
  * Checksum of the source package.
  * Checksums of the binary packages.
 
