@@ -747,7 +747,7 @@ Contributors
 
 ------------------- ---------------------- ------------------
 akira               Hans-Christoph Steiner Peter De Wachter
-Andrew Awyer        Helmut Grohne          Reiner Herrmann
+Andrew Ayer         Helmut Grohne          Reiner Herrmann
 Asheesh Laroia      Holger Levsen          Stefano Rivera
 Chris Lamb          josch                  Stéphane Glondu
 Chris West          Lunar                  Steven Chamberlain
