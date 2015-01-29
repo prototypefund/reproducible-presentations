@@ -690,12 +690,6 @@ Please help!
  * Sort dictionary keys.
  * Merge our patches!
 
-Example debbindiff output
--------------------------
-
- * FIXME: add screenshot of one
-
-
 Bugs filed
 ----------
 
