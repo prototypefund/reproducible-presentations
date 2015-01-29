@@ -207,7 +207,8 @@ How did this start?
 Bitcoin's motivation
 --------------------
 
- * Malicious modifications to Bitcoin binaries could result in irrevocable theft of large amounts of money
+ * Malicious modifications to binaries could result in irrevocable
+   unwanted transfers of bitcoins
  * Individual developers could be blamed for such modifications
  * Users might not believe that a developer's machine was hacked
  * Reproducible builds protect developers
