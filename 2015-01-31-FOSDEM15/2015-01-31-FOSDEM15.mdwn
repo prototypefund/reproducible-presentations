@@ -373,7 +373,7 @@ Investigating packages (cont.)
 ------------------------------
 
 \begin{center}\Huge
-Tedious process.
+Tedious process
 \end{center}
 
 Investigating packages (cont.)
