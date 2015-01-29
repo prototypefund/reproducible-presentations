@@ -370,6 +370,15 @@ Shell script gone wild
 * FIXME: add first 10 liner from lunar which got me started
 * FIXME: insert extra slides to explain reproducible.debian.net
 
+Experimental toolchain
+----------------------
+
+ * Test and refine changes to tools used by build systems
+ * Currently 20 source packages
+ * Examples : `dpkg`, `debhelper`, `libxslt`, `r-base`, `gtk-doc`, `fontforge`,
+   …
+ * Most patches already submitted
+
 reproducible.debian.net overall stats
 -------------------------------------
 
