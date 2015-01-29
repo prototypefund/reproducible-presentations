@@ -11,18 +11,6 @@ the exact same binary packages\\
 from a given source
 \end{center}
 
-What are reproducible builds?
------------------------------
-
-\begin{center}
-\Large
-“reproducible” builds
-enable anyone to reproduce the exact same
-binary packages from a given source
-\end{center}
-
-Who knows about reproducible talks already?
-
 “I want to believe”
 -------------------
 
