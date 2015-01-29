@@ -386,6 +386,15 @@ reproducible.debian.net overall stats
 \includegraphics[width=0.9\textwidth]{images/stats_pkg_state}
 \end{center}
 
+For those in the back
+---------------------
+
+\begin{center}
+\Huge 82\%
+
+More than 17,500 source packages!
+\end{center}
+
 Investigated packages
 ---------------------
 
@@ -704,65 +713,6 @@ More goodies
  * IRC notifications thanks to KGB
  * on demand scheduling of packages
  * FIXME: index_dd-list.html
-
-Build paths
------------
-
-Build path is embedded in debug symbols:
-
-\tiny
-
-    $ readelf -w /usr/lib/debug/usr/bin/pidgin | grep '/tmp/build' | head -n 4
-    <11>     DW_AT_name        : /tmp/buildd/pidgin-2.10.6/./pidgin/pidginstock.c
-    <15>     DW_AT_comp_dir    : /tmp/buildd/pidgin-2.10.6/build/pidgin
-    <402d>   DW_AT_name        : /tmp/buildd/pidgin-2.10.6/./pidgin/gtkaccount.c
-    <4031>   DW_AT_comp_dir    : /tmp/buildd/pidgin-2.10.6/build/pidgin
-
-\%
-
-We store it in .buildinfo files.
-
-File order
-----------
-
-`readdir()` returns file in the order of the file system.
-
-Locale
-------
-
-Behaviour can change depending on configured locale:
-
-\tiny
-
-    $ printf 'a\nà\nb\n' | LC_ALL=C.UTF-8 sort
-    a
-    b
-    à
-
-    $ printf 'a\nà\nb\n' | LC_ALL=fr_FR.UTF-8 sort
-    a
-    à
-    b
-
-
-The hard path
--------------
-
- * Configure the toolchain:  
-   binutils `--enable-deterministic-archives`
- * Add missing options:  
-   `javadoc --no-timestamps`
- * Patch build systems:  
-   `gzip -n`
-
-Experiment
-----------
-
-\begin{center}
-\Huge 62\%
-\end{center}
-
-Waow.
 
 Other distributions
 -------------------
