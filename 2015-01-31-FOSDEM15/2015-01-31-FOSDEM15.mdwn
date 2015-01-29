@@ -280,33 +280,6 @@ Reproduce the build environment
 
 On 2014-06-01, 24 terabytes of data in about 15 million files.
 
-BoF during DebConf13
---------------------
-
- * Planned at the last minute
- * 30 attendees
- * Kicked off  
-   `wiki.debian.org/ReproducibleBuilds`
-
-Wiki today
-----------
-
-\begin{center}
-\includegraphics[width=0.8\textwidth]{images/wiki}
-\end{center}
-
-Shell script gone wild
-----------------------
-
-* FIXME: add first 10 liner from lunar which got me started
-
-reproducible.debian.net overall stats
--------------------------------------
-
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/stats_pkg_state}
-\end{center}
-
 Investigating packages
 ----------------------
 
@@ -393,6 +366,18 @@ Investigating packages (cont.)
 \begin{flushright}\small
 1,068 lines of Python according to SLOC
 \end{flushright}
+
+Shell script gone wild
+----------------------
+
+* FIXME: add first 10 liner from lunar which got me started
+
+reproducible.debian.net overall stats
+-------------------------------------
+
+\begin{center}
+\includegraphics[width=0.9\textwidth]{images/stats_pkg_state}
+\end{center}
 
 Investigated packages
 ---------------------
@@ -697,6 +682,12 @@ Bugs filed
 \includegraphics[width=0.9\textwidth]{images/stats_bugs}
 \end{center}
 
+Wiki today
+----------
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{images/wiki}
+\end{center}
 
 More goodies
 ------------
