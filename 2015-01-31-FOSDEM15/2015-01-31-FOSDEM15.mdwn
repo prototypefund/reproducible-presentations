@@ -766,13 +766,16 @@ Other distributions
  * NixOS  
    <http://lists.science.uu.nl/pipermail/nix-dev/2013-June/011357.html>
 
-Reproducible Fedora ?!!
------------------------
+Reproducible Fedora?
+--------------------
 
- * I'd love to help kickstart **reproducible fedora** ! 
- * Please find me and talk to me.
+ * No known activity after the initial blog post.
+ * Fedora is leading developments for key components.
+ * Can we help **reproducible Fedora**?
 
-\includegraphics[width=0.9\textwidth]{images/fedoralogo}
+\begin{center}
+\includegraphics[width=0.6\textwidth]{images/fedoralogo}
+\end{center}
 
 Reproducible BSD ?!! SLES ?!! Foo ?!?
 -------------------------------------
