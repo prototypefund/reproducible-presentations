@@ -399,7 +399,7 @@ For those in the back
 \begin{center}
 \Huge 82\%
 
-More than 17,500 source packages!
+\normalsize More than 17,500 source packages!
 \end{center}
 
 Investigated packages
@@ -730,10 +730,8 @@ Help Debian?
      - …
  * Hack Debian archive infrastructure
 
-Help Debian?
+Stay in touch
 ------------
-
-[Stay in touch](https://wiki.debian.org/ReproducibleBuilds/Contribute#Stay_in_touch):
 
  * Subscribe to the `ReproducibleBuilds` wiki page.
  * Mailing lists:
