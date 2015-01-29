@@ -382,10 +382,35 @@ Shell script gone wild
 
 * FIXME: add first 10 liner from lunar which got me started
 * FIXME: insert extra slides to explain reproducible.debian.net
-* FIXME: show https://reproducible.debian.net/index_FTBR.html screenshot
-* FIXME: show https://reproducible.debian.net/rb-pkg/gdb.html screenshot
-* FIXME: maybe show the same url with debbindiff screenshot too
 * maybe put "more goodies" slide after this one
+
+reproducible.debian.net: not reproducible
+-----------------------------------------
+
+\begin{center}
+\includegraphics[width=0.9\textwidth]{images/index_FTBR}
+\end{center}
+
+reproducible.debian.net: package
+--------------------------------
+
+\begin{center}
+\includegraphics[width=0.9\textwidth]{images/gdb_notes}
+\end{center}
+
+reproducible.debian.net: package
+--------------------------------
+
+\begin{center}
+\includegraphics[width=0.9\textwidth]{images/gdb_debbindiff}
+\end{center}
+
+reproducible.debian.net: package
+--------------------------------
+
+\begin{center}
+\includegraphics[width=0.9\textwidth]{images/gdb_rbuild}
+\end{center}
 
 Experimental toolchain
 ----------------------
