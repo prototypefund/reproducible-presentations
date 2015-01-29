@@ -138,7 +138,8 @@ Result of fixing the bug (asm)
 Resulting difference in the binary
 ----------------------------------
 
-What's the difference between \texttt{\StringTok{if (a > b)}} and \texttt{\OtherTok{if (a >= b)}} in x86 assembly?
+What's the difference between \texttt{\StringTok{if (a > b)}}  
+and \texttt{\OtherTok{if (a >= b)}} in x86 assembly?
 
 ----------   ---------------------------------------   --------------------------------------
 assembly:                   \texttt{\StringTok{JLE}}   \texttt{\OtherTok{JL}}
@@ -146,7 +147,7 @@ opcode:                    \texttt{0x7\StringTok{E}}   \texttt{0x7\OtherTok{C}}
 binary:       \texttt{011111\StringTok{\textbf{1}}0}   \texttt{011111\OtherTok{\textbf{0}}0}
 ----------   ---------------------------------------   --------------------------------------
 
-\begin{center}\Huge
+\begin{center}\Large
 A single bit!
 \end{center}
 
