@@ -764,14 +764,13 @@ Reproducible BSD ?!! SLES ?!! Foo ?!?
  * Please find me and talk to me.
  * FIXME: add other logos here
 
-tl;dr;
+Future
 ------
 
-Status:
-
- * we've proven it's feasible in Debian
- * ready to rock for real once Debian Jessie has been released
- * we'd like to see reproducible build verifications everywhere in the F/OSS world. We can do it!
+ * Ready for the next Debian release (*stretch*)
+ * Reproducible installation media
+ * Reproducible live images (pure Debian, grml, Tails)
+ * Reproducible build verifications everywhere in the F/OSS world. We can do it!
 
 Contributors
 ------------
