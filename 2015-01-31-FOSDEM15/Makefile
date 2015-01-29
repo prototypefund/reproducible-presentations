@@ -20,7 +20,7 @@ IMGS = \
 	images/what-proofs-2.pdf \
 	images/what-proofs-3.pdf \
 	images/what-proofs-4.pdf \
-	$(shell echo $$(sed -n -e 's/^[^%]*\\includegraphics\([^{]*\)\?{\([^}]*\)}.*$$/\2.*/p' $(PRESENTATION).mdwn | sed -e 's/\.svg$$/\.pdf$$/' | sort -u))
+	$(shell echo $$(sed -n -e 's/^[^%]*\\includegraphics\([^{]*\)\?{\([^}]*\)}.*$$/\2.*/p' $(PRESENTATION).mdwn | grep -v 'what-proofs' | sed -e 's/\.svg$$/\.pdf$$/' | sort -u))
 
 $(PRESENTATION).pdf: $(PRESENTATION).mdwn $(PRESENTATION)-header.tex $(IMGS)
 	pandoc -t beamer \
