@@ -2,6 +2,7 @@ mention
 	who are we?
 		the team in debian
 		other noteworthy people
+		Ulrike, the CSS is mostly copied from the security tracker
 	git repos:
 		notes.git -> master
 		jenkins.d.n/bin/reproducible* -> master
@@ -13,19 +14,7 @@ mention
 		ftbr
 		ftbfs
 	
-	pkg sets:
-		essential
-		build essential
-		popcon 1337
-		dsa installed
-		tails
-		grml
-	describe jenkins setup
-		scheduler
-		3 builds in tmpfs
-		html pages
-		.json
-		irc notifications
+	pkg sets screenshots ? which?=
 	status
 		.buildinfo support in dpkg
 		strip_nondeterminism and dh_stripnoterminism
@@ -39,12 +28,6 @@ mention
 		all issues identified
 		reproducible.debian.org (and jenkins.debian.org)
 		funding. do you think this is something which should be funded by the linux foundation?
-	stretch release goals (2017)
-		foo
-		bar
-	buster (ca 2019)
-		foo
-		bar
 
 	include status+next from main wiki page
 		"jenkins.d.n is just a QA tool", no real results yet. post jessie.
@@ -55,8 +38,6 @@ mention
 
 
 	FIXME: add screenshot of https://reproducible.debian.net/index_issues.html" which i intend to still add
-	FIXME: add screenshot of https://reproducible.debian.net/issues/timestamps_in_jar_issue.html or such
-	FIXME: add screenshot of https://reproducible.debian.net/rb-pkg/arduino.html
 
 	add list of fixed packages in our repo
 	add list of variations we dont test:
@@ -77,4 +58,3 @@ mention
 		- increase the participation, show that i care. also its really interesting (if the questions are good :)
 
 
-	mention downstreams (ubuntu,mint,tails) and meta pkg sets

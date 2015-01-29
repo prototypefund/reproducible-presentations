@@ -390,11 +390,68 @@ Investigating packages (cont.)
        - … *easy to extend to new file formats*
  * Falls back to binary comparison
 
-Continous integration
----------------------
+reproducible.debian.net - in the beginning
+------------------------------------------
 
-* FIXME: add first 10 liner from lunar which got me started
-* FIXME: insert extra slides to explain reproducible.debian.net
+https://wiki.debian.org/ReproducibleBuilds once showed this:
+
+\footnotesize
+
+~~~
+If you have a pbuilder already setup, it's fairly easy to setup an environment with the custom toolchain:
+
+	sudo cp /var/cache/pbuilder/base.tgz \
+		/var/cache/pbuilder/base-reproducible.tgz
+	sudo pbuilder --login --save-after-exec --basetgz \
+		/var/cache/pbuilder/base-reproducible.tgz
+	echo 'deb http://reproducible.alioth.debian.org/debian/ ./' \
+		> /etc/apt/sources.list.d/reproducible.list
+	apt-get update
+	apt-get install dpkg dpkg-dev debhelper dh-python discount
+	exit 0
+~~~
+
+reproducible.debian.net - in the beginning (cont.)
+--------------------------------------------------
+
+\footnotesize
+
+~~~
+Once that's done, rebuilding a package can be done through:
+
+	apt-get source --download-only acl
+	sudo DEB_BUILD_OPTIONS=nocheck pbuilder --build --basetgz \
+		/var/cache/pbuilder/base-reproducible.tgz acl_*.dsc
+	mkdir b1 b2
+	dcmd cp /var/cache/pbuilder/result/acl_*.changes b1
+	sudo dcmd rm /var/cache/pbuilder/result/acl_*.changes
+	sudo DEB_BUILD_OPTIONS=nocheck pbuilder --build --basetgz \
+		/var/cache/pbuilder/base-reproducible.tgz acl_*.dsc
+	dcmd cp /var/cache/pbuilder/result/acl_*.changes b2
+	sudo dcmd rm /var/cache/pbuilder/result/acl_*.changes
+
+diffp is useful to check the result:
+
+	../misc/diffp b1/*.changes b2/*.changes
+~~~
+
+reproducible.debian.net - today
+-------------------------------
+
+ * public since 2014-09-26 though not under that name yet
+ * driven by jenkins.debian.net
+ * 14 jobs defined in 263 LOC yaml
+	* 3 build jobs, rescheduled every 2min
+	* job for auto scheduling
+	* jobs to recreate pbuilder base.tgz and debbindiff schroot
+	* job to update notes and issues from git
+	* JSON output
+	* remaining jobs mostly to create HTML and graphs
+ * 14 shell scripts with 2092 LOC
+ * 3 python scripts with 915 LOC
+ * IRC notifications
+ * On demand scheduling of packages
+
 
 reproducible.debian.net: not reproducible
 -----------------------------------------
@@ -429,8 +486,7 @@ More goodies
 
  * `https://reproducible.debian.net/$PACKAGE`
  * Reproducibility status in `tracker.debian.org`
- * IRC notifications
- * On demand scheduling of packages
+ * Package sets (essential, build-essential, popcon1337, installed by DSA, tails, grml, their build-depends)
  * List of unreproducible packages per maintainer
 
 Experimental toolchain
