@@ -395,7 +395,6 @@ Continous integration
 
 * FIXME: add first 10 liner from lunar which got me started
 * FIXME: insert extra slides to explain reproducible.debian.net
-* maybe put "more goodies" slide after this one
 
 reproducible.debian.net: not reproducible
 -----------------------------------------
@@ -424,6 +423,15 @@ reproducible.debian.net: package
 \begin{center}
 \includegraphics[width=0.9\textwidth]{images/gdb_rbuild}
 \end{center}
+
+More goodies
+------------
+
+ * `https://reproducible.debian.net/$PACKAGE`
+ * Reproducibility status in `tracker.debian.org`
+ * IRC notifications
+ * On demand scheduling of packages
+ * List of unreproducible packages per maintainer
 
 Experimental toolchain
 ----------------------
@@ -750,15 +758,6 @@ Bugs filed
 \begin{center}
 \includegraphics[width=0.9\textwidth]{images/stats_bugs}
 \end{center}
-
-More goodies
-------------
-
- * https://reproducible.debian.net/$package
- * integration in tracker.debian.org (the new PTS)
- * IRC notifications thanks to KGB
- * on demand scheduling of packages
- * FIXME: index_dd-list.html
 
 Help Debian?
 ------------
