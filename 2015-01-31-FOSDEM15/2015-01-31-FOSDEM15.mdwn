@@ -103,6 +103,7 @@ OpenSSH 3.0.2 (CVE-2002-0083) – exploitable security bug (privilege escalation
 +  if (id < 0 || id >= channels_alloc) {
      log("channel_lookup: %d: bad id", id);
      return;
+   }
 ~~~~diff
 
 Result of fixing the bug (asm)
