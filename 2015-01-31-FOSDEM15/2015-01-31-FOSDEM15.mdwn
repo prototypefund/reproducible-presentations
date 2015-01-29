@@ -234,6 +234,13 @@ integricity of binary packages.
 \url{https://lists.debian.org/debian-devel/2007/09/msg00746.html}
 \end{flushright}
 
+Wouldn't it be cool?
+--------------------
+
+ * Debian is the largest collection of free software
+ * More than 21,000 source packages
+ * “Our priorities are our **users** and **free software**”
+
 How?
 ----
 
