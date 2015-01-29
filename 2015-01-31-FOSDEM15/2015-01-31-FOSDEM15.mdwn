@@ -265,8 +265,8 @@ Architecture: all
 Version: 0.11.0-1
 Build-Path: /usr/src/debian/txtorcon-0.11.0-1
 Checksums-Sha256:
- a26549d995028cf156351bc26a89c949a1ba96ca19e774d799b8eb70cf15277b 125910 python-txtorcon_0.11.0-1_all.deb
- 28f6bcbe9263d45af60c1f3b7d29c07480911fe1c098deeca6773a2bb2be8369 2039 txtorcon_0.11.0-1.dsc
+ a26549d9…7b 125910 python-txtorcon_0.11.0-1_all.deb
+ 28f6bcbe…69 2039 txtorcon_0.11.0-1.dsc
 Build-Environment:
  base-files (= 8),
  base-passwd (= 3.5.37),
