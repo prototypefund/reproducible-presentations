@@ -234,6 +234,52 @@ integricity of binary packages.
 \url{https://lists.debian.org/debian-devel/2007/09/msg00746.html}
 \end{flushright}
 
+How?
+----
+
+ * Record the build environment
+ * Reproduce the build environment
+ * Eliminate unneeded variations
+
+Record the build environment
+----------------------------
+
+New control file `.buildinfo` which records:
+
+ * Build dependencies (and their dependencies) used for the build.
+ * Checksum of the source package.
+ * Checksums of the binary packages.
+
+Record the build environment
+----------------------------
+
+\footnotesize
+
+~~~
+Format: 1.9
+Build-Architecture: amd64
+Source: txtorcon
+Binary: python-txtorcon
+Architecture: all
+Version: 0.11.0-1
+Build-Path: /usr/src/debian/txtorcon-0.11.0-1
+Checksums-Sha256:
+ a26549d995028cf156351bc26a89c949a1ba96ca19e774d799b8eb70cf15277b 125910 python-txtorcon_0.11.0-1_all.deb
+ 28f6bcbe9263d45af60c1f3b7d29c07480911fe1c098deeca6773a2bb2be8369 2039 txtorcon_0.11.0-1.dsc
+Build-Environment:
+ base-files (= 8),
+ base-passwd (= 3.5.37),
+ bash (= 4.3-11+b1),
+ …
+~~~
+
+Reproduce the build environment
+-------------------------------
+
+`snapshot.debian.org` archives every state of the Debian archive.
+
+On 2014-06-01, 24 terabytes of data in about 15 million files.
+
 BoF during DebConf13
 --------------------
 
@@ -644,11 +690,6 @@ Please help!
  * Sort dictionary keys.
  * Merge our patches!
 
-Example .buildinfo
-------------------
-
- * FIXME: add screenshot of one
-
 Example debbindiff output
 -------------------------
 
@@ -671,24 +712,6 @@ More goodies
  * IRC notifications thanks to KGB
  * on demand scheduling of packages
  * FIXME: index_dd-list.html
-
-How?
-----
-
- * Record the build environment
- * Reproduce the build environment
- * Eliminate unneeded variations
-
-Record the build environment
-----------------------------
-
-Record which versions of the build dependencies (and their dependencies) are
-installed.
-
-Reproduce the build environment
--------------------------------
-
-`snapshot.debian.org`
 
 Build paths
 -----------
