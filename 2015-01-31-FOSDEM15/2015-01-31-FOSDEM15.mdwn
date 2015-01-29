@@ -846,12 +846,11 @@ Questions? Comments?
 --------------------
 
 \begin{center}
-\Huge
+\fontsize{5cm}{1em}\selectfont
 ?
 \end{center}
 
 \begin{center}
-\vspace{3em}
 \url{https://wiki.debian.org/ReproducibleBuilds}
 \url{https://reproducible.debian.net/}
 \end{center}
