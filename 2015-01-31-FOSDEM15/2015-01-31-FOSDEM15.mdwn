@@ -14,11 +14,30 @@ from a given source
 “I want to believe”
 -------------------
 
- * FOSS ethos: Users should have the source code to their programs
-	* For both individual freedom and software security
- * But: The only proof that binary packages correspond to the source code is that **someone said so**
-	* Without build system info, verification is almost impossible (and sometimes even with it)
- * This is inadequate for fostering trust in our software's functionality and security
+\begin{center}
+\includegraphics[width=0.8\textwidth]{images/what-proofs-1}
+\end{center}
+
+“I want to believe”
+-------------------
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{images/what-proofs-2}
+\end{center}
+
+“I want to believe”
+-------------------
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{images/what-proofs-3}
+\end{center}
+
+“I want to believe”
+-------------------
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{images/what-proofs-4}
+\end{center}
 
 “But I'm the developer!”
 ------------------------
