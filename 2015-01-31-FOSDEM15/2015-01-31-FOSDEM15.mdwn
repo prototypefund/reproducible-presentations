@@ -230,14 +230,9 @@ integricity of binary packages.
 }
 
 \begin{flushright}
-\tiny
+\footnotesize
 \url{https://lists.debian.org/debian-devel/2007/09/msg00746.html}
 \end{flushright}
-
-FOSDEM14 talk
--------------
-
- * After Bitcoin and TOR did this, Lunar went out to spread the idea in the Debian world again
 
 BoF during DebConf13
 --------------------
