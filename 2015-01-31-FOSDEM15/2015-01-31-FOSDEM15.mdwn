@@ -827,6 +827,21 @@ Future
  * Reproducible live images (pure Debian, grml, Tails)
  * Reproducible build verifications everywhere in the F/OSS world. We can do it!
 
+Thanks
+------
+
+ * Mike Perry and Seth Schoen for their 31C3 talk
+ * Profitbricks for sponsoring `jenkins.debian.net`
+ * Globalsign for sponsoring X.509 certificates
+ * Designers of Tango icons
+ * Everyone who helped!
+
+\begin{center}
+\includegraphics[width=0.3\textwidth]{images/profitbricks-cloud-computing-logo-rgb}
+\hspace{3em}
+\includegraphics[width=0.3\textwidth]{images/globalsign-logo}
+\end{center}
+
 Questions? Comments?
 --------------------
 
