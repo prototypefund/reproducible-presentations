@@ -696,13 +696,6 @@ Bugs filed
 \includegraphics[width=0.9\textwidth]{images/stats_bugs}
 \end{center}
 
-Wiki today
-----------
-
-\begin{center}
-\includegraphics[width=0.8\textwidth]{images/wiki}
-\end{center}
-
 More goodies
 ------------
 
@@ -711,6 +704,35 @@ More goodies
  * IRC notifications thanks to KGB
  * on demand scheduling of packages
  * FIXME: index_dd-list.html
+
+Help Debian?
+------------
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{images/wiki}
+\end{center}
+
+Help Debian?
+------------
+
+ * Inventory issues
+ * Make packages build reproducibly
+ * Fix known common issues:
+     - get reproducible PE binaries;
+     - random filenames with GCC;
+     - …
+ * Hack Debian archive infrastructure
+
+Help Debian?
+------------
+
+[Stay in touch](https://wiki.debian.org/ReproducibleBuilds/Contribute#Stay_in_touch):
+
+ * Subscribe to the `ReproducibleBuilds` wiki page.
+ * Mailing lists:
+     - `reproducible-builds@lists.alioth.debian.org`
+     - `reproducible-commits@lists.alioth.debian.org`
+ * Join `#debian-reproducible` on `irc.oftc.net`
 
 Other distributions
 -------------------
@@ -721,38 +743,6 @@ Other distributions
    <https://build.opensuse.org/package/show/openSUSE:Factory/build-compare>
  * NixOS  
    <http://lists.science.uu.nl/pipermail/nix-dev/2013-June/011357.html>
-
-Want to help?
--------------
-
-Triage:
-
- * Let's classify all the issues!
-
-
-Want to help?
--------------
-
-Code:
-
- * Add “no timestamps” option to `jar`, `javadoc`, `epydoc`…
- * Write a script to rebuild a package from a .changes file
-   and a recorded environment.
-
-Want to help?
--------------
-
-
-Want to help?
--------------
-
-[Stay in touch](https://wiki.debian.org/ReproducibleBuilds/Contribute#Stay_in_touch):
-
- * Subscribe to the `ReproducibleBuilds` wiki page.
- * Mailing lists:
-     - `reproducible-builds@lists.alioth.debian.org`
-     - `reproducible-commits@lists.alioth.debian.org`
- * Join `#debian-reproducible` on `irc.oftc.net`
 
 Reproducible Fedora ?!!
 -----------------------
