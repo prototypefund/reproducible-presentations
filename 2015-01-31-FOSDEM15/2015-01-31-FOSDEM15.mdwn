@@ -730,6 +730,23 @@ Help Debian?
      - …
  * Hack Debian archive infrastructure
 
+Contributors
+------------
+
+\setupctable{maxwidth=\textwidth,doinside=\small}
+
+------------------- ---------------------- ------------------
+akira               Hans-Christoph Steiner Peter De Wachter
+Andrew Awyer        Helmut Grohne          Reiner Herrmann
+Asheesh Laroia      Holger Levsen          Stefano Rivera
+Chris Lamb          josch                  Stéphane Glondu
+Chris West          Lunar                  Steven Chamberlain
+Daniel Kahn Gillmor Mattia Rizzolo         Tom Fitzhenry
+David Suarez        Niels Thykier          Tomasz Buchert
+Drew Fisher         Niko Tyni              Wookey
+Guillem Jover       Paul Wise              Ximin Luo
+------------------- ---------------------- ------------------
+
 Stay in touch
 ------------
 
@@ -771,23 +788,6 @@ Future
  * Reproducible installation media
  * Reproducible live images (pure Debian, grml, Tails)
  * Reproducible build verifications everywhere in the F/OSS world. We can do it!
-
-Contributors
-------------
-
-\setupctable{maxwidth=\textwidth,doinside=\small}
-
-------------------- ---------------------- ------------------
-akira               Hans-Christoph Steiner Peter De Wachter
-Andrew Awyer        Helmut Grohne          Reiner Herrmann
-Asheesh Laroia      Holger Levsen          Stefano Rivera
-Chris Lamb          josch                  Stéphane Glondu
-Chris West          Lunar                  Steven Chamberlain
-Daniel Kahn Gillmor Mattia Rizzolo         Tom Fitzhenry
-David Suarez        Niels Thykier          Tomasz Buchert
-Drew Fisher         Niko Tyni              Wookey
-Guillem Jover       Paul Wise              Ximin Luo
-------------------- ---------------------- ------------------
 
 Questions? Comments?
 --------------------
