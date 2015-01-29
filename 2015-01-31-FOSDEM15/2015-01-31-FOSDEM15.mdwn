@@ -197,11 +197,6 @@ Vulnerable                                                             Fixed
 
 Overall file size: approx. 500 kB
 
-How did this start?
--------------------
-
- * Bitcoin were the first to release reproducible binaries.
-
 Bitcoin's motivation
 --------------------
 
