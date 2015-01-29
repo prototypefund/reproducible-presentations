@@ -57,45 +57,29 @@ But I'm the developer!
 But the build machines are secure
 ---------------------------------
 
- * How you can be sure this is the case?
+ * How can you be sure?
 
 Unpleasant thoughts
 -------------------
 
- * We think of software development as a fundamentally benign activity. “I'm not that interesting.”
- * But attackers target a project's users through its developers
-	* See Dullien “Offensive work and addiction” (2014)
- * Known successful attacks against infrastructure used by Linux (2003), FreeBSD (2013)
+ * We think of software development as a fundamentally benign activity.
+     - “*I'm not that interesting.*”
+ * Users can be targeted through developers
+ * Known successful attacks against infrastructure used by Linux (2003),
+   FreeBSD (2013)
 
-Single points of failure
-------------------------
+Strong motivations
+------------------
 
- * Imagine the most secure computer in the world...
-
-Single points of failure
-------------------------
-
- * Can that computer still remain secure if:
-	* It is networked?
-	* It is mobile or is physically accessible by others?
-	* It regularly has arbitrary USB devices connected?
-	* It must run Windows (in a VM)?
-	* It regularly runs unauthenticated HTML+JS?
-	* Several nation-states want access to it?
-
-Single points of failure
-------------------------
-
- * What if:
-	* Compromising that one computer gave access to:
-		* Hundreds of millions of other computers?
-		* Every bank account in the world?
-		* Every Windows computer in the world?
-		*Every Linux server in the world?
-	* Compromising that computer was worth:
-		* $100k USD? (Market price of remote 0day)
-		* $100M USD? (Censorship budget of Iran/yr)
-		* $4B USD? (Bitcoin market cap)
+ * Compromise one computer to get:
+     - Hundreds of millions of other computers?
+     - Every bank account in the world?
+     - Every Windows computer in the world?
+     - Every Linux server in the world?
+ * Compromise one computer is worth:
+     - $100k USD? (Market price of remote 0day)
+     - $100M USD? (Censorship budget of Iran per year)
+     - $4B USD? (Bitcoin market cap)
 
 How small can a backdoor be?
 ----------------------------
