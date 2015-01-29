@@ -39,6 +39,12 @@ from a given source
 \includegraphics[width=0.8\textwidth]{images/what-proofs-4}
 \end{center}
 
+Why?
+----
+
+Reproducible builds allow **independent verifications** that a binary matches
+what the source intended to produce.
+
 But I'm the developer!
 ----------------------
 
