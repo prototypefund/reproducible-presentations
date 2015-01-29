@@ -39,15 +39,23 @@ from a given source
 \includegraphics[width=0.8\textwidth]{images/what-proofs-4}
 \end{center}
 
-“But I'm the developer!”
-------------------------
+But I'm the developer!
+----------------------
 
- * “I know what's in the binary because I compiled it myself!”
- * “I'm an upstanding, careful, and responsible individual!”
- * “Why should I have to worry about hypothetical risks about the contents of my binaries?”
+\begin{flushleft}
+“\textit{I know what's in the binary because I compiled it myself!}”
+\end{flushleft}
 
-“But the build daemons are maintained well”
--------------------------------------------
+\begin{center}
+“\textit{I'm an upstanding, careful, and responsible individual!}”
+\end{center}
+
+\begin{flushright}
+“\textit{Why should I have to worry about hypothetical risks about the contents of my binaries?”}
+\end{flushright}
+
+But the build machines are secure
+---------------------------------
 
  * How you can be sure this is the case?
 
