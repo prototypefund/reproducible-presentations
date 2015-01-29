@@ -257,7 +257,7 @@ How?
 Record the build environment
 ----------------------------
 
-New control file `.buildinfo` which records:
+New control file `*.buildinfo` which records:
 
  * Versions of build dependencies
      - … and their dependencies
