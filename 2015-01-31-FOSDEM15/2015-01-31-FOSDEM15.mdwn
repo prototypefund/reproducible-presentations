@@ -364,10 +364,6 @@ Investigating packages (cont.)
        - … *easy to extend to new file formats*
  * Falls back to binary comparison
 
-\begin{flushright}\small
-1,068 lines of Python according to SLOC
-\end{flushright}
-
 Shell script gone wild
 ----------------------
 
