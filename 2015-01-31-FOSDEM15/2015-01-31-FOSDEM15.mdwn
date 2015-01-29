@@ -10,12 +10,6 @@ enable anyone to reproduce the exact same
 binary packages from a given source
 \end{center}
 
-Oh wow, TMI
------------
-
- * *Reproducible builds for Debian and beyond* is a quite complex topic.
- * We have 50min and 77 slides. I'll expect there'll be 10-15min for questions in the end :-)
-
 What are reproducible builds?
 -----------------------------
 
