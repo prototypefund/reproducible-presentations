@@ -696,27 +696,27 @@ Examples\Large
 “Compiled at/on/by”
 \end{center}
 
-Build time recorded through C pre-processor macros
+Build time recorded via C pre-processor macros
 --------------------------------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/cpp_macros_1}
 
-Build time recorded through C pre-processor macros (cont.)
+Build time recorded via C pre-processor macros (cont.)
 ----------------------------------------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/cpp_macros_2}
 
-Build time recorded through Makefile
+Build time recorded via Makefile
 ------------------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/build_date_in_makefile}
 
-Hostname recorded through ./configure
+Hostname recorded via ./configure
 -------------------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/hostname_in_configure}
 
-Build time recorded through ./configure
+Build time recorded via ./configure
 ---------------------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/date_in_configure}
