@@ -834,6 +834,8 @@ Help Debian?
      - random filenames with GCC;
      - …
  * Hack Debian archive infrastructure
+     - store and distribute `*.buildinfo` files
+     - …
 
 Contributors
 ------------
