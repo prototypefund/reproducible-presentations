@@ -880,12 +880,11 @@ Reproducible Fedora?
 \includegraphics[width=0.6\textwidth]{images/fedoralogo}
 \end{center}
 
-Reproducible BSD ?!! SLES ?!! Foo ?!?
+Reproducible BSD ?!! SLES ?!! Hurd ?!?
 -------------------------------------
 
- * I'd love to help kickstart **reproducible everything** ! 
- * Please find me and talk to me.
- * FIXME: add other logos here
+ * We'd love to help kickstart **reproducible everything** !
+ * Please find us and talk to us.
 
 Future
 ------
