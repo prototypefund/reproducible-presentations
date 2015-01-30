@@ -7,7 +7,7 @@ What are reproducible builds?
 \Large
 “reproducible builds”\\
 enable anyone to reproduce\\
-the exact same binary packages\\
+identical binary packages\\
 from a given source
 \end{center}
 
