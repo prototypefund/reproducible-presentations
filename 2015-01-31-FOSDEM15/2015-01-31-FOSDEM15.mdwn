@@ -396,50 +396,16 @@ Investigating packages
 \Large (and test again)
 \end{center}
 
-reproducible.debian.net: in the beginning
------------------------------------------
+reproducible.debian.net: idea
+-----------------------------
 
-https://wiki.debian.org/ReproducibleBuilds once showed this:
+ * Build the package
+ * *Re*build the package
+ * Compare the results
 
-\footnotesize
-
-~~~
-If you have a pbuilder already setup, it's fairly easy to setup an environment with the custom toolchain:
-
-	sudo cp /var/cache/pbuilder/base.tgz \
-		/var/cache/pbuilder/base-reproducible.tgz
-	sudo pbuilder --login --save-after-exec --basetgz \
-		/var/cache/pbuilder/base-reproducible.tgz
-	echo 'deb http://reproducible.alioth.debian.org/debian/ ./' \
-		> /etc/apt/sources.list.d/reproducible.list
-	apt-get update
-	apt-get install dpkg dpkg-dev debhelper dh-python discount
-	exit 0
-~~~
-
-reproducible.debian.net: in the beginning (cont.)
--------------------------------------------------
-
-\footnotesize
-
-~~~
-Once that's done, rebuilding a package can be done through:
-
-	apt-get source --download-only acl
-	sudo DEB_BUILD_OPTIONS=nocheck pbuilder --build --basetgz \
-		/var/cache/pbuilder/base-reproducible.tgz acl_*.dsc
-	mkdir b1 b2
-	dcmd cp /var/cache/pbuilder/result/acl_*.changes b1
-	sudo dcmd rm /var/cache/pbuilder/result/acl_*.changes
-	sudo DEB_BUILD_OPTIONS=nocheck pbuilder --build --basetgz \
-		/var/cache/pbuilder/base-reproducible.tgz acl_*.dsc
-	dcmd cp /var/cache/pbuilder/result/acl_*.changes b2
-	sudo dcmd rm /var/cache/pbuilder/result/acl_*.changes
-
-diffp is useful to check the result:
-
-	../misc/diffp b1/*.changes b2/*.changes
-~~~
+\begin{flushright}
+Initially a 10 lines shell script…
+\end{flushright}
 
 reproducible.debian.net: today
 -------------------------------
@@ -455,6 +421,18 @@ reproducible.debian.net: today
 	* Remaining jobs mostly to create HTML and graphs
  * 13 Shell scripts with 2049 LOC
  * 4 Python scripts with 948 LOC
+
+reproducible.debian.net: variations
+-----------------------------------
+
+The second build is different in:
+
+ * time
+ * file ordering
+ * CPU ordering and availability
+ * hostname
+ * user & group
+ * locale
 
 reproducible.debian.net: more goodies
 -------------------------------------
