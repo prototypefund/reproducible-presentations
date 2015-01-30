@@ -555,7 +555,7 @@ Identified issues (cont.)
 \begin{center}\Huge
 Examples\Large
 
-Timestamps by build systems
+Timestamps added by build systems
 \end{center}
 
 Timestamps in static libraries
