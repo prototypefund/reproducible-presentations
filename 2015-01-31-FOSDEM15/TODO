@@ -19,9 +19,12 @@ mention
 	bsd+suse logos to BSD / SLES page
 
 
-	add list of variations we dont test:
-		- uname
+	add list of variations we dont test (but exist in the wild)
+		- uname / kernel
 		- build date (we do have time)
+		- cpu type 
+		- more generally, all the hardware itself (hopefully not relevant, but...)
+
 
 
 
