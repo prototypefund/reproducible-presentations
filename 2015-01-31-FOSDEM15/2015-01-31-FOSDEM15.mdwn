@@ -853,7 +853,7 @@ Guillem Jover       Paul Wise              Ximin Luo
 Stay in touch
 ------------
 
- * Subscribe to the `ReproducibleBuilds` wiki page.
+ * Subscribe to the `ReproducibleBuilds` wiki pages.
  * Mailing lists:
      - `reproducible-builds@lists.alioth.debian.org`
      - `reproducible-commits@lists.alioth.debian.org`
