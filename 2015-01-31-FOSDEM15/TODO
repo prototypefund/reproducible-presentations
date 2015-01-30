@@ -5,17 +5,14 @@ mention
 	
 	not mentioned at all yet: strip_nondeterminism and dh_stripnoterminism
 	
-
 	status / goals / help
-	whats next
 		help: dak integration, .buildinfo files integrated in the archive #bugnumber
 			do we have a bug?
-		include/check: status+next from main wiki page
+		Require matching binary packages from the developer and a buildd before accepting the package in the archive. This could initially be opt-in. 
 
 	maybe make this more clear: "jenkins.d.n is just a QA tool", no real results yet. post jessie.
 
 	bsd+suse+hurd+more logos to BSD / SLES page
-
 
 	add list of variations we dont test (but exist in the wild)
 		- uname / kernel
@@ -26,13 +23,10 @@ mention
 
 
 
-	maybe not in slides, but in our mind, i want to ask the audience:
+	not in slides, but in our mind, i want to ask the audience:
 		- who was there last year at the talk?
 		- who is not using debian or derivatives?
-		- contributing...
+		- who is contributing to FLOSS
 		- who has done some work on build reproducibility
-	asking questions in the beginning is good for two things:
-		- wake people up / get their attention
-		- increase the participation, show that i care. also its really interesting (if the questions are good :)
 
 
