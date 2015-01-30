@@ -515,9 +515,9 @@ For those in the back
 ---------------------
 
 \begin{center}
-\Huge 82\%
+\Huge 81.7\%
 
-\normalsize More than 17,500 source packages!
+\normalsize More than 17,600 source packages!
 \end{center}
 
 Investigated packages
