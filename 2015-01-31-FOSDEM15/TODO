@@ -6,8 +6,7 @@ mention
 	not mentioned at all yet: strip_nondeterminism and dh_stripnoterminism
 	
 	status / goals / help
-		help: dak integration, .buildinfo files integrated in the archive #bugnumber
-			do we have a bug?
+		help: dak integration, .buildinfo files integrated in the archive #763822
 		Require matching binary packages from the developer and a buildd before accepting the package in the archive. This could initially be opt-in. 
 
 	maybe make this more clear: "jenkins.d.n is just a QA tool", no real results yet. post jessie.
@@ -19,6 +18,10 @@ mention
 		- build date (we do have time)
 		- cpu type 
 		- more generally, all the hardware itself (hopefully not relevant, but...)
+
+	aspect:
+		text in slide #38 overflows
+		exclamation mark in slide #103 goes to newline
 
 
 
