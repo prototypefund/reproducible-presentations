@@ -596,7 +596,7 @@ Timestamps in Java jar
 \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_jar}
 
 \begin{flushright}\small
-They are Zip archives, really.
+They are ZIP archives, really.
 \end{flushright}
 
 Timestamps in PHP registry
@@ -623,7 +623,7 @@ Timestamps in gzip headers
 
 \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_gzip}
 
-Timestamps in Zip archives
+Timestamps in ZIP archives
 --------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_zip}
