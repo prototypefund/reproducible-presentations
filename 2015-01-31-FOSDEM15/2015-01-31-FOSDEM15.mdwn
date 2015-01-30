@@ -222,7 +222,7 @@ Bitcoin's motivation
    unwanted transfers of bitcoins
  * Individual developers could be blamed for such modifications
  * Users might not believe that a developer's machine was hacked
- * Reproducible builds protect developers
+ * Reproducible builds therefore protect developers
 
 Nothing new though
 ------------------
