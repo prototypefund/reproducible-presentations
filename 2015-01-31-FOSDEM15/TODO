@@ -7,12 +7,10 @@ mention
 	add screenshot of https://reproducible.debian.net/index_issues.html
 
 	status / goals / help
-		.buildinfo support in dpkg
 		strip_nondeterminism and dh_stripnoterminism
 	whats next
-		help: provide tool to display local packages reproducible build status
 		help: dak integration, .buildinfo files integrated in the archive #bugnumber
-		binary transparency logs - describe the concept briefly
+			do we have a bug?
 
 	include status+next from main wiki page
 
