@@ -439,7 +439,7 @@ reproducible.debian.net - today
 -------------------------------
 
  * driven by jenkins.debian.net
-	* public since 2014-09-26 though not under that name yet
+	* announced 2014-09-26
  * 14 jobs defined in 263 LOC yaml
 	* 3 build jobs, rescheduled every 2min
 	* job for auto scheduling
