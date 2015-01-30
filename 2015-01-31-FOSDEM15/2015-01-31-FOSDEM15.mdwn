@@ -694,13 +694,13 @@ Examples\Large
 “Compiled at/on/by”
 \end{center}
 
-Build time recorded via C preprocessor macros
---------------------------------------------------
+Build time via C preprocessor macros
+------------------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/cpp_macros_1}
 
-Build time recorded via C preprocessor macros (cont.)
-----------------------------------------------------------
+Build time via C preprocessor macros
+------------------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/cpp_macros_2}
 
