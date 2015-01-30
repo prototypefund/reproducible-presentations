@@ -2,10 +2,6 @@ mention
 	git repos:
 		notes.git -> master
 		jenkins.d.n/bin/reproducible* -> master
-		dpkg.git -> pu/reproducible_builds
-		debhelper.git -> pu/reproducible_builds
-		cdbs.git -> pu/reproducible_builds
-		...
 	
 	pkg sets screenshots ? which?
 	add screenshot of https://reproducible.debian.net/index_issues.html" which i intend to still add
@@ -17,6 +13,7 @@ mention
 		help: provide tool to display local packages reproducible build status
 		help: dak integration, .buildinfo files integrated in the archive #bugnumber
 		reproducible.debian.org (and jenkins.debian.org)
+		binary transparency logs - describe the concept briefly
 
 	include status+next from main wiki page
 
@@ -24,9 +21,7 @@ mention
 	security is a process. QA too. please help. both.
 
 
-	binary transparency logs - describe the concept briefly
 
-	add list of fixed packages in our repo
 	add list of variations we dont test:
 		- uname
 		- build date (we do have time)
