@@ -461,10 +461,13 @@ reproducible.debian.net: more goodies
 
  * `https://reproducible.debian.net/$PACKAGE`
  * Reproducibility status in `tracker.debian.org`
- * Package sets (essential, build-essential, popcon1337, installed by DSA, tails, grml, their build-depends)
+ * Package sets:
+     - `Essential:yes`, `build-essential`
+     - 1337 most frequently installed packages (`popcon`)
+     - Packages installed on Debian machines
+     - All packages in Tails and their build dependencies
+     - All packages in Grml and their build dependencies
  * List of unreproducible packages per maintainer
- * IRC notifications
- * On-demand scheduling of packages
 
 reproducible.debian.net: not reproducible
 -----------------------------------------
