@@ -297,15 +297,17 @@ Reproduce the build environment
 
 `snapshot.debian.org` archives every state of the Debian archive.
 
-On 2015-01-29, 28 terabytes of data in almost 17 million files.
+ * 2015-01-29: 28 terabytes of data in almost 17 million files.
 
 srebuild
 --------
 
  * Thin wrapper around `sbuild`
  * Find the right archive snapshot
- * Install packages listed in *buildinfo*
+ * Install packages listed in the `*.buildinfo` file
  * Start the build
+
+Status: work in progress
 
 Investigating packages
 ----------------------
