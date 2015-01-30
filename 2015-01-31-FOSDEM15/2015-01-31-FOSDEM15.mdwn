@@ -836,6 +836,7 @@ Help Debian?
  * Hack Debian archive infrastructure
      - store and distribute `*.buildinfo` files
      - …
+ * Hack tool to display local packages reproducibility status
 
 Contributors
 ------------
