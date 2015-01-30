@@ -3,9 +3,6 @@ mention
 		srebuild too early
 		"Reproduce the build environment" feels out of place + little info
 
-	pkg sets screenshots ? which?
-	add screenshot of https://reproducible.debian.net/index_issues.html
-
 	status / goals / help
 		strip_nondeterminism and dh_stripnoterminism
 	whats next
