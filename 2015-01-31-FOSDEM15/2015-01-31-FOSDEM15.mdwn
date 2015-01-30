@@ -460,7 +460,7 @@ reproducible.debian.net: more goodies
  * Package sets (essential, build-essential, popcon1337, installed by DSA, tails, grml, their build-depends)
  * List of unreproducible packages per maintainer
  * IRC notifications
- * On demand scheduling of packages
+ * On-demand scheduling of packages
 
 reproducible.debian.net: not reproducible
 -----------------------------------------
