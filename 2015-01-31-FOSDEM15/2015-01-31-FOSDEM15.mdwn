@@ -396,8 +396,8 @@ Investigating packages
 \Large (and test again)
 \end{center}
 
-reproducible.debian.net - in the beginning
-------------------------------------------
+reproducible.debian.net: in the beginning
+-----------------------------------------
 
 https://wiki.debian.org/ReproducibleBuilds once showed this:
 
@@ -417,8 +417,8 @@ If you have a pbuilder already setup, it's fairly easy to setup an environment w
 	exit 0
 ~~~
 
-reproducible.debian.net - in the beginning (cont.)
---------------------------------------------------
+reproducible.debian.net: in the beginning (cont.)
+-------------------------------------------------
 
 \footnotesize
 
@@ -441,7 +441,7 @@ diffp is useful to check the result:
 	../misc/diffp b1/*.changes b2/*.changes
 ~~~
 
-reproducible.debian.net - today
+reproducible.debian.net: today
 -------------------------------
 
  * Driven by jenkins.debian.net
@@ -457,7 +457,7 @@ reproducible.debian.net - today
  * 4 Python scripts with 948 LOC
 
 reproducible.debian.net: more goodies
-------------
+-------------------------------------
 
  * `https://reproducible.debian.net/$PACKAGE`
  * Reproducibility status in `tracker.debian.org`
