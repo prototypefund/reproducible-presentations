@@ -440,7 +440,7 @@ diffp is useful to check the result:
 reproducible.debian.net - today
 -------------------------------
 
- * driven by jenkins.debian.net
+ * Driven by jenkins.debian.net
 	* announced 2014-09-26
  * 14 jobs defined in 263 LOC yaml
 	* 3 build jobs, rescheduled every 2min
