@@ -42,7 +42,7 @@ from a given source
 Why?
 ----
 
-Reproducible builds allow **independent verifications** that a binary matches
+Reproducible builds allow for **independent verifications** that a binary matches
 what the source intended to produce.
 
 \begin{flushright}
