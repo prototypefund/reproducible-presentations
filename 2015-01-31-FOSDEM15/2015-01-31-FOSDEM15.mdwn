@@ -847,7 +847,7 @@ Contributors
 akira               Hans-Christoph Steiner Peter De Wachter
 Andrew Ayer         Helmut Grohne          Reiner Herrmann
 Asheesh Laroia      Holger Levsen          Stefano Rivera
-Chris Lamb          josch                  Stéphane Glondu
+Chris Lamb (lamby)  josch                  Stéphane Glondu
 Chris West          Lunar                  Steven Chamberlain
 Daniel Kahn Gillmor Mattia Rizzolo         Tom Fitzhenry
 David Suarez        Niels Thykier          Tomasz Buchert
