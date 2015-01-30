@@ -329,9 +329,8 @@ Build-Environment:
 snapshot.debian.org
 -------------------
 
-`snapshot.debian.org` archives every state of the Debian archive.
-
-2015-01-29: 28 terabytes of data in almost 17 million files.
+ * `snapshot.debian.org` archives every state of the Debian archive.
+ * 2015-01-29: 28 terabytes of data in almost 17 million files.
 
 srebuild
 --------
