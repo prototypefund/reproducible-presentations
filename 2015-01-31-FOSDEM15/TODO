@@ -1,8 +1,4 @@
 mention 
-	who are we?
-		the team in debian
-		other noteworthy people
-		Ulrike, the CSS is mostly copied from the security tracker
 	git repos:
 		notes.git -> master
 		jenkins.d.n/bin/reproducible* -> master
@@ -10,43 +6,32 @@ mention
 		debhelper.git -> pu/reproducible_builds
 		cdbs.git -> pu/reproducible_builds
 		...
-	rp.d.n website screenshots
-		ftbr
-		ftbfs
 	
-	pkg sets screenshots ? which?=
-	status
+	pkg sets screenshots ? which?
+	add screenshot of https://reproducible.debian.net/index_issues.html" which i intend to still add
+
+	status / goals / help
 		.buildinfo support in dpkg
 		strip_nondeterminism and dh_stripnoterminism
-		srebuild
 	whats next
 		help: provide tool to display local packages reproducible build status
-		help: reproducible fedora
-		help: i use python-r badly - help welcome. please talk to me if you can help here.
 		help: dak integration, .buildinfo files integrated in the archive #bugnumber
-	goals for fosdem 2016
-		all issues identified
 		reproducible.debian.org (and jenkins.debian.org)
-		funding. do you think this is something which should be funded by the linux foundation?
 
 	include status+next from main wiki page
-		"jenkins.d.n is just a QA tool", no real results yet. post jessie.
 
-	use a darker grey for the slide headings
+	"jenkins.d.n is just a QA tool", no real results yet. post jessie.
+	security is a process. QA too. please help. both.
+
 
 	binary transparency logs - describe the concept briefly
-
-
-	FIXME: add screenshot of https://reproducible.debian.net/index_issues.html" which i intend to still add
 
 	add list of fixed packages in our repo
 	add list of variations we dont test:
 		- uname
 		- build date (we do have time)
 
-	add: please help running jenkins.d.n
 
-	security is a process. QA too. please help. both.
 
 	maybe not in slides, but in our mind, i want to ask the audience:
 		- who was there last year at the talk?
