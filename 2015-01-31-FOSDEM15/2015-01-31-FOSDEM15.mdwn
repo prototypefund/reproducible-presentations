@@ -448,7 +448,7 @@ reproducible.debian.net - today
 	* Jobs to recreate pbuilder base.tgz and debbindiff schroot
 	* Job to update notes and issues from Git
 	* JSON output
-	* remaining jobs mostly to create HTML and graphs
+	* Remaining jobs mostly to create HTML and graphs
  * 13 shell scripts with 2049 LOC
  * 4 python scripts with 948 LOC
 
