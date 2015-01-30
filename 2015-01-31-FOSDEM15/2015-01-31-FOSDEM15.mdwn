@@ -446,7 +446,7 @@ reproducible.debian.net - today
 	* 3 build jobs, rescheduled every 2 minutes
 	* Job for auto-scheduling
 	* Jobs to recreate pbuilder base.tgz and debbindiff schroot
-	* Job to update notes and issues from git
+	* Job to update notes and issues from Git
 	* JSON output
 	* remaining jobs mostly to create HTML and graphs
  * 13 shell scripts with 2049 LOC
