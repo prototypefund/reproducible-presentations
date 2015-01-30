@@ -494,8 +494,8 @@ reproducible.debian.net: package
 \includegraphics[width=0.9\textwidth]{images/gdb_rbuild}
 \end{center}
 
-Customized toolchain
------------------------------
+Experimental “reproducible” toolchain
+-------------------------------------
 
  * Test and refine changes to tools used by build systems
  * Currently 20 source packages
