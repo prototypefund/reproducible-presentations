@@ -488,12 +488,12 @@ reproducible.debian.net: package
 \includegraphics[width=0.9\textwidth]{images/gdb_rbuild}
 \end{center}
 
-Our "experimental" toolchain
+Customized toolchain
 -----------------------------
 
  * Test and refine changes to tools used by build systems
  * Currently 20 source packages
- * Examples : `dpkg`, `debhelper`, `libxslt`, `r-base`, `gtk-doc`, `fontforge`,
+ * Examples : **`dpkg`**, **`debhelper`**, `cdbs`, `libxslt`, `r-base`, `gtk-doc`, `fontforge`,
    …
  * Most patches already submitted
  * `git://git.debian.org/reproducible/$pkg.git` in branch `pu/reproducible_builds`
