@@ -1,10 +1,7 @@
 mention 
-	git repos:
-		notes.git -> master
-		jenkins.d.n/bin/reproducible* -> master
 	
 	pkg sets screenshots ? which?
-	add screenshot of https://reproducible.debian.net/index_issues.html" which i intend to still add
+	add screenshot of https://reproducible.debian.net/index_issues.html
 
 	status / goals / help
 		.buildinfo support in dpkg
@@ -12,7 +9,6 @@ mention
 	whats next
 		help: provide tool to display local packages reproducible build status
 		help: dak integration, .buildinfo files integrated in the archive #bugnumber
-		reproducible.debian.org (and jenkins.debian.org)
 		binary transparency logs - describe the concept briefly
 
 	include status+next from main wiki page
