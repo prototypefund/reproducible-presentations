@@ -11,18 +11,9 @@ mention
 
 	bsd+suse+hurd+more logos to BSD / SLES page
 
-	add list of variations we dont test (but exist in the wild)
-		- uname / kernel
-		- build date (we do have time)
-		- cpu type 
-		- more generally, all the hardware itself (hopefully not relevant, but...)
-
 	aspect:
 		text in slide #38 overflows
 		exclamation mark in slide #103 goes to newline
-
-
-
 
 	not in slides, but in our mind, i want to ask the audience:
 		- who was there last year at the talk?

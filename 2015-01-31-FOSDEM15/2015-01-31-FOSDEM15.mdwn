@@ -520,6 +520,14 @@ For those in the back
 \normalsize More than 17,600 source packages!
 \end{center}
 
+What is not tested (yet)
+------------------------
+
+ * `uname` output
+ * Day/month/year
+ * `/proc/cpuinfo`
+ * *More?*
+
 Investigated packages
 ---------------------
 
