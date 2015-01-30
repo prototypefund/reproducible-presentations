@@ -3,8 +3,6 @@ mention
 		srebuild too early
 		"Reproduce the build environment" feels out of place + little info
 	
-	not mentioned at all yet: strip_nondeterminism and dh_stripnoterminism
-	
 	status / goals / help
 		help: dak integration, .buildinfo files integrated in the archive #763822
 		Require matching binary packages from the developer and a buildd before accepting the package in the archive. This could initially be opt-in. 

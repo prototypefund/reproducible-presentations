@@ -1,5 +1,11 @@
 \titlepage
 
+----------------------------------
+
+\begin{center}
+\Huge What?
+\end{center}
+
 What are reproducible builds?
 -----------------------------
 
@@ -37,6 +43,12 @@ from a given source
 
 \begin{center}
 \includegraphics[width=0.8\textwidth]{images/what-proofs-4}
+\end{center}
+
+----------------------------------
+
+\begin{center}
+\Huge Why?
 \end{center}
 
 Why?
@@ -252,6 +264,12 @@ Wouldn't it be cool?
  * More than 21,000 source packages
  * “Our priorities are our **users** and **free software**”
 
+----------------------------------
+
+\begin{center}
+\Huge How?
+\end{center}
+
 How?
 ----
 
@@ -259,8 +277,16 @@ How?
  * Reproduce the build environment
  * Eliminate unneeded variations
 
-Record the build environment
-----------------------------
+----------------------------------
+
+\begin{center}
+\Huge How:
+
+\Large Record the build environment
+\end{center}
+
+*.buildinfo
+-----------
 
 New control file `*.buildinfo` which records:
 
@@ -269,8 +295,8 @@ New control file `*.buildinfo` which records:
  * Checksum of the source package.
  * Checksums of the binary packages.
 
-Record the build environment
-----------------------------
+Example *.buildinfo
+-------------------
 
 \footnotesize
 
@@ -292,12 +318,20 @@ Build-Environment:
  …
 ~~~
 
-Reproduce the build environment
--------------------------------
+----------------------------------
+
+\begin{center}
+\Huge How:
+
+\Large Reproduce the build environment
+\end{center}
+
+snapshot.debian.org
+-------------------
 
 `snapshot.debian.org` archives every state of the Debian archive.
 
- * 2015-01-29: 28 terabytes of data in almost 17 million files.
+2015-01-29: 28 terabytes of data in almost 17 million files.
 
 srebuild
 --------
@@ -308,6 +342,37 @@ srebuild
  * Start the build
 
 Status: work in progress
+
+----------------------------------
+
+\begin{center}
+\Huge How:
+
+\Large Eliminate unneeded variations
+\end{center}
+
+General approach
+----------------
+
+ * Gitian (Bitcoin, Tor Browser):
+     - Use a VM: same kernel, same user, same build path
+     - `libfaketime`
+ * Debian:
+     - Fix the tools
+     - Fix the build systems
+     - Work-arounds as last resort
+
+strip-nondeterminism
+--------------------
+
+ * Normalize various file formats
+ * Currently handle:
+     - ar archives (`.a`)
+     - gzip
+     - Java jar
+     - Javadoc HTML
+     - ZIP archives
+ * Written in Perl (like `dpkg-dev`)
 
 Investigating packages
 ----------------------
@@ -391,6 +456,14 @@ Investigating packages (cont.)
        - unpack Gettext files,
        - … *easy to extend to new file formats*
  * Falls back to binary comparison
+
+----------------------------------
+
+\begin{center}
+\Huge Test
+
+\Large (and test again)
+\end{center}
 
 reproducible.debian.net - in the beginning
 ------------------------------------------
@@ -528,6 +601,12 @@ Identified issues
 
 \begin{center}
 \includegraphics[width=0.9\textwidth]{images/stats_issues}
+\end{center}
+
+----------------------------------
+
+\begin{center}
+\Huge Findings
 \end{center}
 
 Identified issues
