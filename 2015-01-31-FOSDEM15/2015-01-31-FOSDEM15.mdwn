@@ -926,6 +926,7 @@ Questions? Comments?
 \begin{center}
 \url{https://wiki.debian.org/ReproducibleBuilds}
 \url{https://reproducible.debian.net/}
+\url{\#debian-reproducible}
 \end{center}
 
 \setupctable{maxwidth=\textwidth,doinside=\footnotesize}
