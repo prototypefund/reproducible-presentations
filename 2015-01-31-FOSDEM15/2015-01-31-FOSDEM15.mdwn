@@ -443,7 +443,7 @@ reproducible.debian.net - today
  * Driven by jenkins.debian.net
 	* announced 2014-09-26
  * 14 jobs defined in 263 LOC of YAML
-	* 3 build jobs, rescheduled every 2min
+	* 3 build jobs, rescheduled every 2 minutes
 	* job for auto scheduling
 	* jobs to recreate pbuilder base.tgz and debbindiff schroot
 	* job to update notes and issues from git
