@@ -830,11 +830,11 @@ Help Debian?
  * Inventory issues
  * Make packages build reproducibly
  * Fix known common issues:
-     - get reproducible PE binaries;
-     - random filenames with GCC;
+     - Get reproducible PE binaries;
+     - Random filenames with GCC;
      - …
  * Hack Debian archive infrastructure
-     - store and distribute `*.buildinfo` files
+     - Store and distribute `*.buildinfo` files
      - …
  * Hack tool to display local packages reproducibility status
 
