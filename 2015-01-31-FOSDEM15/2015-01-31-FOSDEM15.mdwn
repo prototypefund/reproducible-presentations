@@ -897,6 +897,7 @@ Future
  * Reproducible installation media
  * Reproducible live images (pure Debian, grml, Tails)
  * Reproducible build verifications everywhere in the F/OSS world. We can do it!
+	* binary transparency logs: public log of all software releases
 
 Thanks
 ------
