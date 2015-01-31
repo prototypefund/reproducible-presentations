@@ -500,6 +500,19 @@ For those in the back
 \normalsize More than 17,600 source packages!
 \end{center}
 
+For those in the back
+---------------------
+
+\begin{center}
+\Huge 81.7\%
+
+\normalsize More than 17,600 source packages!
+
+(in our test environment!)
+
+\end{center}
+
+
 What is not tested (yet)
 ------------------------
 
