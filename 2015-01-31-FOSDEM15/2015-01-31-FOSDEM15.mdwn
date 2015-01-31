@@ -962,7 +962,7 @@ Future
 
  * Ready for the next Debian release (*stretch*)
  * Reproducible installation media
- * Reproducible live images (pure Debian, grml, Tails)
+ * Reproducible live images (pure Debian, Grml, Tails)
  * Reproducible cross-platform builds
  * Binary transparency logs: public log of all software releases
 
