@@ -832,7 +832,7 @@ Help Debian?
      - Random filenames with GCC;
      - …
  * Hack Debian archive infrastructure
-     - Store and distribute `*.buildinfo` files
+     - Store and distribute `*.buildinfo` files (#763822)
      - …
  * Hack tools to display local packages reproducibility status
 

@@ -1,13 +1,5 @@
 upload the slides to penta
 
-mention 
-	the order of the slides party feels somewhat wrong
-		srebuild too early
-		"Reproduce the build environment" feels out of place + little info
-	
-	status / goals / help
-		help: dak integration, .buildinfo files integrated in the archive #763822
-		Require matching binary packages from the developer and a buildd before accepting the package in the archive. This could initially be opt-in. 
 
 	maybe make this more clear: "jenkins.d.n is just a QA tool", no real results yet. post jessie.
 
