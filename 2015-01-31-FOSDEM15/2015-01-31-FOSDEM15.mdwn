@@ -883,11 +883,12 @@ Reproducible Fedora?
 \includegraphics[width=0.6\textwidth]{images/fedoralogo}
 \end{center}
 
-Reproducible BSD ?!! SLES ?!! Hurd ?!?
--------------------------------------
+SLES? OpenBSD? Firefox? LibreOffice?
+------------------------------------
 
- * We'd love to help kickstart **reproducible everything** !
- * Please find us and talk to us.
+ * We hope **reproducible builds** to become the norm.
+ * Our documentation should be helpful to others.
+ * Come talk to us!
 
 Future
 ------
