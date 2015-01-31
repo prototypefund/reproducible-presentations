@@ -886,7 +886,7 @@ Reproducible Fedora?
 SLES? OpenBSD? Firefox? LibreOffice?
 ------------------------------------
 
- * We hope **reproducible builds** to become the norm.
+ * We hope **reproducible builds** will become the norm.
  * Our documentation should be helpful to others.
  * Come talk to us!
 
