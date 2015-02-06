@@ -1,0 +1,15 @@
+changelog
+---------
+
+this is not a normal changelog,
+in the sense, that it should not cover history.
+https://wiki.debian.org/ReproducibleBuilds/History
+should cover history. This file is for tracking
+changes since the last presentation.
+
+changes since fosdem 2015
+-------------------------
+
+* tracker.debian.org inclusion
+* ddpo inclusion, eg. https://qa.debian.org/developer.php?login=holger@debian.org
+* debbindiff got .rpm support
