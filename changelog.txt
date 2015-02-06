@@ -13,3 +13,4 @@ changes since fosdem 2015
 * tracker.debian.org inclusion
 * ddpo inclusion, eg. https://qa.debian.org/developer.php?login=holger@debian.org
 * debbindiff got .rpm support
+* debian maintainer dashbord inclusion, eg https://udd.debian.org/dmd/?email1=holger%40debian.org
