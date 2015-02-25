@@ -16,3 +16,4 @@ changes since fosdem 2015
 * debian maintainer dashbord inclusion, eg https://udd.debian.org/dmd/?email1=holger%40debian.org
 * testing for variations due to difference in domainname
 * testing for variations due to difference in umask
+* testing for variations due to difference in timezone
