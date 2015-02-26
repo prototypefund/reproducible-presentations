@@ -19,3 +19,4 @@ changes since fosdem 2015
 ** umask
 ** timezone
 * 17 jenkins jobs now (more schroots are used...)
+** more shell replaced with python
