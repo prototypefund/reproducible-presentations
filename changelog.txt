@@ -14,6 +14,8 @@ changes since fosdem 2015
 * ddpo inclusion, eg. https://qa.debian.org/developer.php?login=holger@debian.org
 * debbindiff got .rpm support
 * debian maintainer dashbord inclusion, eg https://udd.debian.org/dmd/?email1=holger%40debian.org
-* testing for variations due to difference in domainname
-* testing for variations due to difference in umask
-* testing for variations due to difference in timezone
+* testing for variations in
+** domainname
+** umask
+** timezone
+* 17 jenkins jobs now (more schroots are used...)
