@@ -18,5 +18,7 @@ changes since fosdem 2015
 ** domainname
 ** umask
 ** timezone
-* 19 jenkins jobs now (more schroots are used, also soon, more suites are being tested)
+* jenkins
+** 20 jenkins jobs now (mostly due to (soon) more suites being tested)
 ** more shell replaced with python
+** more usertags tracked
