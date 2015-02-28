@@ -19,6 +19,6 @@ changes since fosdem 2015
 ** umask
 ** timezone
 * jenkins
-** 20 jenkins jobs now (mostly due to (soon) more suites being tested)
+** 18 jenkins jobs now (mostly due to (soon) more suites being tested)
 ** more shell replaced with python
 ** more usertags tracked
