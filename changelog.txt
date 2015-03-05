@@ -18,6 +18,7 @@ changes since fosdem 2015
 ** domainname
 ** umask
 ** timezone
+** kernel version (using "linux64 --uname-2.6")
 * jenkins
 ** 18 jenkins jobs now (mostly due to (soon) more suites being tested)
 ** more shell replaced with python
