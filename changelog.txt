@@ -23,6 +23,6 @@ changes since fosdem 2015
 ** new suite being tested: 
 *** experimental
 *** testing (now jessie, soon stretch)
-** 20 jenkins jobs now (mostly due to the new suites now being tested)
+** 25 jenkins jobs now (mostly due to the new suites now being tested)
 ** more shell replaced with python
 ** more usertags tracked
