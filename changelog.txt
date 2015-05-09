@@ -19,10 +19,11 @@ changes since fosdem 2015
 ** umask
 ** timezone
 ** kernel version (using "linux64 --uname-2.6")
-* jenkins
+* jenkins / ci-setup:
 ** new suite being tested: 
 *** experimental
-*** testing (now jessie, soon stretch)
-** 25 jenkins jobs now (mostly due to the new suites now being tested)
+*** testing
+** 27 jenkins jobs now (mostly due to the new suites now being tested)
 ** more shell replaced with python
 ** more usertags tracked
+** some new pkg-sets
