@@ -20,10 +20,16 @@ changes since fosdem 2015
 ** timezone
 ** kernel version (using "linux64 --uname-2.6")
 * jenkins / ci-setup:
-** new suite being tested: 
+** new hw ressources, we use 8 build jobs now (at fosdem15 we had 3)
+** new suites being tested: 
 *** experimental
 *** testing
 ** 27 jenkins jobs now (mostly due to the new suites now being tested)
 ** more shell replaced with python
 ** more usertags tracked
-** some new pkg-sets
+** several new pkg-sets
+** dbd from sid is used to compare builds in testing
+* several new contributors
+* we have weekly reports now
+* regular team meetings planned
+* 64 new issues identified (since January 31 2015) for 122 in total, in 3389 (2243 four months ago) packages
