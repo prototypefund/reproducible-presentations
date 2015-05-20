@@ -20,30 +20,12 @@ from a given source
 “I want to believe”
 -------------------
 
-\begin{center}
-\includegraphics[width=0.8\textwidth]{images/what-proofs-1}
-\end{center}
-
-“I want to believe”
--------------------
-
-\begin{center}
-\includegraphics[width=0.8\textwidth]{images/what-proofs-2}
-\end{center}
-
-“I want to believe”
--------------------
-
-\begin{center}
-\includegraphics[width=0.8\textwidth]{images/what-proofs-3}
-\end{center}
-
-“I want to believe”
--------------------
-
-\begin{center}
-\includegraphics[width=0.8\textwidth]{images/what-proofs-4}
-\end{center}
+\begin{overprint}
+\onslide<1>\centerline{\includegraphics[width=0.8\textwidth]{images/what-proofs-1}}
+\onslide<2>\centerline{\includegraphics[width=0.8\textwidth]{images/what-proofs-2}}
+\onslide<3>\centerline{\includegraphics[width=0.8\textwidth]{images/what-proofs-3}}
+\onslide<4>\centerline{\includegraphics[width=0.8\textwidth]{images/what-proofs-4}}
+\end{overprint}
 
 ----------------------------------
 
