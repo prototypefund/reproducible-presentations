@@ -106,6 +106,8 @@ Result of fixing the bug (asm)
 ~~~diff
 ~~~
 
+\begin{overprint}
+\onslide<1>
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{cmpl $0x0,0x8(%ebp)      cmpl $0x0,0x8(%ebp)}
@@ -119,13 +121,7 @@ Result of fixing the bug (asm)
 \NormalTok{call 25                  call 25}
 \end{Highlighting}
 \end{Shaded}
-
-Result of fixing the bug (asm)
-------------------------------
-
-~~~diff
-~~~
-
+\onslide<2>
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{cmpl $0x0,0x8(%ebp)      cmpl $0x0,0x8(%ebp)}
@@ -139,6 +135,7 @@ Result of fixing the bug (asm)
 \NormalTok{call 25                  call 25}
 \end{Highlighting}
 \end{Shaded}
+\end{overprint}
 
 Resulting difference in the binary
 ----------------------------------
