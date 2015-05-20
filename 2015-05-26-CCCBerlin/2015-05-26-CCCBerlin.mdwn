@@ -20,12 +20,29 @@ from a given source
 “I want to believe”
 -------------------
 
-\begin{overprint}
-\onslide<1>\centerline{\includegraphics[width=0.8\textwidth]{images/what-proofs-1}}
-\onslide<2>\centerline{\includegraphics[width=0.8\textwidth]{images/what-proofs-2}}
-\onslide<3>\centerline{\includegraphics[width=0.8\textwidth]{images/what-proofs-3}}
-\onslide<4>\centerline{\includegraphics[width=0.8\textwidth]{images/what-proofs-4}}
-\end{overprint}
+\center
+\begin{tikzpicture}
+\draw (-2,0) node[font=\LARGE] (source) { source };
+\draw (2,0) node[font=\LARGE] (binary) { binary };
+\draw[->,very thick] (source) -- (binary) node[midway] (midbuild) {};
+\draw (midbuild) node [above,color=debianred,font=\small] (build) {build};
+\visible<2>{
+\draw (0,2) node[font=\LARGE,color=debianblue] (fs) { free software };
+% font= specification is required to work-around a bug in md->latex conversion
+\draw[->,font=\normalsize] (fs) -- (source) node[midway,left=0.2cm,color=debianred,font=\footnotesize,align=center]{freedom\\to study};
+\draw[->,font=\normalsize] (fs) -> (binary) node[midway,right=0.2cm,color=debianred,font=\footnotesize,align=center]{freedom\\to run};
+}
+\visible<3->{
+\draw (-4,-1) node[font=\small,color=debianblue] (verified) { can be verified };
+\draw (4,-1) node[font=\small,color=debianblue] (used) { can be used };
+\path (verified) edge[->,bend left=30] (source);
+\path (used) edge[->,bend right=30] (binary);
+}
+\visible<4->{
+\draw (0,-2) node[font=\LARGE,color=debianred,align=center] (prove) { prove it\\ to me! };
+\path (prove) edge[->] (midbuild);
+}
+\end{tikzpicture}
 
 ----------------------------------
 
