@@ -16,12 +16,8 @@ images:
 IMGS = \
 	images/swirl-lightest.pdf \
 	images/openlogo-nd.pdf \
-	images/what-proofs-1.pdf \
-	images/what-proofs-2.pdf \
-	images/what-proofs-3.pdf \
-	images/what-proofs-4.pdf \
 	images/globalsign-logo.pdf \
-	$(shell echo $$(sed -n -e 's/^[^%]*\\includegraphics\([^{]*\)\?{\([^}]*\)}.*$$/\2.*/p' $(PRESENTATION).mdwn | grep -E -v '(what-proofs|globalsign)' | sed -e 's/\.svg$$/\.pdf$$/' | sort -u))
+	$(shell echo $$(sed -n -e 's/^[^%]*\\includegraphics\([^{]*\)\?{\([^}]*\)}.*$$/\2.*/p' $(PRESENTATION).mdwn | grep -E -v 'globalsign' | sed -e 's/\.svg$$/\.pdf$$/' | sort -u))
 
 $(PRESENTATION).pdf: $(PRESENTATION).mdwn $(PRESENTATION)-header.tex $(IMGS)
 	pandoc -t beamer \
@@ -31,22 +27,6 @@ $(PRESENTATION).pdf: $(PRESENTATION).mdwn $(PRESENTATION)-header.tex $(IMGS)
 
 %.pdf: %.svg
 	inkscape --export-pdf=$@ --export-dpi=600 $<
-
-images/what-proofs-1.svg: images/what-proofs.svg
-	sed -e '/inkscape:label="free software"/,/>/s/display:inline/display:none/;' \
-	    -e '/inkscape:label="possibilities"/,/>/s/display:inline/display:none/;' \
-	    -e '/inkscape:label="what proofs"/,/>/s/display:inline/display:none/' < $< > $@
-
-images/what-proofs-2.svg: images/what-proofs.svg
-	sed -e '/inkscape:label="possibilities"/,/>/s/display:inline/display:none/;' \
-	    -e '/inkscape:label="what proofs"/,/>/s/display:inline/display:none/' < $< > $@
-
-images/what-proofs-3.svg: images/what-proofs.svg
-	sed -e '/inkscape:label="free software"/,/>/s/display:inline/display:none/;' \
-	    -e '/inkscape:label="what proofs"/,/>/s/display:inline/display:none/' < $< > $@
-
-images/what-proofs-4.svg: images/what-proofs.svg
-	sed -e '/inkscape:label="free software"/,/>/s/display:inline/display:none/' < $< > $@
 
 SRCS = \
 	$(shell find . -maxdepth 1 '(' -name '$(PRESENTATION).GNUMakefile' -o -name 'Makefile' ')' -printf '%P\n') \
