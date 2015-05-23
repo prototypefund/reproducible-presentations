@@ -19,6 +19,7 @@ changes since fosdem 2015
 ** umask
 ** timezone
 ** kernel version (using "linux64 --uname-2.6")
+** number of cores used
 * jenkins / ci-setup:
 ** new hw ressources, we use 8 build jobs now (at fosdem15 we had 3)
 ** new suites being tested: 
