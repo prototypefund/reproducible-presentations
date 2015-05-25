@@ -475,11 +475,12 @@ Experimental “reproducible” toolchain
 -------------------------------------
 
  * Test and refine changes to tools used by build systems
- * Currently 20 source packages
- * Examples : **`dpkg`**, **`debhelper`**, `cdbs`, `libxslt`, `r-base`, `gtk-doc`, `fontforge`,
+ * Currently 12 source packages
+ * Examples : **`dpkg`**, **`debhelper`**, `docbook-to-man`, `fontforge`, `libxslt`, `python-support`, `sphinx`,
    …
  * Most patches already submitted
  * `git://git.debian.org/reproducible/$pkg.git` in branch `pu/reproducible_builds`
+ * repositories overview on `r.d.n`
 
 reproducible.debian.net overall stats
 -------------------------------------
