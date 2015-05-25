@@ -461,7 +461,7 @@ reproducible.debian.net: more goodies
  * List of packages without any identified issue
  * Reproducibility status displayed in:
 	* `tracker.debian.org`
-	* DDPO, eg. `https://qa.debian.org/developer.php?login=holger@debian.org`
+	* Debian Developer's Package Overview, eg. `https://qa.debian.org/developer.php?login=holger@debian.org`
 	* Debian Maintainer Dashbord, eg `https://udd.debian.org/dmd/?email=holger%40debian.org`
 
 reproducible.debian.net: not reproducible
@@ -812,6 +812,25 @@ And fonts!
 ----------------------------------
 
 \begin{center}\Huge
+You think those were enough issues?
+\end{center}
+
+66 new issues in the last 4 months found
+----------------------------------------
+
+ * The slides have not been updated for the 66 new issues identified since January 31 2015 for 124 in total today.
+ * Today there are 3468 packages with notes, compared to 2243 "back then".
+
+Bugs filed
+----------
+
+\begin{center}
+\includegraphics[width=0.9\textwidth]{images/stats_bugs}
+\end{center}
+
+----------------------------------
+
+\begin{center}\Huge
 Please help!
 \end{center}
 
@@ -824,13 +843,6 @@ Please help!
  * Sort dictionary keys.
  * Merge our patches!
 
-Bugs filed
-----------
-
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/stats_bugs}
-\end{center}
-
 How to help Debian?
 ------------
 
@@ -841,17 +853,18 @@ How to help Debian?
 How to help Debian?
 ------------
 
- * Inventory issues
- * Analyze issues
+ * Inventory issues and analyse them
  * Make packages build reproducibly
  * Fix known common issues:
      - Get reproducible PE binaries;
      - Random filenames with GCC;
-     - …
  * Hack Debian archive infrastructure
-     - Store and distribute `*.buildinfo` files (#763822)
-     - …
+     - Store and distribute `*.buildinfo` files (#763822))
+           - our patch `dpkg` also ain't in the BTS yet
+     - reproducibly should be mandated in debian-policy…
  * Hack tools to display local packages reproducibility status
+ * We need a logo too :)
+ * …
 
 Contributors
 ------------
