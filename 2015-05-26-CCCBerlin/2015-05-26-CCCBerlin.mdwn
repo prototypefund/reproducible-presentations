@@ -496,7 +496,7 @@ Experimental “reproducible” toolchain
 -------------------------------------
 
  * Test and refine changes to tools used by build systems
- * Currently 12 source packages
+ * Currently 11 source packages modified (compared to `unstable`)
  * Examples : **`dpkg`**, **`debhelper`**, `docbook-to-man`, `fontforge`, `libxslt`, `python-support`, `sphinx`,
    …
  * Most patches already submitted to the BTS
