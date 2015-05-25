@@ -25,12 +25,10 @@ changes since fosdem 2015
 ** new suites being tested: 
 *** experimental
 *** testing
-** 27 jenkins jobs now (mostly due to the new suites now being tested)
-** more shell replaced with python
 ** more usertags tracked
 ** several new pkg-sets
 ** dbd from sid is used to compare builds in testing
-* several new contributors
+* script for team members to manually schedule packages from alioth
 * we have weekly reports now
 * regular team meetings planned
 * 64 new issues identified (since January 31 2015) for 122 in total, in 3389 (2243 four months ago) packages

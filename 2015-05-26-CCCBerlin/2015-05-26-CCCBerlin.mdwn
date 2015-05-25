@@ -407,15 +407,16 @@ reproducible.debian.net: today
 
  * Driven by jenkins.debian.net
 	* announced 2014-09-26
- * 14 jobs defined in 263 LOC of YAML
-	* 3 build jobs, rescheduled every 2 minutes
+ * 27 jobs defined in 370 LOC of YAML
+	* 8 build jobs, rescheduled every 2 minutes
 	* Job for auto-scheduling
-	* Jobs to recreate pbuilder base.tgz and debbindiff schroot
+	* 5 Jobs to recreate pbuilder base.tgz for sid, testing and experimental and debbindiff schroots (just sid and testing)
 	* Job to update notes and issues from Git
 	* JSON output
+	* Job to indicate problems on r.d.n
 	* Remaining jobs mostly to create HTML and graphs
- * 13 Shell scripts with 2049 LOC
- * 4 Python scripts with 948 LOC
+ * 11 Shell scripts with 2766 LOC
+ * 11 Python3 scripts with 3123 LOC
 
 reproducible.debian.net: variations
 -----------------------------------
