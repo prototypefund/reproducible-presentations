@@ -326,7 +326,7 @@ snapshot.debian.org
 -------------------
 
  * `snapshot.debian.org` archives every state of the Debian archive.
- * 2015-01-29: 28 terabytes of data in almost 17 million files.
+ * 2015-05-25: 29 terabytes of data in 17 million files.
 
 srebuild
 --------
