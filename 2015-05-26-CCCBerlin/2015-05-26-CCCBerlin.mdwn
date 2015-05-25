@@ -1061,6 +1061,13 @@ Thanks
 \includegraphics[width=0.3\textwidth]{images/globalsign-logo}
 \end{center}
 
+\begin{center}
+\Large Very many thanks:
+
+\Huge Lunar
+\end{center}
+
+
 Questions? Comments?
 --------------------
 
