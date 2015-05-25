@@ -16,9 +16,6 @@ changes since fosdem 2015
 * jenkins / ci-setup:
 ** new hw ressources
 ** 2nd build host planned / jenkins.d.o in progress too
-** new suites being tested: 
-*** experimental
-*** testing
 ** more usertags tracked
 ** several new pkg-sets
 ** dbd from sid is used to compare builds in testing
