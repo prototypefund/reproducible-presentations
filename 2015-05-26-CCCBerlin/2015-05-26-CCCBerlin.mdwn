@@ -891,6 +891,8 @@ Stay in touch
      - `reproducible-builds@lists.alioth.debian.org`
      - `reproducible-commits@lists.alioth.debian.org`
  * Join `#debian-reproducible` on `irc.oftc.net`
+     - regular team meetings planned, first scheduled for 2015-06-03 19:00 UTC
+ * Weekly reports
 
 Other distributions
 -------------------

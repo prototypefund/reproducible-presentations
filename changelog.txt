@@ -14,15 +14,15 @@ changes since fosdem 2015
 * ddpo inclusion, eg. https://qa.debian.org/developer.php?login=holger@debian.org
 * debian maintainer dashbord inclusion, eg https://udd.debian.org/dmd/?email1=holger%40debian.org
 * jenkins / ci-setup:
-** new hw ressources, we use 8 build jobs now (at fosdem15 we had 3)
+** new hw ressources
+** 2nd build host planned / jenkins.d.o in progress too
 ** new suites being tested: 
 *** experimental
 *** testing
 ** more usertags tracked
 ** several new pkg-sets
 ** dbd from sid is used to compare builds in testing
-* script for team members to manually schedule packages from alioth
-* we have weekly reports now
-* regular team meetings planned
+** script for team members to manually schedule packages from alioth
+** wishlist: test jobs for openwtr, freebsd (netbsd?), fedora
 * 64 new issues identified (since January 31 2015) for 122 in total, in 3389 (2243 four months ago) packages
 * status page, explain next likely/needed steps...
