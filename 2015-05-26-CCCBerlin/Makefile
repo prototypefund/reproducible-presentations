@@ -1,5 +1,7 @@
 .PHONY: all source images
 
+# packages needed: pandoc texlive-luatex inkscape wget
+
 PRESENTATION = 2015-05-26-CCCBerlin
 
 all: $(PRESENTATION).pdf
