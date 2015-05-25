@@ -13,7 +13,7 @@ What are reproducible builds?
 \Large
 “reproducible builds”\\
 enable anyone to reproduce\\
-identical binary packages\\
+bit by bit identical binary packages\\
 from a given source
 \end{center}
 
