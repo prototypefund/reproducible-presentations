@@ -1078,6 +1078,5 @@ Questions? Comments?
 \resizebox{\textwidth}{!}{
 \begin{tabular}{rl}
  Holger & \texttt{B8BF 5413 7B09 D35C F026  FE9D 091A B856 069A AA1C} \\
- Lunar & \texttt{0603 CCFD 9186 5C17 E88D  4C79 8382 C95C 2902 3DF9} \\
 \end{tabular}
 }
