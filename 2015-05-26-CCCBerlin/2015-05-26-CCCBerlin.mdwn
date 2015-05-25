@@ -244,8 +244,8 @@ Wouldn't it be cool?
 \Huge How?
 \end{center}
 
-How to?
-----
+How to achieve reproducibility?
+-------------------------------
 
  * Record the build environment
  * Reproduce the build environment
