@@ -281,8 +281,10 @@ How?
 \Large Record the build environment
 \end{center}
 
-*.buildinfo
------------
+----------------------------------
+
+.buildinfo files
+----------------
 
 New control file `*.buildinfo` which records:
 
@@ -291,12 +293,12 @@ New control file `*.buildinfo` which records:
  * Checksum of the source package.
  * Checksums of the binary packages.
 
-Example *.buildinfo
--------------------
+Example .buildinfo
+------------------
 
 \footnotesize
 
-~~~
+~~~~
 Format: 1.9
 Build-Architecture: amd64
 Source: txtorcon
@@ -312,7 +314,7 @@ Build-Environment:
  base-passwd (= 3.5.37),
  bash (= 4.3-11+b1),
  …
-~~~
+~~~~
 
 ----------------------------------
 
