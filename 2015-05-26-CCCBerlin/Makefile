@@ -35,6 +35,7 @@ $(PRESENTATION).pdf: $(PRESENTATION).mdwn $(PRESENTATION)-header.tex $(IMGS)
 		--include-in-header=$(PRESENTATION)-header.tex \
 		--variable=fontsize=14pt \
 		--latex-engine=lualatex -o $@ $<
+	echo "3 questions: who has visited bugs.debian.org/# ? who contributes to Debian / FLOSS? who saw the 31c3/fosdem 15 talk or knows about reproducible builds already?"
 
 %.pdf: %.svg
 	inkscape --export-pdf=$@ --export-dpi=600 $<

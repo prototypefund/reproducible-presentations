@@ -10,6 +10,8 @@ changes since the last presentation.
 changes since fosdem 2015
 -------------------------
 
+
+* dd-list
 * tracker.debian.org inclusion
 * ddpo inclusion, eg. https://qa.debian.org/developer.php?login=holger@debian.org
 * debian maintainer dashbord inclusion, eg https://udd.debian.org/dmd/?email1=holger%40debian.org
@@ -25,3 +27,5 @@ changes since fosdem 2015
 * 64 new issues identified (since January 31 2015) for 122 in total, in 3389 (2243 four months ago) packages
 
 * status page, explain next likely/needed steps...
+* emphasize "research" + "theoretically possible" + lots of support. hope for much progress at debconf15
+
