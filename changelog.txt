@@ -13,4 +13,7 @@ changes since fosdem 2015
 * review: current status page, explain next likely/needed steps...
 * make images
 * list all 11 modified source packages?
+* print .mdwn
+* mention r.d.n/$pkg earlier?
 
+* clear this list completly.

@@ -431,7 +431,7 @@ For those in the back
 reproducible.debian.net: variations
 -----------------------------------
 
-The second build is different in:
+The second build differs by:
 
  * time
  * timezone
@@ -444,7 +444,7 @@ The second build is different in:
  * kernel version (using `linux64 --uname-2.6`)
  * `DEB_BUILD_OPTIONS="parallel=22"`
 
-What is not tested (yet)
+What is not varied (yet)
 ------------------------
 
  * day/month/year
@@ -514,7 +514,7 @@ reproducible.debian.net: package sets
      - "key packages" (from UDD)
      - All Packages installed on all debian.org machines
      - All Packages which had a security fix (DSA) published
-     - All (GNOME|KDE|XDCE) packages and their build dependencies
+     - All (GNOME|KDE|XFCE) packages and their build dependencies
      - All packages in Tails and their build dependencies
      - All packages in Grml and their build dependencies
      - All packages maintained by pkg-perl-maintainers, pkg-java-maintainers, pkg-haskell-maintainers, pkg-ruby-extras-maintainers, pkg-golang-maintainers, debian-ocaml, debian-boot
