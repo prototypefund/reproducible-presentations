@@ -452,18 +452,6 @@ What is not tested (yet)
  * rebuilds on different filesystems (currently `tmpfs` only)
  * *more?*
 
-
-reproducible.debian.net: more goodies
--------------------------------------
-
- * `https://reproducible.debian.net/$PACKAGE`
- * List of unreproducible packages per maintainer
- * List of packages without any identified issue
- * Reproducibility status displayed in:
-	* `tracker.debian.org`
-	* Debian Developer's Package Overview, eg. `https://qa.debian.org/developer.php?login=holger@debian.org`
-	* Debian Maintainer Dashbord, eg `https://udd.debian.org/dmd/?email=holger%40debian.org`
-
 reproducible.debian.net: not reproducible
 -----------------------------------------
 
@@ -537,6 +525,17 @@ r.d.n package sets: tails_build-depends
 \begin{center}
 \includegraphics[width=0.9\textwidth]{images/stats_meta_pkg_state_tails_build-depends}
 \end{center}
+
+reproducible.debian.net: more goodies
+-------------------------------------
+
+ * `https://reproducible.debian.net/$PACKAGE`
+ * List of unreproducible packages per maintainer
+ * List of packages without any identified issue
+ * Reproducibility status displayed in:
+	* `tracker.debian.org`
+	* Debian Developer's Package Overview, eg. `https://qa.debian.org/developer.php?login=holger@debian.org`
+	* Debian Maintainer Dashbord, eg `https://udd.debian.org/dmd/?email=holger%40debian.org`
 
 ----------------------------------
 
