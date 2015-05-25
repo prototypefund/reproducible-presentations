@@ -18,7 +18,7 @@ images:
 		rm $$i.png ; \
 		wget https://reproducible.debian.net/unstable/$$i.png ; \
 	done ; \
-	for i in stats_meta_pkg_state_build-essential-depends stats_meta_pkg_state_key_packages stats_meta_pkg_state_maint_pkg-perl-maintainers stats_meta_pkg_state_tails_build-depends ; do \
+	for i in stats_meta_pkg_state_tails_build-depends ; do \
 		rm $$i.png ; \
 		wget https://reproducible.debian.net/unstable/amd64/$$i.png ; \
 	done ; \
@@ -35,7 +35,7 @@ $(PRESENTATION).pdf: $(PRESENTATION).mdwn $(PRESENTATION)-header.tex $(IMGS)
 		--include-in-header=$(PRESENTATION)-header.tex \
 		--variable=fontsize=14pt \
 		--latex-engine=lualatex -o $@ $<
-	echo "3 questions: who has visited bugs.debian.org/# ? who contributes to Debian / FLOSS? who saw the 31c3/fosdem 15 talk or knows about reproducible builds already?"
+	echo "\n3 questions to the audience to start:\n - who has visited bugs.debian.org/# ?\n - who contributes to Debian / FLOSS?\n - who saw the 31c3/fosdem 15 talk or knows about reproducible builds already?\n\nPrint .txt."
 
 %.pdf: %.svg
 	inkscape --export-pdf=$@ --export-dpi=600 $<

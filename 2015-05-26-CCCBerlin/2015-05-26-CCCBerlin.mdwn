@@ -407,20 +407,48 @@ Initially a 10 lines shell script…
 
 reproducible.debian.net: today
 -------------------------------
-
- * Driven by jenkins.debian.net
-	* announced 2014-09-26
-        * tests packages on amd64 in `experimental`, `unstable` and `testing`
  * 27 jobs defined in 370 LOC of YAML
 	* 8 build jobs, rescheduled every 2 minutes
-	* Job for auto-scheduling
+	* Job for auto-scheduling via a SQLite database
 	* 5 jobs to recreate pbuilder base.tgz for sid, testing and experimental and debbindiff schroots (just sid and testing)
-	* Job to update notes and issues from Git
+	* job to update notes and issues from Git
 	* JSON output
-	* Job to indicate problems on r.d.n
-	* Remaining jobs mostly to create HTML and graphs
+	* a maintainance job and one to report problems in the results
+	* remaining jobs mostly to create HTML and graphs
  * 11 Shell scripts with 2766 LOC
+	* including one to be manually run (on alioth) by team members to independently schedule packages
  * 11 Python3 scripts with 3123 LOC
+ * constantly updated "static" webpages
+
+reproducible.debian.net: today
+-------------------------------
+
+ * driven by jenkins.debian.net
+	* announced 2014-09-26
+ * virtual hardware sponsored by profitbricks.com - constantly increasing ;-) Thanks for the support!
+	* migration to a even more distributed system has just begun, incl. to jenkins.debian.org and using a 2nd build host
+ * tests packages in `main` on `amd64` in `experimental`, `unstable` and `testing`
+	* scheduler reschedules unstable twice as testing at te moment - but we can change this anytime easily
+	* frequent IRC notifications, optionally targeted on demand
+ * all code and configuration in `jenkins.debian.net.git`
+
+reproducible.debian.net overall stats
+-------------------------------------
+
+\begin{center}
+\includegraphics[width=0.9\textwidth]{images/stats_pkg_state}
+\end{center}
+
+For those in the back
+---------------------
+
+\begin{center}
+\Huge 81.4\%
+
+\normalsize More than 17,800 source packages!
+
+\visible<2>{(in our test environment!)}
+\end{center}
 
 reproducible.debian.net: variations
 -----------------------------------
@@ -438,18 +466,25 @@ The second build is different in:
  * kernel version (using `linux64 --uname-2.6`)
  * `DEB_BUILD_OPTIONS="parallel=22"`
 
+What is not tested (yet)
+------------------------
+
+ * day/month/year
+ * `/proc/cpuinfo`
+ * rebuilds on different filesystems (currently `tmpfs` only)
+ * *more?*
+
+
 reproducible.debian.net: more goodies
 -------------------------------------
 
  * `https://reproducible.debian.net/$PACKAGE`
- * Reproducibility status in `tracker.debian.org`
- * Package sets:
-     - `Essential:yes`, `build-essential`
-     - 1337 most frequently installed packages (`popcon`)
-     - Packages installed on Debian machines
-     - All packages in Tails and their build dependencies
-     - All packages in Grml and their build dependencies
  * List of unreproducible packages per maintainer
+ * List of packages without any identified issue
+ * Reproducibility status displayed in:
+	* `tracker.debian.org`
+	* DDPO, eg. `https://qa.debian.org/developer.php?login=holger@debian.org`
+	* Debian Maintainer Dashbord, eg `https://udd.debian.org/dmd/?email=holger%40debian.org`
 
 reproducible.debian.net: not reproducible
 -----------------------------------------
@@ -486,34 +521,9 @@ Experimental “reproducible” toolchain
  * Currently 12 source packages
  * Examples : **`dpkg`**, **`debhelper`**, `docbook-to-man`, `fontforge`, `libxslt`, `python-support`, `sphinx`,
    …
- * Most patches already submitted
+ * Most patches already submitted to the BTS
  * `git://git.debian.org/reproducible/$pkg.git` in branch `pu/reproducible_builds`
  * repositories overview on `r.d.n`
-
-reproducible.debian.net overall stats
--------------------------------------
-
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/stats_pkg_state}
-\end{center}
-
-For those in the back
----------------------
-
-\begin{center}
-\Huge 81.4\%
-
-\normalsize More than 17,800 source packages!
-
-\visible<2>{(in our test environment!)}
-\end{center}
-
-What is not tested (yet)
-------------------------
-
- * Day/month/year
- * `/proc/cpuinfo`
- * *More?*
 
 Investigated packages
 ---------------------
@@ -527,6 +537,27 @@ Identified issues
 
 \begin{center}
 \includegraphics[width=0.9\textwidth]{images/stats_issues}
+\end{center}
+
+reproducible.debian.net: package sets
+------------
+
+ * currently 25 package sets:
+     - `Essential:yes`, ,`Required:yes`, `build-essential` and their build dependencies
+     - 1337 most frequently installed packages (`popcon`)
+     - "key packages" (from UDD)
+     - All Packages installed on all debian.org machines
+     - All Packages which had a security fix (DSA) published
+     - All (GNOME|KDE|XDCE) packages and their build dependencies
+     - All packages in Tails and their build dependencies
+     - All packages in Grml and their build dependencies
+     - All packages maintained by pkg-perl-maintainers, pkg-java-maintainers, pkg-haskell-maintainers, pkg-ruby-extras-maintainers, pkg-golang-maintainers, debian-ocaml, debian-boot
+
+r.d.n package sets: tails_build-depends
+------------
+
+\begin{center}
+\includegraphics[width=0.9\textwidth]{images/stats_meta_pkg_state_tails_build-depends}
 \end{center}
 
 ----------------------------------
@@ -843,54 +874,6 @@ Help Debian?
      - …
  * Hack tools to display local packages reproducibility status
 
-Package sets: build-essential-depends
-------------
-
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/stats_meta_pkg_state_build-essential-depends}
-\end{center}
-
-Package sets: key_packages
-------------
-
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/stats_meta_pkg_state_key_packages}
-\end{center}
-
-Package sets: pkg-perl-maintainers
-------------
-
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/stats_meta_pkg_state_maint_pkg-perl-maintainers}
-\end{center}
-
-Package sets: tails_build-depends
-------------
-
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/stats_meta_pkg_state_tails_build-depends}
-\end{center}
-
-Package sets
-------------
-
-\footnotesize
-
- * essential
- * required
- * build-essential, build-essential-depends
- * popcon_top1337-installed-sources
- * key_packages
- * installed_on_debian.org
- * had_a_DSA
- * gnome, gnome_build-depends
- * kde, kde_build-depends
- * xfce, xfce_build-depends
- * tails, tails_build-depends
- * grml, grml_build-depends
- * maint_pkg-perl-maintainers, maint_pkg-java-maintainers, maint_pkg-haskell-maintainers, maint_pkg-ruby-extras-maintainers, maint_pkg-golang-maintainers, maint_debian-ocaml
- * maint_debian-boot
-
 Contributors
 ------------
 
@@ -1062,9 +1045,8 @@ Thanks
 \end{center}
 
 \begin{center}
-\Large Very many thanks:
-
-\Huge Lunar
+\visible<2>{\Large Very many thanks to:}
+\visible<2>{\Huge Lunar}
 \end{center}
 
 

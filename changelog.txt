@@ -9,23 +9,18 @@ changes since the last presentation.
 
 changes since fosdem 2015
 -------------------------
-
-
-* dd-list
-* tracker.debian.org inclusion
-* ddpo inclusion, eg. https://qa.debian.org/developer.php?login=holger@debian.org
-* debian maintainer dashbord inclusion, eg https://udd.debian.org/dmd/?email1=holger%40debian.org
-
-* jenkins / ci-setup:
-** new hw ressources
-** 2nd build host planned / jenkins.d.o in progress too
-** dbd from sid is used to compare builds in testing
-** script for team members to manually schedule packages from alioth
+* FIXME: what does DDPO mean?
+* update screenshots
 
 ** wishlist: test jobs for openwtr, freebsd (netbsd?), freebsd ports, fedora
 
 * 64 new issues identified (since January 31 2015) for 122 in total, in 3389 (2243 four months ago) packages
+* not included in the slides
+ * timezone
+ * umask
+ * others like kernel or DEB_BUILD_OPTIONS
 
 * status page, explain next likely/needed steps...
+** dpkg .buildinfo bug
+** policy bug
 * emphasize "research" + "theoretically possible" + lots of support. hope for much progress at debconf15
-
