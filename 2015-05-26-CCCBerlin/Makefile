@@ -17,7 +17,12 @@ images:
 	for i in stats_pkg_state ; do \
 		rm $$i.png ; \
 		wget https://reproducible.debian.net/unstable/$$i.png ; \
-	done
+	done ; \
+	for i in stats_meta_pkg_state_build-essential-depends stats_meta_pkg_state_key_packages stats_meta_pkg_state_maint_pkg-perl-maintainers stats_meta_pkg_state_tails_build-depends ; do \
+		rm $$i.png ; \
+		wget https://reproducible.debian.net/unstable/amd64/$$i.png ; \
+	done ; \
+
 
 IMGS = \
 	images/swirl-lightest.pdf \
