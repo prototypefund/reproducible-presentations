@@ -8,9 +8,13 @@ source: $(PRESENTATION)-src.tar.gz
 
 images:
 	cd images ; \
-	for i in stats_pkg_state stats_notes stats_issues stats_bugs ; do \
+	for i in stats_notes stats_issues stats_bugs ; do \
 		rm $$i.png ; \
-		wget https://reproducible.debian.net/userContent/$$i.png ; \
+		wget https://reproducible.debian.net/$$i.png ; \
+	done ; \
+	for i in stats_pkg_state ; do \
+		rm $$i.png ; \
+		wget https://reproducible.debian.net/unstable/$$i.png ; \
 	done
 
 IMGS = \
