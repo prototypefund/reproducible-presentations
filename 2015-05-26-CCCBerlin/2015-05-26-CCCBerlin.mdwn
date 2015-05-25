@@ -336,7 +336,7 @@ srebuild
  * Install packages listed in the `*.buildinfo` file
  * Start the build
 
-Status: work in progress
+Status: proof-of-concept in #774415
 
 ----------------------------------
 
