@@ -361,7 +361,7 @@ strip-nondeterminism
 --------------------
 
  * Normalize various file formats
- * Currently handle:
+ * Currently handles:
      - ar archives (`.a`)
      - gzip
      - Java jar
