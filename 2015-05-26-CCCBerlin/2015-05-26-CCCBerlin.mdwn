@@ -907,6 +907,8 @@ Stay in touch
 Other distributions
 -------------------
 
+\footnotesize
+
  * Fedora  
    <http://securityblog.redhat.com/2013/09/18/reproducible-builds-for-fedora/>
  * OpenSUSE build-compare  
@@ -914,7 +916,7 @@ Other distributions
  * NixOS  
    <http://lists.science.uu.nl/pipermail/nix-dev/2013-June/011357.html>
  * FreeBSD: <https://wiki.freebsd.org/ReproducibleBuilds> and <https://wiki.freebsd.org/PortsReproducibleBuilds>
- * OpenWRT 
+ * OpenWRT: <http://thread.gmane.org/gmane.comp.embedded.openwrt.devel/31080>
 
 Reproducible Fedora?
 --------------------

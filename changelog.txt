@@ -12,8 +12,6 @@ changes since fosdem 2015
 * FIXME: what does DDPO mean?
 * update screenshots
 * check: Store and distribute `*.buildinfo` files (#763822)
-* check: <http://lists.science.uu.nl/pipermail/nix-dev/2013-June/011357.html>
-* FIXME: add openWRT link
 
 * 64 new issues identified (since January 31 2015) for 122 in total, in 3389 (2243 four months ago) packages
 * not included in the slides
