@@ -424,11 +424,15 @@ reproducible.debian.net: variations
 The second build is different in:
 
  * time
+ * timezone
  * file ordering
  * CPU ordering and availability
- * hostname
- * user & group
- * locale
+ * hostname, domainname
+ * username
+ * umask
+ * `LANG` and `LC_ALL`
+ * kernel version (using `linux64 --uname-2.6`)
+ * `DEB_BUILD_OPTIONS="parallel=22"`
 
 reproducible.debian.net: more goodies
 -------------------------------------

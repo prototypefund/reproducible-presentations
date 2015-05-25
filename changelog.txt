@@ -14,12 +14,6 @@ changes since fosdem 2015
 * ddpo inclusion, eg. https://qa.debian.org/developer.php?login=holger@debian.org
 * debbindiff got .rpm support
 * debian maintainer dashbord inclusion, eg https://udd.debian.org/dmd/?email1=holger%40debian.org
-* testing for variations in
-** domainname
-** umask
-** timezone
-** kernel version (using "linux64 --uname-2.6")
-** number of cores used
 * jenkins / ci-setup:
 ** new hw ressources, we use 8 build jobs now (at fosdem15 we had 3)
 ** new suites being tested: 
