@@ -374,7 +374,8 @@ Investigating packages
 
 [debbindiff](https://packages.debian.org/sid/debbindiff) :
 
- * Two files → HTML
+ * Two files → HTML and/or plain text output showing the differences
+ * Works with many file types, eg `.changes`, `.deb`, `.rpm`, `iso9660`, `squashfs` images, directories, ...
  * Recursively unpack archives
  * Seeks human readability:
        - uncompress PDF

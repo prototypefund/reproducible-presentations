@@ -12,7 +12,6 @@ changes since fosdem 2015
 
 * tracker.debian.org inclusion
 * ddpo inclusion, eg. https://qa.debian.org/developer.php?login=holger@debian.org
-* debbindiff got .rpm support
 * debian maintainer dashbord inclusion, eg https://udd.debian.org/dmd/?email1=holger%40debian.org
 * jenkins / ci-setup:
 ** new hw ressources, we use 8 build jobs now (at fosdem15 we had 3)
@@ -26,3 +25,4 @@ changes since fosdem 2015
 * we have weekly reports now
 * regular team meetings planned
 * 64 new issues identified (since January 31 2015) for 122 in total, in 3389 (2243 four months ago) packages
+* status page, explain next likely/needed steps...
