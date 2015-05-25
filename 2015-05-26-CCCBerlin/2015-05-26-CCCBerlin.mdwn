@@ -177,41 +177,19 @@ Result of fixing the bug (hex)
 
 \setupctable{maxwidth=\textwidth}
 
----------------------------------------------------------------------------
-Vulnerable                            Fixed
-------------------------------------- -------------------------------------
-\texttt{\NormalTok{55 89 e5 83 ec}}\  \texttt{\NormalTok{55 89 e5 83 ec}}\
-\texttt{\NormalTok{28 83 7d 08 00}}\  \texttt{\NormalTok{28 83 7d 08 00}}\
-\texttt{\NormalTok{78 0a a1 04 00}}\  \texttt{\NormalTok{78 0a a1 04 00}}\
-\texttt{\NormalTok{00 00 39 45 08}}\  \texttt{\NormalTok{00 00 39 45 08}}\
-\texttt{\NormalTok{7e 1a 8b 45 08}}\  \texttt{\NormalTok{7c 1a 8b 45 08}}\
-\texttt{\NormalTok{89 44 24 04 c7}}\  \texttt{\NormalTok{89 44 24 04 c7}}\
-\texttt{\NormalTok{04 24 4c 00 00}}\  \texttt{\NormalTok{04 24 4c 00 00}}\
-\texttt{\NormalTok{00 e8 fc ff ff}}\  \texttt{\NormalTok{00 e8 fc ff ff}}\
-\texttt{\NormalTok{ff b8 00 00 00}}\  \texttt{\NormalTok{ff b8 00 00 00}}\
-\texttt{\NormalTok{00 eb 35      }}\  \texttt{\NormalTok{00 eb 35      }}\
----------------------------------------------------------------------------
-
-Overall file size: approx. 500 kB
-
-Result of fixing the bug (hex)
-------------------------------
-
-\setupctable{maxwidth=\textwidth}
-
 --------------------------------------------------------------------------------------------------------------------------------------------
-Vulnerable                                                             Fixed
----------------------------------------------------------------------- ---------------------------------------------------------------------
-\texttt{\NormalTok{55 89 e5 83 ec}}\                                   \texttt{\NormalTok{55 89 e5 83 ec}}\
-\texttt{\NormalTok{28 83 7d 08 00}}\                                   \texttt{\NormalTok{28 83 7d 08 00}}\
-\texttt{\NormalTok{78 0a a1 04 00}}\                                   \texttt{\NormalTok{78 0a a1 04 00}}\
-\texttt{\NormalTok{00 00 39 45 08}}\                                   \texttt{\NormalTok{00 00 39 45 08}}\
-\texttt{\NormalTok{7}\StringTok{\textbf{e}}\NormalTok{ 1a 8b 45 08}}\  \texttt{\NormalTok{7}\OtherTok{\textbf{c}}\NormalTok{ 1a 8b 45 08}}\
-\texttt{\NormalTok{89 44 24 04 c7}}\                                   \texttt{\NormalTok{89 44 24 04 c7}}\
-\texttt{\NormalTok{04 24 4c 00 00}}\                                   \texttt{\NormalTok{04 24 4c 00 00}}\
-\texttt{\NormalTok{00 e8 fc ff ff}}\                                   \texttt{\NormalTok{00 e8 fc ff ff}}\
-\texttt{\NormalTok{ff b8 00 00 00}}\                                   \texttt{\NormalTok{ff b8 00 00 00}}\
-\texttt{\NormalTok{00 eb 35      }}\                                   \texttt{\NormalTok{00 eb 35      }}\
+Vulnerable                                                                            Fixed
+------------------------------------------------------------------------------------- ------------------------------------------------------
+\texttt{\NormalTok{55 89 e5 83 ec}}\                                                  \texttt{\NormalTok{55 89 e5 83 ec}}\
+\texttt{\NormalTok{28 83 7d 08 00}}\                                                  \texttt{\NormalTok{28 83 7d 08 00}}\
+\texttt{\NormalTok{78 0a a1 04 00}}\                                                  \texttt{\NormalTok{78 0a a1 04 00}}\
+\texttt{\NormalTok{00 00 39 45 08}}\                                                  \texttt{\NormalTok{00 00 39 45 08}}\
+\texttt{\NormalTok{7}\alt<2>{\StringTok{e}}{\NormalTok{e}}\NormalTok{ 1a 8b 45 08}}\  \texttt{\NormalTok{7}\alt<2>{\OtherTok{c}}{\NormalTok{c}}\NormalTok{ 1a 8b 45 08}}\
+\texttt{\NormalTok{89 44 24 04 c7}}\                                                  \texttt{\NormalTok{89 44 24 04 c7}}\
+\texttt{\NormalTok{04 24 4c 00 00}}\                                                  \texttt{\NormalTok{04 24 4c 00 00}}\
+\texttt{\NormalTok{00 e8 fc ff ff}}\                                                  \texttt{\NormalTok{00 e8 fc ff ff}}\
+\texttt{\NormalTok{ff b8 00 00 00}}\                                                  \texttt{\NormalTok{ff b8 00 00 00}}\
+\texttt{\NormalTok{00 eb 35      }}\                                                  \texttt{\NormalTok{00 eb 35      }}\
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 Overall file size: approx. 500 kB
