@@ -853,17 +853,18 @@ Bugs filed
 \includegraphics[width=0.9\textwidth]{images/stats_bugs}
 \end{center}
 
-Help Debian?
+How to help Debian?
 ------------
 
 \begin{center}
 \includegraphics[width=0.8\textwidth]{images/wiki}
 \end{center}
 
-Help Debian?
+How to help Debian?
 ------------
 
  * Inventory issues
+ * Analyze issues
  * Make packages build reproducibly
  * Fix known common issues:
      - Get reproducible PE binaries;
@@ -934,6 +935,8 @@ Other distributions
    <https://build.opensuse.org/package/show/openSUSE:Factory/build-compare>
  * NixOS  
    <http://lists.science.uu.nl/pipermail/nix-dev/2013-June/011357.html>
+ * FreeBSD: <https://wiki.freebsd.org/ReproducibleBuilds> and <https://wiki.freebsd.org/PortsReproducibleBuilds>
+ * OpenWRT 
 
 Reproducible Fedora?
 --------------------
@@ -945,6 +948,12 @@ Reproducible Fedora?
 \begin{center}
 \includegraphics[width=0.6\textwidth]{images/fedoralogo}
 \end{center}
+
+You're involved in Fedora? FreeBSD? OpenWRT?
+--------------------
+
+ * Please talk to me.
+ * I'd be glad to help set up some continous testing, but it will need constant maintainers. Could this be you?
 
 SLES? OpenBSD? Firefox? LibreOffice?
 ------------------------------------
@@ -1028,6 +1037,12 @@ Future
  * Reproducible live images (pure Debian, Grml, Tails)
  * Reproducible cross-platform builds ("rebootstrap")
  * Binary transparency logs: public log of all software releases
+
+Reminder
+--------
+
+ * This is just "research" at the moment. Debian ain't reproducible at all currently.
+ * It is "theoretically possible". And we do have received lots of support. Personally I hope for much progress at and after DebConf15 in August 2015 in Heidelberg.
 
 Thanks
 ------
