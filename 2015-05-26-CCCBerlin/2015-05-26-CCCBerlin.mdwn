@@ -843,21 +843,27 @@ akira\\
 Andrew Ayer\\
 Asheesh Laroia\\
 Chris Lamb (lamby)\\
+Christoph Berg\\
 Chris West\\
 Daniel Kahn Gillmor\\
 David Suarez\\
 Drew Fisher\\
+Eduard Sanou (dhole)\\
 Guillem Jover\\
 Hans-Christoph Steiner\\
 Helmut Grohne\\
 Holger Levsen\\
+Jelmer Vernooij\\
 josch\\
+Juan Picca\\
 Lunar\\
 Mattia Rizzolo\\
+Nicolas Boulenguez\\
 Niels Thykier\\
 Niko Tyni\\
 Paul Wise\\
 Peter De Wachter\\
+Philip Rinn\\
 Reiner Herrmann\\
 Stefano Rivera\\
 Stéphane Glondu\\
