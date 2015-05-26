@@ -1034,7 +1034,7 @@ Reminder
 --------
 
  * This is just "research" at the moment. Debian ain't reproducible at all currently.
- * It is "theoretically possible". And we do have received lots of support. Personally I hope for much progress at and after DebConf15 in August 2015 in Heidelberg.
+ * However, we know now it is "theoretically possible". And we do have received lots of support. Personally I hope for much progress at and after DebConf15 in August 2015 in Heidelberg.
 
 Thanks
 ------
