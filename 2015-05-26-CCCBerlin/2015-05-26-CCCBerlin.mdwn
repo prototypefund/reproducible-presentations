@@ -508,7 +508,7 @@ reproducible.debian.net: package sets
 ------------
 
  * currently 25 package sets:
-     - `Essential:yes`, ,`Required:yes`, `build-essential` and their build dependencies
+     - `Essential:yes`, `Required:yes`, `build-essential` and their build dependencies
      - 1337 most frequently installed packages (`popcon`)
      - "key packages" (from UDD)
      - All Packages installed on all debian.org machines
@@ -817,6 +817,9 @@ You think those were enough issues?
 ----------------------------------------
 
  * The slides have not been updated for the 66 new issues identified since January 31 2015 for 124 in total today.
+	* timezone issues
+	* umask issues
+	* several other issues with smaller impact…
  * Today there are 3468 packages with notes, compared to 2243 "back then".
 
 Bugs filed
