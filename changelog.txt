@@ -7,13 +7,8 @@ https://wiki.debian.org/ReproducibleBuilds/History
 should cover history. This file is for tracking
 changes since the last presentation.
 
-changes since fosdem 2015
--------------------------
-* update screenshots
-* review: current status page, explain next likely/needed steps...
-* make images
-* list all 11 modified source packages?
+changes since end of May 2015
+-----------------------------
+* update screenshots, ~64 issues not mentioned at all
 * print .mdwn
-* mention r.d.n/$pkg earlier?
 
-* clear this list completly.
