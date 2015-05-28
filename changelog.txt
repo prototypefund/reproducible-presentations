@@ -10,4 +10,5 @@ changes since the last presentation.
 changes since end of May 2015
 -----------------------------
 * update screenshots, ~64 issues not mentioned at all
-
+* new pkg sets:
+** pkg-php-pear
