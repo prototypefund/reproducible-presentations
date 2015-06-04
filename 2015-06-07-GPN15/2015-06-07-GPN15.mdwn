@@ -346,6 +346,8 @@ strip-nondeterminism
      - gzip
      - Java jar
      - Javadoc HTML
+     - Maven pom.properties
+     - PNG
      - ZIP archives
  * Written in Perl (like `dpkg-dev`)
 
@@ -404,9 +406,9 @@ reproducible.debian.net: today
  * driven by jenkins.debian.net
 	* announced 2014-09-26
  * virtual hardware sponsored by profitbricks.com - constantly increasing ;-) Thanks for the support!
-	* migration to a even more distributed system has just begun, incl. to jenkins.debian.org and using a 2nd build host
+	* migration to an even more distributed system has just begun, incl. to jenkins.debian.org and using a 2nd build host
  * tests packages in `main` on `amd64` in `experimental`, `unstable` and `testing`
-	* scheduler reschedules unstable twice as testing at te moment - but we can change this anytime easily
+	* scheduler reschedules unstable twice as testing at the moment - but we can change this anytime easily
 	* frequent IRC notifications, optionally targeted on demand
  * all code and configuration in `jenkins.debian.net.git`
 
@@ -421,11 +423,11 @@ For those in the back
 ---------------------
 
 \begin{center}
-\Huge 81.5\%
+\Huge 81.7\%
 
-\normalsize More than 17,800 source packages!
+\normalsize More than 17,900 source packages!
 
-\visible<2>{(in our test environment!)}
+\visible<2>{(in our test environment)}
 \end{center}
 
 reproducible.debian.net: variations
@@ -438,7 +440,7 @@ The second build differs by:
  * file ordering
  * CPU ordering and availability
  * hostname, domainname
- * username
+ * username, uid, gid
  * umask
  * `LANG` and `LC_ALL`
  * kernel version (using `linux64 --uname-2.6`)
@@ -463,29 +465,29 @@ reproducible.debian.net: package
 --------------------------------
 
 \begin{center}
-\includegraphics[width=0.9\textwidth]{images/gdb_notes}
+\includegraphics[width=0.9\textwidth]{images/apparmor_notes}
 \end{center}
 
 reproducible.debian.net: package
 --------------------------------
 
 \begin{center}
-\includegraphics[width=0.9\textwidth]{images/gdb_debbindiff}
+\includegraphics[width=0.9\textwidth]{images/apparmor_debbindiff}
 \end{center}
 
 reproducible.debian.net: package
 --------------------------------
 
 \begin{center}
-\includegraphics[width=0.9\textwidth]{images/gdb_rbuild}
+\includegraphics[width=0.9\textwidth]{images/apparmor_rbuild}
 \end{center}
 
 Experimental “reproducible” toolchain
 -------------------------------------
 
  * Test and refine changes to tools used by build systems
- * Currently 11 source packages modified - compared to `unstable`:
-	* **`dpkg`**, **`debhelper`**, `cdbs`, `docbook-to-man`, `fontforge`, `ghostscript`, `gtk-doc`, `libxslt`, `python-support`, `sphinx` \& `wheel`
+ * Currently 9 source packages modified - compared to `unstable`:
+	* **`dpkg`**, **`debhelper`**, **`cdbs`**, `docbook-to-man`, `fontforge`, `ghostscript`, `libxslt`, `python-support` \& `wheel`
  * Most patches already submitted to the BTS
  * `git://git.debian.org/reproducible/$pkg.git` in branch `pu/reproducible_builds`
  * repositories overview on `r.d.n`
@@ -507,16 +509,16 @@ Identified issues
 reproducible.debian.net: package sets
 ------------
 
- * currently 25 package sets:
+ * currently 27 package sets:
      - `Essential:yes`, `Required:yes`, `build-essential` and their build dependencies
      - 1337 most frequently installed packages (`popcon`)
      - "key packages" (from UDD)
      - All Packages installed on all debian.org machines
      - All Packages which had a security fix (DSA) published
-     - All (GNOME|KDE|XFCE) packages and their build dependencies
+     - All (GNOME|KDE|XFCE) packages & build dependencies
      - All packages in Tails and their build dependencies
      - All packages in Grml and their build dependencies
-     - All packages maintained by pkg-perl-maintainers, pkg-java-maintainers, pkg-haskell-maintainers, pkg-ruby-extras-maintainers, pkg-golang-maintainers, debian-ocaml, debian-boot
+     - All packages maintained by pkg-perl-maintainers, pkg-java-maintainers, pkg-haskell-maintainers, pkg-ruby-extras-maintainers, pkg-golang-maintainers, pkg-php-pear, pkg-javascript-devel, debian-ocaml, debian-boot
 
 r.d.n package sets: tails_build-depends
 ------------
@@ -533,8 +535,10 @@ reproducible.debian.net: more goodies
  * List of packages without any identified issue
  * Reproducibility status displayed in:
 	* `tracker.debian.org`
-	* Debian Developer's Package Overview, eg. `https://qa.debian.org/developer.php?login=holger@debian.org`
-	* Debian Maintainer Dashbord, eg `https://udd.debian.org/dmd/?email=holger%40debian.org`
+	* Debian Developer's Package Overview
+        - https://qa.debian.org/developer.php?login=holger@debian.org
+	* Debian Maintainer Dashboard
+        - https://udd.debian.org/dmd/?email=holger%40debian.org
 
 ----------------------------------
 
@@ -570,20 +574,25 @@ Examples\Large
 Timestamps added by build systems
 \end{center}
 
-Timestamps in static libraries
-------------------------------
+Timestamps in gzip headers
+--------------------------
 
-\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_dot_a}
-
-Timestamps in static libraries (cont.)
---------------------------------------
-
-\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_static_library}
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_gzip}
 
 Timestamps written by Maven
 ---------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_maven}
+
+Timestamps in generated Makefiles
+---------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_qmake_makefile}
+
+Timestamps in header files
+--------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_header_files}
 
 Timestamps written by PyQt4
 ---------------------------
@@ -602,14 +611,15 @@ Windows, UEFI, Mono…
 
 \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_pe}
 
-Timestamps in Java jar
-----------------------
+Timestamps in ADA library information
+-------------------------------------
 
-\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_jar}
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_ada_ali}
 
-\begin{flushright}\small
-They are ZIP archives, really.
-\end{flushright}
+Timestamps in Ruby gemspec files
+--------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_ruby_gemspec}
 
 Timestamps in PHP registry
 --------------------------
@@ -619,7 +629,12 @@ Timestamps in PHP registry
 Timestamps by a template engine
 -------------------------------
 
-\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_random_py}
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_cheetah}
+
+Timestamps in Python version
+----------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_python_version}
 
 Identified issues (cont.)
 -------------------------
@@ -630,15 +645,29 @@ Examples\Large
 Archives
 \end{center}
 
-Timestamps in gzip headers
---------------------------
+Timestamps in static libraries
+------------------------------
 
-\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_gzip}
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_dot_a}
+
+Timestamps in static libraries (cont.)
+--------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_static_library}
 
 Timestamps in ZIP archives
 --------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_zip}
+
+Timestamps in Java jar
+----------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_jar}
+
+\begin{flushright}\small
+They are actually ZIP archives.
+\end{flushright}
 
 Timestamps in tarballs
 ----------------------
@@ -649,6 +678,11 @@ Users and groups in tarballs
 ----------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/user_and_group_in_tarball}
+
+Random order in tarballs
+------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/random_order_in_tarball}
 
 Identified issues (cont.)
 -------------------------
@@ -669,15 +703,45 @@ Timestamps written by docbook-to-man
 
 \includegraphics[width=0.9\textwidth]{images/examples/docbook-to-man}
 
+Timestamps written by Groovydoc
+-------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_groovydoc}
+
+Timestamps written by Epydoc
+----------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_epydoc}
+
+Timestamps written by Sphinx
+----------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_sphinx}
+
 Timestamps written by Ghostscript
 ---------------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_ghostscript}
 
-Timestamps written by Ghostscript (cont.)
------------------------------------------
+Timestamps written by LaTeX
+---------------------------
 
-\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_ghostscript_cont}
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_latex}
+
+Timestamps written by texi2html
+-------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_texi2html}
+
+Timestamps written by texi2html (cont.)
+---------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/random_order_in_texi2html}
+
+Timestamps written by help2man
+------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_help2man}
 
 Timestamps written by GNU groff
 -------------------------------
@@ -748,6 +812,16 @@ m4 macros for autoconf (hostname)
 
 \includegraphics[width=0.9\textwidth]{images/examples/hostname_in_m4}
 
+Recorded kernel version
+-----------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/embedded_kernel_version}
+
+Bonus points for programmers
+----------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/wordwarvi}
+
 Identified issues (cont.)
 -------------------------
 
@@ -784,6 +858,21 @@ Random serial numbers in Ogg streams
 
 \includegraphics[width=0.9\textwidth]{images/examples/random_serials_in_ogg}
 
+Random import order in Python code
+----------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/random_python_import_order}
+
+Random order in Python namespace files
+--------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/random_order_in_python_ns}
+
+Temporary filenames in Ocaml libraries
+--------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/temp_filenames_in_ocaml_lib}
+
 Identified issues (cont.)
 -------------------------
 
@@ -792,6 +881,16 @@ Examples\Large
 
 Even more timestamps!
 \end{center}
+
+Timestamp-dependent rebuilds
+----------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamp_dependent_rebuilds}
+
+Timestamps in EPUB files
+------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_epub}
 
 Timestamps in PNG
 -----------------
@@ -813,14 +912,15 @@ And fonts!
 You think those were enough issues?
 \end{center}
 
-66 new issues in the last 4 months found
+71 new issues in the last 4 months found
 ----------------------------------------
 
- * The slides have not been updated for the 66 new issues identified since January 31 2015 for 124 in total today.
+ * The slides have not been updated for all the 71 new issues identified since January 31 2015 (today 129 in total).
 	* timezone issues
 	* umask issues
 	* several other issues with smaller impact…
- * Today there are 3468 packages with notes, compared to 2243 "back then".
+ * Today there are 3479 packages with notes, compared to 2243 "back then".
+    * 364 unreproducible packages still without notes
 
 Bugs filed
 ----------
@@ -861,10 +961,10 @@ How to help Debian?
      - Random filenames with GCC;
  * Hack Debian archive infrastructure
      - Store and distribute `*.buildinfo` files (#763822))
-           - our patch `dpkg` also ain't in the BTS yet
-     - reproducibly should be mandated in debian-policy…
- * Hack tools to display local packages reproducibility status
- * We need a logo too :)
+           - our `dpkg` patch isn't in the BTS yet
+     - reproducibility should be mandated in debian-policy…
+ * Hack tools to display local package reproducibility status
+ * We need a logo too :-)
  * …
 
 Contributors
@@ -915,8 +1015,8 @@ Stay in touch
      - `reproducible-builds@lists.alioth.debian.org`
      - `reproducible-commits@lists.alioth.debian.org`
  * Join `#debian-reproducible` on `irc.oftc.net`
-     - regular team meetings planned, first scheduled for 2015-06-03 19:00 UTC
- * Weekly reports
+     - regular biweekly team meetings, first took place this week
+ * Weekly reports (Lunar's blog / planet.debian.org)
 
 Other distributions
 -------------------
@@ -930,7 +1030,7 @@ Other distributions
  * NixOS  
    <http://lists.science.uu.nl/pipermail/nix-dev/2013-June/011357.html>
  * FreeBSD: <https://wiki.freebsd.org/ReproducibleBuilds> and <https://wiki.freebsd.org/PortsReproducibleBuilds>
- * OpenWRT: <http://thread.gmane.org/gmane.comp.embedded.openwrt.devel/31080>
+ * OpenWrt: <http://thread.gmane.org/gmane.comp.embedded.openwrt.devel/31080>
 
 Reproducible Fedora?
 --------------------
@@ -943,11 +1043,11 @@ Reproducible Fedora?
 \includegraphics[width=0.6\textwidth]{images/fedoralogo}
 \end{center}
 
-You're involved in Fedora? FreeBSD? OpenWRT?
+You're involved in Fedora? FreeBSD? OpenWrt?
 --------------------
 
- * Please talk to me.
- * I'd be glad to help set up some continous testing, but it will need constant maintainers. Could this be you?
+ * Please talk to us.
+ * We'd be glad to help set up some continuous testing, but it will need constant maintainers. Could this be you?
 
 SLES? OpenBSD? Firefox? LibreOffice?
 ------------------------------------
@@ -1035,12 +1135,13 @@ Future
 Reminder
 --------
 
- * This is just "research" at the moment. Debian ain't reproducible at all currently.
- * However, we know now it is "theoretically possible". And we do have received lots of support. Personally I hope for much progress at and after DebConf15 in August 2015 in Heidelberg.
+ * This is just "research" at the moment. Debian is not reproducible at all currently.
+ * However, we now know it is "theoretically possible" and feasible. And we do have received lots of support. We hope for much progress at and after DebConf15 in August 2015 in Heidelberg.
 
 Thanks
 ------
 
+ * Lunar, Holger Levsen, Mattia Rizzolo
  * Mike Perry and Seth Schoen for their 31C3 talk
  * Profitbricks for sponsoring `jenkins.debian.net`
  * Globalsign for sponsoring X.509 certificates
@@ -1052,12 +1153,6 @@ Thanks
 \hspace{3em}
 \includegraphics[width=0.3\textwidth]{images/globalsign-logo}
 \end{center}
-
-\begin{center}
-\visible<2>{\Large Very many thanks to:}
-\visible<2>{\Huge Lunar}
-\end{center}
-
 
 Questions? Comments?
 --------------------
@@ -1075,6 +1170,6 @@ Questions? Comments?
 
 \resizebox{\textwidth}{!}{
 \begin{tabular}{rl}
- Holger & \texttt{B8BF 5413 7B09 D35C F026  FE9D 091A B856 069A AA1C} \\
+ Reiner & \texttt{2F5D AF3F C1F7 93D9 4F3D  900C A721 DA05 5374 AA4F} \\
 \end{tabular}
 }
