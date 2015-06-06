@@ -445,6 +445,7 @@ The second build differs by:
  * `LANG` and `LC_ALL`
  * kernel version (using `linux64 --uname-2.6`)
  * `DEB_BUILD_OPTIONS="parallel=22"`
+ * `PATH`
 
 What is not varied (yet)
 ------------------------

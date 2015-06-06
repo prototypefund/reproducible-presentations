@@ -7,12 +7,7 @@ https://wiki.debian.org/ReproducibleBuilds/History
 should cover history. This file is for tracking
 changes since the last presentation.
 
-changes since end of May 2015
------------------------------
+changes since beginning of June 2015
+------------------------------------
 * update screenshots, ~64 issues not mentioned at all
-* new pkg sets:
-** pkg-php-pear
-** pkg-javascript-devel
-* new modifcations for 2nd build:
-** PATH
 
