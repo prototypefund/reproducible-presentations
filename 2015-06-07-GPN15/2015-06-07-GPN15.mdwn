@@ -487,8 +487,8 @@ Experimental “reproducible” toolchain
 -------------------------------------
 
  * Test and refine changes to tools used by build systems
- * Currently 9 source packages modified - compared to `unstable`:
-	* **`dpkg`**, **`debhelper`**, **`cdbs`**, `docbook-to-man`, `fontforge`, `ghostscript`, `libxslt`, `python-support` \& `wheel`
+ * Currently 8 source packages modified - compared to `experimental`:
+	* **`dpkg`**, **`debhelper`**, **`cdbs`**, `docbook-to-man`, `fontforge`, `libxslt`, `python-support` \& `wheel`
  * Most patches already submitted to the BTS
  * `git://git.debian.org/reproducible/$pkg.git` in branch `pu/reproducible_builds`
  * repositories overview on `r.d.n`
