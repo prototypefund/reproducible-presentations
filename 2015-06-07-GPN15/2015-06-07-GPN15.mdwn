@@ -387,7 +387,7 @@ Initially a 10 lines shell script…
 
 reproducible.debian.net: today
 -------------------------------
- * 27 jobs defined in 370 LOC of YAML
+ * 28 jobs defined in 379 LOC of YAML
 	* 8 build jobs, rescheduled every 2 minutes
 	* Job for auto-scheduling via a SQLite database
 	* 5 jobs to recreate pbuilder base.tgz for sid, testing and experimental and debbindiff schroots (just sid and testing)
@@ -395,9 +395,9 @@ reproducible.debian.net: today
 	* JSON output
 	* a maintainance job and one to report problems in the results
 	* remaining jobs mostly to create HTML and graphs
- * 11 Shell scripts with 2766 LOC
+ * 12 Shell scripts with 3085 LOC
 	* including one to be manually run (on alioth) by team members to independently schedule packages
- * 11 Python3 scripts with 3123 LOC
+ * 12 Python3 scripts with 3338 LOC
  * constantly updated "static" webpages
 
 reproducible.debian.net: today
@@ -916,10 +916,8 @@ You think those were enough issues?
 71 new issues in the last 4 months found
 ----------------------------------------
 
- * The slides have not been updated for all the 71 new issues identified since January 31 2015 (today 129 in total).
-	* timezone issues
-	* umask issues
-	* several other issues with smaller impact…
+ * Not all new issues that have been identified since January 31 2015 (today 129 in total) are included in these slides.
+    * A lot of issues have an impact on only a very small number of packages
  * Today there are 3479 packages with notes, compared to 2243 "back then".
     * 364 unreproducible packages still without notes
 
