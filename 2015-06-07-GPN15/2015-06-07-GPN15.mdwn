@@ -1044,18 +1044,8 @@ Reproducible Fedora?
 \includegraphics[width=0.6\textwidth]{images/fedoralogo}
 \end{center}
 
-You're involved in Fedora? FreeBSD? OpenWrt?
+You're involved in Fedora? FreeBSD? OpenWrt? SLES? OpenBSD? Arch?
 --------------------
-
- * Please talk to us.
- * We'd be glad to help set up some continuous testing, but it will need constant maintainers. Could this be you?
-
-SLES? OpenBSD? Firefox? LibreOffice?
-------------------------------------
-
- * We hope **reproducible builds** will become the norm.
- * Our documentation should be helpful to others.
- * Come talk to us!
 
 \begin{center}
 \includegraphics[width=16px]{images/libre-logos/amarok}
@@ -1123,6 +1113,16 @@ SLES? OpenBSD? Firefox? LibreOffice?
 \includegraphics[width=16px]{images/libre-logos/ubuntu}
 \includegraphics[width=16px]{images/libre-logos/xonotic}
 \end{center}
+
+ * Please talk to us!
+
+You're involved in Fedora? FreeBSD? OpenWrt? SLES? OpenBSD? Arch?
+--------------------
+
+ * We'd be glad to help set up some continuous testing, but it will need constant maintainers. Could this be you?
+ * We hope **reproducible builds** will become the norm.
+ * Our documentation should be helpful to others.
+ * Come talk to us!
 
 Future
 ------
