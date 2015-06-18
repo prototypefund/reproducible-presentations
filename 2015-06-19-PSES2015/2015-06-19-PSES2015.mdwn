@@ -42,8 +42,8 @@ Avoir confiance dans la compilation ?
 }
 \end{tikzpicture}
 
-C'est moi le développeur
-------------------------
+Point de vue du dév.
+--------------------
 
 \begin{flushleft}
 « \textit{Je suis au courant de ce qu'il y a dans le binaire, c'est moi qui l'ai compilé !}”
@@ -69,7 +69,7 @@ Source : [The Intercept, 2015-03-10](https://firstlook.org/theintercept/2015/03
 Une backdoor, c'est petit comment ?
 -----------------------------------
 
-OpenSSH 3.0.2 (CVE-2002-0083) – trou de sécurité (avec élévation de privilège : accès \textit{root} à distance)
+OpenSSH 3.0.2 (CVE-2002-0083) – trou de sécurité (avec élévation de privilèges : accès \textit{root} à distance)
 
 ~~~diff
  {
@@ -293,15 +293,15 @@ Build-Environment:
 Réinstaller les paquets originaux
 ---------------------------------
 
- * `snapshot.debian.org` archive tous les états de l'archive Debian.
- * 2015-05-25: 29 Tio de données sur 17 million de fichiers.
+ * `snapshot.debian.org` archive tous les états de l'archive Debian
+ * 29 Tio de données sur 17 million de fichiers (2015-05-25)
 
 srebuild
 --------
 
  * Script qui permet de reproduire une compilation à partir d'un *buildinfo*
  * Trouve la sauvegarde de l'archive qui correspond
- * Installe les paquets listés dans le fichier `.buildinfo`.
+ * Installe les paquets listés dans le fichier `.buildinfo`
  * Lance la compilation
 
 Prototype : [#774415](https://bugs.debian.org/774415)
@@ -378,15 +378,15 @@ La deuxième compilation est différente sur :
 Variations testées pour les paquets Debian
 ------------------------------------------
 
- * le nom de la machine et son nom de domaine,
+ * le nom de la machine et son nom de domaine
  * le nom du compte, ainsi que *uid* et *gid*
  * le *umask*
  * la locale (`LC_ALL`) et la langue (`LANG`)
  * la version du noyau
  * le `PATH`
 
-Ce qui est encore semblable
----------------------------
+Variations en projet
+--------------------
 
  * la date (*mais on triche avec les fuseaux horaires*)
  * `/proc/cpuinfo`
@@ -743,7 +743,8 @@ Comment corriger ?
 ------------------
 
  * Horodatage :
-    - Préférer une référence au code (numéro version, hash du commit git)
+    - Préférer une référence précise au code en train d'être compilé  
+      (numéro de version, hash du commit git)
     - Utiliser une date de référence (dernière modification du code)
     - Utiliser le fuseau horaire UTC
  * Ordre aléatoire :
@@ -799,10 +800,10 @@ Toujours en phase expérimentale
  * On teste et raffine des changements sur les outils de compilation
    dans un dépôt à part.
  * Prochaines étapes :
-   - Permettre les `.buildinfo` dans l'archive (#763822)
-   - Faire rentrer les changements pour `dpkg`
-   - Avoir les `.buildinfo` sur les miroirs
-   - Terminer le script `srebuild` (#774415)
+    - Permettre les `.buildinfo` dans l'archive (#763822)
+    - Faire rentrer les changements pour `dpkg`
+    - Avoir les `.buildinfo` sur les miroirs
+    - Terminer le script `srebuild` (#774415)
 
 D'autres distributions
 ----------------------
@@ -815,8 +816,11 @@ D'autres distributions
    <https://build.opensuse.org/package/show/openSUSE:Factory/build-compare>
  * NixOS  
    <http://lists.science.uu.nl/pipermail/nix-dev/2013-June/011357.html>
- * FreeBSD: <https://wiki.freebsd.org/ReproducibleBuilds> and <https://wiki.freebsd.org/PortsReproducibleBuilds>
- * OpenWrt: <http://thread.gmane.org/gmane.comp.embedded.openwrt.devel/31080>
+ * FreeBSD  
+   <https://wiki.freebsd.org/ReproducibleBuilds> and  
+   <https://wiki.freebsd.org/PortsReproducibleBuilds>
+ * OpenWrt  
+   <https://lists.openwrt.org/pipermail/openwrt-devel/2015-March/032136.html>
 
 Partout ailleurs ?
 ------------------
