@@ -165,7 +165,7 @@ Vérification indépendante
 environnement de compilation\\
 +\\
 code source\\
-↓\\
+=\\
 binaire
 \end{center}
 
@@ -214,7 +214,8 @@ Pourquoi Debian ?
 
  * Debian est la plus grande collection de logiciels libres
  * Plus de 22 000 paquets sources
- * « Nos priorités sont nos **utilisateur·ice·s** et les **logiciels libres** »
+ * « Nos priorités sont nos **utilisateur·ice·s**  
+   et les **logiciels libres** »
 
 Comment on fait ?
 -----------------
@@ -223,9 +224,8 @@ Comment on fait ?
  * Reproduire l'environnement de compilation
  * Éliminer les variations inutiles
 
-
-Enregistrer/reproduire l'environnement de compilation
------------------------------------------------------
+Approches possibles pour l'environnement
+----------------------------------------
 
  * Recompiler l'environnement
     - [Coreboot](http://www.coreboot.org/Development_Guidelines#Required_Toolchain), [OpenWrt](http://wiki.openwrt.org/about/toolchain), [Bazel](http://bazel.io/)
@@ -342,10 +342,10 @@ debbindiff
  * Sort les différences au format HTML ou texte
  * Décompresse les archives de façon récursive
  * Cherche la lisibilité :
-   - décompresse les PDF
-   - désassemble les binaires
-   - réassemble les fichiers Gettext
-   - … *facile à étendre pour de nouveaux formats de fichiers*
+    - décompresse les PDF
+    - désassemble les binaires
+    - réassemble les fichiers Gettext
+    - … *facile à étendre pour de nouveaux formats de fichiers*
  * Reviens à la comparaison binaire pour tout le reste
 
 Comment trouver les différences ?
@@ -360,8 +360,8 @@ reproducible.debian.net
 
  * Système de tests en continu piloté par Jenkins
  * Grosse machine sponsorisée par [ProfitBricks](https://wwww.profitbricks.com/)
- * Vérifie en moyenne autour de 1300 paquets Debian par jour.
- * Résultats accessibles via la web.
+ * Vérifie en moyenne autour de 1300 paquets Debian par jour
+ * Résultats accessibles via la web
  * Ajoutés récemment : Coreboot et OpenWrt
 
 Variations testées pour les paquets Debian
@@ -375,8 +375,8 @@ La deuxième compilation est différente sur :
  * l'ordre des processus
  * le nombre de cœurs alloués
 
-Variations testées pour les paquets Debian (suite)
---------------------------------------------------
+Variations testées pour les paquets Debian
+------------------------------------------
 
  * le nom de la machine et son nom de domaine,
  * le nom du compte, ainsi que *uid* et *gid*
@@ -388,7 +388,7 @@ Variations testées pour les paquets Debian (suite)
 Ce qui est encore semblable
 ---------------------------
 
- * la date (*mais on triche avec les fuseaux horaires)
+ * la date (*mais on triche avec les fuseaux horaires*)
  * `/proc/cpuinfo`
  * le système de fichiers
 
@@ -432,8 +432,8 @@ Horodatage par Maven
 
 \includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_maven}
 
-Horodatage dans des fichiers Makefile générés
----------------------------------------------
+Horodatage dans des Makefile générés
+------------------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_qmake_makefile}
 
@@ -479,8 +479,8 @@ Horodatage par Cheetah
 
 \includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_cheetah}
 
-Horodatage dans la version d'un module Python
----------------------------------------------
+Horodatage dans la version d'un module
+--------------------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_python_version}
 
@@ -498,8 +498,8 @@ Horodatage dans le bibliothèques statiques
 
 \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_dot_a}
 
-Horodatage dans le bibliothèques statiques (suite)
---------------------------------------------------
+Horodatage dans le bibliothèques statiques
+------------------------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_static_library}
 
@@ -645,18 +645,18 @@ Horodotage via ./configure
 
 \includegraphics[width=0.9\textwidth]{images/examples/date_in_configure}
 
-Des macros wm4 pour autoconf (horodatage)
------------------------------------------
+Macros m4 pour autoconf (horodatage)
+------------------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/date_in_m4}
 
-Des macros wm4 pour autoconf (login)
-------------------------------------
+Macros m4 pour autoconf (login)
+-------------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/whoami_in_m4}
 
-Des macros wm4 pour autoconf (nom de machine)
----------------------------------------------
+Macros m4 pour autoconf (nom de machine)
+----------------------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/hostname_in_m4}
 
@@ -692,13 +692,13 @@ Numéro de série aléatoire dans les flux Ogg
 
 \includegraphics[width=0.9\textwidth]{images/examples/random_serials_in_ogg}
 
-Ordre aléatoire des imports dans du code Python
------------------------------------------------
+Ordre aléatoire des imports dans du Python
+------------------------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/random_python_import_order}
 
-Nom de fichiers temporaire dans les bibliothèques Ocaml
--------------------------------------------------------
+Nom de fichiers temporaire avec ocamlc
+--------------------------------------
 
 \includegraphics[width=0.9\textwidth]{images/examples/temp_filenames_in_ocaml_lib}
 
@@ -743,15 +743,19 @@ Comment corriger ?
 ------------------
 
  * Horodatage :
-   - Préférer une référence au code (numéro version, hash du commit git)
-   - Utiliser une date de référence (dernière modification du code)
-   - Utiliser le fuseau horaire UTC
+    - Préférer une référence au code (numéro version, hash du commit git)
+    - Utiliser une date de référence (dernière modification du code)
+    - Utiliser le fuseau horaire UTC
  * Ordre aléatoire :
-   - Trier les clés ou les fichiers
+    - Trier les clés ou les fichiers
+
+Comment corriger ? (suite)
+--------------------------
+
  * Chemins :
-   - Utiliser toujours le même dossier
+    - Utiliser toujours le même dossier
  * Noyau, processeur, login, … :
-   - Ne pas enregistrer d'informations inutiles dans les binaires
+    - Ne pas enregistrer d'informations inutiles dans les binaires
 
 On peut aussi nettoyer *a posteriori*.
 
