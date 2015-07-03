@@ -1,0 +1,1102 @@
+\titlepage
+
+----------------------------------
+
+\begin{center}
+\Huge What?
+\end{center}
+
+What are reproducible builds?
+-----------------------------
+
+\begin{center}
+\Large
+“reproducible builds”\\
+enable anyone to reproduce\\
+identical binary packages\\
+from a given source
+\end{center}
+
+Trusting a build?
+-----------------
+
+\center
+\begin{tikzpicture}
+\draw (-2,0) node[font=\LARGE] (source) { source };
+\draw (2,0) node[font=\LARGE] (binary) { binary };
+\draw[->,very thick] (source) -- (binary) node[midway] (midbuild) {};
+\draw (midbuild) node [above,color=debianred,font=\small] (build) {build};
+\visible<2>{
+\draw (0,2) node[font=\LARGE,color=debianblue] (fs) { free software };
+% font= specification is required to work-around a bug in md->latex conversion
+\draw[->,font=\normalsize] (fs) -- (source) node[midway,left=0.2cm,color=debianred,font=\footnotesize,align=center]{freedom\\to study};
+\draw[->,font=\normalsize] (fs) -> (binary) node[midway,right=0.2cm,color=debianred,font=\footnotesize,align=center]{freedom\\to run};
+}
+\visible<3->{
+\draw (-4,-1) node[font=\small,color=debianblue] (verified) { can be verified };
+\draw (4,-1) node[font=\small,color=debianblue] (used) { can be used };
+\path (verified) edge[->,bend left=30] (source);
+\path (used) edge[->,bend right=30] (binary);
+}
+\visible<4->{
+\draw (0,-2) node[font=\LARGE,color=debianred,align=center] (prove) { could I get a proof? };
+\path (prove) edge[->] (midbuild);
+}
+\end{tikzpicture}
+
+----------------------------------
+
+\begin{center}
+\Huge Why?
+\end{center}
+
+Why?
+----
+
+Reproducible builds allow for **independent verifications** that a binary matches
+what the source intended to produce.
+
+\begin{flushright}
+… and other nice things.
+\end{flushright}
+
+But I'm the developer!
+----------------------
+
+\begin{flushleft}
+“\textit{I know what's in the binary because I compiled it myself!}”
+\end{flushleft}
+
+\begin{center}
+“\textit{I'm an upstanding, careful, and responsible individual!}”
+\end{center}
+
+\begin{flushright}
+“\textit{Why should I have to worry about hypothetical risks about the contents of my binaries?”}
+\end{flushright}
+
+No kidding
+----------
+
+At a CIA conference in 2012:
+
+\includegraphics[width=\textwidth]{images/strawhorse}
+
+Source : [The Intercept, 2015-03-10](https://firstlook.org/theintercept/2015/03/10/ispy-cia-campaign-steal-apples-secrets/)
+
+Unpleasant thoughts
+-------------------
+
+ * We think of software development as a fundamentally benign activity.
+     - “*I'm not that interesting.*”
+ * Users can be targeted through developers
+ * Known successful attacks against infrastructure used by Linux (2003),
+   FreeBSD (2013)
+
+Strong motivations
+------------------
+
+ * Compromise one computer to get:
+     - Hundreds of millions of other computers?
+     - Every bank account in the world?
+     - Every Windows computer in the world?
+     - Every Linux server in the world?
+ * Compromise one computer is worth:
+     - $100k USD? (Market price of remote 0day)
+     - $100M USD? (Censorship budget of Iran per year)
+     - $4B USD? (Bitcoin market cap)
+
+How small can a backdoor be?
+----------------------------
+
+OpenSSH 3.0.2 (CVE-2002-0083) – exploitable security bug (privilege escalation: user can get root)
+
+~~~diff
+ {
+   Channel *c;
+-  if (id < 0 || id > channels_alloc) {
++  if (id < 0 || id >= channels_alloc) {
+     log("channel_lookup: %d: bad id", id);
+     return;
+   }
+~~~
+
+Result of fixing the bug (asm)
+------------------------------
+
+~~~diff
+~~~
+
+\begin{overprint}
+\onslide<1>
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cmpl $0x0,0x8(%ebp)      cmpl $0x0,0x8(%ebp)}
+\NormalTok{js 16                    js 16}
+\NormalTok{mov 0x4,%eax             mov 0x4,%eax}
+\NormalTok{cmp %eax,0x8(%ebp)       cmp %eax,0x8(%ebp)}
+\NormalTok{jle 30                   jl 30}
+\NormalTok{mov 0x8(%ebp),%eax       mov 0x8(%ebp),%eax}
+\NormalTok{mov %eax,0x4(%esp)       mov %eax,0x4(%esp)}
+\NormalTok{movl $0x4c,(%esp)        movl $0x4c,(%esp)}
+\NormalTok{call 25                  call 25}
+\end{Highlighting}
+\end{Shaded}
+\onslide<2>
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cmpl $0x0,0x8(%ebp)      cmpl $0x0,0x8(%ebp)}
+\NormalTok{js 16                    js 16}
+\NormalTok{mov 0x4,%eax             mov 0x4,%eax}
+\NormalTok{cmp %eax,0x8(%ebp)       cmp %eax,0x8(%ebp)}
+\StringTok{jle}\NormalTok{ 30                   }\OtherTok{jl}\NormalTok{ 30}
+\NormalTok{mov 0x8(%ebp),%eax       mov 0x8(%ebp),%eax}
+\NormalTok{mov %eax,0x4(%esp)       mov %eax,0x4(%esp)}
+\NormalTok{movl $0x4c,(%esp)        movl $0x4c,(%esp)}
+\NormalTok{call 25                  call 25}
+\end{Highlighting}
+\end{Shaded}
+\end{overprint}
+
+Resulting difference in the binary
+----------------------------------
+
+What's the difference between \texttt{\StringTok{if (a > b)}}  
+and \texttt{\OtherTok{if (a >= b)}} in x86 assembly?
+
+----------   ---------------------------------------   --------------------------------------
+assembly:                   \texttt{\StringTok{JLE}}   \texttt{\OtherTok{JL}}
+opcode:                    \texttt{0x7\StringTok{E}}   \texttt{0x7\OtherTok{C}}
+binary:       \texttt{011111\StringTok{\textbf{1}}0}   \texttt{011111\OtherTok{\textbf{0}}0}
+----------   ---------------------------------------   --------------------------------------
+
+\begin{center}\Large
+A single bit!
+\end{center}
+
+Other corresponding opcode pairs also differ by just a single bit (JGE=0x7D, JG=0x7F)
+
+Result of fixing the bug (hex)
+------------------------------
+
+\setupctable{maxwidth=\textwidth}
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+Vulnerable                                                                            Fixed
+------------------------------------------------------------------------------------- ------------------------------------------------------
+\texttt{\NormalTok{55 89 e5 83 ec}}\                                                  \texttt{\NormalTok{55 89 e5 83 ec}}\
+\texttt{\NormalTok{28 83 7d 08 00}}\                                                  \texttt{\NormalTok{28 83 7d 08 00}}\
+\texttt{\NormalTok{78 0a a1 04 00}}\                                                  \texttt{\NormalTok{78 0a a1 04 00}}\
+\texttt{\NormalTok{00 00 39 45 08}}\                                                  \texttt{\NormalTok{00 00 39 45 08}}\
+\texttt{\NormalTok{7}\alt<2>{\StringTok{e}}{\NormalTok{e}}\NormalTok{ 1a 8b 45 08}}\  \texttt{\NormalTok{7}\alt<2>{\OtherTok{c}}{\NormalTok{c}}\NormalTok{ 1a 8b 45 08}}\
+\texttt{\NormalTok{89 44 24 04 c7}}\                                                  \texttt{\NormalTok{89 44 24 04 c7}}\
+\texttt{\NormalTok{04 24 4c 00 00}}\                                                  \texttt{\NormalTok{04 24 4c 00 00}}\
+\texttt{\NormalTok{00 e8 fc ff ff}}\                                                  \texttt{\NormalTok{00 e8 fc ff ff}}\
+\texttt{\NormalTok{ff b8 00 00 00}}\                                                  \texttt{\NormalTok{ff b8 00 00 00}}\
+\texttt{\NormalTok{00 eb 35      }}\                                                  \texttt{\NormalTok{00 eb 35      }}\
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+Overall file size: approx. 500 kB
+
+My first
+--------
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{images/tor-blog}
+\end{center}
+
+Not the first
+-------------
+
+Bitcoin’s motivation:
+
+ * Malicious modifications to binaries could result in irrevocable
+   unwanted transfers of bitcoins
+ * Individual developers could be blamed for such modifications
+ * Users might not believe that a developer's machine was hacked
+ * Reproducible builds therefore protect developers
+
+And nothing new, even
+---------------------
+
+\texttt{\footnotesize%
+From: Martin Uecker <muecker@gmx.de> \\
+Cc: debian-devel@lists.debian.org \\
+Date: Sun, 23 Sep {\large 2007} 23:32:59 +0200 \\
+}
+
+\textit{%
+I think it would be really cool if the Debian policy required
+that packages could be rebuild bit-identical from source.
+At the moment, it is impossible to independly verify the
+integricity of binary packages.
+}
+
+\begin{flushright}
+\footnotesize
+\url{https://lists.debian.org/debian-devel/2007/09/msg00746.html}
+\end{flushright}
+
+Why Debian?
+-----------
+
+ * Debian is the largest collection of free software
+ * More than 21,000 source packages
+ * “Our priorities are our **users** and **free software**”
+
+----------------------------------
+
+\begin{center}
+\Huge How?
+\end{center}
+
+How to achieve reproducibility?
+-------------------------------
+
+ * Determine the build environment
+ * Reproduce the build environment
+ * Eliminate unneeded variations
+
+----------------------------------
+
+\begin{center}
+\Huge How to
+
+\Large Handle the build environment
+\end{center}
+
+----------------------------------
+
+Solution 1: rebuild the environment
+-----------------------------------
+
+ * Scripts will rebuild the environment from sources
+ * URL and checksum of source tarballs are recorded
+ * … or with Bazel, check-in everything in the VCS
+
+Approach used by [Coreboot](http://www.coreboot.org/Development_Guidelines#Required_Toolchain), [OpenWrt](http://wiki.openwrt.org/about/toolchain), [Bazel](http://bazel.io/)
+
+Solution 1: rebuild the environment
+-----------------------------------
+
+Bonus: changes in the toolchain can be reviewed, merged, bisected, etc.
+just like other changes in the code.
+
+Solution 2: system images and packages
+--------------------------------------
+
+ * Use a virtual machine or container
+ * Base install of a common distribution
+ * Follow-up installation script
+
+Tools: [Gitian](https://gitian.org/) (Bitcoin, Tor Browser), [rbm](http://rbm.boklm.eu/) (Tor Messenger)
+
+Solution 2: system images and packages
+--------------------------------------
+
+Downsides: if you use packages, you need to stick to stable distributions
+and hope no security fixes will affect the build.
+
+Or you do mix-and-match with solution 1.
+
+Solution 3: record and replay
+-----------------------------
+
+In Debian, a new control file `*.buildinfo` will record:
+
+ * Versions of build dependencies
+     - … and their dependencies
+ * Checksum of the source package.
+ * Checksums of the binary packages.
+
+Example .buildinfo
+------------------
+
+\footnotesize
+
+~~~~
+Format: 1.9
+Build-Architecture: amd64
+Source: txtorcon
+Binary: python-txtorcon
+Architecture: all
+Version: 0.11.0-1
+Build-Path: /usr/src/debian/txtorcon-0.11.0-1
+Checksums-Sha256:
+ a26549d9…7b 125910 python-txtorcon_0.11.0-1_all.deb
+ 28f6bcbe…69 2039 txtorcon_0.11.0-1.dsc
+Build-Environment:
+ base-files (= 8),
+ base-passwd (= 3.5.37),
+ bash (= 4.3-11+b1),
+ …
+~~~~
+
+snapshot.debian.org
+-------------------
+
+ * `snapshot.debian.org` archives every state of the Debian archive.
+ * 2015-05-25: 29 terabytes of data in 17 million files.
+
+srebuild
+--------
+
+ * Thin wrapper around `sbuild`
+ * Determines the base release
+ * Installs packages listed in the `*.buildinfo` file
+ * Starts the build
+
+Status: proof-of-concept in #774415
+
+----------------------------------
+
+\begin{center}
+\Huge How to
+
+\Large Eliminate unneeded variations
+\end{center}
+
+General approach
+----------------
+
+ * Gitian (Bitcoin, Tor Browser):
+     - Use a VM: same kernel, same user, same build path, …
+     - `libfaketime`
+ * Debian:
+     - Fix the tools
+     - Fix the build systems
+     - Work-arounds as last resort
+
+Investigating packages
+----------------------
+
+ * `diff`
+ * [OpenSUSE build-compare](https://github.com/openSUSE/build-compare)
+ * [debbindiff](https://packages.debian.org/sid/debbindiff)
+
+debbindiff
+----------
+
+ * Examines differences **in depth**
+ * Outputs HTML or plain text showing the differences
+ * Recursively unpack archives
+ * Seeks human readability:
+       - uncompress PDF
+       - disassemble binaries,
+       - unpack Gettext files,
+       - … *easy to extend to new file formats*
+ * Falls back to binary comparison
+
+----------------------------------
+
+\begin{center}
+\Huge Test
+
+\Large (and test again)
+\end{center}
+
+Finding variations
+------------------
+
+ * Build the package
+ * *Re*build the package
+ * Compare the results
+
+reproducible.debian.net
+-----------------------
+
+ * Continuous test system driven by Jenkins
+ * Bad ass hardware sponsored by [ProfitBricks](https://www.profitbricks.com/)
+ * Tests about 1300 source packages each day on average
+ * Results are visible on a website
+ * Recent additions: Coreboot and OpenWrt
+
+Variations for Debian packages
+------------------------------
+
+The second build differs by:
+
+ * time
+ * timezone
+ * file ordering
+ * process ordering
+ * cores used for the build
+
+Variations for Debian packages
+------------------------------
+
+ * hostname, domainname
+ * username, uid, gid
+ * umask
+ * language (`LANG`) and locale (`LC_ALL`)
+ * kernel version (using `linux64 --uname-2.6`)
+ * `PATH`
+
+Still the same for now
+----------------------
+
+ * date (*but we cheat with timezone*)
+ * `/proc/cpuinfo`
+ * rebuilds on different filesystems (currently `tmpfs` only)
+
+Are we forgetting something?
+
+----------------------------------
+
+\begin{center}
+\Huge Findings
+\end{center}
+
+Identified issues
+-----------------
+
+ * Timestamps (recording current time)
+ * File order
+ * (Pseudo-)randomness:
+       - Temporary file paths
+       - UUID
+       - Protection against complexity attacks
+
+Identified issues (cont.)
+-------------------------
+
+ * CPU and memory related:
+       - Code optimizations for current CPU class
+       - Recording of memory addresses
+ * Build-path
+ * Others, eg. locale settings
+
+Identified issues (cont.)
+-------------------------
+
+\begin{center}\Huge
+Examples\Large
+
+Timestamps added by build systems
+\end{center}
+
+Timestamps in gzip headers
+--------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_gzip}
+
+Timestamps written by Maven
+---------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_maven}
+
+Timestamps in generated Makefiles
+---------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_qmake_makefile}
+
+Timestamps in header files
+--------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_header_files}
+
+Timestamps written by PyQt4
+---------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_pyqt4}
+
+Timestamps written by Erlang compiler
+-------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_beam}
+
+Timestamps in PE binaries
+-------------------------
+
+Windows, UEFI, Mono…
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_pe}
+
+Timestamps in ADA library information
+-------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_ada_ali}
+
+Timestamps in Ruby gemspec files
+--------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_ruby_gemspec}
+
+Timestamps in PHP registry
+--------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_php_reg}
+
+Timestamps by a template engine
+-------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_cheetah}
+
+Timestamps in Python version
+----------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_python_version}
+
+Identified issues (cont.)
+-------------------------
+
+\begin{center}\Huge
+Examples\Large
+
+Archives
+\end{center}
+
+Timestamps in static libraries
+------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_dot_a}
+
+Timestamps in static libraries (cont.)
+--------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_static_library}
+
+Timestamps in ZIP archives
+--------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_zip}
+
+Timestamps in Java jar
+----------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_jar}
+
+\begin{flushright}\small
+They are actually ZIP archives.
+\end{flushright}
+
+Timestamps in tarballs
+----------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_tarball}
+
+Users and groups in tarballs
+----------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/user_and_group_in_tarball}
+
+Random order in tarballs
+------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/random_order_in_tarball}
+
+Identified issues (cont.)
+-------------------------
+
+\begin{center}\Huge
+Examples\Large
+
+Timestamps in documentation
+\end{center}
+
+Timestamps written by Doxygen
+-----------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_doxygen}
+
+Timestamps written by docbook-to-man
+------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/docbook-to-man}
+
+Timestamps written by Groovydoc
+-------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_groovydoc}
+
+Timestamps written by Epydoc
+----------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_epydoc}
+
+Timestamps written by Sphinx
+----------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_sphinx}
+
+Timestamps written by Ghostscript
+---------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_ghostscript}
+
+Timestamps written by LaTeX
+---------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_latex}
+
+Timestamps written by texi2html
+-------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_texi2html}
+
+Timestamps written by texi2html (cont.)
+---------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/random_order_in_texi2html}
+
+Timestamps written by help2man
+------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_help2man}
+
+Timestamps written by GNU groff
+-------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_groff}
+
+Timestamps written by Javadoc
+-----------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_javadoc}
+
+Timestamps written by man2html
+------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_man2html}
+
+Timestamps in TeX output (.dvi)
+-------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_dvi}
+
+Identified issues (cont.)
+-------------------------
+
+\begin{center}\Huge
+Examples\Large
+
+“Compiled at/on/by”
+\end{center}
+
+Build time via C preprocessor macros
+------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/cpp_macros_1}
+
+Build time via C preprocessor macros
+------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/cpp_macros_2}
+
+Build time recorded via Makefile
+------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/build_date_in_makefile}
+
+Hostname recorded via ./configure
+-------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/hostname_in_configure}
+
+Build time recorded via ./configure
+---------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/date_in_configure}
+
+m4 macros for autoconf (build time)
+-----------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/date_in_m4}
+
+m4 macros for autoconf (username)
+---------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/whoami_in_m4}
+
+m4 macros for autoconf (hostname)
+--------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/hostname_in_m4}
+
+Recorded kernel version
+-----------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/embedded_kernel_version}
+
+Bonus points for programmers
+----------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/wordwarvi}
+
+Identified issues (cont.)
+-------------------------
+
+\begin{center}\Huge
+Examples\Large
+
+File ordering
+\end{center}
+
+File ordering in python-support files
+-------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/fileorder_python-support}
+
+Identified issues (cont.)
+-------------------------
+
+\begin{center}\Huge
+Examples\Large
+
+Randomness
+\end{center}
+
+Random Perl hash order
+----------------------
+
+See *Algorithmic complexity attacks* in
+[perlsec(1)](http://perldoc.perl.org/perlsec.html#Algorithmic-Complexity-Attacks).
+
+\includegraphics[width=0.9\textwidth]{images/examples/random_perl_hash_order}
+
+Random serial numbers in Ogg streams
+------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/random_serials_in_ogg}
+
+Random import order in Python code
+----------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/random_python_import_order}
+
+Random order in Python namespace files
+--------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/random_order_in_python_ns}
+
+Temporary filenames in Ocaml libraries
+--------------------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/temp_filenames_in_ocaml_lib}
+
+Identified issues (cont.)
+-------------------------
+
+\begin{center}\Huge
+Examples\Large
+
+Even more timestamps!
+\end{center}
+
+Timestamp-dependent rebuilds
+----------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamp_dependent_rebuilds}
+
+Timezone gets recorded
+----------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_timezone_in_pot}
+
+Timestamps in EPUB files
+------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_epub}
+
+Timestamps in PNG
+-----------------
+
+Even images!
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_png}
+
+Timestamps in TrueType font files
+---------------------------------
+
+And fonts!
+
+\includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_ttf}
+
+----------------------------------
+
+\begin{center}\Huge
+You think those were enough issues?
+\end{center}
+
+Default changes with locale
+---------------------------
+
+\includegraphics[width=0.9\textwidth]{images/examples/locale_in_docutils}
+
+Not illustrated
+---------------
+
+ * Build path getting recorded
+ * Environment variables (e.g. `PATH`)
+ * File permissions inconsistency
+ * Cryptographic signatures
+ * And even more…
+
+----------------------------------
+
+\begin{center}
+\Huge Fixes
+\end{center}
+
+Fixing timestamps
+-----------------
+
+ * Replace with a precise reference to the code:
+    - Actual version number
+    - Git commit hash or other VCS reference
+ * Or use a known date (latest modification on the code)
+ * Implement support for `SOURCE_DATE_EPOCH`
+
+Fixing timezone related issues
+------------------------------
+
+ * Use UTC!
+
+Fixing file order variations
+----------------------------
+
+ * Sort!
+
+Be beware of the locale!
+
+Example: creating tarballs
+--------------------------
+
+ * Before:
+     - `tar -cf archive.tar src`
+ * After:
+     - `find src -print0 | LC_ALL=C sort -z |`  
+       `tar --null -T - --no-recursion -cf archive.tar`
+
+Fixing random key ordering
+--------------------------
+
+Sort!
+
+ * `for my $limit (sort keys(%{$pat})) {`
+ * `$Data::Dumper::Sortkeys = 1`
+ * `for key in sorted(d.keys()):`
+
+Fixing build path
+-----------------
+
+ * Don't record build path
+
+Workaround: perform rebuild in the same path as the original build
+
+Handling cryptographic signatures
+---------------------------------
+
+Make the signature part of your release process:
+
+ 1. Do a first (reproducible) build
+ 2. Sign it
+ 3. Ship the signature with the source code
+ 4. Just copy the signature on next builds
+
+Example patch: #725803
+
+Misc. fixes
+-----------
+
+ * Don't record kernel, CPU type, login…
+ * No added value
+ * Privacy issue
+
+Cleanup via post-processing
+---------------------------
+
+ * `re-dzip.sh`
+ * `pyc-timestamp.sh`
+ * `strip-nondeterminism`
+
+strip-nondeterminism
+--------------------
+
+ * Normalize various file formats
+ * Currently handles:
+     - ar archives (`.a`)
+     - gzip
+     - Java jar
+     - Javadoc HTML
+     - Maven pom.properties
+     - PNG
+     - ZIP archives
+ * Written in Perl (like `dpkg-dev`)
+
+How are we doing in Debian?
+---------------------------
+
+\begin{center}
+\includegraphics[width=0.9\textwidth]{images/stats_pkg_state}
+\end{center}
+
+For those in the back
+---------------------
+
+\begin{center}
+\Huge 81\%
+
+\normalsize More than 18,000 source packages!
+
+\visible<2>{(in our test environment)}
+\end{center}
+
+Still experimenting
+-------------------
+
+ * It's not yet possible to reproduce builds of official Debian packages
+ * We are refining changes to the toolchain in an experimental repository
+ * Next steps:
+    - Allow `.buildinfo` in the archive (#763822)
+    - Get changes to `dpkg` merged
+    - Ship `.buildinfo` to the mirrors
+    - Finish the `srebuild` srcript (#774415)
+
+Other distributions
+-------------------
+
+\footnotesize
+
+ * Fedora  
+   <http://securityblog.redhat.com/2013/09/18/reproducible-builds-for-fedora/>
+ * OpenSUSE build-compare  
+   <https://build.opensuse.org/package/show/openSUSE:Factory/build-compare>
+ * NixOS  
+   <http://lists.science.uu.nl/pipermail/nix-dev/2013-June/011357.html>
+ * FreeBSD
+   <https://wiki.freebsd.org/ReproducibleBuilds> and  
+   <https://wiki.freebsd.org/PortsReproducibleBuilds>
+ * OpenWrt
+   <https://lists.openwrt.org/pipermail/openwrt-devel/2015-March/032136.html>
+
+Reproducible Fedora?
+--------------------
+
+ * No known activity after the initial blog post.
+ * Fedora is leading developments for key components.
+ * Can we help **reproducible Fedora**?
+
+\begin{center}
+\includegraphics[width=0.6\textwidth]{images/fedoralogo}
+\end{center}
+
+Everywhere?
+-----------
+
+\begin{center}
+\includegraphics[width=16px]{images/libre-logos/amarok}
+\includegraphics[width=16px]{images/libre-logos/apache}
+\includegraphics[width=16px]{images/libre-logos/archlinux}
+\includegraphics[width=16px]{images/libre-logos/arduino}
+\includegraphics[width=16px]{images/libre-logos/bitcoin}
+\includegraphics[width=16px]{images/libre-logos/blender}
+\includegraphics[width=16px]{images/libre-logos/cc}
+\includegraphics[width=16px]{images/libre-logos/cern-ohl}
+\includegraphics[width=16px]{images/libre-logos/chamilo}
+\includegraphics[width=16px]{images/libre-logos/drupal}
+\includegraphics[width=16px]{images/libre-logos/eZ}
+\includegraphics[width=16px]{images/libre-logos/vlc}
+
+\includegraphics[width=16px]{images/libre-logos/elphel}
+\includegraphics[width=16px]{images/libre-logos/firefox}
+\includegraphics[width=16px]{images/libre-logos/freebsd}
+\includegraphics[width=16px]{images/libre-logos/gentoo}
+\includegraphics[width=16px]{images/libre-logos/gimp}
+\includegraphics[width=16px]{images/libre-logos/gnome}
+\includegraphics[width=16px]{images/libre-logos/gnu}
+\includegraphics[width=16px]{images/libre-logos/gnuhealth}
+\includegraphics[width=16px]{images/libre-logos/gstreamer}
+\includegraphics[width=16px]{images/libre-logos/guppy}
+\includegraphics[width=16px]{images/libre-logos/haiku}
+\includegraphics[width=16px]{images/libre-logos/wikipedia}
+
+\includegraphics[width=16px]{images/libre-logos/imagemagick}
+\includegraphics[width=16px]{images/libre-logos/inkscape}
+\includegraphics[width=16px]{images/libre-logos/jabber}
+\includegraphics[width=16px]{images/libre-logos/jenkins}
+\includegraphics[width=16px]{images/libre-logos/joomla}
+\includegraphics[width=16px]{images/libre-logos/kde}
+\includegraphics[width=16px]{images/libre-logos/knoppix}
+\includegraphics[width=16px]{images/libre-logos/lea-linux}
+\includegraphics[width=16px]{images/libre-logos/libreoffice}
+\includegraphics[width=16px]{images/libre-logos/linux}
+\includegraphics[width=16px]{images/libre-logos/mageia}
+\includegraphics[width=16px]{images/libre-logos/wordpress}
+
+\includegraphics[width=16px]{images/libre-logos/mandriva}
+\includegraphics[width=16px]{images/libre-logos/moodle}
+\includegraphics[width=16px]{images/libre-logos/mozilla}
+\includegraphics[width=16px]{images/libre-logos/openarena}
+\includegraphics[width=16px]{images/libre-logos/openbsd}
+\includegraphics[width=16px]{images/libre-logos/opensuse}
+\includegraphics[width=16px]{images/libre-logos/osm}
+\includegraphics[width=16px]{images/libre-logos/perl}
+\includegraphics[width=16px]{images/libre-logos/php}
+\includegraphics[width=16px]{images/libre-logos/pidgin}
+\includegraphics[width=16px]{images/libre-logos/plone}
+\includegraphics[width=16px]{images/libre-logos/xfce}
+
+\includegraphics[width=16px]{images/libre-logos/postgresql}
+\includegraphics[width=16px]{images/libre-logos/python}
+\includegraphics[width=16px]{images/libre-logos/ruby}
+\includegraphics[width=16px]{images/libre-logos/rudder}
+\includegraphics[width=16px]{images/libre-logos/scribus}
+\includegraphics[width=16px]{images/libre-logos/spip}
+\includegraphics[width=16px]{images/libre-logos/thunderbird}
+\includegraphics[width=16px]{images/libre-logos/tomcat}
+\includegraphics[width=16px]{images/libre-logos/tryton}
+\includegraphics[width=16px]{images/libre-logos/typo3}
+\includegraphics[width=16px]{images/libre-logos/ubuntu}
+\includegraphics[width=16px]{images/libre-logos/xonotic}
+\end{center}
+
+ * Please talk to us!
+
+Everyhere!
+----------
+
+ * Reproducible builds need to become **the norm**.
+ * We can help with continuous testing.
+ * Debian wiki wants to be useful to everyone.
+
+Thanks
+------
+
+ * Asheesh Laroia, Holger Levsen, Reiner Herrmann, Mattia Rizzolo, Daniel Kahn Gilmor,
+   and so many others…
+ * Mike Perry and Seth Schoen for their 31C3 talk
+ * Linux Foundation for sponsoring Holger and myself
+ * ProfitBricks for sponsoring `jenkins.debian.net`
+ * Globalsign for sponsoring X.509 certificates
+ * Designers of Tango icons
+ * Everyone who helped!
+
+\begin{center}
+\includegraphics[width=0.25\textwidth]{images/LF_logo}
+\hspace{1em}
+\includegraphics[width=0.25\textwidth]{images/profitbricks-cloud-computing-logo-rgb}
+\hspace{1em}
+\includegraphics[width=0.25\textwidth]{images/globalsign-logo}
+\end{center}
+
+Questions? Comments?
+--------------------
+
+\begin{center}
+\fontsize{5cm}{1em}\selectfont
+?
+\end{center}
+
+\begin{center}
+\url{https://wiki.debian.org/ReproducibleBuilds}
+\url{https://reproducible.debian.net/}
+\url{\#debian-reproducible} on OFTC
+\end{center}
+
+\begin{center}
+\begin{tabular}{rl}
+ Lunar & \texttt{0603 CCFD 9186 5C17 E88D} \\
+       & \texttt{4C79 8382 C95C 2902 3DF9}
+\end{tabular}
+\end{center}
