@@ -272,7 +272,7 @@ Solution 1: rebuild the environment
 
  * Scripts will rebuild the environment from sources
  * URL and checksum of source tarballs are recorded
- * … or with Bazel, check-in everything in the VCS
+ * … or go crazy and check-in everything in the VCS
 
 Approach used by [Coreboot](http://www.coreboot.org/Development_Guidelines#Required_Toolchain), [OpenWrt](http://wiki.openwrt.org/about/toolchain), [Bazel](http://bazel.io/)
 
@@ -297,7 +297,7 @@ Solution 2: system images and packages
 Downsides: if you use packages, you need to stick to stable distributions
 and hope no security fixes will affect the build.
 
-Or you do mix-and-match with solution 1.
+Or you do mix it with solution 1.
 
 Solution 3: record and replay
 -----------------------------
@@ -899,7 +899,8 @@ Example patch: #725803
 Misc. fixes
 -----------
 
- * Don't record kernel, CPU type, login…
+Don't record kernel, CPU type, login…
+
  * No added value
  * Privacy issue
 
@@ -1053,8 +1054,8 @@ Everywhere?
 
  * Please talk to us!
 
-Everyhere!
-----------
+Everywhere!
+-----------
 
  * Reproducible builds need to become **the norm**.
  * We can help with continuous testing.
