@@ -10,19 +10,10 @@ source: $(PRESENTATION)-src.tar.gz
 
 images:
 	cd images ; \
-	for i in stats_notes stats_issues stats_bugs ; do \
-		rm $$i.png ; \
-		wget https://reproducible.debian.net/$$i.png ; \
-	done ; \
 	for i in stats_pkg_state ; do \
 		rm $$i.png ; \
 		wget https://reproducible.debian.net/unstable/$$i.png ; \
-	done ; \
-	for i in stats_meta_pkg_state_tails_build-depends ; do \
-		rm $$i.png ; \
-		wget https://reproducible.debian.net/unstable/amd64/$$i.png ; \
-	done ; \
-
+	done ;
 
 IMGS = \
 	images/swirl-lightest.pdf \
