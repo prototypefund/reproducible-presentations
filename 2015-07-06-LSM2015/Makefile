@@ -30,9 +30,10 @@ IMGS = \
 	images/globalsign-logo.pdf \
 	$(shell echo $$(sed -n -e 's/^[^%]*\\includegraphics\([^{]*\)\?{\([^}]*\)}.*$$/\2.*/p' $(PRESENTATION).mdwn | grep -E -v 'globalsign' | sed -e 's/\.svg$$/\.pdf$$/' | sort -u))
 
-$(PRESENTATION).pdf: $(PRESENTATION).mdwn $(PRESENTATION)-header.tex $(IMGS)
+$(PRESENTATION).pdf: $(PRESENTATION).mdwn $(PRESENTATION)-header.tex template.beamer $(IMGS)
 	pandoc -t beamer \
 		--include-in-header=$(PRESENTATION)-header.tex \
+		--template=template.beamer \
 		--variable=fontsize=14pt \
 		--latex-engine=lualatex -o $@ $<
 
