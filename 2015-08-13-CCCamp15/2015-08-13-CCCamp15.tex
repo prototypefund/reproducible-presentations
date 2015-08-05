@@ -239,6 +239,28 @@ In a nutshell:
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+ \frametitle{Common problems}
+
+ \begin{itemize}
+  \item Timestamps (recording current time)
+  \item File order
+  \item (Pseudo-)randomness:
+   \begin{itemize}
+    \item Temporary file paths
+    \item UUID
+    \item Protection against complexity attacks
+   \end{itemize}
+  \item CPU and memory related:
+   \begin{itemize}
+    \item Code optimizations for current CPU class
+    \item Recording of memory addresses
+   \end{itemize}
+  \item Build path
+  \item Locale and timezone settings
+ \end{itemize}
+\end{frame}
+
 \begin{frame}[plain]
  \begin{tikzpicture}[remember picture,overlay]
   \node[at=(current page.center)] {
