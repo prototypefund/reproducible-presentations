@@ -399,7 +399,7 @@ SCONSOPTS = $(SCONSFLAGS) \alert{VERSION=$(VERSION)} \\
 \end{frame}
 
 \begin{frame}
- \frametitle{SOURCE\_DATE\_EPOCH}
+ \frametitle{Use SOURCE\_DATE\_EPOCH}
 
  \begin{itemize}
    \item What is it?
@@ -410,8 +410,8 @@ SCONSOPTS = $(SCONSFLAGS) \alert{VERSION=$(VERSION)} \\
        \item Already implemented by \texttt{help2man}, Epydoc, Ghostscript (in Debian)
        \item Patches ready for Doxygen, GCC, \texttt{txt2man}, \texttt{libxslt}, Gettext…
      \end{itemize}
-   \item Set it in your build system
-   \item Implement it if your tool write timestamps
+   \item Set \texttt{SOURCE\_DATE\_EPOCH} in your build system
+   \item Please add support in any tool writing timestamps
  \end{itemize}
 
  \begin{center}
