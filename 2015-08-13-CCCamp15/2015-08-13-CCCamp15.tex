@@ -37,7 +37,9 @@
 \AtBeginSection{
   \let\insertsectionnumber\relax
   \let\sectionname\relax
-  \frame{\sectionpage}
+  \begin{frame}[plain]
+    \tableofcontents[currentsection]
+  \end{frame}
 }
 \AtBeginSubsection{
   \let\insertsubsectionnumber\relax
@@ -389,11 +391,31 @@ SCONSOPTS = $(SCONSFLAGS) \alert{VERSION=$(VERSION)} \\
       \item Extract from changelog
       \item<3-> \alert{Don't forget the timezone}
     \end{itemize}
-  \item<4-> Implement \texttt{SOURCE\_DATE\_EPOCH} \\
-    {\small \url{https://wiki.debian.org/ReproducibleBuilds/TimestampsProposal}}
-  \item<5> \texttt{faketime} is an option but has serious drawbacks \\
+  \item<4-> \texttt{faketime} is an option but has serious drawbacks \\
     {\small \url{https://bugs.torproject.org/12240}}
+  \item<5> Implement \texttt{SOURCE\_DATE\_EPOCH}
  \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{SOURCE\_DATE\_EPOCH}
+
+ \begin{itemize}
+   \item What is it?
+     \begin{itemize}
+       \item Environment variable with a reference time
+       \item Number of seconds since the Epoch (1970-01-01 00:00:00 +0000 UTC)
+       \item If set, replace “current time of day”
+       \item Already implemented by \texttt{help2man}, Epydoc, Ghostscript (in Debian)
+       \item Patches ready for Doxygen, GCC, \texttt{txt2man}, \texttt{libxslt}, Gettext…
+     \end{itemize}
+   \item Set it in your build system
+   \item Implement it if your tool write timestamps
+ \end{itemize}
+
+ \begin{center}
+   {\small \url{https://wiki.debian.org/ReproducibleBuilds/TimestampsProposal}}
+ \end{center}
 \end{frame}
 
 \begin{frame}[plain]
@@ -420,9 +442,11 @@ SCONSOPTS = $(SCONSFLAGS) \alert{VERSION=$(VERSION)} \\
 
  \begin{example}
 \begin{semiverbatim}
-\visible<3>{\alert{touch --date="2015-08-13 00:00Z" build/*}}
+\only<1-3>{\visible<3>{\alert{touch --date="2015-08-13 00:00Z" build/*}}
 tar\only<2>{\alert{ --mtime='2015-08-13 00:00Z'}} -cf product.tar build
-\visible<4>{\alert{strip-nondeterminism product.tar}}
+}\only<4>{\textit{\color[rgb]{.7,.7,.7}# zip has no equivalent of --mtime}
+zip product.zip build
+\alert{strip-nondeterminism product.zip}}
 \end{semiverbatim}
  \end{example}
 \end{frame}
@@ -453,6 +477,14 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
  \end{example}
 \end{frame}
 
+{
+\usebackgroundtemplate{%
+ \begin{tikzpicture}[remember picture,overlay]%
+  \node[shift={(-0.2\paperwidth, -0.2\paperheight)},at=(current page.north east)] {
+    \includegraphics[width=0.3\paperwidth]{images/random_number.png}
+  };
+ \end{tikzpicture}%
+}
 \begin{frame}[fragile]
  \frametitle{Avoid (true) randomness}
 
@@ -473,6 +505,7 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
 \end{semiverbatim}
  \end{example}
 \end{frame}
+}
 
 \begin{frame}
  \frametitle{Define environment variable affecting outputs}
@@ -516,10 +549,10 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
   \item At least: build tools and their specific versions
   \item Up to you, depending on the build system:
    \begin{itemize}
-    \item Build architecture
-    \item Kernel
-    \item \textit{Build path}
-    \item \textit{Build date and time}
+    \item build architecture
+    \item kernel
+    \item \textit{build path}
+    \item \textit{build date and time}
     \item …
    \end{itemize}
  \end{itemize}
@@ -614,7 +647,7 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
  \frametitle{Ship the toolchain as a build product}
 
  \begin{itemize}
-  \item Make the toolchain is a build product
+  \item Make the toolchain as a build product
   \item OpenWrt:
     \url{http://wiki.openwrt.org/doc/howto/obtain.firmware.sdk}
  \end{itemize}
