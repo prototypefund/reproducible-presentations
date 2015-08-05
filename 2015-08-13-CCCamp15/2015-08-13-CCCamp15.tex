@@ -57,6 +57,7 @@
 \usepackage{ctable}
 \usepackage{multicol}
 \usepackage{tikz}
+\usetikzlibrary{positioning}
 
 %\usebackgroundtemplate{\includegraphics[width=\paperwidth]{images/swirl-lightest.pdf}}
 %\logo{\includegraphics[viewport=274 335 360 440,width=1cm]{images/openlogo-nd.pdf}}
@@ -480,9 +481,10 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
 {
 \usebackgroundtemplate{%
  \begin{tikzpicture}[remember picture,overlay]%
-  \node[shift={(-0.2\paperwidth, -0.2\paperheight)},at=(current page.north east)] {
+  \node[shift={(-0.2\paperwidth, -0.2\paperheight)},at=(current page.north east)] (image) {
     \includegraphics[width=0.3\paperwidth]{images/random_number.png}
   };
+  \node[below=-0.03\paperheight of image,align=center,font=\tiny,color=gray]{XKCD \#221};
  \end{tikzpicture}%
 }
 \begin{frame}[fragile]
