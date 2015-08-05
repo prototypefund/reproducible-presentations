@@ -370,6 +370,14 @@ SCONSOPTS = $(SCONSFLAGS) \alert{VERSION=$(VERSION)} \\
  \end{example}
 \end{frame}
 
+\begin{frame}[plain]
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[at=(current page.center)] {
+    \includegraphics[width=\paperwidth]{images/timestamp_in_nasm.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
 \begin{frame}
  \frametitle{Don't record the current date and time}
 
@@ -382,10 +390,18 @@ SCONSOPTS = $(SCONSFLAGS) \alert{VERSION=$(VERSION)} \\
       \item<3-> \alert{Don't forget the timezone}
     \end{itemize}
   \item<4-> Implement \texttt{SOURCE\_DATE\_EPOCH} \\
-    \url{https://wiki.debian.org/ReproducibleBuilds/TimestampsProposal}
+    {\small \url{https://wiki.debian.org/ReproducibleBuilds/TimestampsProposal}}
   \item<5> \texttt{faketime} is an option but has serious drawbacks \\
-    \url{https://bugs.torproject.org/12240}
+    {\small \url{https://bugs.torproject.org/12240}}
  \end{itemize}
+\end{frame}
+
+\begin{frame}[plain]
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[at=(current page.center)] {
+    \includegraphics[width=\paperwidth]{images/timestamp_in_git_deb.png}
+  };
+ \end{tikzpicture}
 \end{frame}
 
 \begin{frame}[fragile]
