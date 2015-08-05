@@ -1,4 +1,4 @@
-\documentclass[14pt,ignorenonframetext]{beamer}
+\documentclass[14pt,ignorenonframetext,aspectratio=169]{beamer}
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{caption label separator}{:}
 \setbeamercolor{caption name}{fg=normal text.fg}
@@ -24,7 +24,8 @@
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
 \IfFileExists{microtype.sty}{\usepackage{microtype}}{}
-\usepackage{url}
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{hyperref}
 
 % Comment these out if you don't want a slide with just the
 % part/section/subsection/subsubsection title:
@@ -88,7 +89,7 @@
 \author[Lunar]{%
    \texorpdfstring{
             Lunar\\
-            \href{mailto:lunar@debian.org}{lunar@debian.org}
+            \href{mailto:lunar@debian.org}{\texttt{lunar@debian.org}}
    }{Lunar}}
 \institute[Debian]{}
 \date[CCCamp15]{%
@@ -136,12 +137,14 @@
 
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Why does it matter?}
 
-Mike Perry and Seth Schoen at 31C3: Reproducible builds
+\begin{center}
+\includegraphics[width=0.7\textwidth]{images/31c3}
 
-XXX: verify, provide URL
+Available on \url{media.ccc.de}, 31c3
+\end{center}
 
 \end{frame}
 
@@ -150,10 +153,13 @@ XXX: verify, provide URL
 
 At a CIA conference in 2012:
 
-\includegraphics[width=\textwidth]{images/strawhorse}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{images/strawhorse}
 
-Source~: The Intercept, 2015-03-10
-\url{https://firstlook.org/theintercept/2015/03/10/ispy-cia-campaign-steal-apples-secrets/}
+{\footnotesize 
+\url{firstlook.org/theintercept/2015/03/10/ispy-cia-campaign-steal-apples-secrets/}
+}
+\end{center}
 
 \end{frame}
 
@@ -172,9 +178,9 @@ from a given source
 \begin{frame}
 \frametitle{The solution}
 
+\begin{center}
 We call this:
 
-\begin{center}
 \Huge
 “reproducible builds”
 \end{center}
@@ -194,6 +200,12 @@ We call this:
 \item \ldots{}
 \end{itemize}
 
+\end{frame}
+
+\begin{frame}[plain]
+\begin{center}
+\Huge It should become the \textbf{norm}.
+\end{center}
 \end{frame}
 
 \begin{frame}
@@ -222,10 +234,17 @@ In a nutshell:
 \item Stable outputs
 \item Capture as little as possible from the environment
 \end{itemize}
-
 \end{frame}
 
-\begin{frame}
+\begin{frame}[plain]
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[at=(current page.center)] {
+    \includegraphics[width=\paperwidth]{images/why_is_gone}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Volatile inputs can disappear}
 
 \begin{itemize}
@@ -234,59 +253,69 @@ In a nutshell:
 \item The binary distributor should provide a fallback
 \end{itemize}
 
-XXX: add an example from FreeBSD port tree
+\begin{block}{\small FreeBSD does it right}\footnotesize
+\begin{semiverbatim}
+\$ grep MASTER\_SITES Makefile
+MASTER\_SITES= http://gondor.apana.org.au/~herbert/dash/files/
+\$ cat distinfo
+SHA256 (dash-0.5.8.tar.gz) = c6db3a237747b02d20382a761397563d813b306c020ae28ce25…
+SIZE (dash-0.5.8.tar.gz) = 223028
+\$ wget http://distcache.freebsd.org/ports-distfiles/distfiles/dash-0.5.8.tar.gz
+\end{semiverbatim}
+\end{block}
+\end{frame}
 
+\begin{frame}[plain]
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[at=(current page.center)] {
+    \includegraphics[width=\paperwidth]{images/filesystem_order_in_tarball}
+  };
+ \end{tikzpicture}
 \end{frame}
 
 \begin{frame}[fragile]
  \frametitle{Stable order for inputs}
 
- \begin{overprint}
-  \onslide<1>
-  \begin{itemize}
-   \item Always process multiple inputs in the same order
-   \item Directory listings are not stable!
-  \end{itemize}
+ \begin{itemize}
+  \item Always process multiple inputs in the same order
+  \item Directory listings are not stable!
+  \item<2-> Solutions:
+   \begin{itemize}
+    \item List inputs explicitely
+    \item<3-> Use sorting
+    \item<4> \alert{But watch out for difference between locales.}
+   \end{itemize}
+ \end{itemize}
 
-  \onslide<2>
-  \begin{itemize}
-   \item List inputs explicitely
-  \end{itemize}
-
-  \onslide<3->
-  \begin{itemize}
-   \item Use sorting
-   \item<4> \alert{But watch out for difference between locales.}
-  \end{itemize}
- \end{overprint}
-
- \begin{overprint}
-  \onslide<1>
-  \begin{block}{Bad example}
+ \begin{example}
+  \begin{overprint}
+   \onslide<1>
 \begin{semiverbatim}
 tar -cf archive.tar src
 \end{semiverbatim}
-  \end{block}
-
-  \onslide<2>
-  \begin{block}{Good example}
+   \onslide<2>
 \begin{semiverbatim}
 tar -cf archive.tar \\
   src/util.c src/helper.c src/main.c
 \end{semiverbatim}
-  \end{block}
-
-  \onslide<3->
-  \begin{block}{Good example}
+   \onslide<3->
 \begin{semiverbatim}
-find src -print0 | \only<4>{\alert{LC\_ALL=C} }sort -z  |
-    tar --null -T - --no-recursion -cf archive.tar
+find src -print0 | \only<4>{\alert{LC\_ALL=C} }sort -z |
+  tar --null -T - --no-recursion -cf archive.tar
 \end{semiverbatim}
-  \end{block}
- \end{overprint}
+  \end{overprint}
+ \end{example}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[plain]
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[at=(current page.center)] {
+    \includegraphics[width=\paperwidth]{images/uninitialized_memory}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]
  \frametitle{Controlled value initialization}
 
  \begin{itemize}
@@ -295,13 +324,28 @@ find src -print0 | \only<4>{\alert{LC\_ALL=C} }sort -z  |
  \end{itemize}
 
  \begin{example}
-\begin{semiverbatim}
-    XXX: insert Coreboot example
+\begin{semiverbatim}\small
+static int write_binary(FILE *out, FILE *in, struct bimg_header *hdr)
+\{
+       static uint8_t file_buf[MAX_RECORD_BYTES];
+       struct bimg_data_header data_hdr\only<2>{\alert{ = \{ 0 \}}};
+       size_t n_written;
+
+       data_hdr.dest_addr = hdr->entry_addr;
+       …
 \end{semiverbatim}
  \end{example}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[plain]
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[at=(current page.center)] {
+    \includegraphics[width=\paperwidth]{images/varying_version}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]
  \frametitle{Use deterministic version information}
 
  \begin{itemize}
@@ -314,7 +358,16 @@ find src -print0 | \only<4>{\alert{LC\_ALL=C} }sort -z  |
     \end{itemize}
  \end{itemize}
 
- XXX: example
+ \begin{example}<2>\small
+\begin{semiverbatim}
+\alert{VERSION=$(shell dpkg-parsechangelog | sed -n 's/^Version: *//p')}
+
+SCONSOPTS = $(SCONSFLAGS) \alert{VERSION=$(VERSION)} \\
+  PREFIX=$(PREFIX) PREFIX_CONF=$(SYSCONF) CHMDOCS=0 \\
+  STRIP_CP=no \\
+  $(if $(findstring nostripfull,$(DEB_BUILD_OPTIONS)),STRIP_W32=no,)
+\end{semiverbatim}
+ \end{example}
 \end{frame}
 
 \begin{frame}
@@ -328,8 +381,10 @@ find src -print0 | \only<4>{\alert{LC\_ALL=C} }sort -z  |
       \item Extract from changelog
       \item<3-> \alert{Don't forget the timezone}
     \end{itemize}
-  \item<4> Implement \texttt{SOURCE\_DATE\_EPOCH} \\
+  \item<4-> Implement \texttt{SOURCE\_DATE\_EPOCH} \\
     \url{https://wiki.debian.org/ReproducibleBuilds/TimestampsProposal}
+  \item<5> \texttt{faketime} is an option but has serious drawbacks \\
+    \url{https://bugs.torproject.org/12240}
  \end{itemize}
 \end{frame}
 
@@ -354,6 +409,14 @@ tar\only<2>{\alert{ --mtime='2015-08-13 00:00Z'}} -cf product.tar build
 \visible<4>{\alert{strip-nondeterminism product.tar}}
 \end{semiverbatim}
  \end{example}
+\end{frame}
+
+\begin{frame}[plain]
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[at=(current page.center)] {
+    \includegraphics[width=\paperwidth]{images/random_function_order}
+  };
+ \end{tikzpicture}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -382,18 +445,17 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
   \item<2-> Seed for your PRNG from known value
    \begin{itemize}
      \item Use a fixed value
-     \item<3> Extract from source code
+     \item<3> Extract from source code (filename, content hash)
    \end{itemize}
  \end{itemize}
 
  \begin{example}
 \begin{semiverbatim}\small
-CFLAGS="-O2\only<2->{ \alert{-frandom-seed=}}\only<2>{\alert{0}}\only<3>{\alert{\$(git rev-parse HEAD)}}"
-gcc -c utils.c
+\$ gcc -c\only<2->{ \alert{-frandom-seed=}}\only<2>{\alert{0}}\only<3>{\alert{utils.o}} utils.c
+\$ nm -a utils.o | grep inline
+\only<1>{0000000000000000 n .gnu.lto\_.inline.381a277a0b6d2a35}\only<2>{0000000000000000 n .gnu.lto\_.inline.0}\only<3>{0000000000000000 n .gnu.lto\_.inline.a108e942}
 \end{semiverbatim}
  \end{example}
-
- XXX: find an example of how gcc uses -frandom-seed
 \end{frame}
 
 \begin{frame}
@@ -432,13 +494,18 @@ gcc -c utils.c
 \section{Reproducible build environment}
 
 \begin{frame}
- \frametitle{What's a build environment?}
+ \frametitle{What's in a build environment?}
 
  \begin{itemize}
-  \item Toolchain
-  \item XXX: research Tor Browser / Bitcoin
-  \item \textit{Build patd}
-  \item \textit{Build date and time}
+  \item At least: build tools and their specific versions
+  \item Up to you, depending on the build system:
+   \begin{itemize}
+    \item Build architecture
+    \item Kernel
+    \item \textit{Build path}
+    \item \textit{Build date and time}
+    \item …
+   \end{itemize}
  \end{itemize}
 \end{frame}
 
@@ -446,32 +513,9 @@ gcc -c utils.c
  \frametitle{Build from source}
 
  \begin{itemize}
-  \item Coreboot
-  \item OpenWrt ?
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Good old Makefile}
-
- \begin{itemize}
-  \item \texttt{make env} XXX: research Coreboot and OpenWrt
-  \item Download known toolchain archive
-  \item Compare reference checksums
-  \item Build and setup
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Google approach}
-
- XXX: go ask people
-
- \begin{itemize}
-  \item Check-in toolchain source code in VCS
-  \item Find toolchain change causing regressions
-  \item See Bazel \\
-   \url{https://bazel.io/} XXX: check URL
+  \item Build tools affecting the output from source
+  \item Record version / tag / git commit
+  \item Approach used by Coreboot, OpenWrt, \textit{Tor Browser}
  \end{itemize}
 \end{frame}
 
@@ -479,8 +523,26 @@ gcc -c utils.c
  \frametitle{Reference distribution}
 
  \begin{itemize}
-  \item Use a stable distribution (e.g. Debian, CentOS) XXX: demander à misc
+  \item Use a stable distribution (e.g. Debian, CentOS)
   \item Record package version
+  \item Hope the old package will stay available / record
+  \item Approach used by Bitcoin
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Virtual machines / containers}
+
+ \begin{itemize}
+  \item Using a VM saves some problems:
+   \begin{itemize}
+    \item Same user
+    \item Same hostname
+    \item Same network configuration
+    \item \textit{Same CPU}
+    \item …
+   \end{itemize}
+  \item Introduce new things that needs to be trusted
  \end{itemize}
 \end{frame}
 
@@ -491,13 +553,17 @@ gcc -c utils.c
   \item Cross-compiling to the rescue!
   \item For Windows:
    \begin{itemize}
-     \item MingW64 XXX: research
-     \item NSIS Installer
+     \item mingw-w64: build Windows binaries on *nix
+     \item NSIS (Nullsoft Scriptable Install System)
    \end{itemize}
   \item For Mac OS X:
    \begin{itemize}
-     \item hacked xcode XXX: research
-     \item DMG XXX
+     \item Hackish, but doable \\
+       {\footnotesize \url{https://github.com/bitcoin/bitcoin/blob/master/doc/README\_osx.txt}}
+     \item Recent versions of clang for compiling
+     \item Patched \texttt{cctools} (linker, etc.)
+     \item Non-redistributable SDK extracted from XCode
+     \item \texttt{.dmg} are a bit tricky
    \end{itemize}
  \end{itemize}
 \end{frame}
@@ -505,56 +571,286 @@ gcc -c utils.c
 \section{Distributing the build environment}
 
 \begin{frame}
- \frametitle{OpenWrt}
+ \frametitle{Good ol'Makefile}
 
- XXX: research
+ \begin{itemize}
+  \item Download known toolchain archive
+  \item Compare reference checksums
+  \item Build and setup
+  \item Coreboot: \texttt{make crossgcc}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Check-in everything}
+
+ \begin{itemize}
+  \item Check-in all the toolchain source code in VCS
+  \item Approach used for the base system in *BSD, and Google
+  \item Make sure everything is checked in (\textit{use sandbox on Linux})
+  \item Recently open-sourced: Bazel \\
+   \url{http://bazel.io/}
+  \item Can be hard to ask everyone to download everything all the time
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Ship the toolchain as a build product}
+
+ \begin{itemize}
+  \item Make the toolchain is a build product
+  \item OpenWrt:
+    \url{http://wiki.openwrt.org/doc/howto/obtain.firmware.sdk}
+ \end{itemize}
+
+ \begin{example}\footnotesize
+\begin{semiverbatim}
+\$ wget https://downloads.openwrt.org/…/14.07/…OpenWrt-SDK-atheros-….tar.bz2
+\$ svn export svn://…/branches/packages\_14.07/utils/xz package/xz
+\$ make package/xz/compile
+\end{semiverbatim}
+ \end{example}
+
 \end{frame}
 
 \begin{frame}
  \frametitle{Gitian}
 
+ \begin{itemize}
+  \item Used by Bitcoin, Tor Browser
+  \item Drives LXC or KVM
+  \item “Descriptors” describing the build using:
+   \begin{itemize}
+    \item Base distribution
+    \item Packages
+    \item Git remotes
+    \item Other input files
+    \item Build script
+   \end{itemize}
+ \end{itemize}
+
+ \vfill
+ \begin{block}{\footnotesize Resources}\footnotesize
+ \url{https://gitian.org/}\\
+ \url{https://github.com/bitcoin/bitcoin/blob/master/doc/gitian-building.md}\\
+ \url{https://github.com/bitcoin/bitcoin/blob/master/contrib/gitian-descriptors/}
+ \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Docker}
+
+ \begin{itemize}
+  \item Provide a way to describe specialized Linux container images
+  \item Build in a controlled environment
+  \item Docker image can be addressed with a hash of their content
+  \item Bazel has support to build Docker image reproducibly
+ \end{itemize}
+
+ \begin{block}{\footnotesize \url{https://github.com/tianon/gosu/blob/master/Dockerfile}}\footnotesize
+\begin{semiverbatim}
+FROM golang:1.4-cross
+[…]
+# disable CGO for ALL THE THINGS (to help ensure no libc)
+ENV CGO\_ENABLED 0
+COPY *.go /go/src/github.com/tianon/gosu/
+WORKDIR /go/src/github.com/tianon/gosu
+RUN GOARCH=amd64 go build -v -ldflags -d -o /go/bin/gosu-amd64
+\end{semiverbatim}
+ \end{block}
 \end{frame}
 
 \begin{frame}
- \frametitle{Docker}
+ \frametitle{Vagrant}
 
+ \begin{itemize}
+  \item Drive VirtualBox using Ruby and other scripts
+  \item Build in a controlled environment
+  \item Also works under OS X and Windows
+ \end{itemize}
+
+ \vfill
+ {\footnotesize
+ \url{https://www.vagrantup.com/}
+ }
 \end{frame}
 
 \begin{frame}
  \frametitle{Debian .buildinfo}
 
- XXX: explain
+ \begin{itemize}
+  \item Tie in the same file:
+   \begin{itemize}
+    \item Sources
+    \item Generated binaries
+    \item Packages used to build (with specific version)
+   \end{itemize}
+  \item Can be later processed to reinstall environment
+  \item All versions are available from \url{snapshot.debian.org}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Example .buildinfo}
+
+{\small
+\begin{verbatim}
+Format: 1.9
+Build-Architecture: amd64
+Source: txtorcon
+Binary: python-txtorcon
+Architecture: all
+Version: 0.11.0-1
+Build-Path: /usr/src/debian/txtorcon-0.11.0-1
+Checksums-Sha256:
+ a26549d9…7b 125910 python-txtorcon_0.11.0-1_all.deb
+ 28f6bcbe…69 2039 txtorcon_0.11.0-1.dsc
+Build-Environment:
+ base-files (= 8),
+ base-passwd (= 3.5.37),
+ bash (= 4.3-11+b1),
+ …
+\end{verbatim}
+}
 \end{frame}
 
 \section{Tips}
 
 \begin{frame}
- \frametitle{Debbuging}
+ \frametitle{Testing for variations}
 
- XXX diffoscope
-\end{frame}
-
-\begin{frame}
- \frametitle{diffoscope example}
+ \begin{itemize}
+  \item Build a first time
+  \item Save the result
+  \item Perform change to the environment
+  \item Build a second time
+  \item Compare results
+ \end{itemize}
 \end{frame}
 
 \begin{frame}
  \frametitle{reproducible.debian.net}
 
+ \begin{itemize}
+  \item Continuous test system driven by Jenkins
+  \item Bad ass hardware sponsored by ProfitBricks
+  \item Tests about 1300 Debian source packages per day on average
+  \item Results are visible on a website
+  \item Other projects: Coreboot, OpenWrt, \textit{yours?}
+ \end{itemize}
+ \vfill
+ \begin{center}
+ \includegraphics[height=0.15\paperheight]{images/profitbricks_logo.png}
+ \end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Variations on reproducible.debian.net}
+
+ \begin{center}
+  \begin{table}
+   \resizebox{0.95\textwidth}{!}{%
+    \begin{tabular}{l|ll}
+\textbf{variation} & \textbf{first build} & \textbf{second build} \\
+\hline
+hostname & \texttt{jenkins} & \texttt{i-capture-the-hostname} \\
+domainname & \texttt{debian.net} & \texttt{i-capture-the-domainname} \\
+\texttt{env TZ} & \texttt{GMT+12} & \texttt{GMT-14} \\
+\texttt{env LANG} & \texttt{en\_GB.UTF-8} & \texttt{fr\_CH.UTF-8} \\
+\texttt{env LC\_ALL} & not set & \texttt{fr\_CH.UTF-8} \\
+\texttt{env USER} & \texttt{pbuilder1} & \texttt{pbuilder2} \\
+uid & \texttt{1111} & \texttt{2222} \\
+gid & \texttt{1111} & \texttt{2222} \\
+UTS namespace & shared with the host & \textit{modified using \texttt{/usr/bin/unshare --uts}} \\
+kernel version & Linux 3.16.0-4-amd64 & Linux 2.6.56-4-amd64 \\
+umask & 0022 & 0002 \\
+CPU type & \multicolumn{2}{l}{same for both builds \textit{(work in progress)}} \\
+year, month, date & \multicolumn{2}{l}{same for both builds \textit{(work in progress)}} \\
+hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minute differs… \textit{(work in progress)}} \\
+\textit{everything else} & \multicolumn{2}{l}{\textit{is likely the same…}}
+    \end{tabular}
+   }
+  \end{table}
+ \end{center}
+\end{frame}
+
+{
+\usebackgroundtemplate{%
+ \begin{tikzpicture}[remember picture,overlay]%
+  \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
+    \includegraphics[width=0.2\paperwidth]{images/diffoscope_logo}
+  };
+ \end{tikzpicture}%
+}
+\begin{frame}{diffoscope}
+ \frametitle{Debbuging problems: diffoscope}
+
+ \begin{itemize}
+  \item Examines differences \textbf{in depth}
+  \item Outputs HTML or plain text showing the differences
+  \item Recursively unpack archives
+  \item Seeks human readability:
+   \begin{itemize}
+    \item uncompress PDF
+    \item disassemble binaries
+    \item unpack Gettext files
+    \item … \textit{easy to extend to new file formats}
+   \end{itemize}
+  \item Falls back to binary comparison
+ \end{itemize}
+ \vfill
+ \begin{center}
+  \url{http://diffoscope.org/}
+ \end{center}
+\end{frame}
+}
+
+\begin{frame}
+ \frametitle{diffoscope example (HTML output)}
+
+ \begin{center}
+  \includegraphics[width=0.9\paperwidth]{images/diffoscope_example_html}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{diffoscope example (text output)}
+
+ \begin{center}
+  \includegraphics[width=0.9\paperwidth]{images/diffoscope_example_text}
+ \end{center}
 \end{frame}
 
 \begin{frame}
  \frametitle{strip-nondeterminism}
 
+ \begin{itemize}
+  \item Normalize various file formats
+  \item Currently handles:
+   \begin{itemize}
+    \item ar archives (\texttt{.a})
+    \item gzip
+    \item Java jar
+    \item Javadoc HTML
+    \item Maven \texttt{pom.properties}
+    \item PNG
+    \item ZIP archives
+    \item … \textit{extensible to new formats}
+   \end{itemize}
+  \item Written in Perl (like \texttt{dpkg-dev})
+ \end{itemize}
 \end{frame}
 
 \begin{frame}
  \frametitle{Resources}
 
  \begin{itemize}
+  \item Reproducible Builds HOWTO (\textit{work in progress})\\
+   \url{https://reproducible.debian.net/howto/}
   \item Debian “Reproducible Builds” wiki \\
-   \url{https://wiki.debian.org/ReproducibelBuilds}
-  \item Diverse Double Compilation XXX
+   \url{https://wiki.debian.org/ReproducibleBuilds}
+  \item Diverse Double-Compilation \\
+   \url{http://www.dwheeler.com/trusting-trust/}
  \end{itemize}
 \end{frame}
 
@@ -566,19 +862,25 @@ gcc -c utils.c
  \begin{itemize}
   \item Debian “Reproducible Builds” team \\
     {\small (you are just \textbf{so} awesome!)}
-  \item Mike Perry, Georg Koppen
-  \item David A. Wheeler
-  \item Linux Foundation
+  \item Mike Perry, Georg Koppen, David A. Wheeler
+  \item Linux Foundation and the Core Infrastructure initiative
  \end{itemize}
 
  \begin{center}
-  \begin{tabular}{rl}
-   OpenPGP & \texttt{0603 CCFD 9186 5C17 E88D} \\
-           & \texttt{4C79 8382 C95C 2902 3DF9}
-  \end{tabular}
+  \includegraphics[height=0.1\paperheight]{images/linux_foundation_logo}
+  \hspace{0.1\paperwidth}
+  \includegraphics[height=0.1\paperheight]{images/cii_logo}
+ \end{center}
 
- \begin{center}\small
-  Clothes: Elhonna Sombrefeuille — Hair: igor
+ \vfill
+ \begin{center}
+  \begin{tabular}{rl}
+   \texttt{lunar@debian.org} & \texttt{0603 CCFD 9186 5C17 E88D} \\
+                             & \texttt{4C79 8382 C95C 2902 3DF9}
+  \end{tabular}
+ \vfill
+ \begin{center}\footnotesize
+  clothes: Elhonna Sombrefeuille — hair: igor
  \end{center}
 
  \end{center}
