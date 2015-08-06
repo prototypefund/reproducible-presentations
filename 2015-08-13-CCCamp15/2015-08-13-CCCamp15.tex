@@ -620,7 +620,7 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
     \item \textit{Same CPU}
     \item …
    \end{itemize}
-  \item Introduce new things that needs to be trusted
+  \item Introduce new things that need to be trusted
  \end{itemize}
 \end{frame}
 
@@ -636,11 +636,11 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
    \end{itemize}
   \item For Mac OS X:
    \begin{itemize}
-     \item Hackish, but doable \\
+     \item Used to be quite complicated \\
        {\footnotesize \url{https://github.com/bitcoin/bitcoin/blob/master/doc/README\_osx.txt}}
-     \item Recent versions of clang for compiling
-     \item Patched \texttt{cctools} (linker, etc.)
-     \item Non-redistributable SDK extracted from XCode
+     \item Now pretty straightforward with \texttt{crosstool-ng} \\
+       {\footnotesize \url{https://bugs.torproject.org/9711\#comment:73}}
+     \item Need a non-redistributable SDK extracted from XCode
      \item \texttt{.dmg} are a bit tricky
    \end{itemize}
  \end{itemize}
