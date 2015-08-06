@@ -276,7 +276,7 @@ In a nutshell:
   \item Don't rely on the network
   \item If you do:
    \begin{itemize}
-    \item Verify contect using checksums
+    \item Verify content using checksums
     \item Have a backup
    \end{itemize}
   \item The binary distributor should provide a fallback
@@ -378,7 +378,7 @@ static int write_binary(FILE *out, FILE *in, struct bimg_header *hdr)
  \frametitle{Use deterministic version information}
 
  \begin{itemize}
-  \item Don't make a version number on each build
+  \item Don't generate a version number on each build
   \item<2> Instead extract information from the source:
     \begin{itemize}
       \item Version control system revision
@@ -519,7 +519,7 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
 
  \begin{itemize}
   \item Randomness is not deterministic
-  \item<2-> Seed for your PRNG from known value
+  \item<2-> Seed your PRNG from known value
    \begin{itemize}
      \item Use a fixed value
      \item<3> Extract from source code (filename, content hash)
@@ -721,8 +721,8 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
  \begin{itemize}
   \item Provide a way to describe specialized Linux container images
   \item Build in a controlled environment
-  \item Docker image can be addressed with a hash of their content
-  \item Bazel has support to build Docker image reproducibly
+  \item Docker images can be addressed with a hash of their content
+  \item Bazel has support to build Docker images reproducibly
  \end{itemize}
 
  \begin{block}{\footnotesize \url{https://github.com/tianon/gosu/blob/master/Dockerfile}}\footnotesize
@@ -800,7 +800,7 @@ Build-Environment:
  \begin{itemize}
   \item Build a first time
   \item Save the result
-  \item Perform change to the environment
+  \item Perform change(s) to the environment
   \item Build a second time
   \item Compare results
  \end{itemize}
@@ -811,7 +811,7 @@ Build-Environment:
 
  \begin{itemize}
   \item Continuous test system driven by Jenkins
-  \item Bad ass hardware sponsored by ProfitBricks
+  \item Bad-ass hardware sponsored by ProfitBricks
   \item Tests about 1300 Debian source packages per day on average
   \item Results are visible on a website
   \item Other projects: Coreboot, OpenWrt, \textit{yours?}
@@ -877,17 +877,17 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{tikzpicture}%
 }
 \begin{frame}{diffoscope}
- \frametitle{Debbuging problems: diffoscope}
+ \frametitle{Debugging problems: diffoscope}
 
  \begin{itemize}
   \item Examines differences \textbf{in depth}
   \item Outputs HTML or plain text showing the differences
-  \item Recursively unpack archives
+  \item Recursively unpacks archives
   \item Seeks human readability:
    \begin{itemize}
-    \item uncompress PDF
-    \item disassemble binaries
-    \item unpack Gettext files
+    \item uncompresses PDF
+    \item disassembles binaries
+    \item unpacks Gettext files
     \item … \textit{easy to extend to new file formats}
    \end{itemize}
   \item Falls back to binary comparison
@@ -919,7 +919,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{strip-nondeterminism}
 
  \begin{itemize}
-  \item Normalize various file formats
+  \item Normalizes various file formats
   \item Currently handles:
    \begin{itemize}
     \item ar archives (\texttt{.a})
