@@ -270,12 +270,16 @@ In a nutshell:
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Volatile inputs can disappear}
+ \frametitle{Volatile inputs can disappear}
 
-\begin{itemize}
-\item Don't rely on the network
-\item If you do, have a backup
-\item The binary distributor should provide a fallback
+ \begin{itemize}
+  \item Don't rely on the network
+  \item If you do:
+   \begin{itemize}
+    \item Verify contect using checksums
+    \item Have a backup
+   \end{itemize}
+  \item The binary distributor should provide a fallback
 \end{itemize}
 
 \begin{block}{\small FreeBSD does it right}\footnotesize
@@ -421,7 +425,7 @@ SCONSOPTS = $(SCONSFLAGS) \alert{VERSION=$(VERSION)} \\
 \end{frame}
 
 \begin{frame}
- \frametitle{Use SOURCE\_DATE\_EPOCH}
+ \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
 
  \begin{itemize}
    \item What is it?
@@ -429,11 +433,11 @@ SCONSOPTS = $(SCONSFLAGS) \alert{VERSION=$(VERSION)} \\
        \item Environment variable with a reference time
        \item Number of seconds since the Epoch (1970-01-01 00:00:00 +0000 UTC)
        \item If set, replace “current time of day”
-       \item Already implemented by \texttt{help2man}, Epydoc, Doxygen, Ghostscript (in Debian)
+       \item Implemented by \texttt{help2man}, Epydoc, Doxygen, Ghostscript (in Debian)
        \item Patches ready for GCC, \texttt{txt2man}, \texttt{libxslt}, Gettext…
      \end{itemize}
-   \item Set \texttt{SOURCE\_DATE\_EPOCH} in your build system
-   \item Please add support in any tool writing timestamps
+   \item<2-> Set \texttt{SOURCE\_DATE\_EPOCH} in your build system
+   \item<3> Please add support in any tool writing timestamps
  \end{itemize}
 
  \begin{center}
@@ -487,7 +491,8 @@ zip product.zip build
 
  \begin{itemize}
   \item Always output lists in the same order
-  \item Typical issue: key order with hash tables
+  \item Typical issue: key order with hash tables\\
+    {\small \url{perldoc.perl.org/perlsec.html#Algorithmic-Complexity-Attacks}}
   \item<2> Sort!
  \end{itemize}
 
@@ -523,7 +528,7 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
 
  \begin{example}
 \begin{semiverbatim}\small
-\$ gcc -c\only<2->{ \alert{-frandom-seed=}}\only<2>{\alert{0}}\only<3>{\alert{utils.o}} utils.c
+\$ gcc -flto -c\only<2->{ \alert{-frandom-seed=}}\only<2>{\alert{0}}\only<3>{\alert{utils.o}} utils.c
 \$ nm -a utils.o | grep inline
 \only<1>{0000000000000000 n .gnu.lto\_.inline.381a277a0b6d2a35}\only<2>{0000000000000000 n .gnu.lto\_.inline.0}\only<3>{0000000000000000 n .gnu.lto\_.inline.a108e942}
 \end{semiverbatim}
@@ -571,10 +576,10 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
 
  \begin{itemize}
   \item At least: build tools and their specific versions
-  \item Up to you, depending on the build system:
+  \item<2> Up to you, depending on the build system:
    \begin{itemize}
     \item build architecture
-    \item kernel
+    \item operating system
     \item \textit{build path}
     \item \textit{build date and time}
     \item …
@@ -647,7 +652,7 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
  \frametitle{Good ol'Makefile}
 
  \begin{itemize}
-  \item Download known toolchain archive
+  \item Download known toolchain archives
   \item Compare reference checksums
   \item Build and setup
   \item Coreboot: \texttt{make crossgcc}
@@ -936,9 +941,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{itemize}
   \item Reproducible Builds HOWTO (\textit{work in progress})\\
    \url{https://reproducible.debian.net/howto/}
-  \item Debian “Reproducible Builds” wiki \\
+  \item<2-> Debian “Reproducible Builds” wiki \\
    \url{https://wiki.debian.org/ReproducibleBuilds}
-  \item Diverse Double-Compilation \\
+  \item<3> Diverse Double-Compilation \\
    \url{http://www.dwheeler.com/trusting-trust/}
  \end{itemize}
 \end{frame}
