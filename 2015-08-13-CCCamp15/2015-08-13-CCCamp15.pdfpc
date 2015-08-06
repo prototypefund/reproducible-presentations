@@ -241,7 +241,7 @@ So one way to have users reproduce the tools used to perform the build is simply
 
 ### 59
 
-Another approach, used by Bitcoin for example, is to use a specific version of an integrated operating system. For GNU/Linux by picking a stable distribution like Debian or CentOS. It needs to stay available for long and to have the least amount of update possible. Better record exact package version, and hope these versions can be later reinstalled.
+Another approach, used by Bitcoin and other parts of the Tor Browser build process, is to use a specific version of an integrated operating system. For GNU/Linux by picking a stable distribution like Debian or CentOS. It needs to stay available for long and to have the least amount of update possible. Better record exact package version, and hope these versions can be later reinstalled.
 
 ### 60
 
