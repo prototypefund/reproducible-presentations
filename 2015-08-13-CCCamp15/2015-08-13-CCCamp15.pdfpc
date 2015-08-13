@@ -25,7 +25,7 @@ The great thing with free software is that we have the freedom to study that the
 
 ### 5
 
-So, we have the source code that we can verify and we have a binary we can use. Question: when we download software a binary form, how do we know how it was built? Well, right now in almost very cases, your only choice is to trust the software author, or the distribution, that the archive with the source that has approximatively the same name is what has been used to create it.
+So, we have the source code that we can verify and we have a binary we can use. Question: when we download software in binary form, how do we know how it was built? Well, right now in almost every cases, your only choice is to trust the software author, or the distribution, that the archive with the source that has approximatively the same name is what has been used to create the binary.
 
 ### 6
 
@@ -37,11 +37,11 @@ Some people could say that we need to trust the software author, or the distribu
 
 ### 8
 
-And we are not discussing hypothetical attacks here! A couple of months after their talk, The Intercept released another document from the Snowden leaks describing the program of an internal CIA conference in 2012. This very presentation was about “Strawhorse” and describes an attack on XCode—the software development environment for Mac OS X and iOS. They had a modified version, ready to be implanted on developer's systems, that would create binaries being watermarked, or leaking data, or containing trojans… And this is all without the developper realizing that this is happening. So even if we trust our developpers: they might totally be of good faith… and we would still totally get owned.
+And we are not discussing hypothetical attacks here! A couple of months after Mike & Seth's talk, The Intercept released another document from the Snowden leaks describing the program of an internal CIA conference in 2012. The presentation that we see here was about “Strawhorse” and describes an attack on XCode—the software development environment for Mac OS X and iOS. They had a modified version, ready to be implanted on developer's systems, that would create binaries being watermarked, or leaking data, or containing trojans… And this is all without the developper realizing that this is happening. So even if we trust our developpers: they might totally be of good faith… and we would still totally get owned.
 
 ### 9
 
-So what can we do about it? We need be able to get reasonable confidence that a given binary was indeed produced using its supposed source. To achieve this, we want to enable anyone to reproduce identical binary packages from a given source. If we have this, and then enough people to perform another build on different computers, on different networks, at different times, then we can assume that either everybody is compromised the same, or—with better luck—that no bad stuff got add behind our backs.
+So what can we do about it? We need be able to get reasonable confidence that a given binary was indeed produced using its supposed source. To achieve this, we want to enable anyone to reproduce identical binary packages from a given source. If we have this, and then enough people to perform another build on different computers, on different networks, at different times, then we can assume that either everybody is compromised the same, or—with better luck—that no bad stuff got added behind our backs.
 
 ### 10
 
@@ -49,15 +49,15 @@ We call this idea: “reproducible builds”.
 
 ### 11
 
-Good news: it's getting trendy. I became familiar with the concept because of the work done by Mike Perry to get Tor Browser to build reproducibly. Himself, he was inspired by concerns in the Bitcoin community. It's been two years that we've started to work on this in Debian. Some people have started to work on FreeBSD. Coreboot fixed all the reproducibility problems in the past months. OpenWrt has started to accept some patches to make this possible. And it's not limited to these projects. We are seeing many people who are interested in making their project “reproducible” or helping others.
+Good news: it's getting trendy. I became familiar with the concept because of the work done by Mike Perry to get Tor Browser to build reproducibly. Himself, he was inspired by concerns in the Bitcoin community. It's been two years that we've started to work on this in Debian. Some people have started to work on FreeBSD. Coreboot fixed all the reproducibility problems in the past months. OpenWrt has started to accept some patches to make this possible. And it's not limited to these projects. We are seeing many people who are interested in making their project “reproducible” or making their tools able to produce identitical binaries.
 
 ### 12
 
-And that's a very good thing because “reproducible builds” should become the norm. One say the only software that can be secure are free software because we can perform proper audit. But this really only apply when we can trust the binaries. As software developer, we do want to provide a verifiable path from the source to the binaries we distribute.
+And that's a very good thing because “reproducible builds” should become the norm. One say the only software that can be secure are free software because we can perform proper audit. But this really only apply when we can trust the binaries. As software developers, we do want to provide a verifiable path from the source to the binaries we distribute.
 
 ### 13
 
-While working on this for the past two years in Debian, and kinda becoming a reference on the topic without us realizing it, we identified that there were multiple aspects to getting “reproducible builds” to the users. First you need to get the build to output the same bytes for a given version. But others also must to be able to set up a close enough build environment with similar enough software to perform the build. And for them to set it up, this environment needs to be specified somehow.
+While working on this for the past two years in Debian, and kinda becoming a reference on the topic without us realizing it, we identified that there were multiple aspects to getting “reproducible builds”. First you need to get the build to output the same bytes for a given version. But others also must to be able to set up a close enough build environment with similar enough software to perform the build. And for them to set it up, this environment needs to be specified somehow. Finally, you need to think about how rebuilds are performed and how the results are checked. I'm not going to talk about this last point in this presentation. It's mostly a matter of documentation because we advocate that checking the results should be as easy as comparing if the build products are byte for byte identical.
 
 ### 14
 
@@ -69,7 +69,7 @@ In a nutshell, you need to make sure the inputs are always the same. That the ou
 
 ### 16
 
-Yet, with the work we've done in Debian, we've seen that these assumptions do not hold for a lot of the software we build. The number one issue preventing the output to always be the same is “timestamps”. The date and time of the build creeps everywhere, we'll get back to this. Other common problems are variations in file ordering on disk, usage of randomness, specialized code for a given CPU class, the directory in which the build is being performed getting embedded in binaries, or other settings like locale or timezone affecting what gets recorded. But before giving you some solutions…
+Yet, with the work we've done in Debian, we've seen that these assumptions do not hold for a lot of the software we build. The number one issue preventing the output to always be the same is “timestamps”. The date and time of the build creeps everywhere, we'll get back to this. Other common problems are variations in file ordering on disk, usage of randomness, specialized code for a given CPU class, the directory in which the build is being performed getting embedded in binaries, or other settings like locale or timezone affecting what gets recorded. But first, before giving some solutions to all these problems…
 
 ### 17
 
@@ -77,7 +77,7 @@ To build some piece of software, we actually need to get our hands on its source
 
 ### 18
 
-Inputs from the network—even if it doesn't seem like it—are volatile. So don't make your build system rely on remote data. Or if you do, use checksums to make sure the content has not been modified and keep backups. Ideally, provide a fallback location with these backups. A good example is how FreeBSD ports work: they record `MASTER_SITES` for a given piece of software, the size and a cryptographic checksum for each files downloaded from these master sites, but they also keep a copy of each files on their mirrors. That's the best way to handle network inputs, but if you can avoid them, do it.
+Inputs from the network—even if it doesn't seem like it—are volatile. So don't make your build system rely on remote data. Or if you do, use checksums to make sure the content has not been modified and keep backups. Ideally, provide a fallback location with these backups. A good example is how the FreeBSD ports work: they record `MASTER_SITES` for a given piece of software, the size and a cryptographic checksum for each files downloaded from these master sites, but they also keep a copy of each files on their mirrors. That's the best way to handle network inputs, but if you can avoid them, do it. Ok, now let's tackle some of the common issues…
 
 ### 19
 
@@ -85,11 +85,11 @@ Here we can see the differences between two Tar archives. They both contain exac
 
 ### 20
 
-This is an example of having a different output because the order of inputs is not stable. When doing the basic operation of listing a directory, there is no guarantees on the order in which they will be returned. So if you use `tar` as shown below, you don't know in which order files in the `src` directory will be written in the archive.
+This is an example of having a different output because the order of inputs is not stable. When doing the basic operation of listing a directory, there is no guarantees on the order in which they will be returned. So if you use `tar` as shown at the bottom, you don't know in which order files in the `src` directory will be written in the archive.
 
 ### 21
 
-One solution to this is to list all inputs explicitly. This is pretty common for source code already.
+One solution to this is to list all inputs explicitly. The construction here is actually pretty common for source code already.
 
 ### 22
 
@@ -101,7 +101,7 @@ Depending on the locale, the `sort` command will sort files differently. Typical
 
 ### 24
 
-Here's another example taken from Coreboot and it's the kind of issue you really don't want to have to track down. What we're seeing here is only a couple of bytes difference. They will be different with almost all builds, and with no predictable or common patterns. That's because they are actually the content of whatever contains the memory at that time.
+Here's another example taken from Coreboot and it's the kind of issue you really don't want to have to track down. Mike Perry and Georg Koppen faced such an issue with the Windows build of Tor Browser. The difference we're seeing here is only a couple of bytes. And these bytes will be different with almost all builds, and with no predictable or common patterns. That's because they are actually the content of whatever contains the memory at that time.
 
 ### 25
 
@@ -121,7 +121,7 @@ Don't do that. We want stable output, so it's a bad idea to create a new version
 
 ### 29
 
-Instead, be deterministic and extract an information actually meaningful to the source that is being built. It can be the revision number from version control system. A hash of the source code might even be a better idea. Good thing about Git: they are the same. Another option is to extract stuff from a “changelog”. Here is an extract from how it's done for the `nsis` Debian package.
+Instead, be deterministic and extract an information actually meaningful to the source that is being built. It can be the revision number from version control system. A hash of the source code might even be a better idea. Good thing about Git: they are the same. Another option is to extract stuff from a “changelog”. The example here is an extract from how it's done for the `nsis` Debian package.
 
 ### 30
 
@@ -137,11 +137,11 @@ So, if you really need to have a date and time recorded, then like for version n
 
 ### 33
 
-But in that case, don't forget to record and use the original timezone or do everything in UTC. Otherwise, depending on where the build is made, you might get different results.
+But in that case, don't forget to record and use the original timezone or do everything in UTC. Otherwise, depending on where the build is made, you are likely to get different results.
 
 ### 34
 
-One tool to avoid timestamp-related issue is `faketime`. `faketime` is a library that is loaded through the `LD_PRELOAD` environment variable and that will catch calls asking the system for the current time of day, and reply instead a predefined date and time. In some cases, it works just fine and doesn't require much change to a given build system. The problem is that some tools rely on accurate times. The very common “Make” being one of them. “Make” requires accurate times because it will do it's best to only recompile stuff when the source has been modified since the last time a build happened. It gets really bad when doing parallel builds. The bug linked here is a reproducibility issue affecting the Tor Browser where `faketime` has the side effects that some objects are actually built multiple times during the process because Make can't properly determine if they are too old or not, and in the end the ordering of some object files differ. So I would recommend to avoid `faketime` as much as possible, but handled with care, for limited uses, it can be an option.
+One tool to avoid timestamp-related issue is `faketime`. `faketime` is a library that is loaded through the `LD_PRELOAD` environment variable and that will catch calls asking the system for the current time of day, and reply instead a predefined date and time. In some cases, it works just fine and can solve problems without requiring many changes to a given build system. The problem is that some tools rely on accurate times. The very common “Make” being one of them. “Make” requires accurate times because it will do it's best to only recompile stuff when the sources have changed since the last time a build happened. It gets really bad when doing parallel builds. The bug linked here is a reproducibility issue affecting the Tor Browser where `faketime` has the side effects that some objects are actually built multiple times because Make can't properly determine if they are too old or not, and in the end the ordering of some object files differ. So I would recommend to avoid `faketime` as much as possible, but handled with care, for limited uses, it can be an option. So, what should we do instead when some tool we use does record the current time?
 
 ### 35
 
@@ -149,11 +149,11 @@ A much better idea is to implement or support `SOURCE_DATE_EPOCH`.
 
 ### 36
 
-`SOURCE_DATE_EPOCH` is a new “standard” we are trying to push as the Debian “reproducible builds” effort initially driven by Ximin Luo and Daniel Kahn Gillmor. It's a new environment variable that can be set with a reference time that should be used through the build. It's in “epoch” format: that means it contains a number of seconds since January 1st, 1970, midnight, UTC.The main idea is that when `SOURCE_DATE_EPOCH` is set, it's value replace the “current time of day” whenever it would have been used. So typically statements like “Documentation generated on…” It's already implemented by a handful of tool like `help2man`, Epydoc, Doxygen (in Git), and in the Debian Ghostscript package. We also have submitted patches for GCC, `txt2man`, `libxslt`, and GNU Gettext. And patches are being prepared for more tools.
+`SOURCE_DATE_EPOCH` is a new “standard” initially driven by Ximin Luo and Daniel Kahn Gillmor we are trying to push as the Debian “reproducible builds” effort. It's a new environment variable that can be set with a reference time that should be used throughout the build. It's in “epoch” format: that means it contains a number of seconds since January 1st, 1970, midnight, UTC .The main idea is that when `SOURCE_DATE_EPOCH` is set, it's value replace the “current time of day” whenever it would have been used. So typically statements like “Documentation generated on…” It's already implemented by a handful of tool like `help2man`, Epydoc, Doxygen (in Git), and in the Debian Ghostscript package. We also have submitted patches for GCC, `txt2man`, `libxslt`, and GNU Gettext. And patches are being prepared for more tools.
 
 ### 37
 
-So an easy fix for timestamps in to set `SOURCE_DATE_EPOCH` in your build system.
+So an easy fix for timestamps is to set `SOURCE_DATE_EPOCH` in your build system.
 
 ### 38
 
@@ -165,7 +165,7 @@ But, I'm sorry to say I'm not over with timestamps. Here you can see how the tim
 
 ### 40
 
-So most archive formats will keep the file modification times in their metadata. That means that if your build system creates a new file, and then store it in an archive, the build time will be recorded in the archive, as we just saw. Several solutions are possible but it also depends on the type of archive we are dealing with.
+So most archive formats will keep the file modification times in their metadata. For some rare tools, you can simply tell them to not record medatada, like `gzip` with its `-n` option. But for all others, that means that if your build system creates a new file, and then stores it in an archive, the current time will be recorded in the archive, as we just saw. Several solutions are possible but it also depends on the type of archive we are dealing with.
 
 ### 41
 
@@ -233,7 +233,7 @@ So what do we call a build environment? Well, at the very least, it's the tools 
 
 ### 57
 
-And then, you can decide that other aspects of the environment should be reproduced by users if they want to build your software. If you don't support cross-compiling, mandating a given build architecture is probably a sane thing to do. Or declaring that a given binary can only be created by using FreeBSD. One thing we currently decided for Debian to avoid some pain is to mandate a particular directory where the build should be performed. This avoids problems with paths being recorded in debug symbols, for which we don't have good post-processing tools at the moment. If you use things like `SOURCE_DATE_EPOCH` or `faketime`, you can also declare that a build must be performed given a definite reference time. And basically, it's quite up to you, but you must identify what's in there so users have a chance to produce the same output as the one you are distributing. And then you must give a way to reproduce the same environment on their own system.
+And then, you can decide that other aspects of the environment should be reproduced by users if they want to build your software. If you don't support cross-compiling, mandating a given build architecture is probably a sane thing to do. Or declaring that a given binary can only be created by using FreeBSD. One thing we currently decided for Debian to avoid some pain is to mandate a particular directory where the build should be performed. This avoids problems with paths being recorded in debug symbols, for which we don't have good post-processing tools at the moment. If you use things like `SOURCE_DATE_EPOCH` or `faketime`, you can also declare that a build must be performed using a definite reference time. And basically, it's quite up to you, but you must identify what's in there so users have a chance to produce the same output as the one you are distributing. Once identified you must give a way to reproduce the same environment on their own system.
 
 ### 58
 
@@ -241,7 +241,7 @@ So one way to have users reproduce the tools used to perform the build is simply
 
 ### 59
 
-Another approach, used by Bitcoin and other parts of the Tor Browser build process, is to use a specific version of an integrated operating system. For GNU/Linux by picking a stable distribution like Debian or CentOS. It needs to stay available for long and to have the least amount of update possible. Better record exact package version, and hope these versions can be later reinstalled.
+Another approach, used by Bitcoin and other parts of the Tor Browser build process, is to use a specific version of an integrated operating system. Usually with GNU/Linux using a stable distribution like Debian or CentOS. It needs to stay available for long and to have the least amount of update possible. Better record exact package version, and hope these versions can be later reinstalled.
 
 ### 60
 
@@ -249,11 +249,11 @@ Some things can be quite simplified by using virtual machines or containers. Wit
 
 ### 61
 
-And speaking about trusting operating systems, how can we handle the proprietary ones? It's hard to assess they have not been tampered with. So let's just avoid that path. We actually have free software tools that can build perfectly fine software for Windows and Mac OS X. This is already how it's done for Bitcoin and Tor Browser, so thanks to them for researching this hairy topic. For Windows, `ming-w64` and the Nullsoft Scriptable Install System are both available in Debian. This is actually how we are building the application that can launch the `debian-installer` on Windows. For Mac OS X, it used to be quite hackish, but it's getting better thanks to the work done by Ray Donnelly. You will need to use a non-redistributable part, but provided by Apple after free registration, from XCode to build the toochain. Software from Mac OS X is often distributed as disk images which can be created under GNU/Linux, but it kinda requires 3 different tools at the moment. Hopefully if more people start doing this, the whole process is likely to get improved in the future.
+And speaking about trusting operating systems, how can we handle the proprietary ones? It's hard to assess they have not been tampered with. So let's just avoid that path. We actually have free software tools that can build perfectly fine software for Windows and Mac OS X. This is already how it's done for Bitcoin and Tor Browser, so thanks to them for researching this hairy topic. For Windows, `ming-w64` and the Nullsoft Scriptable Install System are both available in Debian. This is actually how we are building the application that can launch the `debian-installer` on Windows. For Mac OS X, it used to be quite hackish, but it's getting better thanks to the work done by Ray Donnelly. You will need to use a non-redistributable part, although it's provided by Apple after free registration, from XCode to build the toochain. Software from Mac OS X is often distributed as disk images which can be created under GNU/Linux, but it kinda requires 3 different tools at the moment. Hopefully if more people start doing this, the whole process is likely to get improved in the future.
 
 ### 62
 
-So great. We now have defined what's our canonical build environment. How do we distribute it to our users alongside our binaries and source code?
+So, great! We now have defined what's our canonical build environment. How do we distribute it to our users alongside our binaries and source code?
 
 ### 63
 
@@ -261,7 +261,7 @@ If the environment is only about build tools, maybe the easiest way is just to a
 
 ### 64
 
-A more radical extension to the former approach is to actually check everything in your version control system. Everything as in the source of every single tool. That's how it's working when you are “building the world” on BSD-like systems. That's also how Google is doing it internally. To make absolutely sure that everything is checked-in, you can even use “sandboxing” mechanisms to avoid the risk of running a tool that has not been built from source. Google recently started open-sourcing the tool they use internally to drive such large scale builds under the name Bazel. So despite its syntax that I personally find hard to read, it's probably worth checking out. But if you are not working in a corporate environment, or on a fully integrated operating system, it might be hard to push. You don't really want to ask everyone to download and build every possible version of GCC every time that would like to build a piece of code.
+A more radical extension to the former approach is to actually check everything in your version control system. Everything as in the source of every single tool. That's how it's working when you are “building the world” on BSD-like systems. That's also how Google is doing it internally. To make absolutely sure that everything is checked-in, you can even use “sandboxing” mechanisms to avoid the risk of running a tool that has not been built from source. Google recently started open-sourcing the tool they use internally to drive such large scale builds under the name Bazel. So despite its syntax that I personally find hard to read, it's probably worth checking out. But if you are not working in a corporate environment, or on a fully integrated operating system, it might be hard to push. You don't really want to ask everyone to download and build every possible version of GCC every time they would like to build a piece of code.
 
 ### 65
 
@@ -277,7 +277,7 @@ Making containers easy to setup and use is exactly the problem that Docker is tr
 
 ### 68
 
-Vagrant is another tool, written in Ruby, that can drive virtual machines with VirtualBox. This is another tool than can be used to get a controlled build environment. The upside of Vagrant and VirtualBox is that they works on Mac OS X and Windows, and so this might help more users to actually check that a build has not been tempered with.
+Vagrant is another tool, written in Ruby, that can drive virtual machines with VirtualBox. It can also be used to get a controlled build environment. The upside of Vagrant and VirtualBox is that they works on Mac OS X and Windows, and so this might help more users to actually check that a build has not been tempered with.
 
 ### 69
 
@@ -285,7 +285,7 @@ For Debian, we decided for another path. We defined a new control format, called
 
 ### 70
 
-Here's an example of what a `.buildinfo` looks like. So you can see the build architecture, checksums of source—that's the `.dsc`— and the binary packages, the build path, and all the packages involved. Hopefully they will be soon available on Debian mirrors and users should then be able to simply call a script to re-do the environment and the build.
+Here's an example of what a `.buildinfo` looks like. So you can see the build architecture, checksums of source—that's the `.dsc`— and the binary packages, the build path, and all the packages involved. Hopefully they will be soon available on Debian mirrors and users should then be able to simply call a script to re-do the environment and then the build.
 
 ### 71
 
@@ -297,7 +297,7 @@ If users are the ones that detects that changes in the environment affect the bu
 
 ### 73
 
-Based on this, Holger Levsen, soon helped by Mattia Rizzolo, setup a continuous test system driven by Jenkins. Thanks to ProfitBricks for the crazy bad ass hardware as it's able to perform 1300 tests—that means building 1300 packages twice—every day on average. The results are then put in a database and browsable on the web. The system has been recently extended to other projects and we are currently performing tests for Coreboot and OpenWrt. Work has also started to test FreeBSD and NetBSD… Holger, please stand up. Please talk to this guy if you want to ask about your projects!
+Based on this, Holger Levsen, now helped by Mattia Rizzolo, setup a continuous test system driven by Jenkins. Thanks to ProfitBricks for the crazy bad ass hardware as it's able to perform 1300 tests—that means building 1300 packages twice—every day on average. The results are then put in a database and browsable on the web. The system has been recently extended to other projects and we are currently performing tests for Coreboot and OpenWrt. Work has also started to test FreeBSD and NetBSD… Holger is at the camp, so please talk to him if you want to ask about your projects!
 
 ### 74
 
@@ -309,7 +309,7 @@ I didn't want to make this talk too much about the Debian project, but just to g
 
 ### 76
 
-And as you can see, we're making progress every day as Debian maintainers integrate the patches that we are submitting.
+And here might be a more accurate view of the progress we are making every day as Debian maintainers integrate the patches that we are submitting.
 
 ### 77
 
@@ -321,7 +321,7 @@ That's also because we came up with a tool that helped us understand issues. Com
 
 ### 79
 
-Or in plain text as it might be easier to post-process or share.
+Or in plain text which it might be easier to post-process or share.
 
 ### 80
 
@@ -337,7 +337,7 @@ We've been collecting a lot of information about reproducibility issues on the D
 
 ### 83
 
-Last but not least, I'd like to mention David A. Wheeler's work on Diverse Double-Compilation. Often when I explain the idea of “reproducible builds”, someone comes up asking “but how can you be sure that your compiler has not been backdoored so that the next time it builds a compiler it will not insert another backdoor?” This is also known as the “trusting trust” attack from Ken Thompson that was mentioned in the Snowden document. So David refined (and also did a formal proof) that we can answer this question using a process that is called Diverse Double-Compilation. I'll try to sum it up quickly: you need two compilers, with one that you somehow trust; then you build the compiler under test twice, once with each compiler, and then you use the compilers that you just built to build itself again. If the output is the same, then no backdoors. But for this scheme to work, you need to be able to compare that both build outputs are the same. And that's exactly what we are enabling when having reproducible builds.
+Last but not least, I'd like to mention David A. Wheeler's work on Diverse Double-Compilation. Often when I explain the idea of “reproducible builds”, someone comes up asking “but how can you be sure that your compiler has not been backdoored so that the next time it builds a compiler it will not insert another backdoor?” This is also known as the “trusting trust” attack from Ken Thompson that was mentioned in the Snowden document. So David refined (and also did a formal proof) that we can answer this question using a process that is called Diverse Double-Compilation. I'll try to sum it up quickly: you need two compilers, with one that you somehow trust; then you build the compiler under test twice, once with each compiler, and then you use the compilers that you just built to build the compiler under test again. If the output is the same, then no backdoors. But for this scheme to work, you need to be able to compare that both build outputs are the same. And that's exactly what we are enabling when having reproducible builds.
 
 ### 84
 
