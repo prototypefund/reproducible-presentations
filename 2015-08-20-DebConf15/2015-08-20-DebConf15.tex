@@ -569,10 +569,158 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{itemize}
 \end{frame}
 
-\begin{frame}
- \frametitle{Fixing reproducibility issues}
 
- XXX
+\begin{frame}{Fixing reproducibility issues}
+ \begin{center}
+  \Large
+  Some examples
+ \end{center}
+\end{frame}
+
+% Straightforward..
+
+\begin{frame}{Timestamps in gzip headers}
+ \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_gzip.png}
+  \vfill
+  \texttt{gzip FAQ} $\Longrightarrow$ \texttt{gzip -n FAQ}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Timestamps in Python version}
+ \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_python_version.png}
+  \vfill
+  \texttt{tag\_date=True} in \texttt{setup.py} $\Longrightarrow$ \texttt{tag\_date=False}
+ \end{center}
+\end{frame}
+
+
+\begin{frame}{Timestamps in static libraries (cont.)}
+ \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_static_library.png}
+  \vfill
+  \texttt{.a} files are \texttt{ar} archives $\Longrightarrow$ use \texttt{binutils} in determinstic mode or \texttt{strip-nondeterminism}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Timestamps in ZIP archives}
+ \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_zip.png}
+  \vfill
+  $\Longrightarrow$ \texttt{find}/\texttt{xargs}/\texttt{touch} to set mtime from \texttt{dpkg-parsechangelog} or \texttt{strip-nondeterminism}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Timestamps in Java jar}
+ \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_jar.png}
+  \vfill
+  They are actually ZIP archives.
+ \end{center}
+\end{frame}
+
+\begin{frame}{Timestamps written by Doxygen}
+ \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_doxygen.png}
+  \vfill
+  \texttt{HTML\_TIMESTAMP=NO}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Timestamps in tarballs}
+ \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_tarball.png}
+  \vfill
+  \texttt{--mtime} to set all mtimes or adjust with \texttt{find}/\texttt{xargs}/\texttt{touch}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Users and groups in tarballs}
+ \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/examples/user_and_group_in_tarball.png}
+  \vfill
+  \texttt{--owner=root --group=root --numeric-owner}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Random order in tarballs}
+ \begin{center}
+  \includegraphics[width=0.7\textwidth]{images/examples/random_order_in_tarball.png}
+  \vfill
+  \texttt{find -type f | LC\_ALL=C sort | tar ...}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Timestamps in PNG}
+ \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_png.png}
+  \vfill
+  \texttt{convert ... +set date:create +set date:modify -define png:exclude-chunk=time}
+ \end{center}
+\end{frame}
+
+% toolchain
+
+\begin{frame}{Timestamps written by Erlang compiler}
+ \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_beam.png}
+  \vfill
+  \vfill
+  Patch \texttt{erlc} to obey \texttt{SOURCE\_DATE\_EPOCH} (\texttt{\#795834})
+ \end{center}
+\end{frame}
+
+\begin{frame}{Timestamps in Ruby gemspec files}
+ \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_ruby_gemspec.png}
+  \vfill
+  Varies on timezone $\Longrightarrow$ patch to always use UTC (\texttt{\#779631})
+ \end{center}
+\end{frame}
+
+\begin{frame}{Timestamps written by docbook-to-man}
+ \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/examples/docbook-to-man.png}
+  \vfill
+  Fix docbook-to-man (\texttt{\#776143})
+ \end{center}
+\end{frame}
+
+% ugly
+
+\begin{frame}{Hostname / build time recorded via ./configure}
+ \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/examples/hostname_in_configure.png}
+  \vfill
+  Maybe override in \texttt{debian/rules}..?
+ \end{center}
+\end{frame}
+
+% uglier
+
+\begin{frame}{Timestamps in header files}
+ \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_header_files.png}
+  \vfill
+  Patch with a better unique id or use \texttt{SOURCE\_DATE\_EPOCH}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Recorded kernel version}
+ \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/examples/embedded_kernel_version.png}
+  \vfill
+  Privacy leak! $Longrightarrow$ Patch upstream
+ \end{center}
+\end{frame}
+
+\begin{frame}{Build time recorded via Makefile}
+ \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/examples/build_date_in_makefile.png}
+  \vfill
+  Patch upstream.
+ \end{center}
 \end{frame}
 
 \begin{frame}
