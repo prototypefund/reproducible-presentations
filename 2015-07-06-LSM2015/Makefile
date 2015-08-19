@@ -33,9 +33,9 @@ $(PRESENTATION).pdf: $(PRESENTATION).mdwn $(PRESENTATION)-header.tex template.be
 
 SRCS = \
 	$(shell find . -maxdepth 1 '(' -name '$(PRESENTATION).GNUMakefile' -o -name 'Makefile' ')' -printf '%P\n') \
+	$(IMGS) \
 	$(PRESENTATION).mdwn \
-	$(PRESENTATION)-header.tex \
-	$(IMGS)
+	$(PRESENTATION)-header.tex
 
 $(PRESENTATION)-src.tar.gz: $(SRCS)
 	tar -zcvf $@ --transform 's,$(PRESENTATION)\.GNUMakefile,Makefile,;s,^,$(PRESENTATION)/,' $(SRCS)
