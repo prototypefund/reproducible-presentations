@@ -484,9 +484,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{itemize}
   \item Build date usually not useful for the user
   \item Standardize a build-time environment variable
-  \item (packages) When embedding current date, replace it by \texttt{SOURCE\_DATE\_EPOCH} if the env var is set
+  \item Value of \texttt{SOURCE\_DATE\_EPOCH} is used instead of the current date
   \item General solution for other free software projects and distributions
-  \item In Debian we set it to the latest debian/changelog entry timestamp
+  \item In Debian, set according to the latest \texttt{debian/changelog} entry
  \end{itemize}
 \end{frame}
 
