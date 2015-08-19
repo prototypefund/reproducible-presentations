@@ -265,6 +265,7 @@
   \item Two years!
   \item It's on the wiki:
     {\small \url{https://wiki.debian.org/ReproducibleBuilds/History}}
+  \item Weekly reports since May 2015
   \item Many talks already:
    \begin{itemize}
     \item 2014-02-01: FOSDEM’14
@@ -311,10 +312,6 @@
    \end{itemize}
   \item Written in Perl (like \texttt{dpkg-dev})
  \end{itemize}
- \vfill
- \begin{center}\small
-  \url{git://git.debian.org/reproducible/strip-nondeterminism.git}
- \end{center}
 \end{frame}
 
 \begin{frame}
@@ -542,6 +539,80 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \end{frame}
 
 \section{Want to help?}
+
+\begin{frame}
+ \frametitle{Fix your package}
+
+ \begin{centering}
+  \texttt{https://reproducible.debian.net/\textit{package}}
+
+  \includegraphics[width=\linewidth]{images/rdn-gdnsd.png}
+ \end{centering}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Fix your package}
+
+ \begin{centering}
+  \texttt{https://tracker.debian.org/\textit{package}}
+
+  \includegraphics[width=0.8\linewidth]{images/tracker-gdnsd.png}
+ \end{centering}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Fix your package}
+
+ \begin{itemize}
+  \item And also:
+   \begin{itemize}
+    \item DDPO
+    \item DMD
+   \end{itemize}
+  \item Tips on the wiki \\
+   {\small \url{https://wiki.debian.org/ReproducibleBuilds/Howto}}
+  \item Ask for help on \texttt{\#debian-reproducible} \\
+   or on the mailing-list
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Fix your package}
+
+ \begin{itemize}
+  \item Testing:
+   \begin{itemize}
+    \item Requires \texttt{pbuilder}, custom config, the “reproducible” repository
+    \item Documented on the wiki
+    \item diffoscope is in \textit{unstable}
+   \end{itemize}
+  \item Addition to \texttt{devscripts} once \texttt{dpkg} is good
+  \item Come to the hack session! \\
+    2015-08-21 14:00..19:00 in Stockholm
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Join the team!}
+
+ \begin{itemize}
+  \item Why?
+   \begin{itemize}
+    \item ♥♥♥ Lovely group of people ♥♥♥
+    \item Learn something new everyday
+    \item Change the (software) world!
+   \end{itemize}
+  \item What do we do?
+   \begin{itemize}
+    \item Review packages
+    \item Identify issues and document solutions
+    \item \texttt{reproducible.d.n}, diffoscope, strip-nondeterminism
+    \item Propose changes for toolchain
+    \item Submit patches for individual packages
+    \item Write more general documentation and  talk to the world
+   \end{itemize}
+ \end{itemize}
+\end{frame}
 
 \section{Questions?}
 
