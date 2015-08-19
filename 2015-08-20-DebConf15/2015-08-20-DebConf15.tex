@@ -257,17 +257,17 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{And it's trendy!}
+ \frametitle{So fashionable!}
 
-\begin{itemize}
-\item Bitcoin (\textbf{done})
-\item Tor (\textbf{done})
-\item Debian (\emph{in progress})
-\item FreeBSD (\emph{in progress})
-\item NetBSD (\emph{in progress})
-\item Coreboot (\textbf{done})
-\item OpenWrt (\emph{in progress})
-\item \ldots{}
+ \begin{itemize}
+ \item Bitcoin (\textbf{done})
+ \item Tor (\textbf{done})
+ \item Debian (\emph{in progress})
+ \item FreeBSD (\emph{in progress})
+ \item NetBSD (\emph{in progress})
+ \item Coreboot (\textbf{done})
+ \item OpenWrt (\emph{in progress})
+ \item \ldots{}
 \end{itemize}
 
 \end{frame}
@@ -531,9 +531,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{debhelper}
 
  \begin{itemize}\small
-  \item \texttt{\#759886} make mtimes of packaged files deterministic
-  \item \texttt{\#759895} add a call to \texttt{dh\_strip\_nondeterminism} in \texttt{dh}
-  \item \texttt{\#791823} set \texttt{SOURCE\_DATE\_EPOCH} env var for reproducible builds
+  \item \texttt{\#759886}: make mtimes of packaged files deterministic
+  \item \texttt{\#759895}: add a call to \texttt{dh\_strip\_nondeterminism} in \texttt{dh}
+  \item \texttt{\#791823}: set \texttt{SOURCE\_DATE\_EPOCH} env var for reproducible builds
  \end{itemize}
 \end{frame}
 
@@ -541,16 +541,16 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{cdbs}
 
  \begin{itemize}\small
-  \item \texttt{\#794241} export \texttt{\$SOURCE\_DATE\_EPOCH} to produce reproducible output
+  \item \texttt{\#794241}: export \texttt{\$SOURCE\_DATE\_EPOCH} to produce reproducible output
  \end{itemize}
 \end{frame}
 
 \begin{frame}
  \frametitle{sbuild}
 
- \begin{itemize}
-  \item \texttt{\#790868} allow sbuild to use a deterministic build path to build packages
-  \item \texttt{\#778571} predictible build location for reproducible builds
+ \begin{itemize}\small
+  \item \texttt{\#790868}: allow sbuild to use a deterministic build path to build packages
+  \item \texttt{\#778571}: predictible build location for reproducible builds
   \item Finish the \texttt{srebuild} script
  \end{itemize}
 \end{frame}
@@ -558,7 +558,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \begin{frame}
  \frametitle{ftp.debian.org}
 
-  \item \texttt{\#763822}: please include .buildinfo file in the archive}
+ \begin{itemize}\small
+  \item \texttt{\#763822}: please include .buildinfo file in the archive
+ \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -647,7 +649,8 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{itemize}
   \item Testing:
    \begin{itemize}
-    \item Requires \texttt{pbuilder}, custom config, the “reproducible” repository
+    \item Requires \texttt{pbuilder} and custom config
+    \item Need the “reproducible” repository
     \item Documented on the wiki
     \item diffoscope is in \textit{unstable}
    \end{itemize}
