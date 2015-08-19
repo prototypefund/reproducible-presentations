@@ -573,7 +573,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \begin{frame}{Fixing reproducibility issues}
  \begin{center}
   \Large
-  Some examples
+  Some examples\ldots{}
  \end{center}
 \end{frame}
 
@@ -595,10 +595,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{center}
 \end{frame}
 
-
-\begin{frame}{Timestamps in static libraries (cont.)}
+\begin{frame}{Timestamps in static libraries}
  \begin{center}
-  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_static_library.png}
+  \includegraphics[width=0.7\textwidth]{images/examples/timestamps_in_static_library.png}
   \vfill
   \texttt{.a} files are \texttt{ar} archives $\Longrightarrow$ use \texttt{binutils} in determinstic mode or \texttt{strip-nondeterminism}
  \end{center}
@@ -606,9 +605,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 \begin{frame}{Timestamps in ZIP archives}
  \begin{center}
-  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_zip.png}
+  \includegraphics[width=0.6\textwidth]{images/examples/timestamps_in_zip.png}
   \vfill
-  $\Longrightarrow$ \texttt{find}/\texttt{xargs}/\texttt{touch} to set mtime from \texttt{dpkg-parsechangelog} or \texttt{strip-nondeterminism}
+  $\Longrightarrow$ \texttt{find}/\texttt{xargs}/\texttt{touch} to set mtime from \texttt{dpkg-parsechangelog}
  \end{center}
 \end{frame}
 
@@ -616,37 +615,37 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{center}
   \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_jar.png}
   \vfill
-  They are actually ZIP archives.
+  $\Longrightarrow$ They are actually ZIP archives
  \end{center}
 \end{frame}
 
 \begin{frame}{Timestamps written by Doxygen}
  \begin{center}
-  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_by_doxygen.png}
+  \includegraphics[width=0.8\textwidth]{images/examples/timestamps_by_doxygen.png}
   \vfill
-  \texttt{HTML\_TIMESTAMP=NO}
+  $\Longrightarrow$ \texttt{HTML\_TIMESTAMP = NO}
  \end{center}
 \end{frame}
 
-\begin{frame}{Timestamps in tarballs}
+\begin{frame}{Tarballs: Timestamps}
  \begin{center}
-  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_tarball.png}
+  \includegraphics[width=0.7\textwidth]{images/examples/timestamps_in_tarball.png}
   \vfill
-  \texttt{--mtime} to set all mtimes or adjust with \texttt{find}/\texttt{xargs}/\texttt{touch}
+  $\Longrightarrow$ \texttt{--mtime} (or \texttt{find}/\texttt{xargs}/\texttt{touch})
  \end{center}
 \end{frame}
 
-\begin{frame}{Users and groups in tarballs}
+\begin{frame}{Tarballs: Users and groups}
  \begin{center}
-  \includegraphics[width=0.9\textwidth]{images/examples/user_and_group_in_tarball.png}
+  \includegraphics[width=0.7\textwidth]{images/examples/user_and_group_in_tarball.png}
   \vfill
   \texttt{--owner=root --group=root --numeric-owner}
  \end{center}
 \end{frame}
 
-\begin{frame}{Random order in tarballs}
+\begin{frame}{Tarballs: Ordering}
  \begin{center}
-  \includegraphics[width=0.7\textwidth]{images/examples/random_order_in_tarball.png}
+  \includegraphics[width=0.6\textwidth]{images/examples/random_order_in_tarball.png}
   \vfill
   \texttt{find -type f | LC\_ALL=C sort | tar ...}
  \end{center}
@@ -654,7 +653,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 \begin{frame}{Timestamps in PNG}
  \begin{center}
-  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_png.png}
+  \includegraphics[width=0.6\textwidth]{images/examples/timestamps_in_png.png}
   \vfill
   \texttt{convert ... +set date:create +set date:modify -define png:exclude-chunk=time}
  \end{center}
@@ -662,16 +661,16 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 % toolchain
 
-\begin{frame}{Timestamps written by Erlang compiler}
+\begin{frame}{Timestamps in Erlang .BEAM}
  \begin{center}
-  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_beam.png}
+  \includegraphics[width=0.6\textwidth]{images/examples/timestamps_in_beam.png}
   \vfill
   \vfill
   Patch \texttt{erlc} to obey \texttt{SOURCE\_DATE\_EPOCH} (\texttt{\#795834})
  \end{center}
 \end{frame}
 
-\begin{frame}{Timestamps in Ruby gemspec files}
+\begin{frame}{Timestamps in Ruby gemspec}
  \begin{center}
   \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_ruby_gemspec.png}
   \vfill
@@ -679,21 +678,13 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{center}
 \end{frame}
 
-\begin{frame}{Timestamps written by docbook-to-man}
- \begin{center}
-  \includegraphics[width=0.9\textwidth]{images/examples/docbook-to-man.png}
-  \vfill
-  Fix docbook-to-man (\texttt{\#776143})
- \end{center}
-\end{frame}
-
 % ugly
 
-\begin{frame}{Hostname / build time recorded via ./configure}
+\begin{frame}{Hostname/time recorded via ./configure}
  \begin{center}
-  \includegraphics[width=0.9\textwidth]{images/examples/hostname_in_configure.png}
+  \includegraphics[width=0.8\textwidth]{images/examples/hostname_in_configure.png}
   \vfill
-  Maybe override in \texttt{debian/rules}..?
+  $\Longrightarrow$ Can sometimes override in \texttt{debian/rules}..?
  \end{center}
 \end{frame}
 
@@ -701,17 +692,17 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 \begin{frame}{Timestamps in header files}
  \begin{center}
-  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_header_files.png}
+  \includegraphics[width=0.7\textwidth]{images/examples/timestamps_in_header_files.png}
   \vfill
   Patch with a better unique id or use \texttt{SOURCE\_DATE\_EPOCH}
  \end{center}
 \end{frame}
 
-\begin{frame}{Recorded kernel version}
+\begin{frame}{Kernel version recorded}
  \begin{center}
   \includegraphics[width=0.9\textwidth]{images/examples/embedded_kernel_version.png}
   \vfill
-  Privacy leak! $Longrightarrow$ Patch upstream
+  $\Longrightarrow$ Patch upstream\ldots{}
  \end{center}
 \end{frame}
 
@@ -719,7 +710,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{center}
   \includegraphics[width=0.9\textwidth]{images/examples/build_date_in_makefile.png}
   \vfill
-  Patch upstream.
+  $\Longrightarrow$ Patch upstream\ldots{} :(
  \end{center}
 \end{frame}
 
