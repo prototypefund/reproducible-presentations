@@ -516,19 +516,19 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \section{Next?}
 
 \begin{frame}
- \frametitle{Core patches: dpkg}
+ \frametitle{dpkg}
 
  \begin{itemize}\small
   \item \sout{\texttt{\#719844}: make compression of {data,control}.tar.gz deterministic}
   \item \texttt{\#759999}: set reproducible timestamps in \texttt{.deb} ar file headers
   \item \texttt{\#787980}: normalize file permissions when creating control.tar
   \item \texttt{\#719845}: make file order within {data,control}.tar.gz deterministic
-  \item \texttt{\#763822}: \textit{(ftp.debian.org) please include .buildinfo file in the archive}
+  \item \texttt{dpkg-genbuldinfo}: \textit{patch already written, but waiting on agreement about spec}
  \end{itemize}
 \end{frame}
 
 \begin{frame}
- \frametitle{Core patches: debhelper}
+ \frametitle{debhelper}
 
  \begin{itemize}\small
   \item \texttt{\#759886} make mtimes of packaged files deterministic
@@ -538,7 +538,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \end{frame}
 
 \begin{frame}
- \frametitle{Core patches: cdbs}
+ \frametitle{cdbs}
 
  \begin{itemize}\small
   \item \texttt{\#794241} export \texttt{\$SOURCE\_DATE\_EPOCH} to produce reproducible output
@@ -546,12 +546,19 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \end{frame}
 
 \begin{frame}
- \frametitle{Core patches: sbuild}
+ \frametitle{sbuild}
 
  \begin{itemize}
   \item \texttt{\#790868} allow sbuild to use a deterministic build path to build packages
   \item \texttt{\#778571} predictible build location for reproducible builds
+  \item Finish the \texttt{srebuild} script
  \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{ftp.debian.org}
+
+  \item \texttt{\#763822}: please include .buildinfo file in the archive}
 \end{frame}
 
 \begin{frame}
@@ -586,6 +593,14 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
     \includegraphics[width=\paperwidth]{images/bug_chart.pdf}
   };
  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Debian policy}
+
+ \begin{itemize}
+  \item Section 4.15: “Source must build in a reproducible manner”? 
+ \end{itemize}
 \end{frame}
 
 \section{Want to help?}
@@ -670,6 +685,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{Thanks!}
 
  \begin{itemize}
+  \item You and everybody who contributed!
   \item Linux Foundation and the Core Infrastructure Initiative
  \end{itemize}
 
