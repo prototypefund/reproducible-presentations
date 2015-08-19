@@ -481,7 +481,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
  \begin{itemize}
   \item Build date usually not useful for the user
-  \item Standarize a build-time environment variable
+  \item Standardize a build-time environment variable
   \item (packages) When embedding current date, replace it by SOURCE\_DATE\_EPOCH if the env var is set
   \item General solution for other free software projects and distributions
   \item In Debian we set it to the latest debian/changelog entry timestamp
@@ -523,7 +523,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{dpkg}
 
  \begin{itemize}\small
-  \item \sout{\texttt{\#719844}: make compression of {data,control}.tar.gz deterministic}
+  \item \sout{\texttt{\#719844}: make compression of \{data,control\}.tar.gz deterministic}
   \item \texttt{\#759999}: set reproducible timestamps in \texttt{.deb} ar file headers
   \item \texttt{\#787980}: normalize file permissions when creating control.tar
   \item \texttt{\#719845}: make file order within {data,control}.tar.gz deterministic
@@ -576,7 +576,16 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \begin{frame}
  \frametitle{Toolchain work}
 
- XXX
+ % list taken from https://wiki.debian.org/ReproducibleBuilds/ExperimentalToolchain on 2015-08-19
+ % Skipping SOURCE_DATE_EPOCH related patches since they are listed in the related section
+ \begin{itemize}\small
+  \item \sout{\texttt{\#776026} \textbf{wheel:} create reproducible wheel (.whl) files}
+  \item \sout{\texttt{\#776143} \textbf{docbook-to-man:} remove timestamps from the generated manpages}
+  \item \sout{\textbf{gtk-doc:} generate its links in a stable order}
+  \item \texttt{\#774148} \textbf{fontforge:} propagate creation and modification times from source file
+  \item \texttt{\#775786} \textbf{python-support:} sort file lists in /usr/share/python-support/*.private
+  \item \textbf{libxslt:} make generate-id() return identifiers in a deterministic way
+ \end{itemize}
 \end{frame}
 
 \begin{frame}
