@@ -1,0 +1,49 @@
+% Thanks Richard Darst on how to get a nice Beamer theme.
+% See http://rkd.zgib.net/wiki/DebianBeamerThemes
+
+\usepackage{ctable}
+\usepackage{multicol}
+\usepackage{tikz}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{images/swirl-lightest.pdf}}
+\logo{\includegraphics[viewport=274 335 360 440,width=1cm]{images/openlogo-nd.pdf}}
+
+\definecolor{debianred}{rgb}{.780,.000,.211} % 199,0,54
+\definecolor{debianblue}{rgb}{0,.208,.780} % 0,53,199
+\definecolor{debianlightbackgroundblue}{rgb}{.941,.941,.957} % 240,240,244
+\definecolor{debianbackgroundblue}{rgb}{.776,.784,.878} % 198,200,224
+
+\usetheme{Boadilla}
+\setbeamertemplate{navigation symbols}{}
+
+\usecolortheme[named=debianbackgroundblue]{structure}
+\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{titlelike}{fg=debianblue}
+\setbeamercolor{sidebar}{fg=debianred,bg=debianbackgroundblue}
+
+\setbeamercolor{palette sidebar primary}{fg=debianred}
+\setbeamercolor{palette sidebar secondary}{fg=debianred}
+\setbeamercolor{palette sidebar tertiary}{fg=debianred}
+\setbeamercolor{palette sidebar quaternary}{fg=debianred}
+
+\setbeamercolor{section in toc}{fg=debianred}
+\setbeamercolor{subsection in toc}{parent=debianred}
+
+\setbeamercolor{item}{fg=debianred}
+
+\setbeamercolor{block title}{fg=debianblue}
+
+\title[Reproducible builds]{Round table}
+\author[Reproducible builds folks and friends]{%
+   \texorpdfstring{
+        \begin{columns}
+            \column{.45\linewidth}
+            \centering
+            \href{mailto:reproducible-builds@lists.alioth.debian.org}{reproducible-builds@lists.alioth.debian.org}
+        \end{columns}
+   }{reproducible-builds@lists.alioth.debian.org}}
+\institute[DebConf15]{}
+\date[DebConf15]{%
+ DebConf15\\
+ \small
+ 2015-08-20}

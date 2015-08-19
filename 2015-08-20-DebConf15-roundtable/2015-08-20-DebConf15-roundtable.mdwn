@@ -1,0 +1,26 @@
+\titlepage
+
+----------------------------------
+
+\begin{center}
+\Huge What?
+\end{center}
+
+How to help Debian?
+------------
+
+ * Inventory issues and analyse them
+ * Make packages build reproducibly
+ * Fix known common issues:
+     - Get reproducible PE binaries;
+     - Random filenames with GCC;
+ * Hack Debian archive infrastructure
+     - Store and distribute `*.buildinfo` files (#763822))
+           - our patch `dpkg` also ain't in the BTS yet
+     - reproducibly should be mandated in debian-policy…
+ * Hack tools to display local packages reproducibility status
+ * We need a logo too :)
+ * …
+
+Thanks!
+-------
