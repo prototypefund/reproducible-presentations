@@ -1,4 +1,4 @@
-.PHONY: all source images
+.PHONY: all source 
 
 # packages needed: pandoc texlive-luatex inkscape wget
 
@@ -8,25 +8,11 @@ all: $(PRESENTATION).pdf
 
 source: $(PRESENTATION)-src.tar.gz
 
-images:
-	cd images ; \
-	for i in stats_notes stats_issues stats_bugs ; do \
-		rm $$i.png ; \
-		wget https://reproducible.debian.net/$$i.png ; \
-	done ; \
-	for i in stats_pkg_state ; do \
-		rm $$i.png ; \
-		wget https://reproducible.debian.net/unstable/$$i.png ; \
-	done ; \
-	for i in stats_meta_pkg_state_tails_build-depends ; do \
-		rm $$i.png ; \
-		wget https://reproducible.debian.net/unstable/amd64/$$i.png ; \
-	done ; \
-
 
 IMGS = \
 	images/swirl-lightest.pdf \
 	images/openlogo-nd.pdf \
+	images/unstable-fake-stats.png \
 	$(shell echo $$(sed -n -e 's/^[^%]*\\includegraphics\([^{]*\)\?{\([^}]*\)}.*$$/\2.*/p' $(PRESENTATION).mdwn | grep -E -v 'globalsign' | sed -e 's/\.svg$$/\.pdf$$/' | sort -u))
 
 $(PRESENTATION).pdf: $(PRESENTATION).mdwn $(PRESENTATION)-header.tex $(IMGS)

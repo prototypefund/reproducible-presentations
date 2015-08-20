@@ -1,26 +1,28 @@
 \titlepage
 
+The future
+----------------------------------
+
+\begin{center}
+\includegraphics[width=0.9\textwidth]{images/unstable-fake-stats}
+\end{center}
+
 ----------------------------------
 
 \begin{center}
 \Huge What?
 \end{center}
 
-How to help Debian?
+Which core bugs need to be addressed?
 ------------
 
- * Inventory issues and analyse them
- * Make packages build reproducibly
- * Fix known common issues:
-     - Get reproducible PE binaries;
-     - Random filenames with GCC;
- * Hack Debian archive infrastructure
-     - Store and distribute `*.buildinfo` files (#763822))
-           - our patch `dpkg` also ain't in the BTS yet
-     - reproducibly should be mandated in debian-policy…
- * Hack tools to display local packages reproducibility status
- * We need a logo too :)
- * …
+ * dpkg: XXXX
+ * debhelper: XXXX
+ * ftp.debian.org: XXXX
+ * buildd / wannabuild: XXXX
 
-Thanks!
--------
+-----------------------------------------
+\begin{center}
+\Huge Thank you!
+\end{center}
+
