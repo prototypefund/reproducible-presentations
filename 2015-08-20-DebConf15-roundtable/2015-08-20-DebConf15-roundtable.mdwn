@@ -16,10 +16,16 @@ The future
 Which core bugs need to be addressed?
 ------------
 
- * dpkg: XXXX
- * debhelper: XXXX
- * ftp.debian.org: XXXX
- * buildd / wannabuild: XXXX
+ * dpkg:
+  * #719844: make compression of data/control.tar.gz deterministic
+  * #759999: set reproducible timestamps in .deb ar file headers
+  * #787980: normalize file permissions when creating control.tar
+  * #719845: make file order within data/control.tar.gz deterministic
+  * dpkg-genbuldinfo: patch already written, but waiting on agreement about spec
+ * debhelper: #759886 / #759895 / #791823
+ * ftp.debian.org: 763822: please include .buildinfo files into the archive
+ * sbuild: #790868 / #778571
+ * buildd.debian.org: -1
 
 -----------------------------------------
 \begin{center}
