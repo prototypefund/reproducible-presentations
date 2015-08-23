@@ -30,7 +30,7 @@ $(PRESENTATION).pdf: $(PRESENTATION).tex $(IMGS)
 clean:
 	rm -f $(PRESENTATION).aux $(PRESENTATION).log $(PRESENTATION).nav \
 		$(PRESENTATION).out $(PRESENTATION).snm $(PRESENTATION).toc \
-		$(PRESENTATION).vrb $(PRESENTATION).aux.sha1sum
+		$(PRESENTATION).vrb $(PRESENTATION).aux.sha1sum $(PRESENTATION).pdfpc
 
 distclean:
 	rm -f $(PRESENTATION).pdf
