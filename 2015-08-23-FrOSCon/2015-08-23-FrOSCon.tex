@@ -278,15 +278,6 @@
 
 \end{frame}
 
-\begin{frame}[plain]
- \begin{tikzpicture}[remember picture,overlay]
-  \node[at=(current page.center)] {
-    \includegraphics[width=\paperwidth]{images/stats_pkg_state.png}
-  };
- \end{tikzpicture}
-\end{frame}
-
-
 \section{Current status}
 
 \begin{frame}
@@ -324,6 +315,23 @@
   \item Patches for \texttt{dpkg}, \texttt{debhelper}, \texttt{cdbs}, \texttt{sbuild}, …
  \end{itemize}
 \end{frame}
+
+\begin{frame}[plain]
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[at=(current page.center)] {
+    \includegraphics[width=\paperwidth]{images/unstable-fake-stats.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain]
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[at=(current page.center)] {
+    \includegraphics[width=\paperwidth]{images/stats_pkg_state.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
 
 \begin{frame}
  \frametitle{strip-nondeterminism}
@@ -840,7 +848,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
     \item Talk to me here or talk to us on IRC or via mail.
     \item RTFM ;-)
     \item Experiment
-    \item Collaborate with the wide free software world
    \end{itemize}
  \end{itemize}
 \end{frame}
