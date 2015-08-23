@@ -23,6 +23,7 @@ $(PRESENTATION).pdf: $(PRESENTATION).tex $(IMGS)
 	echo "Who is contributing to any free software project?" ; \
 	echo "Who is contributing to Debian?" ; \
 	echo "What else are you contributing too?" ; \
+	echo "This talk will be mostly about Debian, 'but' I look forward to discuss other distros too."
 	echo ; \
 	echo "English or German?"
 
