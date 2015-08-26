@@ -7,7 +7,7 @@ https://wiki.debian.org/ReproducibleBuilds/History
 should cover history. This file is for tracking
 changes since the last presentation.
 
-changes since beginning of June 2015
+changes since after cccamp/debconf15/froscon
 ------------------------------------
-* update screenshots, ~64 issues not mentioned at all
+* Tomasz Buchert has humbly removed himself from the team…
 
