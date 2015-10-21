@@ -1,0 +1,58 @@
+Outcomes
+========
+
+ * Get an idea of what has changed
+ * Learn about the open issues and questions to make Stretch (partly)
+   reproducible
+ * Learn how to help
+
+Outline
+=======
+
+What is it and why it matters
+-----------------------------
+
+5 minutes max on what it is and why it matters.
+
+What has changed and available tools
+------------------------------------
+
+What have been done real real quick but point people at:
+https://wiki.debian.org/ReproducibleBuilds/History
+
+Explain past changes in dpkg, debhelper, and others
+
+SOURCE_DATE_EPOCH
+
+strip-nondeterminism
+
+reproducible.debian.net test
+
+.buildinfo
+
+Unresolved issues
+-----------------
+
+.buildinfo signature
+
+Unmerged changes to dpkg and others
+
+others issues?
+
+announce the plenary (come help us figure out the best way to do things)
+
+How can you help
+----------------
+
+reproducible.debian.net web interface
+	useful to find other bugs too
+
+notes.git
+
+IRC channel
+
+debbindiff
+
+prebuilder script — improve the doc before, probably
+
+annonce the hack session (come learn how to fix specific packages)

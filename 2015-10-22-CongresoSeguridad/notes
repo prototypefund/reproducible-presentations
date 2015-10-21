@@ -1,0 +1,28 @@
+gunnar fragen
+	exact conferance name
+	4:3 oder 16:9?
+update mapreri graph
+update bug graph
+history nach hinten
+	add at least dc15 talk
+	athens meeting (passt am ende)
+since debconf14
+	 -> "what we did since last summer"
+	disorderfs
+	rb.d.n now running on steroids and testing armhf too
+rb.d.n: move that to the start
+variations
+	misses disorderfs
+	kernel variations 3.16/4.1/2 vs 2.6.66
+add reproducible-builds.org
+source-data-epoch:
+	update list
+next:
+	dpkg update
+	debhelper: check whether bugs are fixed, same for cdbs and sbuild
+	send mail to that dam dak bug. NOW.
+want to help:
+	fix your _software_
+	move screenshots in front to rp.d.n
+thanks:
+	add CongresoSeguridad
