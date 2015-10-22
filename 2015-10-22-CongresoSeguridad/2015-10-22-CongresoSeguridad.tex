@@ -110,6 +110,15 @@
 
 \begin{frame}
  \frametitle{about me}
+ \begin{itemize}
+  \item Por favor disculpa mi, pero este charla esta in ingles…
+  \only<2>{\item Please tell me to slow down.
+  \item The slides are available on the net.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{about me}
 
  \begin{itemize}
   \item Debian user since 1995
@@ -283,14 +292,6 @@
 
 
 \begin{frame}[plain]
- \frametitle{Progress in Debian \texttt{unstable}}
- \begin{center}
-  \includegraphics[width=\paperwidth]{images/stats_pkg_state.png}
- \end{center}
-\end{frame}
-
-
-\begin{frame}[plain]
  \begin{tikzpicture}[remember picture,overlay]
   \node[at=(current page.center)] {
     \includegraphics[width=\paperwidth]{images/wholeworld.jpg}
@@ -302,12 +303,21 @@
 
 \begin{frame}[plain]
 \begin{center}
- \Huge It should become the \textbf{norm}.
+ \Huge It should become the \textbf{norm}.\\
+ \only<2>{\small We want to change the meaning of "free software": \\
+  it's only free software if it is reproducible!}
 \end{center}
 
 \end{frame}
 
 \section{Current status}
+
+\begin{frame}[plain]
+ \frametitle{Progress in Debian \texttt{unstable}}
+ \begin{center}
+  \includegraphics[width=\paperwidth]{images/stats_pkg_state.png}
+ \end{center}
+\end{frame}
 
 \begin{frame}
  \frametitle{What we did since summer 2014}
@@ -324,6 +334,7 @@
   \item\only<2>{Tell the world \& collaborate}
  \end{itemize}
 \end{frame}
+
 
 \begin{frame}
  \frametitle{Tell the world \& collaborate}
@@ -367,8 +378,7 @@
   \item Perform change(s) to the environment
   \item Build for a second time
   \item Compare results
-  \item\only<2>{started as a 10 line shell script…}
-  \item\only<2>{this has become \texttt{reproducible.debian.net}}
+  \item\only<2>{started as a 10 line shell script this has become \texttt{reproducible.debian.net}}
  \end{itemize}
 \end{frame}
 
@@ -376,10 +386,13 @@
  \frametitle{reproducible.debian.net}
 
  \begin{itemize}
-  \item 67 jenkins jobs now running on 10 hosts
-  \item ~4k lines of Python and Bash code each
+  \item maintained in \texttt{jenkins.debian.net.git}, 27 contributors
+  \item 4k lines of Python and 5k lines Bash code
+  \item 111 jenkins jobs now running on 10 hosts
   \item Continuously testing Debian testing, unstable and experimental
-  \item Previously amd64 only, now also armhf, more to come…
+  \begin{itemize}
+   \item Previously amd64 only, now also armhf, more to come…
+  \end{itemize}
   \item Not just testing Debian, but also Coreboot, OpenWrt, NetBSD, FreeBSD,
   Archlinux and soon Fedora
   \item Thanks to ProfitBricks for providing amd64 servers:
@@ -420,6 +433,14 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \end{table}
  \end{center}
 \end{frame}
+
+\begin{frame}
+ \frametitle{reproducible.debian.net}
+ \begin{center}
+ show in webbrowser
+ \end{center}
+\end{frame}
+
 
 \begin{frame}
  \frametitle{Debian .buildinfo}
@@ -728,6 +749,17 @@ Build-Environment:
 \section{Next?}
 
 \begin{frame}
+ \frametitle{Status and next steps in Debian}
+ \begin{itemize}
+  \item Remember: this is just a proof-of-concept, Debian is not 80\%
+  reproducible.
+  \item Major changes still need to be merged.
+  \item Once this has happend, Debian will be >80\% reproducible.
+  \item The next Debian release ("stretch") shall be >80\% reproducible.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
  \frametitle{dpkg}
 
  \begin{itemize}\small
@@ -768,14 +800,6 @@ Build-Environment:
 \end{frame}
 
 \begin{frame}
- \frametitle{buildd.debian.org}
-
- \begin{itemize}\small
-  \item \texttt{\#-1}: build path location (see \texttt{\#778571})
- \end{itemize}
-\end{frame}
-
-\begin{frame}
  \frametitle{ftp.debian.org}
 
  \begin{itemize}\small
@@ -783,65 +807,73 @@ Build-Environment:
  \end{itemize}
 \end{frame}
 
-
 \begin{frame}
- \frametitle{Debian policy}
+ \frametitle{"Finally", changing Debian policy}
 
  \begin{itemize}
-  \item Section 4.15: “Source must build in a reproducible manner”? 
+  \item Section 4.15: “Sources must build in a reproducible binaries.” 
  \end{itemize}
 \end{frame}
+
+
+\begin{frame}
+ \frametitle{Next steps in other distributions}
+ \begin{itemize}
+  \item Yo que se
+  \item seriously: I don't know. 
+  \item 2016 will be a very interesting year.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Reproducible builds are just the beginning}
+ \begin{itemize}
+  \item Re-creating the build environment is mandatory too, and only really solved
+  for Debian so far.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Reproducible builds are just the beginning, cont.}
+ \begin{itemize}
+  \item Continuous rebuilds need to happen in a systematic way and the
+  results need to be properly published.
+  \item Integration in end user tools\\
+  "Do you really want to install this unreproducible software (y/N)" \\
+  "Which rebuilders do you want to trust?"
+ \end{itemize}
+\end{frame}
+
 
 \section{Want to help?}
 
 \begin{frame}
- \frametitle{Fix your package}
-
- \begin{center}
-  \texttt{https://reproducible.debian.net/\textit{package}}
-
-  \includegraphics[width=\linewidth]{images/rdn-gdnsd.png}
- \end{center}
-\end{frame}
-
-\begin{frame}
- \frametitle{Fix your package}
-
- \begin{center}
-  \texttt{https://tracker.debian.org/\textit{package}}
-
-  \includegraphics[width=0.8\linewidth]{images/tracker-gdnsd.png}
- \end{center}
-\end{frame}
-
-\begin{frame}
- \frametitle{Fix your package}
-
+ \frametitle{As a software developer}
  \begin{itemize}
-  \item And also:
-   \begin{itemize}
-    \item DDPO (DD Package Overview)
-    \item DMD (Debian Maintainer Dashboard)
-   \end{itemize}
-  \item Tips on the wiki \\
-   {\small \url{https://wiki.debian.org/ReproducibleBuilds/Howto}}
-  \item Ask for help on \texttt{\#debian-reproducible} \\
-   or on the mailing-list
+  \item stop using build date
+  \item use \texttt{SOURCE\_DATE\_EPOCH} instead \\
+  \item see  \url{https://reproducible-builds.org/specs/}
  \end{itemize}
 \end{frame}
 
 \begin{frame}
- \frametitle{Fix your package}
+ \frametitle{Get involved - learning by doing}
 
  \begin{itemize}
-  \item Testing:
+  \item Test for yourself:
    \begin{itemize}
-    \item Currently requires \texttt{pbuilder} and custom config
-    \item Needs our “reproducible” repository
-    \item Documented on the wiki
-    \item diffoscope is in \textit{unstable} and \textit{stretch}
+    \item just build something twice, run diffoscope on the results
+    \begin{itemize}
+     \item for better results use our “reproducible” repository, \texttt{pbuilder} and a custom config
+    \end{itemize}
    \end{itemize}
-  \item Additions to \texttt{devscripts} once \texttt{dpkg} is good
+
+  \item Tips on the wiki: \\
+    {\small \url{https://wiki.debian.org/ReproducibleBuilds/Howto}} \\
+    {\small
+    \url{https://wiki.debian.org/ReproducibleBuilds/ExperimentalToolchain}}
+  \item Ask for help on \texttt{\#debian-reproducible} \\
+   or on the mailing-list
  \end{itemize}
 \end{frame}
 
@@ -880,14 +912,21 @@ Build-Environment:
   \item How to get started?
    \begin{itemize}
     \item Talk to me here or talk to us on IRC or via mail.
-    \item RTFM ;-)
-    \item Experiment
+    \item RTFM, there is lots of documentation
+    \item Experiment - learning by doing
    \end{itemize}
  \end{itemize}
 \end{frame}
 
 
 \section{Questions?}
+
+\begin{frame}
+ \frametitle{Questions?}
+ \begin{center}
+  Please ask me now or later today.
+ \end{center} 
+\end{frame}
 
 \begin{frame}
  \frametitle{Thanks!}
