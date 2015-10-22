@@ -109,11 +109,12 @@
 \end{frame}
 
 \begin{frame}
- \frametitle{about me}
+ \frametitle{about me and this talk}
  \begin{itemize}
   \item Por favor disculpa mi, pero este charla esta in ingles…
   \only<2>{\item Please tell me to slow down.
-  \item The slides are available on the net.}
+  \item This is a quite complex and sometimes complicated topic. Don't worry
+  if you miss some bits, the slides are available on the net.}
 \end{itemize}
 \end{frame}
 
@@ -224,6 +225,36 @@
   Available on \url{media.ccc.de}, 31c3
  \end{center}
 \end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Motivations}
+ \begin{itemize}
+  \item CVE-2002-0083: remote root exploit, 1 bit difference in the binary
+  \item 31c3 shows a PoC for a kernel module modifying source code in memory only
+  \item how can you be sure what's running on your machine or on a build
+  daemon network?
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Motivations to crack build machines}
+ \begin{itemize}
+  \item Compromise one computer to get:
+  \begin{itemize}
+   \item Hundreds of millions of other computers?
+   \item Every bank account in the world?
+   \item Every Windows computer in the world?
+   \item Every Linux computer in the world?
+  \end{itemize}
+  \item Compromise one computer is worth:
+  \begin{itemize}
+   \item \$100k USD (market price of remote 0day)
+   \item \$100M USD (censorship budget of Iran per year)
+   \item \$4B USD (Bitcoin market cap)
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
 
 \begin{frame}[fragile]
  \frametitle{Another example}
