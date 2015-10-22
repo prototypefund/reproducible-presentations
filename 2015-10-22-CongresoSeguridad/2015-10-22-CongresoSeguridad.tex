@@ -244,13 +244,10 @@
 \end{frame}
 
 \begin{frame}[plain]
- \begin{tikzpicture}[remember picture,overlay]
-  \node[at=(current page.center)] {
-    \includegraphics[width=\paperwidth]{images/wholeworld.jpg}
-    % Credits to Kevin ‘Chuise’ Jackson
-    % http://dumhi.com/about
-  };
- \end{tikzpicture}
+ \frametitle{Progress in Debian \texttt{unstable}}
+ \begin{center}
+  \includegraphics[width=\paperwidth]{images/stats_pkg_state.png}
+ \end{center}
 \end{frame}
 
 \begin{frame}
@@ -271,6 +268,16 @@
 \end{frame}
 
 \begin{frame}[plain]
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[at=(current page.center)] {
+    \includegraphics[width=\paperwidth]{images/wholeworld.jpg}
+    % Credits to Kevin ‘Chuise’ Jackson
+    % http://dumhi.com/about
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain]
 \begin{center}
  \Huge It should become the \textbf{norm}.
 \end{center}
@@ -280,71 +287,64 @@
 \section{Current status}
 
 \begin{frame}
- \frametitle{History}
+ \frametitle{What we did since summer 2014}
 
  \begin{itemize}
-  \item Two years!
-  \item More on the wiki:
-    {\small \url{https://wiki.debian.org/ReproducibleBuilds/History}}
+  \item Agreed on using a fixed build path: \texttt{/build}
+  \item Record the build environment: \texttt{.buildinfo}
+  \item \texttt{strip-nondeterminism}
+  \item \texttt{reproducible.debian.net}
+  \item \texttt{diffoscope} (formerly known as \texttt{debbindiff})
+  \item \texttt{SOURCE\_DATE\_EPOCH}
+  \item \texttt{disorderfs}
+  \item Many many patches: \texttt{dpkg}, \texttt{debhelper}, \texttt{cdbs}, \texttt{sbuild}, …
+  \item\only<2>{Tell the world \& collaborate}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Tell the world \& collaborate}
+
+ \begin{itemize}
   \item Weekly reports since May 2015
   \item Many talks already:
    \begin{itemize}
     \item 2014-02-01: FOSDEM’14
     \item 2014-08-26: DebConf14
     \item 2015-01-31: FOSDEM’15
-    \item 2015-05-26: Datengarten 52
-    \item 2015-06-07: Gulaschprogrammiernacht 15
-    \item 2015-06-19: Pas Sage En Seine 2015
     \item 2015-07-06: Libre Software Meeting 2015
     \item 2015-08-13: Chaos Communication Camp 2015
     \item 2015-08-20: DebConf15
+    \item (videos available, in EN/FR/DE)
    \end{itemize}
+  \item More on the wiki:
+    {\small \url{https://wiki.debian.org/ReproducibleBuilds/History}}
  \end{itemize}
 \end{frame}
 
 \begin{frame}
- \frametitle{What we did since summer 2014}
+ \frametitle{Tell the world \& collaborate, cont.}
 
  \begin{itemize}
-  \item Fixed build path
-  \item Recording the build environment: \texttt{.buildinfo}
-  \item \texttt{strip-nondeterminism}
-  \item \texttt{reproducible.debian.net}
-  \item \texttt{diffoscope} (formerly known as \texttt{debbindiff})
-  \item \texttt{SOURCE\_DATE\_EPOCH}
-  \item \texttt{disorderfs}
-  \item Patches for \texttt{dpkg}, \texttt{debhelper}, \texttt{cdbs}, \texttt{sbuild}, …
+  \item Summit in December 2015 in Athens
+  \item coming soon: \texttt{https://reproducible-builds.org}
  \end{itemize}
-\end{frame}
-
-\begin{frame}[plain]
- \begin{tikzpicture}[remember picture,overlay]
-  \node[at=(current page.center)] {
-    \includegraphics[width=\paperwidth]{images/stats_pkg_state.png}
-  };
- \end{tikzpicture}
 \end{frame}
 
 
 \begin{frame}
- \frametitle{strip-nondeterminism}
+ \frametitle{Testing for variations}
 
  \begin{itemize}
-  \item Normalizes various file formats
-  \item Currently handles:
-   \begin{itemize}
-    \item ar archives (\texttt{.a})
-    \item gzip
-    \item Java jar
-    \item Javadoc HTML
-    \item Maven \texttt{pom.properties}
-    \item PNG
-    \item ZIP archives
-    \item … \textit{extensible to new formats}
-   \end{itemize}
-  \item Written in Perl (like \texttt{dpkg-dev})
+  \item Build for the first time
+  \item Save the result
+  \item Perform change(s) to the environment
+  \item Build for a second time
+  \item Compare results
+  \item\only<2>{this has become \texttt{reproducible.debian.net}}
  \end{itemize}
 \end{frame}
+
 
 \begin{frame}
  \frametitle{Debian .buildinfo}
@@ -360,6 +360,7 @@
   \item All versions are available from \url{snapshot.debian.org}
  \end{itemize}
 \end{frame}
+
 
 \begin{frame}[fragile]
  \frametitle{Example .buildinfo}
@@ -385,17 +386,27 @@ Build-Environment:
 }
 \end{frame}
 
+
 \begin{frame}
- \frametitle{Testing for variations}
+ \frametitle{strip-nondeterminism}
 
  \begin{itemize}
-  \item Build for the first time
-  \item Save the result
-  \item Perform change(s) to the environment
-  \item Build for a second time
-  \item Compare results
+  \item Normalizes various file formats
+  \item Currently handles:
+   \begin{itemize}
+    \item ar archives (\texttt{.a})
+    \item gzip
+    \item Java jar
+    \item Javadoc HTML
+    \item Maven \texttt{pom.properties}
+    \item PNG
+    \item ZIP archives
+    \item … \textit{extensible to new formats}
+   \end{itemize}
+  \item Written in Perl (like \texttt{dpkg-dev})
  \end{itemize}
 \end{frame}
+
 
 \begin{frame}
  \frametitle{reproducible.debian.net}

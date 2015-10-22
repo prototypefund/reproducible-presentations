@@ -1,23 +1,9 @@
 maybe
-	exact conferance name
 	slide about me - ask gunnar
-history nach hinten
-	add at least dc15 talk
-	athens meeting (passt am ende)
-since debconf14
-	 -> "what we did since last summer"
-	rb.d.n now running on steroids and testing armhf too
+
+beginning:
+	add slide with motivations + exploits
 rb.d.n: move that to the start
-variations
-	misses disorderfs
-	kernel variations 3.16/4.1/2 vs 2.6.66
-add reproducible-builds.org
-source-data-epoch:
-	update list
-next:
-	dpkg update
-	debhelper: check whether bugs are fixed, same for cdbs and sbuild
-	send mail to that dam dak bug. NOW.
 want to help:
 	fix your _software_
 	use SOURCE_DATE_EPOCH
@@ -25,3 +11,26 @@ want to help:
 		update screenshot
 thanks:
 	add CongresoSeguridad
+
+remove: some toolchain issues
+	move bug bild nach vorne
+
+add somewhere: 
+  \item Nearly two patches per day since fall 2014 on average!a
+
+"what we did since last summer"
+	rb.d.n now running on steroids and testing armhf too
+
+nice to have
+------------
+add reproducible-builds.org screenshots
+variations
+	misses disorderfs
+	kernel variations 3.16/4.1/2 vs 2.6.66
+source-data-epoch:
+	update list
+next:
+	dpkg update
+	debhelper: check whether bugs are fixed, same for cdbs and sbuild
+	send mail to that dam dak bug. NOW.
+
