@@ -1,36 +1,17 @@
-maybe
-	slide about me - ask gunnar
-
-beginning:
-	add slide with motivations + exploits
-rb.d.n: move that to the start
-want to help:
-	fix your _software_
-	use SOURCE_DATE_EPOCH
-	move screenshots in front to rp.d.n
-		update screenshot
-thanks:
-	add CongresoSeguridad
-
-remove: some toolchain issues
-	move bug bild nach vorne
-
-add somewhere: 
-  \item Nearly two patches per day since fall 2014 on average!a
-
-"what we did since last summer"
-	rb.d.n now running on steroids and testing armhf too
 
 nice to have
 ------------
-add reproducible-builds.org screenshots
+improve on packages slide (2 patches per day...)
+	mention issues (done via screenshots atm)
+
+nice to have, part 2
+--------------------
 variations
-	misses disorderfs
 	kernel variations 3.16/4.1/2 vs 2.6.66
 source-data-epoch:
-	update list
+	update list of fixed packages
 next:
-	dpkg update
-	debhelper: check whether bugs are fixed, same for cdbs and sbuild
+	dpkg, debhelper, cdbs and sbuild: check whether bugs are fixed
 	send mail to that dam dak bug. NOW.
+
 
