@@ -96,9 +96,9 @@
         \href{mailto:holger@debian.org}{\texttt{holger@debian.org}}
    }{Reproducible builds team}}
 \institute[Debian]{}
-\date[CSI 2015, Mexico City]{%
+\date[CSI 2015, Mexico, D.F.]{%
  Congreso de seguridad de la información,\\
- Mexico City D.F., Mexico\\
+ Mexico, D.F., Mexico\\
  \small
  2015-10-22}
 
@@ -109,6 +109,27 @@
 \end{frame}
 
 \begin{frame}
+ \frametitle{about me}
+
+ \begin{itemize}
+  \item Debian user since 1995
+  \item Debian contributor since 2001
+  \item Debian developer since 2007
+  \item ex DebConf organizer, founded the DebConf video team (video.debian.net)
+  \item Debian-Edu (Debian for education)
+  \item Debian QA (quality assurance)
+  \begin{itemize}
+   \item piuparts.debian.org
+   \item jenkins.debian.net (900 jobs testing Debian)
+  \end{itemize}
+  \item Debian LTS (Long Term Support)
+ \end{itemize}
+ \only<2>{Ask me anything! I'm in Mexico to talk with you!}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Debian reproducible builds team}
  \begin{center}
   \begin{columns}
    \small
@@ -243,13 +264,6 @@
  \end{itemize}
 \end{frame}
 
-\begin{frame}[plain]
- \frametitle{Progress in Debian \texttt{unstable}}
- \begin{center}
-  \includegraphics[width=\paperwidth]{images/stats_pkg_state.png}
- \end{center}
-\end{frame}
-
 \begin{frame}
  \frametitle{So trendy!}
 
@@ -266,6 +280,15 @@
 \end{itemize}
 
 \end{frame}
+
+
+\begin{frame}[plain]
+ \frametitle{Progress in Debian \texttt{unstable}}
+ \begin{center}
+  \includegraphics[width=\paperwidth]{images/stats_pkg_state.png}
+ \end{center}
+\end{frame}
+
 
 \begin{frame}[plain]
  \begin{tikzpicture}[remember picture,overlay]
@@ -306,7 +329,6 @@
  \frametitle{Tell the world \& collaborate}
 
  \begin{itemize}
-  \item Weekly reports since May 2015
   \item Many talks already:
    \begin{itemize}
     \item 2014-02-01: FOSDEM’14
@@ -318,7 +340,8 @@
     \item (videos available, in EN/FR/DE)
    \end{itemize}
   \item More on the wiki:
-    {\small \url{https://wiki.debian.org/ReproducibleBuilds/History}}
+    {\small \url{https://wiki.debian.org/ReproducibleBuilds/About#Presentations}}
+  \item Weekly reports since May 2015
  \end{itemize}
 \end{frame}
 
@@ -327,6 +350,9 @@
 
  \begin{itemize}
   \item Summit in December 2015 in Athens
+   \begin{itemize}
+    \item 40 people from 16 projects
+   \end{itemize}
   \item coming soon: \texttt{https://reproducible-builds.org}
  \end{itemize}
 \end{frame}
@@ -341,23 +367,72 @@
   \item Perform change(s) to the environment
   \item Build for a second time
   \item Compare results
+  \item\only<2>{started as a 10 line shell script…}
   \item\only<2>{this has become \texttt{reproducible.debian.net}}
  \end{itemize}
 \end{frame}
 
+\begin{frame}
+ \frametitle{reproducible.debian.net}
+
+ \begin{itemize}
+  \item 67 jenkins jobs now running on 10 hosts
+  \item ~4k lines of Python and Bash code each
+  \item Continuously testing Debian testing, unstable and experimental
+  \item Previously amd64 only, now also armhf, more to come…
+  \item Not just testing Debian, but also Coreboot, OpenWrt, NetBSD, FreeBSD,
+  Archlinux and soon Fedora
+  \item Thanks to ProfitBricks for providing amd64 servers:
+ \end{itemize}
+ \vfill
+ \begin{center}
+ \includegraphics[height=0.15\paperheight]{images/profitbricks_logo.png}
+ \end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Variations on reproducible.debian.net}
+
+ \begin{center}
+  \begin{table}
+   \resizebox{0.95\textwidth}{!}{%
+    \begin{tabular}{l|ll}
+\textbf{variation} & \textbf{first build} & \textbf{second build} \\
+\hline
+hostname & \texttt{jenkins} & \texttt{i-capture-the-hostname} \\
+domainname & \texttt{debian.net} & \texttt{i-capture-the-domainname} \\
+\texttt{env TZ} & \texttt{GMT+12} & \texttt{GMT-14} \\
+\texttt{env LANG} & \texttt{en\_GB.UTF-8} & \texttt{fr\_CH.UTF-8} \\
+\texttt{env LC\_ALL} & not set & \texttt{fr\_CH.UTF-8} \\
+\texttt{env USER} & \texttt{pbuilder1} & \texttt{pbuilder2} \\
+uid & \texttt{1111} & \texttt{2222} \\
+gid & \texttt{1111} & \texttt{2222} \\
+UTS namespace & shared with the host & \textit{modified using \texttt{/usr/bin/unshare --uts}} \\
+kernel version & Linux 3.16.0-4-amd64 & Linux 2.6.56-4-amd64 \\
+umask & 0022 & 0002 \\
+CPU type & \multicolumn{2}{l}{same for both builds \textit{(work in progress)}} \\
+filesystem & \multicolumn{2}{l}{same for both builds \textit{(work in progress - disorderfs)}} \\
+year, month, date & \multicolumn{2}{l}{same for both builds \textit{(work in progress)}} \\
+hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minute differs… \textit{(work in progress)}} \\
+\textit{everything else} & \multicolumn{2}{l}{\textit{is likely the same…}}
+    \end{tabular}
+   }
+  \end{table}
+ \end{center}
+\end{frame}
 
 \begin{frame}
  \frametitle{Debian .buildinfo}
 
  \begin{itemize}
-  \item Tie in the same file:
+  \item Aggregate in the same file:
    \begin{itemize}
-    \item Sources
-    \item Generated binaries
-    \item Packages used to build (with specific version)
+    \item Sources (checksums)
+    \item Generated binaries (checksums)
+    \item Packages used to build (with specific version, checksums coming soon)
    \end{itemize}
-  \item Can be later processed to reinstall environment
-  \item All versions are available from \url{snapshot.debian.org}
+  \item Can be later used to reinstall environment exactly as it was
+  \item For Debian all versions are available from \url{snapshot.debian.org}
  \end{itemize}
 \end{frame}
 
@@ -408,53 +483,6 @@ Build-Environment:
 \end{frame}
 
 
-\begin{frame}
- \frametitle{reproducible.debian.net}
-
- \begin{itemize}
-  \item 67 jenkins jobs now running on 7 hosts
-  \item 4k lines of Python and Bash code each
-  \item Continuously testing Debian testing, unstable and experimental
-  \item Previously amd64 only, now also armhf, soon ppc64el too…
-  \item Not just testing Debian, but also Coreboot, OpenWrt, NetBSD, FreeBSD,
-  Archlinux and soon Fedora
-  \item Thanks to ProfitBricks for providing amd64 servers:
- \end{itemize}
- \vfill
- \begin{center}
- \includegraphics[height=0.15\paperheight]{images/profitbricks_logo.png}
- \end{center}
-\end{frame}
-
-\begin{frame}[fragile]
- \frametitle{Variations on reproducible.debian.net}
-
- \begin{center}
-  \begin{table}
-   \resizebox{0.95\textwidth}{!}{%
-    \begin{tabular}{l|ll}
-\textbf{variation} & \textbf{first build} & \textbf{second build} \\
-\hline
-hostname & \texttt{jenkins} & \texttt{i-capture-the-hostname} \\
-domainname & \texttt{debian.net} & \texttt{i-capture-the-domainname} \\
-\texttt{env TZ} & \texttt{GMT+12} & \texttt{GMT-14} \\
-\texttt{env LANG} & \texttt{en\_GB.UTF-8} & \texttt{fr\_CH.UTF-8} \\
-\texttt{env LC\_ALL} & not set & \texttt{fr\_CH.UTF-8} \\
-\texttt{env USER} & \texttt{pbuilder1} & \texttt{pbuilder2} \\
-uid & \texttt{1111} & \texttt{2222} \\
-gid & \texttt{1111} & \texttt{2222} \\
-UTS namespace & shared with the host & \textit{modified using \texttt{/usr/bin/unshare --uts}} \\
-kernel version & Linux 3.16.0-4-amd64 & Linux 2.6.56-4-amd64 \\
-umask & 0022 & 0002 \\
-CPU type & \multicolumn{2}{l}{same for both builds \textit{(work in progress)}} \\
-year, month, date & \multicolumn{2}{l}{same for both builds \textit{(work in progress)}} \\
-hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minute differs… \textit{(work in progress)}} \\
-\textit{everything else} & \multicolumn{2}{l}{\textit{is likely the same…}}
-    \end{tabular}
-   }
-  \end{table}
- \end{center}
-\end{frame}
 
 {
 \usebackgroundtemplate{%
@@ -868,7 +896,8 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item Debian “Reproducible Builds” team \\
         {\small (you are just \textbf{so} awesome!)}
   \item Linux Foundation and the Core Infrastructure Initiative
- \end{itemize}
+  \item Congreso de seguridad de la información
+\end{itemize}
 
  \begin{center}
   \includegraphics[height=0.1\paperheight]{images/linux_foundation_logo.png}
