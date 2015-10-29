@@ -604,7 +604,7 @@ Build-Environment:
   \item Standardize a build-time environment variable
   \item Value of \texttt{SOURCE\_DATE\_EPOCH} is used instead of the current date
   \item General solution for other free software projects and distributions
-  \item In Debian, set from to the latest \texttt{debian/changelog} entry
+  \item In Debian, set from the latest \texttt{debian/changelog} entry
  \end{itemize}
 \end{frame}
 
@@ -879,9 +879,9 @@ Build-Environment:
  \begin{itemize}
   \item Continuous rebuilds need to happen in a systematic way and the
   results need to be properly published.
-  \item Integration in end user tools\\
+  \item\only<2>{ Integration in end user tools\\
   "Do you really want to install this unreproducible software (y/N)" \\
-  "Which rebuilders do you want to trust?"
+  "Which rebuilders do you want to trust?"}
  \end{itemize}
 \end{frame}
 
@@ -978,7 +978,11 @@ Build-Environment:
  \frametitle{Questions?}
  \begin{center}
   Please ask me now or later today.
- \end{center} 
+ \end{center}
+ \begin{itemize}
+ \item\url{https://reproducible.debian.net}
+ \item\url{#debian-reproducible} on \url{irc.OFTC.net}
+ \end{itemize}
 \end{frame}
 
 \begin{frame}
