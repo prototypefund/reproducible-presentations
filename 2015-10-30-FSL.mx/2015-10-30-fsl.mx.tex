@@ -849,36 +849,61 @@ Build-Environment:
 
  \begin{itemize}
   \item Section 4.15: “Sources must build in a reproducible binaries.” 
+  \item\only<2-3> {I hope this will happen in early 2017 = after the Stretch
+  (Debian 9) release}
+  \item\only<3> {in 2016, hopefully: “Sources shall be build in a reproducible
+  binaries.”}
  \end{itemize}
 \end{frame}
 
-
 \begin{frame}
- \frametitle{Next steps in other distributions}
+ \frametitle{Reproducible builds demand a defined build environment}
  \begin{itemize}
-  \item Yo que se
-  \item seriously: I don't know. 
-  \item 2016 will be a very interesting year.
+  \item Re-creating an identical build environment is mandatory too.
+  \item Without an identical build environment reproducible builds
+  will only happen by sheer luck, thus that's not really reproducible.
+  \item\only<2>{This is only solved for Debian right now - and currently it's
+  still a proof of concept only…}
  \end{itemize}
 \end{frame}
 
 \begin{frame}
- \frametitle{Reproducible builds are just the beginning}
- \begin{itemize}
-  \item Re-creating the build environment is mandatory too, and only really solved
-  for Debian so far.
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Reproducible builds are just the beginning, cont.}
+ \frametitle{Reproducible builds are just the first 33\%}
  \begin{itemize}
   \item Continuous rebuilds need to happen in a systematic way and the
-  results need to be properly published.
-  \item\only<2>{ Integration in end user tools\\
+  resulting checksums need to be properly published.
+  \item \only<2>{ Integration in end user tools\\
   "Do you really want to install this unreproducible software (y/N)" \\
   "Which rebuilders do you want to trust?"}
  \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Status of reproducible builds in other distros}
+
+ \begin{itemize}
+  \item As shown we're also testing Coreboot, OpenWrt, NetBSD, FreeBSD,
+  Archlinux and soon Fedora.
+  \item But the work needs to be done within those projects.
+  \item \only<2-3>{And we are only testing for reproducible builds. No work
+  has been done on the other
+  66\% yet. (Systematic rebuilds and sharing the checksum \& end-user tool
+  integration)}
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Android, Windows and all the rest}
+ \begin{itemize}
+  \item Android: some work on making Cyanogenmod reproducible (but with
+  \texttt{faketime})
+  \item IOS: in very short: it's a mess, might work with jailbreaked devices
+  only - but where's the source code?
+  \item MacOS: no idea.
+  \item Windows: why not, Microsoft is sharing\^ wselling the source at least… 
+ \end{itemize}
+ \only<2> {Let's focus on Free Software first!}
 \end{frame}
 
 
