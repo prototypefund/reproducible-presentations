@@ -2,22 +2,14 @@ todo
 ----
   - open pages in browser...
   - explain diff by checksum!
-  - bold: must and shall (policy)
   - update SOURCE_DATE_EPOCH adaption
 
 nice to have
 ------------
-improve on packages slide (2 patches per day...)
-	mention issues (done via screenshots atm)
-
-nice to have, part 2
---------------------
-variations
+- improve on packages slide (2 patches per day...)
+- variations
 	kernel variations 3.16/4.1/2 vs 2.6.66
-source-data-epoch:
-	update list of fixed packages
-next:
-	dpkg, debhelper, cdbs and sbuild: check whether bugs are fixed
+- next:
 	send mail to that dam dak bug. NOW.
 
 
