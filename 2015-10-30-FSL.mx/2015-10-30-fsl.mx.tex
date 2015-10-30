@@ -817,8 +817,10 @@ Build-Environment:
 
  \begin{itemize}\small
   \item \texttt{\#759886}: make mtimes of packaged files deterministic
-  \item \texttt{\#759895}: add a call to \texttt{dh\_strip\_nondeterminism} in \texttt{dh}
-  \item \texttt{\#791823}: set \texttt{SOURCE\_DATE\_EPOCH} env var for reproducible builds
+  \item \sout{\texttt{\#759895}: add a call to
+  \texttt{dh\_strip\_nondeterminism} in \texttt{dh}}
+  \item \sout{\texttt{\#791823}: set \texttt{SOURCE\_DATE\_EPOCH} env var for
+  reproducible builds}
  \end{itemize}
 \end{frame}
 
@@ -826,7 +828,8 @@ Build-Environment:
  \frametitle{sbuild}
 
  \begin{itemize}\small
-  \item \texttt{\#790868}: allow sbuild to use a deterministic build path to build packages
+  \item \sout{\texttt{\#790868}: allow sbuild to use a deterministic build
+  path to build packages}
   \item \texttt{\#778571}: predictible build location for reproducible builds
   \item Finish the \texttt{srebuild} script
  \end{itemize}
