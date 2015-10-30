@@ -237,10 +237,10 @@
 \begin{frame}[fragile]
  \frametitle{Motivations}
  \begin{itemize}
-  \item CVE-2002-0083: remote root exploit, 1 bit difference in the binary
-  \item 31c3 shows a PoC for a kernel module modifying source code in memory only
+  \item CVE-2002-0083: remote root exploit in \texttt{sshd}, 1 bit difference in the binary
+  \item 31c3 talk showed a PoC for a kernel module modifying source code in memory only
   \item how can you be sure what's running on your machine or on a build
-  daemon network?
+  daemon network? Do you ever leave your computer alone?
  \end{itemize}
 \end{frame}
 
@@ -277,6 +277,17 @@
  \end{center}
 \end{frame}
 
+\begin{frame}[fragile]
+ \frametitle{In depth explaination of the problem}
+
+ \begin{center}
+  \includegraphics[width=0.7\textwidth]{images/31c3.png}
+
+  Available on \url{media.ccc.de}, 31c3
+ \end{center}
+\end{frame}
+
+
 \begin{frame}
  \frametitle{The solution}
 
@@ -306,8 +317,8 @@
  \begin{itemize}
   \item Early detection of FTBFS and other problems
   \item Debug packages can be created at any time
-  \item Smaller \texttt{.deb} deltas
   \item Validation of cross-builds
+  \item Smaller \texttt{.deb} deltas
   \item …
  \end{itemize}
 \end{frame}
@@ -392,7 +403,7 @@
     \item 2015-08-20: DebConf15
     \item (videos available, in EN/FR/DE)
    \end{itemize}
-  \item More on the wiki:
+  \item Linked on the wiki:
     {\small \url{https://wiki.debian.org/ReproducibleBuilds/About#Presentations}}
   \item Weekly reports since May 2015
  \end{itemize}
@@ -423,7 +434,8 @@
   \item Perform change(s) to the environment
   \item Build for a second time
   \item Compare results
-  \item\only<2>{started as a 10 line shell script this has become \texttt{reproducible.debian.net}}
+  \item\only<2>{started as a 10 line shell script, this has become
+  \texttt{https://reproducible.debian.net}}
  \end{itemize}
 \end{frame}
 
@@ -605,9 +617,9 @@ Build-Environment:
 
  \begin{itemize}
   \item Reminder: \texttt{diffoscope} is for \textbf{debugging}
-  \item\only<2>{ reproducibility according to our definition means: \textbf{bit by bit
-  identical}. So the tools for testing whether something is reproducibly are
-  either \texttt{diff} or \texttt{sha256sum}.}
+  \item\only<2>{ "reproducible" according to our definition means: \textbf{bit by bit
+  identical}. So the tools for testing whether something is reproducible are
+  either \texttt{diff} or \texttt{sha256sum}!}
  \end{itemize}
 \end{frame}
 
@@ -865,11 +877,10 @@ Build-Environment:
  \frametitle{"Finally", changing Debian policy}
 
  \begin{itemize}
-  \item Section 4.15: “Sources \textbf{must} build in a reproducible binaries.” 
+  \item Section 4.15: “Sources \textbf{must} build reproducible binaries.” 
   \item\only<2-3> {I hope this will happen in early 2017 = after the Stretch
   (Debian 9) release}
-  \item\only<3> {in 2016, hopefully: “Sources \textbf{shall} be build in a reproducible
-  binaries.”}
+  \item\only<3> {in 2016, hopefully: “Sources \textbf{shall} build reproducible binaries.”}
  \end{itemize}
 \end{frame}
 
@@ -878,9 +889,9 @@ Build-Environment:
  \begin{itemize}
   \item Re-creating an identical build environment is mandatory too.
   \item Without an identical build environment reproducible builds
-  will only happen by sheer luck, thus that's not really reproducible.
-  \item\only<2>{This is only solved for Debian right now - and currently it's
-  still a proof of concept only…}
+  will only happen by sheer luck, thus that's not really reproducible at all.
+  \item\only<2>{This is probably only solved for Debian right now - and
+  currently that's still a proof of concept only…}
  \end{itemize}
 \end{frame}
 
@@ -902,7 +913,7 @@ Build-Environment:
   \item As shown we're also testing Coreboot, OpenWrt, NetBSD, FreeBSD,
   Archlinux and soon Fedora.
   \item But the work needs to be done within those projects.
-  \item \only<2-3>{And we are only testing for reproducible builds. No work
+  \item \only<2>{And we are only testing for reproducible builds. No work
   has been done on the other
   66\% yet. (Systematic rebuilds and sharing the checksum \& end-user tool
   integration)}
@@ -915,10 +926,11 @@ Build-Environment:
  \begin{itemize}
   \item Android: some work on making Cyanogenmod reproducible (but with
   \texttt{faketime})
-  \item IOS: in very short: it's a mess, might work with jailbreaked devices
-  only - but where's the source code?
-  \item MacOS: no idea.
   \item Windows: why not, Microsoft is sharing\^ wselling the source at least… 
+  \item IOS: in very short: it's a mess, might work with jailbreaked devices
+  only - but AFAIK there's no source code anyway :-(
+  \item MacOS: no idea, probably same as IOS :-(
+  \item ...
  \end{itemize}
  \only<2> {Let's focus on Free Software first!}
 \end{frame}
