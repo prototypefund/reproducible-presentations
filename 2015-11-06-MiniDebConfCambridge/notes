@@ -1,0 +1,21 @@
+"talk cambridge - this time we will only shortly cover the general topic
+                  and instead dive deeper into discussion the next steps
+		  as well as the end user view on reproducible builds."
+mental summary: "the other 66%" 
+
+(the first 33% = reproduible builds)
+the 2nd 33% = actual rebuilders and sharing checksums securly and sanely
+the last 33% = end user tools)
+
+- adopt slide title, etc., add lamby, also his fingerprint
+
+
+nice to have
+------------
+- improve on packages slide (2 patches per day...)
+- variations
+	kernel variations 3.16/4.1/2 vs 2.6.66
+- next:
+	send mail to that dam dak bug. NOW.
+
+
