@@ -88,54 +88,32 @@
 
 \setbeamercolor{block title}{fg=debianblue}
 
-\title[Reproducible builds]{Stretching out for trustworthy reproducible builds}
-\subtitle{Creating bit-by-bit identical binaries}
-\author[Holger Levsen]{%
+\title[Reproducible builds]{Beyond reproducible builds}
+\subtitle{we are not there yet and "there" is only the first third}
+\author[lamby \& h01ger]{%
    \texorpdfstring{
-        Holger 'h01ger' Levsen\\
-        \href{mailto:holger@debian.org}{\texttt{holger@debian.org}}
-   }{Reproducible builds team}}
+        \begin{columns}
+            \column{.45\linewidth}
+            \centering
+            Chris 'lamby' Lamb \\
+            \href{mailto:lamby@debian.org}{lamby@debian.org}
+            \column{.45\linewidth}
+            \centering
+            Holger 'h01ger' Levsen\\
+            \href{mailto:holger@debian.org}{holger@debian.org}
+        \end{columns}
+   }{lamby \& h01ger}}
 \institute[Debian]{}
-\date[FSL.mx 2015]{%
- Festival de Software Libre 2015,\\
- Puerto Vallarta, Mexico\\
+\date[Mini-DebConf Cambridge 2015]{%
+ Mini DebConf 2015,\\
+ Cambridge, UK\\
  \small
- 2015-10-30}
+ 2015-11-06}
 
 \begin{document}
 
 \begin{frame}
  \titlepage
-\end{frame}
-
-\begin{frame}
- \frametitle{about me and this talk}
- \begin{itemize}
-  \item Por favor disculpa mi, pero este charla esta in ingles…
-  \only<2>{\item Please tell me to slow down.
-  \item This is a quite complex and sometimes complicated topic. Don't worry
-  if you miss some bits, the slides are available on the net.}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{about me}
-
- \begin{itemize}
-  \item Debian user since 1995
-  \item Debian contributor since 2001
-  \item Debian developer since 2007
-  \item ex DebConf organizer, founded the DebConf video team (video.debian.net)
-  \item Debian-Edu (Debian for education)
-  \item Debian QA (quality assurance)
-  \begin{itemize}
-   \item piuparts.debian.org
-   \item jenkins.debian.net (900 jobs continously testing Debian)
-  \end{itemize}
-  \item Debian LTS (Long Term Support)
-  \item\only<2-3>{ \texttt{sudo apt-get install torbrowser-launcher}}
-  \item\only<3>{Ask me anything! I do key signing too.}
- \end{itemize}
 \end{frame}
 
 
@@ -148,8 +126,8 @@
     {akira} \\
     {Andrew Ayer} \\
     {Asheesh Laroia} \\
-    {Chris Lamb} \\
-    Chris West \\
+    \only<1>{Chris Lamb}\only<2>{{\color{debianblue} Chris Lamb}} \\
+    {Chris West} \\
     {Christoph Berg} \\
     {Daniel Kahn Gillmor} \\
     David Suarez \\
@@ -188,94 +166,12 @@
 
 \begin{frame}
  \frametitle{Who are you?}
-  \only<2-5>{Who is using Linux on the desktop?}\only<3-5>{ Debian?\\}
-  \only<4-5>{Who is using only Linux on the desktop?\\}
-  \only<5>{Who is contributing to some free software project?\\}
+  \only<2-4>{Who is…} \\
+  \only<3-4>{Who is…} \\
+  \only<4>{Who…} \\
 \end{frame}
 
-\section{Introduction}
-
-\begin{frame}
- \frametitle{The problem}
-
- \begin{center}
-  \begin{tikzpicture}
-   \draw (-2,0) node[font=\LARGE] (source) { source };
-   \draw (2,0) node[font=\LARGE] (binary) { binary };
-   \draw[->,very thick] (source) -- (binary) node[midway] (midbuild) {};
-   \draw (midbuild) node [above,color=debianred,font=\small] (build) {build};
-   \visible<2>{
-    \draw (0,2) node[font=\LARGE,color=debianblue] (fs) { free software };
-    % font= specification is required to work-around a bug in md->latex conversion
-    \draw[->,font=\normalsize] (fs) -- (source) node[midway,left=0.2cm,color=debianred,font=\footnotesize,align=center]{freedom\\to study};
-    \draw[->,font=\normalsize] (fs) -> (binary) node[midway,right=0.2cm,color=debianred,font=\footnotesize,align=center]{freedom\\to run};
-   }
-   \visible<3->{
-    \draw (-4,-1) node[font=\small,color=debianblue] (verified) { can be verified };
-    \draw (4,-1) node[font=\small,color=debianblue] (used) { can be used };
-    \path (verified) edge[->,bend left=30] (source);
-    \path (used) edge[->,bend right=30] (binary);
-   }
-   \visible<4->{
-    \draw (0,-2) node[font=\LARGE,color=debianred,align=center] (prove) { can I get a proof? };
-    \path (prove) edge[->] (midbuild);
-   }
-  \end{tikzpicture}
- \end{center}
-\end{frame}
-
-\begin{frame}[fragile]
- \frametitle{Why does it matter?}
-
- \begin{center}
-  \includegraphics[width=0.7\textwidth]{images/31c3.png}
-
-  Available on \url{media.ccc.de}, 31c3
- \end{center}
-\end{frame}
-
-\begin{frame}[fragile]
- \frametitle{Motivations}
- \begin{itemize}
-  \item CVE-2002-0083: remote root exploit in \texttt{sshd}, 1 bit difference in the binary
-  \item 31c3 talk showed a PoC for a kernel module modifying source code in memory only
-  \item how can you be sure what's running on your machine or on a build
-  daemon network? Do you ever leave your computer alone?
- \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
- \frametitle{Motivations to crack build machines}
- \begin{itemize}
-  \item Compromise one computer to get:
-  \begin{itemize}
-   \item Hundreds of millions of other computers?
-   \item Every bank account in the world?
-   \item Every Windows computer in the world?
-   \item Every Linux computer in the world?
-  \end{itemize}
-  \item Compromise one computer is worth:
-  \begin{itemize}
-   \item \$100k USD (market price of remote 0day)
-   \item \$100M USD (censorship budget of Iran per year)
-   \item \$4B USD (Bitcoin market cap)
-  \end{itemize}
- \end{itemize}
-\end{frame}
-
-
-\begin{frame}[fragile]
- \frametitle{Another example}
-
- At a CIA conference in 2012:
- \begin{center}
-  \includegraphics[width=0.8\textwidth]{images/strawhorse.png}
-
-  {\footnotesize
-  \url{firstlook.org/theintercept/2015/03/10/ispy-cia-campaign-steal-apples-secrets/}
-  }
- \end{center}
-\end{frame}
+\section{Status}
 
 \begin{frame}[fragile]
  \frametitle{In depth explaination of the problem}
@@ -286,7 +182,6 @@
   Available on \url{media.ccc.de}, 31c3
  \end{center}
 \end{frame}
-
 
 \begin{frame}
  \frametitle{The solution}
@@ -309,18 +204,6 @@
  \Huge
  “reproducible builds”
  \end{center}
-\end{frame}
-
-\begin{frame}
- \frametitle{It's not only security - nice side effects of our work}
-
- \begin{itemize}
-  \item Early detection of FTBFS and other problems
-  \item Debug packages can be created at any time
-  \item Validation of cross-builds
-  \item Smaller \texttt{.deb} deltas
-  \item …
- \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -393,15 +276,11 @@
  \frametitle{Tell the world \& collaborate}
 
  \begin{itemize}
-  \item Many talks already:
+  \item Two recent talks:
    \begin{itemize}
-    \item 2014-02-01: FOSDEM’14
-    \item 2014-08-26: DebConf14
-    \item 2015-01-31: FOSDEM’15
-    \item 2015-07-06: Libre Software Meeting 2015
     \item 2015-08-13: Chaos Communication Camp 2015
     \item 2015-08-20: DebConf15
-    \item (videos available, in EN/FR/DE)
+    \item (both have subtitles!)
    \end{itemize}
   \item Linked on the wiki:
     {\small \url{https://wiki.debian.org/ReproducibleBuilds/About#Presentations}}
@@ -417,7 +296,7 @@
    \begin{itemize}
     \item 40 people from 16 projects
    \end{itemize}
-  \item coming soon: \texttt{https://reproducible-builds.org}
+  \item \texttt{https://reproducible-builds.org}
   \begin{center}
    \includegraphics[width=0.6\textwidth]{images/rbwww1.png}
   \end{center}
@@ -425,22 +304,9 @@
 \end{frame}
 
 
-\begin{frame}
- \frametitle{Testing for variations}
-
- \begin{itemize}
-  \item Build for the first time
-  \item Save the result
-  \item Perform change(s) to the environment
-  \item Build for a second time
-  \item Compare results
-  \item\only<2>{started as a 10 line shell script, this has become
-  \texttt{https://reproducible.debian.net}}
- \end{itemize}
-\end{frame}
 
 \begin{frame}
- \frametitle{reproducible.debian.net}
+ \frametitle{update on reproducible.debian.net}
 
  \begin{itemize}
   \item maintained in \texttt{jenkins.debian.net.git}, 27 contributors
@@ -452,6 +318,8 @@
   \end{itemize}
   \item Not just testing Debian, but also Coreboot, OpenWrt, NetBSD, FreeBSD,
   Archlinux and soon Fedora
+  \item 109 cores and 194 GB Ram split on 8 amd64 VMs, and 12 cores and 6 GB ram one 4 armhf nodes, provided by vagrant.
+  \item we more more more arm(64) cores! (but not this small...)
   \item Thanks to ProfitBricks for providing amd64 servers:
  \end{itemize}
  \vfill
@@ -491,12 +359,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{center}
 \end{frame}
 
-\begin{frame}
- \frametitle{reproducible.debian.net}
- \begin{center}
- show in webbrowser
- \end{center}
-\end{frame}
 
 
 \begin{frame}
@@ -526,7 +388,7 @@ Source: txtorcon
 Binary: python-txtorcon
 Architecture: all
 Version: 0.11.0-1
-Build-Path: /usr/src/debian/txtorcon-0.11.0-1
+Build-Path: /buildd/debian/txtorcon-0.11.0-1
 Checksums-Sha256:
  a26549d9…7b 125910 python-txtorcon_0.11.0-1_all.deb
  28f6bcbe…69 2039 txtorcon_0.11.0-1.dsc
@@ -537,27 +399,6 @@ Build-Environment:
  …
 \end{verbatim}
 }
-\end{frame}
-
-
-\begin{frame}
- \frametitle{strip-nondeterminism}
-
- \begin{itemize}
-  \item Normalizes various file formats
-  \item Currently handles:
-   \begin{itemize}
-    \item ar archives (\texttt{.a})
-    \item gzip
-    \item Java jar
-    \item Javadoc HTML
-    \item Maven \texttt{pom.properties}
-    \item PNG
-    \item ZIP archives
-    \item … \textit{extensible to new formats}
-   \end{itemize}
-  \item Written in Perl (like \texttt{dpkg-dev})
- \end{itemize}
 \end{frame}
 
 
@@ -665,138 +506,6 @@ Build-Environment:
   \item \texttt{\#792202}: texlive-bin
  \end{itemize}
 
-\end{frame}
-
-\section{Fixing reproducibility issues}
-
-% Straightforward..
-
-\begin{frame}{Timestamps in gzip headers}
- \begin{center}
-  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_gzip.png}
-  \vfill
-  \pause
-  \texttt{gzip FAQ} $\Longrightarrow$ \texttt{gzip -n FAQ}
- \end{center}
-\end{frame}
-
-\begin{frame}{Timestamps in Python version}
- \begin{center}
-  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_python_version.png}
-  \vfill
-  \texttt{tag\_date=True} $\Longrightarrow$ \texttt{tag\_date=False} in \texttt{setup.py}
- \end{center}
-\end{frame}
-
-\begin{frame}{Timestamps in static libraries}
- \begin{center}
-  \includegraphics[width=0.7\textwidth]{images/examples/timestamps_in_static_library.png}
-  \vfill
-  \texttt{.a} files are "\texttt{ar}" archives $\Longrightarrow$ \texttt{binutils} in determinstic mode or \texttt{strip-nondeterminism}
- \end{center}
-\end{frame}
-
-\begin{frame}{Timestamps in PNG}
- \begin{center}
-  \includegraphics[width=0.6\textwidth]{images/examples/timestamps_in_png.png}
-  \vfill
-  \texttt{convert ... +set date:create +set date:modify -define png:exclude-chunk=time}
- \end{center}
-\end{frame}
-
-\begin{frame}{Tarballs: Users and groups}
- \begin{center}
-  \includegraphics[width=0.7\textwidth]{images/examples/user_and_group_in_tarball.png}
-  \vfill
-  \texttt{--owner=root --group=root --numeric-owner}
- \end{center}
-\end{frame}
-
-\begin{frame}{Tarballs: Ordering}
- \begin{center}
-  \includegraphics[width=0.6\textwidth]{images/examples/random_order_in_tarball.png}
-  \vfill
-  \texttt{find -type f | LC\_ALL=C sort | tar ...}
- \end{center}
-\end{frame}
-
-\begin{frame}{Tarballs: Timestamps}
- \begin{center}
-  \includegraphics[width=0.7\textwidth]{images/examples/timestamps_in_tarball.png}
-  \vfill
-  $\Longrightarrow$ \texttt{--mtime} (or \texttt{find}/\texttt{xargs}/\texttt{touch})
- \end{center}
-\end{frame}
-
-% toolchain
-
-\begin{frame}{Timestamps in Erlang .BEAM}
- \begin{center}
-  \includegraphics[width=0.6\textwidth]{images/examples/timestamps_in_beam.png}
-  \vfill
-  \vfill
-  Patch \texttt{erlc} to obey \texttt{SOURCE\_DATE\_EPOCH} (\texttt{\#795834})
- \end{center}
-\end{frame}
-
-\begin{frame}{Timestamps in Ruby gemspec}
- \begin{center}
-  \includegraphics[width=0.9\textwidth]{images/examples/timestamps_in_ruby_gemspec.png}
-  \vfill
-  Varies on timezone $\Longrightarrow$ patch to always use UTC (\texttt{\#779631})
- \end{center}
-\end{frame}
-
-% ugly
-
-\begin{frame}{Hostname/time recorded via ./configure}
- \begin{center}
-  \includegraphics[width=0.7\textwidth]{images/examples/hostname_in_configure.png}
-  \vfill
-  $\Longrightarrow$ Sometimes override from \texttt{debian/rules}..?
- \end{center}
-\end{frame}
-
-% uglier
-
-\begin{frame}{Perl hash order}
- \begin{center}
-  \includegraphics[width=0.6\textwidth]{images/examples/random_perl_hash_order.png}
-  \vfill
-  $\Longrightarrow$ \texttt{\$Data::Dumper::Sortkeys = 1;}
- \end{center}
-\end{frame}
-
-\begin{frame}{Timestamps in header files}
- \begin{center}
-  \includegraphics[width=0.6\textwidth]{images/examples/timestamps_in_header_files.png}
-  \vfill
-  Patch with a better unique id or use \texttt{SOURCE\_DATE\_EPOCH}
- \end{center}
-\end{frame}
-
-\begin{frame}{Build time recorded via Makefile}
- \begin{center}
-  \includegraphics[width=0.9\textwidth]{images/examples/build_date_in_makefile.png}
-  \vfill
-  $\Longrightarrow$ Patch upstream\ldots{} :(
- \end{center}
-\end{frame}
-
-\begin{frame}
- \frametitle{Some toolchain issues}
-
- % list taken from https://wiki.debian.org/ReproducibleBuilds/ExperimentalToolchain on 2015-08-19
- % Skipping SOURCE_DATE_EPOCH related patches since they are listed in the related section
- \begin{itemize}\small
-  \item \sout{\texttt{\#776026} \textbf{wheel:} create reproducible wheel (.whl) files}
-  \item \sout{\texttt{\#776143} \textbf{docbook-to-man:} remove timestamps from the generated manpages}
-  \item \sout{\textbf{gtk-doc:} generate its links in a stable order}
-  \item \texttt{\#774148} \textbf{fontforge:} propagate creation and modification times from source file
-  \item \texttt{\#775786} \textbf{python-support:} sort file lists in /usr/share/python-support/*.private
-  \item \textbf{libxslt:} make generate-id() return identifiers in a deterministic way
-  \item And many more! \url{https://deb.li/3bX6F}
- \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -1025,9 +734,8 @@ Build-Environment:
 \section{Questions?}
 
 \begin{frame}
- \frametitle{Questions?}
+ \frametitle{Questions, comments, ideas?}
  \begin{center}
-  Please ask me now or later today.
  \end{center}
  \begin{itemize}
  \item\url{https://reproducible.debian.net}
@@ -1042,7 +750,7 @@ Build-Environment:
   \item Debian “Reproducible Builds” team \\
         {\small (you are just \textbf{so} awesome!)}
   \item Linux Foundation and the Core Infrastructure Initiative
-  \item Festival de Software Libre 2015
+  \item Mini DebConf Cambridge 2015
 \end{itemize}
 
  \begin{center}
@@ -1057,6 +765,8 @@ Build-Environment:
    \begin{tabular}{rl}
     \texttt{holger@debian.org} & \texttt{B8BF 5413 7B09 D35C F026} \\
                                & \texttt{FE9D 091A B856 069A AA1C}
+    \texttt{lamby@debian.org} & \texttt{C2FE 4BD2 71C1 39B8 6C53} \\
+                              & \texttt{3E46 1E95 3E27 D431 1E58} \\
    \end{tabular}
   }
  \end{center}
