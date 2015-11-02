@@ -55,9 +55,9 @@
 % Thanks Richard Darst on how to get a nice Beamer theme.
 % See http://rkd.zgib.net/wiki/DebianBeamerThemes
 
-\usepackage{ctable}
 \usepackage{multicol}
 \usepackage{tikz}
+\usepackage{ctable}
 \usetikzlibrary{positioning}
 
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{images/swirl-lightest.pdf}}
@@ -89,7 +89,7 @@
 \setbeamercolor{block title}{fg=debianblue}
 
 \title[Reproducible builds]{Beyond reproducible builds}
-\subtitle{we are not there yet and "there" is only the first third}
+\subtitle{we are not there yet -\\ and just getting there wont be enough}
 \author[lamby \& h01ger]{%
    \texorpdfstring{
         \begin{columns}
@@ -104,10 +104,9 @@
         \end{columns}
    }{lamby \& h01ger}}
 \institute[Debian]{}
-\date[Mini-DebConf Cambridge 2015]{%
+\date[Mini-DebConf Cambridge '15]{%
  Mini DebConf 2015,\\
- Cambridge, UK\\
- \small
+ Cambridge, UK,\\
  2015-11-06}
 
 \begin{document}
@@ -115,7 +114,6 @@
 \begin{frame}
  \titlepage
 \end{frame}
-
 
 \begin{frame}
  \frametitle{Debian reproducible builds team}
@@ -166,14 +164,16 @@
 
 \begin{frame}
  \frametitle{Who are you?}
-  \only<2-4>{Who is…} \\
-  \only<3-4>{Who is…} \\
-  \only<4>{Who…} \\
+ \begin{itemize}
+  \item Who is…
+  \item \only<2-3>{Who is…}
+  \item \only<3>{Who…}
+ \end{itemize}
 \end{frame}
 
 \section{Status}
 
-\begin{frame}[fragile]
+\begin{frame}
  \frametitle{In depth explaination of the problem}
 
  \begin{center}
@@ -187,10 +187,10 @@
  \frametitle{The solution}
 
  \begin{center}
- \Large
- enable anyone to reproduce\\
- identical binary packages\\
- from a given source
+ \Large{
+ enable anyone to reproduce
+ identical binary packages
+ from a given source}
 \end{center}
 
 \end{frame}
@@ -201,13 +201,12 @@
  \begin{center}
  We call this:
 
- \Huge
- “reproducible builds”
+ \Huge{ “reproducible builds” }
  \end{center}
 \end{frame}
 
 \begin{frame}
- \frametitle{So trendy!}
+ \frametitle{It's trendy!}
 
  \begin{itemize}
  \item Bitcoin (\textbf{"done"})
@@ -236,11 +235,12 @@
 
 \begin{frame}[plain]
 \begin{center}
- \Huge It should become the \textbf{norm}.\\
- \only<2>{\small We want to change the meaning of "free software": \\
-  it's only free software if it is reproducible!}
-\end{center}
+ \Huge{It should become the \textbf{norm}.}
 
+ \only<2>{\small{ We want to change the meaning of "free software":
+
+  it's only free software if it is reproducible!}}
+\end{center}
 \end{frame}
 
 \section{Current status}
@@ -248,12 +248,14 @@
 \begin{frame}[plain]
  \frametitle{Progress in Debian \texttt{unstable}}
  \begin{center}
-  \includegraphics[width=\paperwidth]{images/stats_pkg_state.png}
-  
-  19399 out of 23033 source packages are reproducible in our current
-  test framework.
+  \includegraphics[width=\textwidth]{images/stats_pkg_state.png}
+
+  \small{19399 out of 23033 source packages are reproducible}
+
+  \small{in our current test framework}
  \end{center}
 \end{frame}
+
 
 \begin{frame}
  \frametitle{What we did since summer 2014}
@@ -267,7 +269,7 @@
   \item \texttt{SOURCE\_DATE\_EPOCH}
   \item \texttt{disorderfs}
   \item Many many patches: \texttt{dpkg}, \texttt{debhelper}, \texttt{cdbs}, \texttt{sbuild}, …
-  \item\only<2>{Tell the world \& collaborate}
+  \item \only<2>{Tell the world \& collaborate}
  \end{itemize}
 \end{frame}
 
@@ -276,31 +278,27 @@
  \frametitle{Tell the world \& collaborate}
 
  \begin{itemize}
-  \item Two recent talks:
+  \item Two recent talks available with subtitles:
    \begin{itemize}
     \item 2015-08-13: Chaos Communication Camp 2015
     \item 2015-08-20: DebConf15
-    \item (both have subtitles!)
    \end{itemize}
-  \item Linked on the wiki:
-    {\small \url{https://wiki.debian.org/ReproducibleBuilds/About#Presentations}}
   \item Weekly reports since May 2015
+  \item Summit in December 2015 in Athens
+   \begin{itemize}
+    \item 40 people from 16 projects
+   \end{itemize}
  \end{itemize}
 \end{frame}
 
 \begin{frame}
  \frametitle{Tell the world \& collaborate, cont.}
 
- \begin{itemize}
-  \item Summit in December 2015 in Athens
-   \begin{itemize}
-    \item 40 people from 16 projects
-   \end{itemize}
-  \item \texttt{https://reproducible-builds.org}
-  \begin{center}
-   \includegraphics[width=0.6\textwidth]{images/rbwww1.png}
-  \end{center}
- \end{itemize}
+ \begin{center}
+ \texttt{https://reproducible-builds.org}
+
+ \includegraphics[width=0.7\textwidth]{images/rbwww1.png}
+ \end{center}
 \end{frame}
 
 
@@ -309,17 +307,17 @@
  \frametitle{update on reproducible.debian.net}
 
  \begin{itemize}
-  \item maintained in \texttt{jenkins.debian.net.git}, 27 contributors
-  \item 4k lines of Python and 5k lines Bash code
-  \item 111 jenkins jobs now running on 10 hosts
+  \item maintained in \texttt{jenkins.debian.net.git} by 27 contributors
+  \item \small{4k lines of Python and 5k lines Bash code run by 111 jenkins
+  now running on 10 hosts}
   \item Continuously testing Debian testing, unstable and experimental
   \begin{itemize}
-   \item Previously amd64 only, now also armhf, more to come…
+   \item \small{Previously amd64 only, now also armhf, more to come…}
   \end{itemize}
   \item Not just testing Debian, but also Coreboot, OpenWrt, NetBSD, FreeBSD,
   Archlinux and soon Fedora
   \item 109 cores and 194 GB Ram split on 8 amd64 VMs, and 12 cores and 6 GB ram one 4 armhf nodes, provided by vagrant.
-  \item we more more more arm(64) cores! (but not this small...)
+  \item \small{We more more more arm(64) cores! (but not this small...)}
   \item Thanks to ProfitBricks for providing amd64 servers:
  \end{itemize}
  \vfill
@@ -597,20 +595,17 @@ Build-Environment:
  \frametitle{Reproducible builds demand a defined build environment}
  \begin{itemize}
   \item Re-creating an identical build environment is mandatory too.
-  \item Without an identical build environment reproducible builds
-  will only happen by sheer luck, thus that's not really reproducible at all.
-  \item\only<2>{This is probably only solved for Debian right now - and
-  currently that's still a proof of concept only…}
+  \item Without an identical build environment reproducible builds will only happen by sheer luck, thus that's not really reproducible at all.
+  \item\only<2>{This is probably only solved for Debian right now - and currently that's still a proof of concept only…}
  \end{itemize}
 \end{frame}
 
 \begin{frame}
  \frametitle{Reproducible builds are just the first 33\%}
  \begin{itemize}
-  \item Continuous rebuilds need to happen in a systematic way and the
-  resulting checksums need to be properly published.
+  \item Continuous rebuilds need to happen in a systematic way and the resulting checksums need to be properly published.
   \item \only<2>{ Integration in end user tools\\
-  "Do you really want to install this unreproducible software (y/N)" \\
+  "Do you really want to install this unreproducible software (y/N)"\\
   "Which rebuilders do you want to trust?"}
  \end{itemize}
 \end{frame}
@@ -619,13 +614,9 @@ Build-Environment:
  \frametitle{Status of reproducible builds in other distros}
 
  \begin{itemize}
-  \item As shown we're also testing Coreboot, OpenWrt, NetBSD, FreeBSD,
-  Archlinux and soon Fedora.
+  \item As shown we're also testing Coreboot, OpenWrt, NetBSD, FreeBSD, Archlinux and soon Fedora.
   \item But the work needs to be done within those projects.
-  \item \only<2>{And we are only testing for reproducible builds. No work
-  has been done on the other
-  66\% yet. (Systematic rebuilds and sharing the checksum \& end-user tool
-  integration)}
+  \item \only<2>{And we are only testing for reproducible builds. No work has been done on the other 66\% yet. (Systematic rebuilds and sharing the checksum \& end-user tool integration)}
  \end{itemize}
 \end{frame}
 
@@ -633,15 +624,13 @@ Build-Environment:
 \begin{frame}
  \frametitle{Android, Windows and all the rest}
  \begin{itemize}
-  \item Android: some work on making Cyanogenmod reproducible (but with
-  \texttt{faketime})
+  \item Android: some work on making Cyanogenmod reproducible (but with \texttt{faketime})
   \item Windows: why not, Microsoft is sharing\^ wselling the source at least… 
-  \item IOS: in very short: it's a mess, might work with jailbreaked devices
-  only - but AFAIK there's no source code anyway :-(
+  \item IOS: in very short: it's a mess, might work with jailbreaked devices only - but AFAIK there's no source code anyway :-(
   \item MacOS: no idea, probably same as IOS :-(
   \item ...
  \end{itemize}
- \only<2> {Let's focus on Free Software first!}
+ \only<2>{Let's focus on Free Software first!}
 \end{frame}
 
 
@@ -651,8 +640,8 @@ Build-Environment:
  \frametitle{As a software developer}
  \begin{itemize}
   \item stop using build date
-  \item use \texttt{SOURCE\_DATE\_EPOCH} instead \\
-  \item see  \url{https://reproducible-builds.org/specs/}
+  \item use \texttt{SOURCE\_DATE\_EPOCH} instead
+  \item see \url{https://reproducible-builds.org/specs/}
  \end{itemize}
 \end{frame}
 
@@ -667,13 +656,10 @@ Build-Environment:
      \item for better results use our “reproducible” repository, \texttt{pbuilder} and a custom config
     \end{itemize}
    \end{itemize}
-
   \item Tips on the wiki: \\
-    {\small \url{https://wiki.debian.org/ReproducibleBuilds/Howto}} \\
-    {\small
-    \url{https://wiki.debian.org/ReproducibleBuilds/ExperimentalToolchain}}
-  \item Ask for help on \texttt{\#debian-reproducible} \\
-   or on the mailing-list
+    \small{\url{https://wiki.debian.org/ReproducibleBuilds/Howto}} \\
+    \small{\url{https://wiki.debian.org/ReproducibleBuilds/ExperimentalToolchain}}
+  \item Ask for help on \texttt{\#debian-reproducible} or on the mailing-list
  \end{itemize}
 \end{frame}
 
@@ -694,7 +680,7 @@ Build-Environment:
     \item \texttt{reproducible.d.n}, diffoscope, strip-nondeterminism
     \item Propose changes for toolchain
     \item Submit patches for individual packages
-    \item Write more general documentation and  talk to the world
+    \item Write more general documentation and talk to the world
    \end{itemize}
  \end{itemize}
 \end{frame}
@@ -722,26 +708,26 @@ Build-Environment:
  \frametitle{Write a thesis!}
 
  \begin{itemize}
-  \item We are trying to document all our work, but we won't write
-  scientific articles.
+  \item We are trying to document all our work, but we won't write scientific articles.
   \item Maybe you can do that?
-  \item We'll be happy to help and there is Gunnar Wolf (gwolf@debian.org) in
-  Mexico, D.F. too!
  \end{itemize}
 \end{frame}
 
 
 \section{Questions?}
 
+
 \begin{frame}
  \frametitle{Questions, comments, ideas?}
- \begin{center}
- \end{center}
+
  \begin{itemize}
- \item\url{https://reproducible.debian.net}
- \item\url{#debian-reproducible} on \url{irc.OFTC.net}
+  \item \url{https://reproducible-builds.org}
+  \item \url{https://reproducible.debian.net}
+  \item \href{mailto:reproducible-builds@lists.alioth.debian.org}{reproducible-builds@lists.alioth.debian.org}
+  \item \texttt{\#debian-reproducible} on \texttt{irc.OFTC.net}
  \end{itemize}
 \end{frame}
+
 
 \begin{frame}
  \frametitle{Thanks!}
@@ -764,9 +750,9 @@ Build-Environment:
   \resizebox{0.8\textwidth}{!}{%
    \begin{tabular}{rl}
     \texttt{holger@debian.org} & \texttt{B8BF 5413 7B09 D35C F026} \\
-                               & \texttt{FE9D 091A B856 069A AA1C}
+                               & \texttt{FE9D 091A B856 069A AA1C} \\
     \texttt{lamby@debian.org} & \texttt{C2FE 4BD2 71C1 39B8 6C53} \\
-                              & \texttt{3E46 1E95 3E27 D431 1E58} \\
+                              & \texttt{3E46 1E95 3E27 D431 1E58}
    \end{tabular}
   }
  \end{center}
