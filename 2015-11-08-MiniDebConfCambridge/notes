@@ -2,7 +2,6 @@
 - which screenshots to show?
 - help wanted to reduce sudo usage
 - emphasize we want more armhf+arm64 hw
--- show arm graph
 - mention we only test main. question: is there a database which packages from contrib can be legally blindly build?
 
 - Summary
