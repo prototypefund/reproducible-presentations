@@ -597,39 +597,96 @@ Build-Environment:
 \end{frame}
 
 
-\section{Beyond builds}
-
+\section{Beyond building}
 
 
 \begin{frame}
  \frametitle{Reproducible builds demand a defined build environment}
  \begin{itemize}
-  \item Re-creating an identical build environment is mandatory too
-  \item Without an identical build environment, reproducible builds will only happen by sheer luck
+  \item Re-creating an identical build environment is mandatory too.
+  \item Without an identical build environment, reproducible builds will only
+  happen by sheer luck.
   \item<2>{Only solved for Debian right now and currently proof of concept only…}
  \end{itemize}
 \end{frame}
 
 \begin{frame}
- \frametitle{Reproducible builds are just the first step}
+ \frametitle{Debian release process}
  \begin{itemize}
-  \item Continuous rebuilds need to happen in a systematic way and resulting checksums properly published
-  \item<2> Integration in-end user tools\\
-  "Do you really want to install this unreproducible software (y/N)"\\
-  "Which rebuilders do you want to trust?"
+  \item In our current design and practices, rebuilding stretch will require
+  package versions which are not part of stretch.
+  \item This design might put a high load on snapshot.debian.org.
+  \item<2-3>{Rebuilding all of debian a month prio the release? I don't think
+  the release team will like this. }
+  \item<3>{So? (Self contained reproducibility should be the goal…)}
  \end{itemize}
 \end{frame}
 
 \begin{frame}
- \frametitle{Status of reproducible builds in other distros}
-
+ \frametitle{Distributing \texttt .buildinfo files}
  \begin{itemize}
-  \item We're also testing Coreboot, OpenWrt, NetBSD, FreeBSD, Archlinux and soon Fedora
-  \item But work needs to be done within those projects
-  \item<2> And we are only testing for reproducible builds. No work has been done on the other 66\% yet. (Systematic rebuilds and sharing the checksum \& end-user tool integration)
+  \item Probably 100000 files per suite, thats an 50\% increase per suite.
+  \item Mirrors would not be happy, so they should not go there.
+  \item We'll need many more files though, when we have detached signatures.
+  \item<2-3>{Revoking signatures?}
+  \item<3>{...}
  \end{itemize}
 \end{frame}
 
+\begin{frame}
+ \frametitle{Rebuilders and sharing signed checksums}
+ \begin{itemize}
+  \item Almost no work has been done here yet.
+  \item<2-3> Continuous rebuilds should happen in a systematic way and resulting
+  checksums properly published.
+  \item<3> And then we need a system to sign those checksums and share them. 
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Rebuilders and sharing signed checksums, cont.}
+ \begin{itemize}
+  \item Individuelly signed checksums (think web of trust) could work in the
+  Debian case (we have a gpg web of trust), but won't scale.
+  \item<2-4> { So I think we need systematic rebuilders, run by large organisations
+  (ACLU, NASA, NSA, Deutsche Bank, EDF \& Greenpeace).}
+  \item<3-4> { …and automated installers for those… }
+  \item<4> { …and howtos (\texttt {gpg --gen-key})…}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{No more source only uploads?}
+ \begin{itemize}
+  \item Should people be forced again to always do binary uploads, which only
+  will be accepted when the checksum matches the one done by the buildds?
+  \item<2-3> Probably not.
+  \item<3> Instead: keep checksums of uploaded binaries and rebuild anyway,
+  and keep those checksums too.
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Integration in user tools}
+ \begin{itemize}
+  \item "Do you really want to install this unreproducible software (y/N)"
+  \item<2-4> "Do you want to build those packages which unconfirmed checksums,
+  before installing? (Y/n)"
+  \item<3-4>{ "How many signed checksums do you require to call a package
+  'reproducible'?"}
+  \item<4>{ "Which rebuilders do you want to trust?"}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Integration in user tools - conclusion}
+ \begin{itemize}
+  \item "Rebuilders and sharing signed checksums" needs to be designed
+  (and probably at least partly implemented) before thinking more about end
+  user tools. It's just clear we need them. 
+ \end{itemize}
+\end{frame}
 
 \section{Want to help?}
 

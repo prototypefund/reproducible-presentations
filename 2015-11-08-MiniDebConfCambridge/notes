@@ -1,48 +1,14 @@
 - which screenshots to show?
-  issues
+  no screenshot but explicitly mention: 165 issues
   r.d.n/$src
   pkg set: build-essential
-  archlinux
 
 - emphasize we dont have a patch for dak? does it matter?
+- mention "Append only logs (-> binary transparency logs)" ?
+- merge "Status and next steps in Debian" slides?
 
-- debian release process
--- in our current design and practices, rebuilding stretch will require package versions which are not part of stretch
--- this will also put a high load on snapshot.debian.org
--- rebuilding all of debian a month prio the release? I don't think the release team will like this.
--- so?
+- "I don't think" & "So I think" - *I*?
 
-- no more source only uploads?
--- should people be forced again to always do binary uploads, which only will be accepted when the checksum matches?
--- probably not
-
-- distributing .buildinfo files
--- probably 100000 files per suite, thats an 50% increase
--- mirrors would not be happy, so they should not go there
--- we'll need many more files though, when we have detached signatures
--- revoking sigs?
-
-- rebuilders and sharing signed checksums
--- almost no work has been done here
--- individuelly signed checksums (think web of trust) could work in the Debian case (we have a gpg web of trust), but wont scale
--- so I think we need systematic rebuilders, run by large organisations (ACLU, NASA, NSA, Deutsche Bank, EDF & Greenpeace)
---- so we need automated installers and howtos for those who set up these builders
--- and then we a system to sign those checksums and share them
---- append only logs (-> binary transparency logs)
-
-- end user tools
--- do you really want to install this unreproducible package? (y/N)
--- how many signed checksums do you require to call a package "reproducible"?
--- do you want to build those packages which unconfirmed checksums, before installing?
--- which rebuilders do you want to trust?
--- "rebuilders and sharing signed checksums" needs to be designed (and probably at least partly implemented) before thinking more about end user tools. It's just clear we need them.
-
-- questions / room for discussion
-
-
-- help needed
--- DSA offers to give us more hardware (other archs, ppc64el), but is (rightfully) unhappy with our over usage of sudo
--- please help
 
 
 nice to have
