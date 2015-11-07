@@ -1,5 +1,8 @@
 - show package sets in more detail?
 - which screenshots to show?
+  issues
+  r.d.n/$src
+  archlinux
 - help wanted to reduce sudo usage
 - emphasize we want more armhf+arm64 hw
 - mention we only test main. question: is there a database which packages from contrib can be legally blindly build?
@@ -14,6 +17,16 @@
 -- this will also put a high load on snapshot.debian.org
 -- rebuilding all of debian a month prio the release? I don't think the release team will like this.
 -- so?
+
+- no more source only uploads?
+-- should people be forced again to always do binary uploads, which only will be accepted when the checksum matches?
+-- probably not
+
+- distributing .buildinfo files
+-- probably 100000 files per suite, thats an 50% increase
+-- mirrors would not be happy, so they should not go there
+-- we'll need many more files though, when we have detached signatures
+-- revoking sigs?
 
 - rebuilders and sharing signed checksums
 -- almost no work has been done here
