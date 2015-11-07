@@ -3,20 +3,17 @@
   r.d.n/$src
   pkg set: build-essential
 
-- emphasize we dont have a patch for dak? does it matter?
-- mention "Append only logs (-> binary transparency logs)" ?
 - merge "Status and next steps in Debian" slides?
+	- emphasize we dont have a patch for dak? does it matter?
+	  (if at "status and next steps"...)
 
-- "I don't think" & "So I think" - *I*?
 
+nice to have: 
+- variations:
+    kernel variations 3.16/4.1/2 vs 2.6.66
+    LANG=C 
 
-
-nice to have
-------------
-- improve on packages slide (2 patches per day...)
-- variations
-	kernel variations 3.16/4.1/2 vs 2.6.66
-- next:
+- todo next:
 	send mail to that dam dak bug. NOW.
 
 
