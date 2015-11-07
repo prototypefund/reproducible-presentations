@@ -173,7 +173,7 @@
  \end{itemize}
 \end{frame}
 
-\section{Status}
+\section{About}
 
 \begin{frame}
  \frametitle{In depth explaination of the problem}
@@ -194,8 +194,17 @@
  identical binary packages
  from a given source}
 \end{center}
-
 \end{frame}
+
+
+\begin{frame}
+ \frametitle{A little demo}
+
+  make, make, diff
+  make, make, diff
+  make, make, diff
+\end{frame}
+
 
 \begin{frame}
  \frametitle{The solution}
@@ -207,33 +216,6 @@
  \end{center}
 \end{frame}
 
-\begin{frame}
- \frametitle{It's trendy!}
-
- \begin{itemize}
- \item Bitcoin (\textbf{"done"})
- \item Tor (\textbf{"done"})
- \item Debian (\emph{in progress})
- \item Coreboot (\textbf{"done"})
- \item OpenWrt (\emph{in progress})
- \item NetBSD (\emph{in progress})
- \item FreeBSD (\emph{in progress})
- \item Arch Linux (\emph{in progress})
- \item \ldots{}
-\end{itemize}
-
-\end{frame}
-
-
-\begin{frame}[plain]
- \begin{tikzpicture}[remember picture,overlay]
-  \node[at=(current page.center)] {
-    \includegraphics[width=\paperwidth]{images/wholeworld.jpg}
-    % Credits to Kevin ‘Chuise’ Jackson
-    % http://dumhi.com/about
-  };
- \end{tikzpicture}
-\end{frame}
 
 \begin{frame}[plain]
 \begin{center}
@@ -245,7 +227,7 @@
 \end{center}
 \end{frame}
 
-\section{Current status}
+\section{Status in Debian}
 
 \begin{frame}[plain]
  \frametitle{Progress in Debian \texttt{unstable}}
@@ -256,6 +238,16 @@
     in our current test framework}
   \vfill
  \end{center}
+\end{frame}
+
+
+\begin{frame}[plain]
+ \frametitle{Progress in the Debian BTS}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[at=(current page.center)] {
+    \includegraphics[width=\paperwidth]{images/stats_bugs_state.png}
+  };
+ \end{tikzpicture}
 \end{frame}
 
 
@@ -270,7 +262,7 @@
   \item \texttt{diffoscope} (formerly known as \texttt{debbindiff})
   \item \texttt{SOURCE\_DATE\_EPOCH}
   \item \texttt{disorderfs}
-  \item Many many patches: \texttt{dpkg}, \texttt{debhelper}, \texttt{cdbs}, \texttt{sbuild}, …
+  \item Over 700 patches: \texttt{dpkg}, \texttt{debhelper}, \texttt{sbuild}, …
   \item<2> Tell the world \& collaborate
  \end{itemize}
 \end{frame}
@@ -454,14 +446,6 @@ Build-Environment:
 \end{frame}
 
 \begin{frame}
- \frametitle{diffoscope example (text output)}
-
- \begin{center}
-  \includegraphics[width=0.9\paperwidth]{images/diffoscope_example_text.png}
- \end{center}
-\end{frame}
-
-\begin{frame}
  \frametitle{\texttt{diffoscope} is "just" for debugging}
 
  \begin{itemize}
@@ -516,25 +500,8 @@ Build-Environment:
 
 \end{frame}
 
-\begin{frame}
- \frametitle{Work on individual packages}
 
- \begin{itemize}
-  \item 644 bugs for individual problems
-  \item 610 tagged with “patch”
-  \item Nearly two patches per day since Autumn 2014 on average!
- \end{itemize}
-\end{frame}
-
-\begin{frame}[plain]
- \begin{tikzpicture}[remember picture,overlay]
-  \node[at=(current page.center)] {
-    \includegraphics[width=\paperwidth]{images/stats_bugs.png}
-  };
- \end{tikzpicture}
-\end{frame}
-
-\section{Next?}
+\section{Missing bits}
 
 \begin{frame}
  \frametitle{Status and next steps in Debian}
@@ -600,6 +567,8 @@ Build-Environment:
   \item<3> in 2016, hopefully: “Sources \textbf{shall} build reproducible binaries.”
  \end{itemize}
 \end{frame}
+
+\section{Beyond builds}
 
 \begin{frame}
  \frametitle{Reproducible builds demand a defined build environment}
@@ -692,7 +661,7 @@ Build-Environment:
 \end{frame}
 
 
-\section{Questions?}
+\section{Questions, comments, ideas?}
 
 
 \begin{frame}
