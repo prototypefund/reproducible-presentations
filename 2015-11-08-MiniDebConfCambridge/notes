@@ -1,7 +1,3 @@
-- which screenshots to show?
-  no screenshot but explicitly mention: 165 issues
-  r.d.n/$src
-  pkg set: build-essential
 
 - merge "Status and next steps in Debian" slides?
 	- emphasize we dont have a patch for dak? does it matter?
