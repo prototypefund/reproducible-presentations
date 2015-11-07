@@ -1,16 +1,9 @@
-"talk cambridge - this time we will only shortly cover the general topic
-                  and instead dive deeper into discussion the next steps
-		  as well as the end user view on reproducible builds."
-mental summary: "the other 66%" 
-
-(the first 33% = reproduible builds)
-the 2nd 33% = actual rebuilders and sharing checksums securly and sanely
-the last 33% = end user tools)
-
-- adopt slide title, etc., add lamby, also his fingerprint
-
 - show package sets in more detail?
 - which screenshots to show?
+- help wanted to reduce sudo usage
+- emphasize we want more armhf+arm64 hw
+-- show arm graph
+- mention we only test main. question: is there a database which packages from contrib can be legally blindly build?
 
 - Summary
 -- we have shown that reproducible builds are doable in theory and practice.
