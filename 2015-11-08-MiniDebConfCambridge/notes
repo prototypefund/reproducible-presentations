@@ -1,11 +1,8 @@
-- show package sets in more detail?
 - which screenshots to show?
   issues
   r.d.n/$src
+  pkg set: build-essential
   archlinux
-- help wanted to reduce sudo usage
-- emphasize we want more armhf+arm64 hw
-- mention we only test main. question: is there a database which packages from contrib can be legally blindly build?
 
 - Summary
 -- we have shown that reproducible builds are doable in theory and practice.

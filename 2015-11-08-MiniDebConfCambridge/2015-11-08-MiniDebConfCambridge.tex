@@ -293,21 +293,41 @@
 \end{frame}
 
 \begin{frame}
- \frametitle{Update on reproducible.debian.net}
+ \frametitle{Stats about reproducible.debian.net}
 
  \begin{itemize}
-  \item Maintained in \texttt{jenkins.debian.net.git} - 27 contributors
-  \item \small{4k lines of Python and 5k lines of Bash, 111 Jenkins nodes, 10 hosts}
-  \item Continuously building Debian testing, unstable and experimental
-  \item Not just Debian: Coreboot, OpenWrt, NetBSD, FreeBSD,
+  \item Continuously testing Debian testing, unstable and experimental
+   \begin{itemize}
+    \item \small{ \texttt main only }
+    \item \small{ can we build \texttt contrib without legal troubles? }
+   \end{itemize}
+  \item Also testing coreboot, OpenWrt, NetBSD, FreeBSD,
   Archlinux and soon Fedora
-  \item \texttt{amd64}: 109 cores and 194 GB RAM split on 8 VMs, provided by ProfitBricks.
-  \item \texttt{armhf}: 12 cores and 6 GB RAM on 4 systems, provided by
-  vagrant@d.o.
+   \begin{itemize}
+    \item \small{ the latter only weekly… }
+   \end{itemize}
  \end{itemize}
  \vfill
  \begin{center}
- \includegraphics[height=0.15\paperheight]{images/profitbricks_logo.png}
+  \includegraphics[height=0.4\paperheight]{images/stats_builds_per_day_amd64.png}
+ \end{center}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{More stats on reproducible.debian.net}
+
+ \begin{itemize}
+  \item 111 jenkins jobs running on 10 hosts
+  \item 27 contributors for \texttt{jenkins.debian.net.git}
+  \item 4k lines of Python and 5k lines Bash code
+  \item \texttt{amd64}: 109 cores and 194 GB RAM split on 8 VMs, provided by
+  https://profitbricks.co.uk
+  \item \texttt{armhf}: 12 cores and 6 GB RAM on 4 systems, provided by vagrant@d.o.
+ \end{itemize}
+ \begin{center}
+  \includegraphics[height=0.15\paperheight]{images/profitbricks_logo.png}
+  \vfill
  \end{center}
 \end{frame}
 
@@ -316,12 +336,11 @@
 
  \begin{itemize}
  \item We want more more more arm(64) cores!
- \item ...
+ \end{itemize}
  \begin{center}
   \includegraphics[height=0.5\paperheight]{images/stats_pkg_state_armhf.png}
   \vfill
  \end{center}
- \end{itemize}
 \end{frame}
 
 
