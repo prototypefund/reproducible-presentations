@@ -1,9 +1,4 @@
 
-- merge "Status and next steps in Debian" slides?
-	- emphasize we dont have a patch for dak? does it matter?
-	  (if at "status and next steps"...)
-
-
 nice to have: 
 - variations:
     kernel variations 3.16/4.1/2 vs 2.6.66
