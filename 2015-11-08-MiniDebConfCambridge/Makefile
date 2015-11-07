@@ -18,12 +18,7 @@ $(PRESENTATION).pdf: $(PRESENTATION).tex $(IMGS)
 			break; \
 		fi; \
 		sha1sum $(PRESENTATION).aux > $(PRESENTATION).aux.sha1sum; \
-	done; \
-	echo ; \
-	echo "Who is contributing to any free software project?" ; \
-	echo "Who is contributing to Debian?" ; \
-	echo "What else are you contributing too?" ; \
-	echo "This talk will be mostly about Debian, 'but' I look forward to discuss other distros too."
+	done 
 
 clean:
 	rm -f $(PRESENTATION).aux $(PRESENTATION).log $(PRESENTATION).nav \
