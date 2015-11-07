@@ -4,10 +4,7 @@
   pkg set: build-essential
   archlinux
 
-- Summary
--- we have shown that reproducible builds are doable in theory and practice.
--- we have patches (well, except for dak) to make 85% reproducible now.
--- "in theory"
+- emphasize we dont have a patch for dak? does it matter?
 
 - debian release process
 -- in our current design and practices, rebuilding stretch will require package versions which are not part of stretch
