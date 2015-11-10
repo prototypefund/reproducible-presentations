@@ -3,6 +3,11 @@ nice to have:
     kernel variations 3.16/4.1/2 vs 2.6.66
     LANG=C 
 
+- which is the agreed path?
+	- so whats the agreed path - /buildd/ or /build/ or /buildd/debian or?
+	- r.d.n uses /build/
+	- taking https://buildd.debian.org/status/fetch.php?pkg=bash&arch=mipsel&ver=4.3-14&stamp=1441069691 as an example i think it was /home/buildd/build/bash-ukgiXS on that buildd
+
 - todo next:
 	send mail to that dam dak bug. NOW.
 
