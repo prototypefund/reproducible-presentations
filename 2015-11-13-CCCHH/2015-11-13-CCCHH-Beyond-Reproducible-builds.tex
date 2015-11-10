@@ -159,9 +159,7 @@
  \frametitle{Who are you?}
  \begin{itemize}
   \item Seen a talk about reproducible builds this year?
-  \item<2-3> Contributed to this effort?
-  \item<3> Thinks "packages \textbf{should} produce reproducible binaries"
-    should be added to Policy?
+  \item<2> Contributed to this effort?
  \end{itemize}
 \end{frame}
 
@@ -244,7 +242,7 @@
 \end{frame}
 
 \begin{frame}
- \frametitle{What we did since Summer 2014}
+ \frametitle{What we did in Debian since Summer 2014}
 
  \begin{itemize}
   \item Agreed on a fixed build path: \texttt{/build}
@@ -268,6 +266,7 @@
    \begin{itemize}
     \item 2015-08-13: Chaos Communication Camp 2015
     \item 2015-08-20: DebConf15
+    \item 2015-11-08: Mini-DebConf Cambridge 2015
    \end{itemize}
   \item Weekly reports since May 2015
   \item Summit in December 2015 (Athens)
@@ -587,7 +586,7 @@ Build-Environment:
 
  \begin{itemize}
   \item Section 4.15: “Sources \textbf{must} build reproducible binaries.”
-  \item<2-3> We hope this will happen after stretch
+  \item<2-3> We hope this will happen after stretch (Debian 9) release
   \item<3> (In 2016: “Sources \textbf{shall} build reproducible binaries.”)
  \end{itemize}
 \end{frame}
@@ -645,17 +644,6 @@ Build-Environment:
   (ACLU, NASA, NSA, Deutsche Bank, EDF, Greenpeace, XYZ).}
   \item<3-4> { …and automated installers for those… }
   \item<4> { …and howtos (\texttt {gpg --gen-key})…}
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{No more source only uploads?}
- \begin{itemize}
-  \item Should people be forced again to always do binary uploads, which only
-  will be accepted when the checksum matches the one done by the buildds?
-  \item<2-3> Probably not.
-  \item<3> Instead: keep checksums of uploaded binaries and rebuild anyway,
-  and keep those checksums too.
  \end{itemize}
 \end{frame}
 
@@ -736,10 +724,11 @@ Build-Environment:
  \frametitle{Help migrating to \texttt{.debian.org} infrastructure}
 
  \begin{itemize}
-  \item \texttt{sudo pbuilder} doesn't make DSA happy
-  \item Maintenance script really makes DSA unhappy. (\texttt{sudo kill -9 *}..)
   \item DSA would give us more build nodes of other architectures
-  \item \texttt{jenkins.debian.org} migration
+  \item \texttt{sudo pbuilder} doesn't make Debian SysAdmins (DSA) happy
+  \item Maintenance script really makes DSA unhappy. (\texttt{sudo kill -9 *}..)
+  \item<2-3> \texttt{jenkins.debian.org} migration
+  \item<3> No prior involvement in Debian needed.
  \end{itemize}
 \end{frame}
 
