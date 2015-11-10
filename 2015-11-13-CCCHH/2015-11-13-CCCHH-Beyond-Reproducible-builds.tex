@@ -201,6 +201,13 @@
 
 \begin{frame}
  \frametitle{Demo}
+% show this once running in plain sid,
+% and then in sid with our modified toolchain.
+%
+% cd $(mktemp -d); P=giftrans; apt-get source $P; for X in 1 2 3 4 5 ;
+%   do (cd */; dpkg-buildpackage -uc -us); mkdir -p .$X ;
+%   cp $P_*.deb .$X; done ;
+% echo; sha1sum .*/*.deb
 \end{frame}
 
 \begin{frame}[plain]
