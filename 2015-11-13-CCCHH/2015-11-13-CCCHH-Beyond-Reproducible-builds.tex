@@ -505,10 +505,11 @@ Build-Environment:
 
 \begin{frame}
  \frametitle{diffoscope example (HTML output)}
-
- \begin{center}
-  \includegraphics[width=0.9\paperwidth]{images/diffoscope_example_html.png}
- \end{center}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[at=(current page.center)] {
+   \includegraphics[width=\paperwidth]{images/diffoscope_example_html.png}
+  };
+ \end{tikzpicture}
 \end{frame}
 
 \begin{frame}

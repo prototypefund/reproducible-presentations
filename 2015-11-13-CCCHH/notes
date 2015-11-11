@@ -3,7 +3,6 @@ demo: PTH=$(mktemp -d); OPTH=$PWD; P=giftrans; cp ${P}_* $PTH/; cd $PTH ; dpkg-s
 nice to have:
 - update graphs and related numbers
 - archlinux screenshot?
-- look for nicer diffoscope screenshot
 - variations:
     LANG=C 
 
