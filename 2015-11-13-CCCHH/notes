@@ -2,7 +2,7 @@ demo:
 $ export LANG=C ; export http_proxy="http://127.0.0.1:8888" ; cd $(mktemp -d); P=giftrans; apt-get source $P; for X in 1 2 3 4 5; do (cd */; dpkg-buildpackage -b -uc -us); mkdir -p .$X; cp $P_*.deb .$X; done; echo; rm *deb ; sha1sum *dsc *z .*/*.deb | grep -v giftrans-dbgsym
 
 nice to have:
-- update slide about release process, the release team aint that unhappy about our ideas
+- update graphs and related numbers
 - archlinux screenshot?
 - look for nicer diffoscope screenshot
 - variations:
