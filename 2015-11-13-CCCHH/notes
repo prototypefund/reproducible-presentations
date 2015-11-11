@@ -1,5 +1,4 @@
-demo:
-$ export LANG=C ; export http_proxy="http://127.0.0.1:8888" ; cd $(mktemp -d); P=giftrans; apt-get source $P; for X in 1 2 3 4 5; do (cd */; dpkg-buildpackage -b -uc -us); mkdir -p .$X; cp $P_*.deb .$X; done; echo; rm *deb ; sha1sum *dsc *z .*/*.deb | grep -v giftrans-dbgsym
+demo: PTH=$(mktemp -d); OPTH=$PWD; P=giftrans; cp ${P}_* $PTH/; cd $PTH ; dpkg-source -x ${P}*.dsc ; for X in 1 2 3 4 5 ; do (cd ${P}-*/; dpkg-buildpackage -b -uc -us); mkdir -p .$X ; cp $P_*.deb .$X; done ; rm *deb ; echo; sha1sum *dsc *z .*/*.deb | grep -v giftrans-dbgsym ; cd - ; echo "don't foget to rm -r $PTH"
 
 nice to have:
 - update graphs and related numbers

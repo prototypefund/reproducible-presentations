@@ -235,10 +235,15 @@
 % show this once running in plain sid,
 % and then in sid with our modified toolchain.
 %
-% cd $(mktemp -d); P=giftrans; apt-get source $P; for X in 1 2 3 4 5 ;
-%   do (cd */; dpkg-buildpackage -b -uc -us); mkdir -p .$X ;
-%   cp $P_*.deb .$X; done ; rm *deb ;
-% echo; sha1sum *dsc *z .*/*.deb | grep -v giftrans-dbgsym
+% prepare demo:
+% mkdir demo ; cd demo ; apt-get source giftrans
+%
+% do demo:
+% PTH=$(mktemp -d); OPTH=$PWD; P=giftrans; cp ${P}_* $PTH/; cd $PTH ;
+%   dpkg-source -x ${P}*.dsc ; for X in 1 2 3 4 5 ; do (cd ${P}-*/;
+%   dpkg-buildpackage -b -uc -us); mkdir -p .$X ; cp $P_*.deb .$X; done ; rm
+%   *.deb ; echo; sha1sum *dsc *z .*/*.deb | grep -v giftrans-dbgsym ; cd - ;
+% rm -r $PTH
 \end{frame}
 
 \begin{frame}[plain]
