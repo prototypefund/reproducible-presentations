@@ -1,4 +1,4 @@
-\documentclass[14pt]{beamer}
+\documentclass[14pt,aspectratio=169]{beamer}
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{caption label separator}{:}
 \setbeamercolor{caption name}{fg=normal text.fg}
@@ -274,7 +274,7 @@
 \begin{frame}[plain]
  \frametitle{Progress in Debian \texttt{unstable}}
  \begin{center}
-  \includegraphics[height=0.5\paperheight]{images/stats_pkg_state.png}
+  \includegraphics[height=0.73\paperheight]{images/stats_pkg_state.png}
 
   \small{19,500 out of 23,079 source packages are reproducible \\
     in our test framework}
@@ -287,7 +287,7 @@
  \frametitle{Progress in the Debian BTS}
  \begin{tikzpicture}[remember picture,overlay]
   \node[at=(current page.center)] {
-    \includegraphics[width=\paperwidth]{images/stats_bugs_state.png}
+    \includegraphics[height=0.73\paperheight]{images/stats_bugs_state.png}
   };
  \end{tikzpicture}
 \end{frame}
@@ -354,7 +354,7 @@
  \end{itemize}
  \vfill
  \begin{center}
-  \includegraphics[height=0.4\paperheight]{images/stats_builds_per_day_amd64.png}
+  \includegraphics[height=0.47\paperheight]{images/stats_builds_per_day_amd64.png}
  \end{center}
 \end{frame}
 
@@ -371,7 +371,7 @@
   \item \texttt{armhf}: 18 cores and 9 GB RAM on 6 systems, provided by vagrant@d.o.
  \end{itemize}
  \begin{center}
-  \includegraphics[height=0.15\paperheight]{images/profitbricks_logo.png}
+  \includegraphics[height=0.2\paperheight]{images/profitbricks_logo.png}
   \vfill
  \end{center}
 \end{frame}
@@ -387,7 +387,7 @@
   \item<3> { 29 different "package sets", eg. \texttt build-essential is only <70\%
   reproducible
    \begin{center}
-    \includegraphics[height=0.35\paperheight]{images/stats_meta_pkg_state_build-essential.png}
+    \includegraphics[height=0.5\paperheight]{images/stats_meta_pkg_state_build-essential.png}
    \vfill
  \end{center}
   }
@@ -401,7 +401,7 @@
  \item We want more more more arm(64) cores!
  \end{itemize}
  \begin{center}
-  \includegraphics[height=0.5\paperheight]{images/stats_pkg_state_armhf.png}
+  \includegraphics[height=0.73\paperheight]{images/stats_pkg_state_armhf.png}
   \vfill
  \end{center}
 \end{frame}
@@ -518,9 +518,9 @@ Build-Environment:
 
 \begin{frame}
  \frametitle{diffoscope example (HTML output)}
- \begin{tikzpicture}[remember picture,overlay]
+ \begin{tikzpicture}[remember picture]
   \node[at=(current page.center)] {
-   \includegraphics[width=\paperwidth]{images/diffoscope_example_html.png}
+   \includegraphics[width=0.9\paperwidth]{images/diffoscope_example_html.png}
   };
  \end{tikzpicture}
 \end{frame}
