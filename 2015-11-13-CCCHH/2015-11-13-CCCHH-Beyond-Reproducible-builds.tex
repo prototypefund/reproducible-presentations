@@ -442,7 +442,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 
 \begin{frame}
- \frametitle{Debian .buildinfo}
+ \frametitle{Debian \texttt{.buildinfo}} files
 
  \begin{itemize}
   \item Aggregates in the same file:
@@ -458,7 +458,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 
 \begin{frame}[fragile]
- \frametitle{Example .buildinfo}
+ \frametitle{Example \texttt{.buildinfo}} file
 
 {\small
 \begin{verbatim}
@@ -591,7 +591,7 @@ Build-Environment:
 \end{frame}
 
 \begin{frame}
- \frametitle{dpkg}
+ \frametitle{\texttt{dpkg}}
 
  \begin{itemize}\small
   \item \sout{\texttt{\#719844}: make compression of \{data,control\}.tar.gz deterministic}
@@ -603,7 +603,7 @@ Build-Environment:
 \end{frame}
 
 \begin{frame}
- \frametitle{debhelper}
+ \frametitle{\texttt{debhelper}}
 
  \begin{itemize}\small
   \item \texttt{\#759886}: make mtimes of packaged files deterministic
@@ -615,7 +615,7 @@ Build-Environment:
 \end{frame}
 
 \begin{frame}
- \frametitle{sbuild}
+ \frametitle{\texttt{sbuild}}
 
  \begin{itemize}\small
   \item \sout{\texttt{\#790868}: allow sbuild to use a deterministic build
@@ -627,10 +627,10 @@ Build-Environment:
 \end{frame}
 
 \begin{frame}
- \frametitle{ftp.debian.org}
+ \frametitle{\texttt{ftp.debian.org}}
 
  \begin{itemize}\small
-  \item \texttt{\#763822}: please include .buildinfo file in the archive
+  \item \texttt{\#763822}: please include \texttt{.buildinfo} files in the archive
  \end{itemize}
 \end{frame}
 
@@ -669,7 +669,7 @@ Build-Environment:
 \end{frame}
 
 \begin{frame}
- \frametitle{Distributing \texttt .buildinfo files}
+ \frametitle{Distributing \texttt{.buildinfo} files}
  \begin{itemize}
   \item Probably 100,000 new files per Debian suite; 50\% increase per suite
   \item Mirrors would not be happy, so should not go there
