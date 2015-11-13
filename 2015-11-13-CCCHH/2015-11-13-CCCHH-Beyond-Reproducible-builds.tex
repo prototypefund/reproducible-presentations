@@ -100,7 +100,7 @@
 \institute[Debian]{}
 \date[CCCHH '15]{%
  CCCHH (CCC Hamburg)\\
- 2015-11-13}
+ \small{2015-11-13}}
 
 \begin{document}
 
@@ -495,23 +495,17 @@ Build-Environment:
  \frametitle{Debugging problems: diffoscope}
 
  \begin{itemize}
-  \item Examines differences \textbf{in depth}
-  \item Outputs HTML or plain text showing differences
-  \item Recursively unpacks archives
-  \item Seeks human readability:
-   \begin{itemize}
-    \item uncompresses PDF
-    \item disassembles binaries
-    \item unpacks Gettext files
-    \item … \textit{easy to extend to new file formats}
-   \end{itemize}
-  \item Falls back to binary comparison
-  \item Available in Debian sid and stretch
-  \item Maintainers in other distros wanted
+  \item Examines differences \textbf{in depth}.
+  \item Outputs HTML or plain text with human readable differences.
+  \item Recursively unpacks archives, uncompresses PDFs, disassembles
+  binaries, unpacks Gettext files, …
+  \item Easy to extend to new file formats.
+  \item Falls back to binary comparison.
+  \item Available in Debian sid and stretch.
+  \item Maintainers in other distros wanted.
  \end{itemize}
  \vfill
- \begin{center}
-  \url{http://diffoscope.org/}\\
+ \begin{center} \url{http://diffoscope.org/}\\
   {\footnotesize \color{gray}{(formely known as \texttt{debbindiff})}}
  \end{center}
 \end{frame}
