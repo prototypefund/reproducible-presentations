@@ -614,6 +614,8 @@ Build-Environment:
   \texttt{dh\_strip\_nondeterminism} in \texttt{dh}}
   \item \sout{\texttt{\#791823}: set \texttt{SOURCE\_DATE\_EPOCH} env var for
   reproducible builds}
+  \item \sout{\texttt{\#802005}: sort file lists passed to 'cp --parents -p'
+  for reproducibility}
  \end{itemize}
 \end{frame}
 
@@ -721,7 +723,7 @@ Build-Environment:
  \frametitle{Integration in user tools - conclusion}
  \begin{itemize}
   \item "Rebuilders and sharing signed checksums" needs to be designed
-  (and probably at least partly implemented) before thinking more about end
+  (and probably at least partly implemented) before thinking more about
   user tools. It's just clear we need them. 
  \end{itemize}
 \end{frame}
