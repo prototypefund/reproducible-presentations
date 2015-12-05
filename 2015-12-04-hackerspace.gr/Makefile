@@ -1,6 +1,6 @@
 .PHONY: all source images
 
-PRESENTATION = 2015-12-02-hackerspace.gr-Beyond-Reproducible-builds
+PRESENTATION = 2015-12-04-hackerspace.gr-Beyond-Reproducible-builds
 
 all: $(PRESENTATION).pdf
 
