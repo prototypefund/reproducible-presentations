@@ -95,32 +95,33 @@
             \centering
             Chris Lamb \\ 
             \href{mailto:lamby@debian.org}{lamby@debian.org}
-            \\
-            \\
-            @lambyuk
    }{lamby}}
 \date[skroutz.gr '15]{%
- skroutz.gr (Athens, Greece)\\
- \small{2015-12-10}}
+ skroutz.gr (Athens, Greece)
+}
 
 \begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
 
 \section{About}
 
 \begin{frame}[fragile]
  \frametitle{The problem}
  \begin{itemize}
-  \item Anyone can  the source code of free software
-  \item But distributions provide compiled packages
+  \item Anyone can view source code of free software \pause
+  \item But distributions provide compiled packages \pause
   \item Can we trust this process?
  \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
  \begin{itemize}
-  \item \texttt{CVE-2002-0083}: remote root exploit in OpenSSH - single bit difference in binary
-  \item Financial incentives to crack developer machines
-  \item Apple SDK 
+  \item \texttt{CVE-2002-0083}: remote root exploit in OpenSSH - single bit difference in binary \pause
+  \item Financial incentives to crack developer machines \pause
+  \item Trojan Apple SDK \pause
   \item Rootkit modifying the source code in memory only
  \end{itemize}
 \end{frame}
@@ -145,25 +146,25 @@
 \end{frame}
 
 \begin{frame}[fragile]
- \frametitle{The solution}
+ \frametitle{The solution} \pause
  \begin{itemize}
-  \item Promise that compilation always produces the same result
-  \item Bit-for-bit identical
-  \item Multiple people verify and compare signatures
+  \item Promise that compilation always produces the same result \pause
+  \item Bit-for-bit identical \pause
+  \item Multiple people then verify and compare signatures \pause
   \item Attacker needs to infect all developers simultaneously 
  \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
- \frametitle{Current projects}
+ \frametitle{Current projects} \pause
  \begin{itemize}
-  \item Tor, Bitcoin, etc
+  \item Limited to Tor, Bitcoin, etc. \pause
   \item Need an entire operating system
  \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
- \frametitle{Technical advantages}
+ \frametitle{Technical advantages} \pause
  \begin{itemize}
   \item Unsafe/unreliable behaviour (eg. internet access)
   \item Non-deterministic behaviour
@@ -293,10 +294,10 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{tikzpicture}
 \end{frame}
 
-\section{Want to help?}
+\section{Contributing}
 
 \begin{frame}
- \frametitle{Debian reproducible builds team}
+ \frametitle{Debian reproducible builds team} \pause
  \begin{center}
   \begin{columns}
    \small
@@ -304,7 +305,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
     {akira} \\
     {Andrew Ayer} \\
     {Asheesh Laroia} \\
-    \only<1>{Chris Lamb}\only<2>{{\color{debianblue} Chris Lamb}} \\
+    {{\color{debianblue} Chris Lamb}} \\
     {Chris West} \\
     {Christoph Berg} \\
     {Daniel Kahn Gillmor} \\
@@ -344,31 +345,34 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 
 \begin{frame}
- \frametitle{As a developer}
+ \frametitle{As a developer} \pause
  \begin{itemize}
-  \item Build something twice, run diffoscope on the result
-  \item Stop using build dates
-  \item Use \texttt{SOURCE\_DATE\_EPOCH} instead
-  \item See \url{https://reproducible-builds.org/specs/}
+  \item Build something twice, run diffoscope on the result \pause
+  \item Stop using build dates \pause
+  \item \texttt{SOURCE\_DATE\_EPOCH}
+  \item \url{https://reproducible-builds.org/specs/}
  \end{itemize}
 \end{frame}
 
 \begin{frame}
- \frametitle{Join the team}
+ \frametitle{Join the team} \pause
 
  \begin{itemize}
-   \item Fix individual issues
-   \item Fix toolchain issues
-   \item Identify issues / document solutions
-   \item \texttt{reproducible.d.n}, diffoscope, other tools
+   \item Fix individual issues \pause
+   \item Fix toolchain issues \pause
+   \item Identify issues / document solutions \pause
+   \item \texttt{reproducible.d.n}, diffoscope, other tools \pause
    \item Write documentation and talk to the world
  \end{itemize}
 \end{frame}
 
 \begin{frame}
+ \pause
  \begin{center}
-  @lambyuk \\
+  \vskip 1em
   \texttt{https://chris-lamb.co.uk}
+  \vskip 1em
+  @lambyuk
  \end{center}
 
  \vfill
