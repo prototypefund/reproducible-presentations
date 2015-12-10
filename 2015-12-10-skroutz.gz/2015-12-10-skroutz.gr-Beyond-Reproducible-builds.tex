@@ -111,17 +111,19 @@
 \begin{frame}[fragile]
  \frametitle{The problem}
  \begin{itemize}
-  \item Anyone can view source code of free software \pause
+  \item Original promise of free software \pause
+  \item Anyone can view source code \pause
   \item But distributions provide compiled packages \pause
   \item Can we trust this process?
  \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
+ \pause
  \begin{itemize}
+  \item Incentives to crack developer machines \pause
   \item \texttt{CVE-2002-0083}: remote root exploit in OpenSSH - single bit difference in binary \pause
-  \item Financial incentives to crack developer machines \pause
-  \item Trojan Apple SDK \pause
+  \item Trojaned Apple SDK \pause
   \item Rootkit modifying the source code in memory only
  \end{itemize}
 \end{frame}
@@ -148,21 +150,14 @@
 \begin{frame}[fragile]
  \frametitle{The solution} \pause
  \begin{itemize}
-  \item Promise that compilation always produces the same result \pause
+  \item Ensure that compilation always produces the same result \pause
   \item Bit-for-bit identical \pause
-  \item Multiple people then verify and compare signatures \pause
-  \item Attacker needs to infect all developers simultaneously 
+  \item Multiple parties compare signatures \pause
+  \item Attacker needs to infect all developers simultaneously \pause
+  \item Can now trust what is running on your computers
  \end{itemize}
-\end{frame}
 
-\begin{frame}[fragile]
- \frametitle{Current projects} \pause
- \begin{itemize}
-  \item Limited to Tor, Bitcoin, etc. \pause
-  \item Need an entire operating system
- \end{itemize}
 \end{frame}
-
 \begin{frame}[fragile]
  \frametitle{Technical advantages} \pause
  \begin{itemize}
@@ -174,10 +169,20 @@
  \end{itemize}
 \end{frame}
 
-\section{Progress in Debian}
+
+\section{Current progress}
+
+\begin{frame}[fragile]
+ \frametitle{Current projects} \pause
+ \begin{itemize}
+  \item Limited to Tor, Bitcoin, etc. \pause
+  \item Really need an entire operating system
+ \end{itemize}
+\end{frame}
 
 \begin{frame}[plain]
- \frametitle{Progress in Debian \texttt{unstable}}
+ \frametitle{Progress in Debian}
+ \pause
  \begin{center}
   \includegraphics[height=0.73\paperheight]{images/stats_pkg_state.png}
 
@@ -188,6 +193,7 @@
 
 \begin{frame}
  \frametitle{reproducible.debian.net}
+ \pause
 
  \begin{itemize}
   \item Continuously testing \texttt{testing}, \texttt{unstable} and \texttt{experimental}
@@ -199,23 +205,9 @@
  \end{center}
 \end{frame}
 
-
-\begin{frame}
- \frametitle{reproducible.debian.net}
- \begin{itemize}
-  \item 122 jenkins jobs running on 12 hosts
-  \item \texttt{amd64}: 111 cores and 198 GB RAM split on 9 VMs, provided by
-  ProfitBricks
-  \item \texttt{armhf}: 18 cores and 9 GB RAM on 6 systems, provided by vagrant@d.o.
- \end{itemize}
- \begin{center}
-  \includegraphics[height=0.2\paperheight]{images/profitbricks_logo.png}
-  \vfill
- \end{center}
-\end{frame}
-
 \begin{frame}[fragile]
  \frametitle{Variations}
+ \pause
 
  \begin{center}
   \begin{table}
@@ -246,8 +238,26 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \end{frame}
 
 \begin{frame}
+ \frametitle{reproducible.debian.net}
+ \begin{itemize}
+  \item 12 hosts
+  \item \texttt{amd64}: 111 cores and 198 GB RAM split between 9 VMs
+  \item \texttt{armhf}: 18 cores and 9 GB RAM split between 6 systems
+ \end{itemize}
+ \begin{center}
+  \includegraphics[height=0.2\paperheight]{images/profitbricks_logo.png}
+  \vfill
+ \end{center}
+\end{frame}
+
+
+\begin{frame}
  \frametitle{Publicity}
  \begin{itemize}
+  \item Summit in December 2015 (Athens)
+   \begin{itemize}
+    \item 40 people from 16 projects
+   \end{itemize}
   \item Recent talks (some available with subtitles):
    \begin{itemize}
     \item 2015-08-13: Chaos Communication Camp 2015
@@ -255,10 +265,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
     \item 2015-11-08: Mini-DebConf Cambridge 2015
    \end{itemize}
   \item Weekly reports since May 2015
-  \item Summit in December 2015 (Athens)
-   \begin{itemize}
-    \item 40 people from 16 projects
-   \end{itemize}
   \item LWN articles
   \item Lots of press
  \end{itemize}
@@ -276,10 +282,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{diffoscope}
  \begin{itemize}
   \item Examines differences \textbf{recursively}
-  \item Outputs HTML / text with human readable differences.
-  \item Recursively unpacks archives, uncompresses PDFs, disassembles
-  binaries, unpacks Gettext files, etc
-  \item Falls back to binary comparison
+  \item Outputs HTML / text with human readable differences
+  \item Supports archives, uncompresses PDFs, disassembles binaries, unpacks Gettext files, etc.
+  \item Binary comparison fallback
   \item Available from \texttt{git}, PyPI, Debian, Archlinux, Guix, Homebrew
   \item \url{http://diffoscope.org/}
  \end{itemize}
@@ -294,63 +299,13 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{tikzpicture}
 \end{frame}
 
-\section{Contributing}
-
-\begin{frame}
- \frametitle{Debian reproducible builds team} \pause
- \begin{center}
-  \begin{columns}
-   \small
-   \column{.33\linewidth}
-    {akira} \\
-    {Andrew Ayer} \\
-    {Asheesh Laroia} \\
-    {{\color{debianblue} Chris Lamb}} \\
-    {Chris West} \\
-    {Christoph Berg} \\
-    {Daniel Kahn Gillmor} \\
-    David Suarez \\
-    {Dhole} \\
-    Drew Fisher \\
-    Esa Peuha \\
-    {Guillem Jover} \\
-   \column{.33\linewidth}
-    Hans-Christoph Steiner \\
-    {Helmut Grohne} \\
-    {Holger Levsen} \\
-    {Jelmer Vernooij} \\
-    {josch} \\
-    Juan Picca \\
-    {Lunar} \\
-    Mathieu Bridon \\
-    {Mattia Rizzolo} \\
-    Nicolas Boulenguez \\
-    {Niels Thykier} \\
-    Niko Tyni \\
-   \column{.33\linewidth}
-    {Paul Wise} \\
-    Peter De Wachter \\
-    Philip Rinn \\
-    {Reiner Herrmann} \\
-    {Stefano Rivera} \\
-    {Stéphane Glondu} \\
-    {Steven Chamberlain} \\
-    Tom Fitzhenry \\
-    Valentin Lorentz \\
-    {Wookey} \\
-    {Ximin Luo} \\
-  \end{columns}
- \end{center}
-\end{frame}
-
+\section{Get involved}
 
 \begin{frame}
  \frametitle{As a developer} \pause
  \begin{itemize}
   \item Build something twice, run diffoscope on the result \pause
-  \item Stop using build dates \pause
-  \item \texttt{SOURCE\_DATE\_EPOCH}
-  \item \url{https://reproducible-builds.org/specs/}
+  \item Stop using build dates: \texttt{SOURCE\_DATE\_EPOCH}
  \end{itemize}
 \end{frame}
 
@@ -358,10 +313,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{Join the team} \pause
 
  \begin{itemize}
-   \item Fix individual issues \pause
-   \item Fix toolchain issues \pause
-   \item Identify issues / document solutions \pause
-   \item \texttt{reproducible.d.n}, diffoscope, other tools \pause
+   \item Individual issues \pause
+   \item Toolchain issues \pause
+   \item Tools: \texttt{reproducible.d.n}, diffoscope, etc. \pause
    \item Write documentation and talk to the world
  \end{itemize}
 \end{frame}
@@ -369,10 +323,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \begin{frame}
  \pause
  \begin{center}
+  \textbf{@lambyuk}
   \vskip 1em
   \texttt{https://chris-lamb.co.uk}
-  \vskip 1em
-  @lambyuk
  \end{center}
 
  \vfill
