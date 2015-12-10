@@ -88,24 +88,212 @@
 
 \setbeamercolor{block title}{fg=debianblue}
 
-\title[Reproducible Builds]{Reproducible Builds}
+\title[Reproducible Builds]{Reproducible Builds: \\ The original promise of free software}
 
 \author[lamby]{%
    \texorpdfstring{
             \centering
             Chris Lamb \\ 
             \href{mailto:lamby@debian.org}{lamby@debian.org}
+            \\
+            \\
+            @lambyuk
    }{lamby}}
-\institute[Debian]{}
 \date[skroutz.gr '15]{%
  skroutz.gr (Athens, Greece)\\
  \small{2015-12-10}}
 
 \begin{document}
 
-\begin{frame}
- \titlepage
+\section{About}
+
+\begin{frame}[fragile]
+ \frametitle{The problem}
+ \begin{itemize}
+  \item Anyone can  the source code of free software
+  \item But distributions provide compiled packages
+  \item Can we trust this process?
+ \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]
+ \begin{itemize}
+  \item \texttt{CVE-2002-0083}: remote root exploit in OpenSSH - single bit difference in binary
+  \item Financial incentives to crack developer machines
+  \item Apple SDK 
+  \item Rootkit modifying the source code in memory only
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \begin{center}
+  \includegraphics[width=0.7\textwidth]{images/31c3.png}
+  \\
+  Available on \url{media.ccc.de}, 31c3
+ \end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+ CIA conference in 2012:
+ \begin{center}
+  \includegraphics[width=0.8\textwidth]{images/strawhorse.png}
+
+  {\footnotesize
+  \url{firstlook.org/theintercept/2015/03/10/ispy-cia-campaign-steal-apples-secrets/}
+  }
+ \end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{The solution}
+ \begin{itemize}
+  \item Promise that compilation always produces the same result
+  \item Bit-for-bit identical
+  \item Multiple people verify and compare signatures
+  \item Attacker needs to infect all developers simultaneously 
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Current projects}
+ \begin{itemize}
+  \item Tor, Bitcoin, etc
+  \item Need an entire operating system
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Technical advantages}
+ \begin{itemize}
+  \item Unsafe/unreliable behaviour (eg. internet access)
+  \item Non-deterministic behaviour
+  \item Being able to "go back in time"
+  \item Detect corrupted build environments
+  \item Easier to test changes/revisions
+ \end{itemize}
+\end{frame}
+
+\section{Progress in Debian}
+
+\begin{frame}[plain]
+ \frametitle{Progress in Debian \texttt{unstable}}
+ \begin{center}
+  \includegraphics[height=0.73\paperheight]{images/stats_pkg_state.png}
+
+  \footnotesize{19,257 out of 23,141 packages are reproducible}
+  \vfill
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{reproducible.debian.net}
+
+ \begin{itemize}
+  \item Continuously testing \texttt{testing}, \texttt{unstable} and \texttt{experimental}
+  \item Also testing coreboot, OpenWrt, NetBSD, FreeBSD and Archlinux.
+ \end{itemize}
+ \vfill
+ \begin{center}
+  \includegraphics[height=0.47\paperheight]{images/stats_builds_per_day_amd64.png}
+ \end{center}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{reproducible.debian.net}
+ \begin{itemize}
+  \item 122 jenkins jobs running on 12 hosts
+  \item \texttt{amd64}: 111 cores and 198 GB RAM split on 9 VMs, provided by
+  ProfitBricks
+  \item \texttt{armhf}: 18 cores and 9 GB RAM on 6 systems, provided by vagrant@d.o.
+ \end{itemize}
+ \begin{center}
+  \includegraphics[height=0.2\paperheight]{images/profitbricks_logo.png}
+  \vfill
+ \end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Variations}
+
+ \begin{center}
+  \begin{table}
+   \resizebox{0.95\textwidth}{!}{%
+    \begin{tabular}{l|ll}
+\textbf{variation} & \textbf{first build} & \textbf{second build} \\
+\hline
+hostname & \texttt{jenkins} & \texttt{i-capture-the-hostname} \\
+domainname & \texttt{debian.net} & \texttt{i-capture-the-domainname} \\
+\texttt{env TZ} & \texttt{GMT+12} & \texttt{GMT-14} \\
+\texttt{env LANG} & \texttt{C} & \texttt{fr\_CH.UTF-8} \\
+\texttt{env LC\_ALL} & not set & \texttt{fr\_CH.UTF-8} \\
+\texttt{env USER} & \texttt{pbuilder1} & \texttt{pbuilder2} \\
+uid & \texttt{1111} & \texttt{2222} \\
+gid & \texttt{1111} & \texttt{2222} \\
+UTS namespace & shared with the host & \textit{modified using \texttt{/usr/bin/unshare --uts}} \\
+kernel version & Linux 3.16.0-4 / 4.2.0-0.bpo & Linux 2.6.56-4 / 2.6.62-0.bpo.1 \\
+umask & 0022 & 0002 \\
+CPU type & \multicolumn{2}{l}{same for both builds \textit{(work in progress)}} \\
+filesystem & \multicolumn{2}{l}{same for both builds \textit{(work in progress - disorderfs)}} \\
+year, month, date & \multicolumn{2}{l}{same for both builds \textit{(work in progress)}} \\
+hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minute differs… \textit{(work in progress)}} \\
+\textit{everything else} & \multicolumn{2}{l}{\textit{is likely the same…}}
+    \end{tabular}
+   }
+  \end{table}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Publicity}
+ \begin{itemize}
+  \item Recent talks (some available with subtitles):
+   \begin{itemize}
+    \item 2015-08-13: Chaos Communication Camp 2015
+    \item 2015-08-20: DebConf15
+    \item 2015-11-08: Mini-DebConf Cambridge 2015
+   \end{itemize}
+  \item Weekly reports since May 2015
+  \item Summit in December 2015 (Athens)
+   \begin{itemize}
+    \item 40 people from 16 projects
+   \end{itemize}
+  \item LWN articles
+  \item Lots of press
+ \end{itemize}
+\end{frame}
+
+{
+\usebackgroundtemplate{%
+ \begin{tikzpicture}[remember picture,overlay]%
+  \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
+    \includegraphics[width=0.2\paperwidth]{images/diffoscope_logo.png}
+  };
+ \end{tikzpicture}%
+}
+\begin{frame}{diffoscope}
+ \frametitle{diffoscope}
+ \begin{itemize}
+  \item Examines differences \textbf{recursively}
+  \item Outputs HTML / text with human readable differences.
+  \item Recursively unpacks archives, uncompresses PDFs, disassembles
+  binaries, unpacks Gettext files, etc
+  \item Falls back to binary comparison
+  \item Available from \texttt{git}, PyPI, Debian, Archlinux, Guix, Homebrew
+  \item \url{http://diffoscope.org/}
+ \end{itemize}
+\end{frame}
+}
+
+\begin{frame}
+ \begin{tikzpicture}[remember picture]
+  \node[at=(current page.center)] {
+   \includegraphics[width=0.9\paperwidth]{images/diffoscope_example_html.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\section{Want to help?}
 
 \begin{frame}
  \frametitle{Debian reproducible builds team}
@@ -154,332 +342,11 @@
  \end{center}
 \end{frame}
 
-\begin{frame}
- \frametitle{Who are you?}
- \begin{itemize}
-  \item Contributed to Free Software?
-  \item<2-3> Seen a talk about reproducible builds this year?
-  \item<3> Contributed to this effort?
- \end{itemize}
-\end{frame}
-
-\section{About}
-
-\begin{frame}
- \frametitle{The problem}
-
- \begin{center}
-  \includegraphics[width=0.7\textwidth]{images/31c3.png}
-
-  Available on \url{media.ccc.de}, 31c3
- \end{center}
-\end{frame}
-
-\begin{frame}[fragile]
- \frametitle{A few example's from that 31c3 talk}
- \begin{itemize}
-  \item CVE-2002-0083: remote root exploit in \texttt{sshd}, a single bit difference in binary
-  \item 31c3 talk: live demo with kernel module modifying source code in memory only
-  \item financial incentives to crack developer machines…
-  \item how can you be sure what's running on your machine or on a build
-  daemon network? Do you ever leave your USB3 ports alone?
- \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
- \frametitle{Another example from real life}
-
- At a CIA conference in 2012:
- \begin{center}
-  \includegraphics[width=0.8\textwidth]{images/strawhorse.png}
-
-  {\footnotesize
-  \url{firstlook.org/theintercept/2015/03/10/ispy-cia-campaign-steal-apples-secrets/}
-  }
- \end{center}
-\end{frame}
-
-
-\begin{frame}
- \frametitle{The solution}
-
- \begin{center}
- \Large{
- Promise that anyone can always generate
- identical binary packages
- from a given source}
-\end{center}
-\end{frame}
-
-
-\begin{frame}
- \frametitle{The solution}
-
- \begin{center}
- We call this:
-
- \Huge{ “Reproducible builds” }
- \end{center}
-\end{frame}
-
-\section{Progress}
-
-\begin{frame}[plain]
- \frametitle{Progress in Debian \texttt{unstable}}
- \begin{center}
-  \includegraphics[height=0.73\paperheight]{images/stats_pkg_state.png}
-
-  \footnotesize{19,257 out of 23,141 source packages are reproducible \\
-    in our test framework}
-  \vfill
- \end{center}
-\end{frame}
-
-\begin{frame}
- \frametitle{What we did in Debian since Summer 2014}
-
- \begin{itemize}
-  \item Agreed on using a fixed build path: \texttt{/build/}
-  \item Recording the build environment: \texttt{.buildinfo}
-  \item \texttt{strip-nondeterminism}
-  \item \texttt{reproducible.debian.net}
-  \item \texttt{diffoscope} (formerly \texttt{debbindiff})
-  \item \texttt{SOURCE\_DATE\_EPOCH}
-  \item \texttt{disorderfs}
-  \item 700+ patches: \texttt{dpkg}, \texttt{debhelper}, \texttt{sbuild}, …
-  \item<2> Tell the world \& collaborate
- \end{itemize}
-\end{frame}
-
-
-\begin{frame}
- \frametitle{Tell the world \& collaborate}
-
- \begin{itemize}
-  \item Recent talks (some available with subtitles):
-   \begin{itemize}
-    \item 2015-08-13: Chaos Communication Camp 2015
-    \item 2015-08-20: DebConf15
-    \item 2015-11-08: Mini-DebConf Cambridge 2015
-   \end{itemize}
-  \item Weekly reports since May 2015
-  \item Summit in December 2015 (Athens)
-   \begin{itemize}
-    \item 40 people from 16 projects
-   \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Tell the world \& collaborate, cont.}
-
- \begin{itemize}
-  \item \texttt{https://reproducible-builds.org}
- \end{itemize}
- \begin{center}
- \includegraphics[width=0.7\textwidth]{images/rbwww1.png}
- \end{center}
-\end{frame}
-
-\begin{frame}
- \frametitle{Stats about reproducible.debian.net}
-
- \begin{itemize}
-  \item Continuously testing Debian testing, unstable and experimental
-   \begin{itemize}
-    \item \small{ \texttt main only }
-    \item \small{ can we build \texttt contrib without legal troubles? }
-   \end{itemize}
-  \item Also testing coreboot, OpenWrt, NetBSD, FreeBSD,
-  Archlinux and soon Fedora
-   \begin{itemize}
-    \item \small{ those currently only weekly though… }
-   \end{itemize}
- \end{itemize}
- \vfill
- \begin{center}
-  \includegraphics[height=0.47\paperheight]{images/stats_builds_per_day_amd64.png}
- \end{center}
-\end{frame}
-
-
-\begin{frame}
- \frametitle{More stats on reproducible.debian.net}
-
- \begin{itemize}
-  \item 122 jenkins jobs running on 12 hosts
-  \item 27 contributors for \texttt{jenkins.debian.net.git}
-  \item 4k lines of Python and 5k lines Bash code
-  \item \texttt{amd64}: 111 cores and 198 GB RAM split on 9 VMs, provided by
-  https://profitbricks.co.uk
-  \item \texttt{armhf}: 18 cores and 9 GB RAM on 6 systems, provided by vagrant@d.o.
- \end{itemize}
- \begin{center}
-  \includegraphics[height=0.2\paperheight]{images/profitbricks_logo.png}
-  \vfill
- \end{center}
-\end{frame}
-
-\begin{frame}
- \frametitle{Good to know about reproducible.debian.net}
-
- \begin{itemize}
-  \item \url {https://reproducible.debian.net/$src}
-  \item<2-3> { 165 categorised distinct issues }
-  \item<2-3> { 3,496 packages to be fixed in \texttt{sid}, but only 426 without annotated
-  issues }
-  \item<3> { 29 different "package sets", eg. \texttt{build-essential} is only 78\%
-  reproducible
-   \begin{center}
-    \includegraphics[height=0.5\paperheight]{images/stats_meta_pkg_state_build-essential.png}
-   \vfill
- \end{center}
-  }
- \end{itemize}
-\end{frame}
-
-
-\begin{frame}[fragile]
- \frametitle{Variations on reproducible.debian.net}
-
- \begin{center}
-  \begin{table}
-   \resizebox{0.95\textwidth}{!}{%
-    \begin{tabular}{l|ll}
-\textbf{variation} & \textbf{first build} & \textbf{second build} \\
-\hline
-hostname & \texttt{jenkins} & \texttt{i-capture-the-hostname} \\
-domainname & \texttt{debian.net} & \texttt{i-capture-the-domainname} \\
-\texttt{env TZ} & \texttt{GMT+12} & \texttt{GMT-14} \\
-\texttt{env LANG} & \texttt{C} & \texttt{fr\_CH.UTF-8} \\
-\texttt{env LC\_ALL} & not set & \texttt{fr\_CH.UTF-8} \\
-\texttt{env USER} & \texttt{pbuilder1} & \texttt{pbuilder2} \\
-uid & \texttt{1111} & \texttt{2222} \\
-gid & \texttt{1111} & \texttt{2222} \\
-UTS namespace & shared with the host & \textit{modified using \texttt{/usr/bin/unshare --uts}} \\
-kernel version & Linux 3.16.0-4 / 4.2.0-0.bpo & Linux 2.6.56-4 / 2.6.62-0.bpo.1 \\
-umask & 0022 & 0002 \\
-CPU type & \multicolumn{2}{l}{same for both builds \textit{(work in progress)}} \\
-filesystem & \multicolumn{2}{l}{same for both builds \textit{(work in progress - disorderfs)}} \\
-year, month, date & \multicolumn{2}{l}{same for both builds \textit{(work in progress)}} \\
-hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minute differs… \textit{(work in progress)}} \\
-\textit{everything else} & \multicolumn{2}{l}{\textit{is likely the same…}}
-    \end{tabular}
-   }
-  \end{table}
- \end{center}
-\end{frame}
-
-
-{
-\usebackgroundtemplate{%
- \begin{tikzpicture}[remember picture,overlay]%
-  \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
-    \includegraphics[width=0.2\paperwidth]{images/diffoscope_logo.png}
-  };
- \end{tikzpicture}%
-}
-\begin{frame}{diffoscope}
- \frametitle{Debugging problems: diffoscope}
-
- \begin{itemize}
-  \item Examines differences \textbf{in depth}.
-  \item Outputs HTML or plain text with human readable differences.
-  \item Recursively unpacks archives, uncompresses PDFs, disassembles
-  binaries, unpacks Gettext files, …
-  \item Easy to extend to new file formats.
-  \item Falls back to binary comparison.
-  \item Available from \texttt{git}, PyPI, Debian (sid and stretch), \\
-   Arch Linux, Guix, Homebrew.
-  \item Maintainers in other distros wanted.
-  \item \url{http://diffoscope.org/}
- \end{itemize}
-\end{frame}
-}
-
-\begin{frame}
- \frametitle{diffoscope example (HTML output)}
- \begin{tikzpicture}[remember picture]
-  \node[at=(current page.center)] {
-   \includegraphics[width=0.9\paperwidth]{images/diffoscope_example_html.png}
-  };
- \end{tikzpicture}
-\end{frame}
-
-\begin{frame}
- \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
-
- \begin{itemize}
-  \item Build date usually not useful for the user
-  \item Value of \texttt{SOURCE\_DATE\_EPOCH} instead of current date \& for other seeds
-  \item In Debian, set from the latest \texttt{debian/changelog} entry
-  \item General solution for other projects \& distributions
- \end{itemize}
-\end{frame}
-
-\section{Beyond building}
-
-\begin{frame}
- \frametitle{Reproducible builds demand a defined build environment}
- \begin{itemize}
-  \item Re-creating an identical build environment is mandatory too.
-  \item Without an identical build environment, reproducible builds will only
-  happen by sheer luck.
-  \item<2>{Only solved for Debian right now and currently proof of concept only…}
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Debian release process}
- \begin{itemize}
-  \item In our current design and practices, rebuilding stretch will require
-  package versions which are not part of stretch.
-  \item This design might put a high load on snapshot.debian.org.
-  \item<2-4>{Rebuilding all of Debian a month prio the release? }
-  \item<3-4>{Cross-builds could even speed up slow archs.}
-  \item<4>{More discussions needed. Freeze probably on November 5th 2016.}
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Distributing \texttt{.buildinfo} files}
- \begin{itemize}
-  \item Probably 100,000 new files per Debian suite; 50\% increase per suite
-  \item Mirrors would not be happy, so should not go there
-  \item We'll need more files when we have detached signatures
-  \item<2>{Revoking signatures?}
-  \item<2>{...}
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Rebuilders and sharing signed checksums}
- \begin{itemize}
-  \item Almost no work has been done here yet.
-  \item<2-3> Continuous rebuilds should happen in a systematic way and resulting
-  checksums properly published.
-  \item<3> And then we need a system to sign those checksums and share them. 
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Rebuilders and sharing signed checksums, cont.}
- \begin{itemize}
-  \item Individuelly signed checksums (think web of trust) could work in the
-  Debian case (we have a gpg web of trust), but won't scale.
-  \item<2-4> { We'll probably could use systematic rebuilders, run by large organisations
-  (ACLU, CCC, CERN, DECIX, DESY, Deutsche Bank, EDF, EON, Greenpeace, NASA, NSA, XYZ).}
-  \item<3-4> { …and automated installers for those… }
-  \item<4> { …and howtos (\texttt {gpg --gen-key})…}
- \end{itemize}
-\end{frame}
-
-
-\section{Want to help?}
 
 \begin{frame}
  \frametitle{As a developer}
  \begin{itemize}
+  \item Build something twice, run diffoscope on the result
   \item Stop using build dates
   \item Use \texttt{SOURCE\_DATE\_EPOCH} instead
   \item See \url{https://reproducible-builds.org/specs/}
@@ -487,98 +354,30 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \end{frame}
 
 \begin{frame}
- \frametitle{Get involved - learning by doing}
+ \frametitle{Join the team}
 
  \begin{itemize}
-  \item Test for yourself:
-   \begin{itemize}
-    \item Build something twice, run diffoscope on the results
-    \begin{itemize}
-     \item For better results use our “reproducible” repository, \texttt{pbuilder} and a custom config
-    \end{itemize}
-   \end{itemize}
-  \item Docs on the web: \\
-    \small{\url{https://reproducible-builds.org/docs/}} \\
-    \small{\url{https://wiki.debian.org/ReproducibleBuilds/ExperimentalToolchain}}
-  \item Ask for help on \texttt{\#debian-reproducible} or on mailing list
+   \item Fix individual issues
+   \item Fix toolchain issues
+   \item Identify issues / document solutions
+   \item \texttt{reproducible.d.n}, diffoscope, other tools
+   \item Write documentation and talk to the world
  \end{itemize}
 \end{frame}
 
 \begin{frame}
- \frametitle{Join the team!}
-
- \begin{itemize}
-  \item Why?
-   \begin{itemize}
-    \item \heartsuit{}\heartsuit{}\heartsuit{} Lovely group of people \heartsuit{}\heartsuit{}\heartsuit{}
-    \item Learn something new everyday
-    \item Change the (software) world!
-   \end{itemize}
-  \item What do we do?
-   \begin{itemize}
-    \item Review packages
-    \item Identify issues and document solutions
-    \item \texttt{reproducible.d.n}, diffoscope, strip-nondeterminism
-    \item Propose changes for toolchain
-    \item Submit patches for individual packages
-    \item Write more general documentation and talk to the world
-   \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Create a new team!}
-
- \begin{itemize}
-  \item Why?
-   \begin{itemize}
-    \item Every distribution should be reproducible!
-    \item Learn something new everyday
-    \item Change the (software) world!
-   \end{itemize}
-  \item How to get started?
-   \begin{itemize}
-    \item Talk to me here or talk to us on IRC or via mail.
-    \item RTFM, there is lots of documentation
-    \item Experiment - learning by doing
-   \end{itemize}
- \end{itemize}
-\end{frame}
-
-\section{Questions, comments, ideas?}
-
-\begin{frame}
- \frametitle{Questions, comments, ideas?}
-
- \begin{itemize}
-  \item \url{https://reproducible-builds.org}
-  \item \url{https://reproducible.debian.net}
-  \item \texttt{\#debian-reproducible} on \texttt{irc.OFTC.net}
- \end{itemize}
-\end{frame}
-
-
-\begin{frame}
- \frametitle{Thanks!}
-
- \begin{itemize}
-  \item Debian “Reproducible Builds” team \\
-        {\small (you are just \textbf{so} awesome!)}
-  \item Linux Foundation and the Core Infrastructure Initiative
-\end{itemize}
-
  \begin{center}
-  \includegraphics[height=0.1\paperheight]{images/linux_foundation_logo.png}
-  \hspace{0.1\paperwidth}
-  \includegraphics[height=0.1\paperheight]{images/cii_logo.png}
+  @lambyuk \\
+  \texttt{https://chris-lamb.co.uk}
  \end{center}
 
  \vfill
+  
  \begin{center}
   \resizebox{0.8\textwidth}{!}{%
    \begin{tabular}{rl}
     \texttt{lamby@debian.org} & \texttt{C2FE 4BD2 71C1 39B8 6C53} \\
-                              & \texttt{3E46 1E95 3E27 D431 1E58} 
+                              & \texttt{3E46 1E95 3E27 D431 1E58}
    \end{tabular}
   }
  \end{center}
