@@ -1,6 +1,7 @@
 demo: PTH=$(mktemp -d); OPTH=$PWD; P=giftrans; cp ${P}_* $PTH/; cd $PTH ; dpkg-source -x ${P}*.dsc ; for X in 1 2 3 4 5 ; do (cd ${P}-*/; dpkg-buildpackage -b -uc -us); mkdir -p .$X ; cp $P_*.deb .$X; done ; rm *deb ; echo; sha1sum *dsc *z .*/*.deb | grep -v giftrans-dbgsym ; cd - ; echo "don't foget to rm -r $PTH"
 
 really show live demo there? :)
+aim for 60 slides or less
 
 open in torbrowser:
 - issue page
@@ -12,28 +13,6 @@ open in torbrowser:
 - spec
 - howto
 
-2015: 1 reproducible talk
-2016: 3 talks:
-        https://fosdem.org/2016/schedule/event/reproducible_ecosystem/
-        https://fosdem.org/2016/schedule/event/reproducible_freebsd_packages/
-        https://fosdem.org/2016/schedule/event/electrobsd/
-
-aim for 60 slides or less
-
-mention/empasize: notes + bugs (+ future collaboration)
-
-explain shortcuts:
-        defined build environment with little variations
-        subsets
-
-I hope that Debian 9, "stretch", will be partially reproducible in a meaningful way
-and sid as a easter present
-
-end: come to K.4.601 at 14:35 and 15:40
-
-go through slides look for reproducible.debian.net confusion…
-
-future about tests.r-b.o slide: polish
 
 make slides for each distro
 	archlinux
@@ -48,3 +27,28 @@ make slides for each distro
 	fdroid
 "last year we had 70 issues (now 180), but instead we rather present progress in 10 projects"
 
+2015: 1 reproducible talk
+2016: 3 talks:
+        https://fosdem.org/2016/schedule/event/reproducible_ecosystem/
+        https://fosdem.org/2016/schedule/event/reproducible_freebsd_packages/
+        https://fosdem.org/2016/schedule/event/electrobsd/
+
+cleanup finish / beyond reproducible builds
+
+mention/empasize: notes + bugs (+ future collaboration)
+
+explain shortcuts:
+        defined build environment with little variations
+        subsets
+
+I hope that Debian 9, "stretch", will be partially reproducible in a meaningful way
+and sid as a easter present
+
+
+go through slides look for reproducible.debian.net confusion…
+
+future about tests.r-b.o slide: polish
+
+update graphs
+
+look up recent IOS fail / attack
