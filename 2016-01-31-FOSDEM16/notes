@@ -18,9 +18,7 @@ open in torbrowser:
         https://fosdem.org/2016/schedule/event/reproducible_freebsd_packages/
         https://fosdem.org/2016/schedule/event/electrobsd/
 
-ziel: 60 slides
-
-mention test.r-b.o
+aim for 60 slides or less
 
 mention/empasize: notes + bugs (+ future collaboration)
 
@@ -34,4 +32,19 @@ and sid as a easter present
 end: come to K.4.601 at 14:35 and 15:40
 
 go through slides look for reproducible.debian.net confusion…
+
+future about tests.r-b.o slide: polish
+
+make slides for each distro
+	archlinux
+	fedora
+	freebsd
+	netbsd
+	electrobsd
+	openwrt
+	coreboot
+	qubes
+	guix
+	fdroid
+"last year we had 70 issues (now 180), but instead we rather present progress in 10 projects"
 
