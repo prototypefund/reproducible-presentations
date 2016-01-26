@@ -4,7 +4,7 @@ really show live demo there? :)
 aim for 60 slides or less (talk slot is 50min, give time for questions)
 1024x768 
 
-open in torbrowser:
+open nothing in browser, have all the screenshots ready
 - issue page
 - one issue in detail
 - adequate pkg page
@@ -13,6 +13,7 @@ open in torbrowser:
 - dashboard
 - spec
 - howto
+- (have torbrowser open and pages loaded to be able to show things)
 
 the whole wrld is watching? no (not that slide, but its true…)
 fosdem 2014 lunar in a dev room
@@ -23,6 +24,22 @@ or 2017?! (i think so, find a nice pic to prove it)
 and mayne not on the desktop, but just servers
 or 85% of Debian main ;-)
 or something - i'll get into the details later
+
+describe debian test setup
+	hw amd64 / armhf
+	distros tested
+	debian repo
+	debian pkg pages
+	debian notes.git
+	debian bugs
+	debian stats + pkgs sets
+	variations added
+
+www.reproducible-builds.org
+/docs
+/specs / SOURCE_DATE_EPOCH
+tests.r-b.o today
+tests.r-b.o future plans (repeat future plan before thanks)
 
 make slides for each distro
 	archlinux
@@ -35,17 +52,22 @@ make slides for each distro
 	qubes
 	guix
 	fdroid
-"last year we had 70 issues (now 180), but instead we rather present progress in 10 projects"
+	debian
+		"last year we had 70 issues (now 180), but instead we rather present progress in 10 projects"
 
 2015: 1 reproducible talk
-2016: 3 talks:
-        https://fosdem.org/2016/schedule/event/reproducible_ecosystem/
+2016: 4 talks:
+	saturday:
+      	https://fosdem.org/2016/schedule/event/deployments_with_gnu_guix/
+	sunday:
+	https://fosdem.org/2016/schedule/event/reproducible_ecosystem/
         https://fosdem.org/2016/schedule/event/reproducible_freebsd_packages/
         https://fosdem.org/2016/schedule/event/electrobsd/
+	
 
 cleanup finish / beyond reproducible builds
 
-mention/empasize: notes + bugs (+ future collaboration)
+explain how recreating the build env has not been solved everywhere
 
 explain shortcuts:
         defined build environment with little variations
@@ -53,7 +75,6 @@ explain shortcuts:
 
 I hope that Debian 9, "stretch", will be partially reproducible in a meaningful way
 and sid as a easter present
-
 
 go through slides look for reproducible.debian.net confusion…
 
