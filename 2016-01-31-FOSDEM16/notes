@@ -1,7 +1,8 @@
 demo: PTH=$(mktemp -d); OPTH=$PWD; P=giftrans; cp ${P}_* $PTH/; cd $PTH ; dpkg-source -x ${P}*.dsc ; for X in 1 2 3 4 5 ; do (cd ${P}-*/; dpkg-buildpackage -b -uc -us); mkdir -p .$X ; cp $P_*.deb .$X; done ; rm *deb ; echo; sha1sum *dsc *z .*/*.deb | grep -v giftrans-dbgsym ; cd - ; echo "don't foget to rm -r $PTH"
 
 really show live demo there? :)
-aim for 60 slides or less
+aim for 60 slides or less (talk slot is 50min, give time for questions)
+1024x768 
 
 open in torbrowser:
 - issue page
@@ -13,6 +14,15 @@ open in torbrowser:
 - spec
 - howto
 
+the whole wrld is watching? no (not that slide, but its true…)
+fosdem 2014 lunar in a dev room
+fosdem 2015 lunar and holger in k building
+fosdem 2016 holger in janson
+will 2016 be the year of the reproducible llinux desktop? maybe
+or 2017?! (i think so, find a nice pic to prove it)
+and mayne not on the desktop, but just servers
+or 85% of Debian main ;-)
+or something - i'll get into the details later
 
 make slides for each distro
 	archlinux
@@ -50,5 +60,8 @@ go through slides look for reproducible.debian.net confusion…
 future about tests.r-b.o slide: polish
 
 update graphs
+
+20k reproducible source packages in main alone!
+
 
 look up recent IOS fail / attack
