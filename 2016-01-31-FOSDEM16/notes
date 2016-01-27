@@ -62,6 +62,7 @@ make slides for each distro
 				#759999 and #759886 are both blocked on "--clamp-mtime is only available since tar/1.28-1 and not in upstream tar"
 				#138409: dpkg-dev: please add support for .buildinfo files
 			ftp.d.o
+				https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=763822#10
 		describe nice to haves:
 			reprepro
 			etc
