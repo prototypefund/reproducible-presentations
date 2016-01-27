@@ -203,7 +203,7 @@ won't be enough}
  \end{itemize}
 \end{frame}
 
-\section{About}
+\section{Motivation}
 
 \begin{frame}
  \frametitle{The problem}
@@ -288,67 +288,10 @@ won't be enough}
 \end{center}
 \end{frame}
 
-\section{Progress}
-
-\begin{frame}[plain]
- \frametitle{Progress in Debian \texttt{unstable}}
- \begin{center}
-  \includegraphics[height=0.73\paperheight]{images/stats_pkg_state.png}
-
-  \footnotesize{19,257 out of 23,141 source packages are reproducible \\
-    in our test framework}
-  \vfill
- \end{center}
-\end{frame}
-
-
-\begin{frame}[plain]
- \frametitle{Progress in the Debian Bug Tracking System (BTS)}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[at=(current page.center)] {
-    \includegraphics[height=0.73\paperheight]{images/stats_bugs_state.png}
-  };
- \end{tikzpicture}
-\end{frame}
+\section{Common ressources}
 
 \begin{frame}
- \frametitle{What we did in Debian since Summer 2014}
-
- \begin{itemize}
-  \item Agreed on using a fixed build path: \texttt{/build/}
-  \item Recording the build environment: \texttt{.buildinfo}
-  \item \texttt{strip-nondeterminism}
-  \item \texttt{reproducible.debian.net} has become
-  \texttt{tests.reproducible-builds.org}
-  \item \texttt{diffoscope} (formerly \texttt{debbindiff})
-  \item \texttt{SOURCE\_DATE\_EPOCH}
-  \item \texttt{disorderfs}
-  \item 700+ patches: \texttt{dpkg}, \texttt{debhelper}, \texttt{sbuild}, …
-  \item<2> Tell the world \& collaborate
- \end{itemize}
-\end{frame}
-
-
-\begin{frame}
- \frametitle{Tell the world \& collaborate}
-
- \begin{itemize}
-  \item Recent talks (some available with subtitles):
-   \begin{itemize}
-    \item 2015-08-13: Chaos Communication Camp 2015
-    \item 2015-08-20: DebConf15
-    \item 2015-11-08: Mini-DebConf Cambridge 2015
-   \end{itemize}
-  \item Weekly reports since May 2015
-  \item Summit in December 2015 (Athens)
-   \begin{itemize}
-    \item 40 people from 16 projects
-   \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Tell the world \& collaborate, cont.}
+ \frametitle{reproducible-builds.org}
 
  \begin{itemize}
   \item \texttt{https://reproducible-builds.org}
@@ -359,16 +302,15 @@ won't be enough}
 \end{frame}
 
 \begin{frame}
- \frametitle{Stats about tests.reproducible-builds.org}
+ \frametitle{tests.reproducible-builds.org}
 
  \begin{itemize}
   \item Continuously testing Debian testing, unstable and experimental
    \begin{itemize}
     \item \small{ \texttt main only }
-    \item \small{ can we build \texttt contrib without legal troubles? }
    \end{itemize}
   \item Also testing coreboot, OpenWrt, NetBSD, FreeBSD,
-  Archlinux and Fedora
+  Archlinux, Fedora and soon FDroid and Guix too
    \begin{itemize}
     \item \small{ those a bit less frequently though… }
    \end{itemize}
@@ -381,21 +323,54 @@ won't be enough}
 
 
 \begin{frame}
- \frametitle{More stats on tests.reproducible-builds.org}
+ \frametitle{More on tests.reproducible-builds.org}
 
  \begin{itemize}
-  \item 122 jenkins jobs running on 12 hosts
-  \item 27 contributors for \texttt{jenkins.debian.net.git}
-  \item 4k lines of Python and 5k lines Bash code
+  \item 230 jenkins jobs running on 22 hosts
+  \item 29 contributors for \texttt{jenkins.debian.net.git}
+  \item 4k lines of Python and 6k lines Bash code
   \item \texttt{amd64}: 111 cores and 198 GB RAM split on 9 VMs, provided by
   https://profitbricks.co.uk
-  \item \texttt{armhf}: 18 cores and 9 GB RAM on 6 systems, provided by vagrant@d.o.
+  \item \texttt{armhf}: 50 cores and 23 GB RAM on 14 systems drawing 100 watts
+  (combined), provided by vagrant@debian.org.
  \end{itemize}
  \begin{center}
   \includegraphics[height=0.2\paperheight]{images/profitbricks_logo.png}
   \vfill
  \end{center}
 \end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Variations on when testing Debian}
+
+ \begin{center}
+  \begin{table}
+   \resizebox{0.95\textwidth}{!}{%
+    \begin{tabular}{l|ll}
+\textbf{variation} & \textbf{first build} & \textbf{second build} \\
+\hline
+hostname & \texttt{jenkins} & \texttt{i-capture-the-hostname} \\
+domainname & \texttt{debian.net} & \texttt{i-capture-the-domainname} \\
+\texttt{env TZ} & \texttt{GMT+12} & \texttt{GMT-14} \\
+\texttt{env LANG} & \texttt{C} & \texttt{fr\_CH.UTF-8} \\
+\texttt{env LC\_ALL} & not set & \texttt{fr\_CH.UTF-8} \\
+\texttt{env USER} & \texttt{pbuilder1} & \texttt{pbuilder2} \\
+uid & \texttt{1111} & \texttt{2222} \\
+gid & \texttt{1111} & \texttt{2222} \\
+UTS namespace & shared with the host & \textit{modified using \texttt{/usr/bin/unshare --uts}} \\
+kernel version & Linux 3.16.0-4 / 4.2.0-0.bpo & Linux 2.6.56-4 / 2.6.62-0.bpo.1 \\
+umask & 0022 & 0002 \\
+CPU type & \multicolumn{2}{l}{same for both builds \textit{(work in progress)}} \\
+filesystem & \multicolumn{2}{l}{same for both builds \textit{(work in progress - disorderfs)}} \\
+year, month, date & \multicolumn{2}{l}{same for both builds \textit{(work in progress)}} \\
+hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minute differs… \textit{(work in progress)}} \\
+\textit{everything else} & \multicolumn{2}{l}{\textit{is likely the same…}}
+    \end{tabular}
+   }
+  \end{table}
+ \end{center}
+\end{frame}
+
 
 \begin{frame}
  \frametitle{Good to know about tests.reproducible-builds.org}
@@ -429,81 +404,6 @@ won't be enough}
 \end{frame}
 
 
-\begin{frame}[fragile]
- \frametitle{Variations on reproducible.debian.net}
-
- \begin{center}
-  \begin{table}
-   \resizebox{0.95\textwidth}{!}{%
-    \begin{tabular}{l|ll}
-\textbf{variation} & \textbf{first build} & \textbf{second build} \\
-\hline
-hostname & \texttt{jenkins} & \texttt{i-capture-the-hostname} \\
-domainname & \texttt{debian.net} & \texttt{i-capture-the-domainname} \\
-\texttt{env TZ} & \texttt{GMT+12} & \texttt{GMT-14} \\
-\texttt{env LANG} & \texttt{C} & \texttt{fr\_CH.UTF-8} \\
-\texttt{env LC\_ALL} & not set & \texttt{fr\_CH.UTF-8} \\
-\texttt{env USER} & \texttt{pbuilder1} & \texttt{pbuilder2} \\
-uid & \texttt{1111} & \texttt{2222} \\
-gid & \texttt{1111} & \texttt{2222} \\
-UTS namespace & shared with the host & \textit{modified using \texttt{/usr/bin/unshare --uts}} \\
-kernel version & Linux 3.16.0-4 / 4.2.0-0.bpo & Linux 2.6.56-4 / 2.6.62-0.bpo.1 \\
-umask & 0022 & 0002 \\
-CPU type & \multicolumn{2}{l}{same for both builds \textit{(work in progress)}} \\
-filesystem & \multicolumn{2}{l}{same for both builds \textit{(work in progress - disorderfs)}} \\
-year, month, date & \multicolumn{2}{l}{same for both builds \textit{(work in progress)}} \\
-hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minute differs… \textit{(work in progress)}} \\
-\textit{everything else} & \multicolumn{2}{l}{\textit{is likely the same…}}
-    \end{tabular}
-   }
-  \end{table}
- \end{center}
-\end{frame}
-
-
-
-\begin{frame}
- \frametitle{Debian \texttt{.buildinfo} files}
-
- \begin{itemize}
-  \item Aggregates in the same file:
-   \begin{itemize}
-    \item Sources (checksums)
-    \item Generated binaries (checksums)
-    \item Packages used to build (with specific version, checksums coming soon)
-   \end{itemize}
-  \item Can be later used to exactly recreate environment
-  \item For Debian, all versions are available from \url{snapshot.debian.org}
- \end{itemize}
-\end{frame}
-
-
-\begin{frame}[fragile]
- \frametitle{Example \texttt{.buildinfo} file}
-
-{\small
-\begin{verbatim}
-Format: 1.9
-Build-Architecture: amd64
-Source: txtorcon
-Binary: python-txtorcon
-Architecture: all
-Version: 0.11.0-1
-Build-Path: /build/txtorcon-0.11.0-1
-Checksums-Sha256:
- a26549d9…7b 125910 python-txtorcon_0.11.0-1_all.deb
- 28f6bcbe…69 2039 txtorcon_0.11.0-1.dsc
-Build-Environment:
- base-files (= 8),
- base-passwd (= 3.5.37),
- bash (= 4.3-11+b1),
- …
-\end{verbatim}
-}
-\end{frame}
-
-
-
 {
 \usebackgroundtemplate{%
  \begin{tikzpicture}[remember picture,overlay]%
@@ -512,6 +412,8 @@ Build-Environment:
   };
  \end{tikzpicture}%
 }
+
+
 \begin{frame}{diffoscope}
  \frametitle{Debugging problems: diffoscope}
 
@@ -580,9 +482,6 @@ Build-Environment:
 \end{frame}
 
 
-\section{Next steps}
-
-
 \begin{frame}
  \frametitle{\texttt{SOURCE\_DATE\_EPOCH} (open bugs)}
 
@@ -602,6 +501,22 @@ Build-Environment:
 \end{frame}
 
 
+
+\section{Status Debian}
+
+\begin{frame}[plain]
+ \frametitle{Progress in Debian \texttt{unstable}}
+ \begin{center}
+  \includegraphics[height=0.73\paperheight]{images/stats_pkg_state.png}
+
+  \footnotesize{19,946 out of 23,584 source packages are reproducible \\
+    in our test framework}
+  \vfill
+ \end{center}
+\end{frame}
+
+
+
 \begin{frame}
  \frametitle{Missing bits}
  \begin{itemize}
@@ -610,6 +525,96 @@ Build-Environment:
   \item Changes still need to be merged
  \end{itemize}
 \end{frame}
+
+\begin{frame}[plain]
+ \frametitle{Progress in the Debian Bug Tracking System (BTS)}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[at=(current page.center)] {
+    \includegraphics[height=0.73\paperheight]{images/stats_bugs_state.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+ \frametitle{What we did in Debian since Summer 2014}
+
+ \begin{itemize}
+  \item Agreed on using a fixed build path: \texttt{/build/}
+  \item Recording the build environment: \texttt{.buildinfo}
+  \item \texttt{strip-nondeterminism}
+  \item \texttt{reproducible.debian.net} has become
+  \texttt{tests.reproducible-builds.org}
+  \item \texttt{diffoscope} (formerly \texttt{debbindiff})
+  \item \texttt{SOURCE\_DATE\_EPOCH}
+  \item \texttt{disorderfs}
+  \item 700+ patches: \texttt{dpkg}, \texttt{debhelper}, \texttt{sbuild}, …
+  \item …
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Tell the world \& collaborate}
+
+ \begin{itemize}
+  \item Recent talks (some available with subtitles):
+   \begin{itemize}
+    \item 2015-08-13: Chaos Communication Camp 2015
+    \item 2015-08-20: DebConf15
+   \end{itemize}
+  \item Weekly reports since May 2015
+  \item Summit in December 2015 (Athens)
+   \begin{itemize}
+    \item 40 people from 16 projects
+   \end{itemize}
+ \end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+ \frametitle{Debian \texttt{.buildinfo} files}
+
+ \begin{itemize}
+  \item Aggregates in the same file:
+   \begin{itemize}
+    \item Sources (checksums)
+    \item Generated binaries (checksums)
+    \item Packages used to build (with specific version, checksums coming soon)
+   \end{itemize}
+  \item Can be later used to exactly recreate environment
+  \item For Debian, all versions are available from \url{snapshot.debian.org}
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+ \frametitle{Example \texttt{.buildinfo} file}
+
+{\small
+\begin{verbatim}
+Format: 1.9
+Build-Architecture: amd64
+Source: txtorcon
+Binary: python-txtorcon
+Architecture: all
+Version: 0.11.0-1
+Build-Path: /build/txtorcon-0.11.0-1
+Checksums-Sha256:
+ a26549d9…7b 125910 python-txtorcon_0.11.0-1_all.deb
+ 28f6bcbe…69 2039 txtorcon_0.11.0-1.dsc
+Build-Environment:
+ base-files (= 8),
+ base-passwd (= 3.5.37),
+ bash (= 4.3-11+b1),
+ …
+\end{verbatim}
+}
+\end{frame}
+
+
+
 
 \begin{frame}
  \frametitle{\texttt{dpkg}}
@@ -620,20 +625,6 @@ Build-Environment:
   \item \texttt{\#787980}: normalize file permissions when creating control.tar
   \item \texttt{\#719845}: make file order within {data,control}.tar.gz deterministic
   \item \texttt{dpkg-genbuldinfo}: \textit{patch already written, but waiting on agreement about spec}
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{\texttt{debhelper}}
-
- \begin{itemize}
-  \item \texttt{\#759886}: make mtimes of packaged files deterministic
-  \item \sout{\texttt{\#759895}: add a call to
-  \texttt{dh\_strip\_nondeterminism} in \texttt{dh}}
-  \item \sout{\texttt{\#791823}: set \texttt{SOURCE\_DATE\_EPOCH} env var for
-  reproducible builds}
-  \item \sout{\texttt{\#802005}: sort file lists passed to 'cp --parents -p'
-  for reproducibility}
  \end{itemize}
 \end{frame}
 
@@ -667,7 +658,7 @@ Build-Environment:
  \end{itemize}
 \end{frame}
 
-\section{Beyond building}
+\section{Future work}
 
 \begin{frame}
  \frametitle{Reproducible builds demand a defined build environment}
@@ -737,19 +728,10 @@ Build-Environment:
  \end{itemize}
 \end{frame}
 
-\begin{frame}
- \frametitle{Integration in user tools - conclusion}
- \begin{itemize}
-  \item "Rebuilders and sharing signed checksums" needs to be designed
-  (and probably at least partly implemented) before thinking more about
-  user tools. It's just clear we need them. 
- \end{itemize}
-\end{frame}
-
 \section{Want to help?}
 
 \begin{frame}
- \frametitle{As a developer}
+ \frametitle{As a software developer}
  \begin{itemize}
   \item Stop using build dates
   \item Use \texttt{SOURCE\_DATE\_EPOCH} instead
@@ -776,7 +758,7 @@ Build-Environment:
 \end{frame}
 
 \begin{frame}
- \frametitle{Join the team!}
+ \frametitle{Join the (Debian) team!}
 
  \begin{itemize}
   \item Why?
@@ -798,7 +780,7 @@ Build-Environment:
 \end{frame}
 
 \begin{frame}
- \frametitle{Create a new team!}
+ \frametitle{Form another team!}
 
  \begin{itemize}
   \item Why?
@@ -806,6 +788,8 @@ Build-Environment:
     \item Every distribution should be reproducible!
     \item Learn something new everyday
     \item Change the (software) world!
+    \item \texttt{https://tests.reproducible-builds.org/\$project} needs
+    \textbf{your} help
    \end{itemize}
   \item How to get started?
    \begin{itemize}
@@ -861,10 +845,12 @@ Build-Environment:
 
  \vfill
  \begin{center}
-  \resizebox{0.8\textwidth}{!}{%
+  \resizebox{0.9\textwidth}{!}{%
    \begin{tabular}{rl}
     \texttt{holger@debian.org} & \texttt{B8BF 5413 7B09 D35C F026} \\
-                               & \texttt{FE9D 091A B856 069A AA1C} 
+                               & \texttt{FE9D 091A B856 069A AA1C} \\
+                              \\
+    \texttt{https://reproducible-builds.org}
    \end{tabular}
   }
  \end{center}

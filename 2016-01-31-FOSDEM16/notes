@@ -43,6 +43,9 @@ www.reproducible-builds.org
 /specs / SOURCE_DATE_EPOCH
 tests.r-b.o today (are new - used to be r.d.n)
 tests.r-b.o future plans (repeat future plan before thanks)
+diffoscope
+
+add SOURCE_DATE_EPOCH adoption outside Debian…
 
 mention athen meeting somewhere appropriate
 
