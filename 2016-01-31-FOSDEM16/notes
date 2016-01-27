@@ -15,7 +15,7 @@ open nothing in browser, have all the screenshots ready
 - howto
 - (have torbrowser open and pages loaded to be able to show things)
 
-the whole wrld is watching? no (not that slide, but its true…)
+the whole world is watching? no (not that slide, but its true…)
 fosdem 2014 lunar in a dev room
 fosdem 2015 lunar and holger in k building
 fosdem 2016 holger in janson
@@ -28,6 +28,7 @@ or something - i'll get into the details later
 describe debian test setup
 	hw amd64 / armhf
 		14 boards, 100 watts, 50 cores, 23GB of ram...
+		show images/2016-01-26-180836.jpg
 	distros tested
 	debian repo
 	debian pkg pages
