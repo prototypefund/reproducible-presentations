@@ -60,6 +60,7 @@ make slides for each distro
 		describe blockers:
 			dpkg
 				#759999 and #759886 are both blocked on "--clamp-mtime is only available since tar/1.28-1 and not in upstream tar"
+					upstream patch, without feedback yet: https://lists.gnu.org/archive/html/help-tar/2016-01/msg00000.html
 				#138409: dpkg-dev: please add support for .buildinfo files
 			ftp.d.o
 				https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=763822#10
