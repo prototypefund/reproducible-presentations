@@ -41,8 +41,12 @@ describe debian test setup
 www.reproducible-builds.org
 /docs
 /specs / SOURCE_DATE_EPOCH
-tests.r-b.o today
+tests.r-b.o today (are new - used to be r.d.n)
 tests.r-b.o future plans (repeat future plan before thanks)
+
+mention athen meeting somewhere appropriate
+
+go through reports since athens
 
 make slides for each distro
 	archlinux
@@ -72,6 +76,8 @@ make slides for each distro
 		X notes in Y issues on these
 		Z uncatarogized
 		hepl, be Zorro!
+
+after: show THANKS from jenkins
 
 
 2015: 1 reproducible talk
@@ -108,8 +114,10 @@ future
 	another meeting or two in 2016
 	fosdem devroom in 2017?!
 
+please help maintaining those distro tests
 
 update graphs
 
+prepare demo using screenshots
 
 look up recent IOS fail / attack
