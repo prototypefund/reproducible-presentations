@@ -38,12 +38,7 @@ describe debian test setup
 		armhf/testing done in 23 days
 	variations added
 
-www.reproducible-builds.org
-/docs
-/specs / SOURCE_DATE_EPOCH
-tests.r-b.o today (are new - used to be r.d.n)
-tests.r-b.o future plans (repeat future plan before thanks)
-diffoscope
+reproducible-builds.org/specs - the url is missing prominemtly... SOURCE_DATE_EPOCH
 
 add SOURCE_DATE_EPOCH adoption outside Debian…
 
@@ -105,6 +100,7 @@ and sid as a easter present
 go through slides look for reproducible.debian.net confusion…
 
 future about tests.r-b.o slide: polish
+mention twitter.com/ReproBuilds
 
 future: want more archs. 64gb absolute minimum. but where are the arm64 clouds?
 	mail / ask for those 200gb diskspace and future commitments… oder ruf sie an?

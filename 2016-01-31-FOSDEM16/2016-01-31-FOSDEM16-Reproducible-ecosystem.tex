@@ -366,34 +366,23 @@ won't be enough}
  \frametitle{tests.reproducible-builds.org}
 
  \begin{itemize}
-  \item Continuously testing Debian testing, unstable and experimental
-   \begin{itemize}
-    \item \small{ \texttt main only }
-   \end{itemize}
-  \item Also testing coreboot, OpenWrt, NetBSD, FreeBSD,
-  Archlinux, Fedora and soon FDroid and Guix too
-   \begin{itemize}
-    \item \small{ those a bit less frequently though… }
-   \end{itemize}
+  \item Continuously testing Debian \texttt{testing}, \texttt{unstable} and
+  \texttt{experimental}
+  \item Also testing: coreboot, OpenWrt, NetBSD, FreeBSD,
+  Arch Linux, Fedora and soon FDroid and Guix too
+  \item \only<2>{230 jenkins jobs running on 22 hosts}
+  \item \only<2>{42 scripts with a total of 4k lines of Python and 6k lines
+  Bash}
+  \item \only<2>{29 contributors for \texttt{jenkins.debian.net.git}}
  \end{itemize}
- \vfill
- \begin{center}
-  \includegraphics[height=0.47\paperheight]{images/stats_builds_per_day_amd64.png}
- \end{center}
 \end{frame}
 
-
 \begin{frame}
- \frametitle{More on tests.reproducible-builds.org}
+ \frametitle{amd64 architecture on tests.reproducible-builds.org}
 
  \begin{itemize}
-  \item 230 jenkins jobs running on 22 hosts
-  \item 29 contributors for \texttt{jenkins.debian.net.git}
-  \item 4k lines of Python and 6k lines Bash code
   \item \texttt{amd64}: 111 cores and 198 GB RAM split on 9 VMs, provided by
   https://profitbricks.co.uk
-  \item \texttt{armhf}: 50 cores and 23 GB RAM on 14 systems drawing 100 watts
-  (combined), provided by vagrant@debian.org.
  \end{itemize}
  \begin{center}
   \includegraphics[height=0.2\paperheight]{images/profitbricks_logo.png}
@@ -401,8 +390,22 @@ won't be enough}
  \end{center}
 \end{frame}
 
+
+\begin{frame}
+ \frametitle{armhf architecture on tests.reproducible-builds.org}
+
+ \begin{itemize}
+  \item \texttt{armhf}: 14 nodes with 50 cores and 23 GB RAM drawing 100 watts
+  (combined), provided by vagrant@debian.org.
+ \end{itemize}
+ \begin{center}
+  \includegraphics[height=0.5\paperheight]{images/2016-01-26-180836.jpg}
+  \vfill
+ \end{center}
+\end{frame}
+
 \begin{frame}[fragile]
- \frametitle{Variations on when testing Debian}
+ \frametitle{Variations (when testing Debian)}
 
  \begin{center}
   \begin{table}
