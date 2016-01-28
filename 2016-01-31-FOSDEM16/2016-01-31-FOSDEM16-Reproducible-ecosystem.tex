@@ -302,6 +302,67 @@ won't be enough}
 \end{frame}
 
 \begin{frame}
+ \frametitle{Documentation about common problems}
+
+ \begin{itemize}
+  \item \texttt{https://reproducible-builds.org/docs}
+  \item Lunar's talk from CCCamp 2015 on
+  \texttt{https://media.ccc.de}
+ \end{itemize}
+ \begin{center}
+ \includegraphics[width=0.7\textwidth]{images/cccamp2015_lunar_random.png}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
+
+ \begin{itemize}
+  \item Build date usually not useful for the user
+  \item Value of \texttt{SOURCE\_DATE\_EPOCH} instead of current date \& for other seeds
+  \item In Debian, set from the latest \texttt{debian/changelog} entry
+  \item General solution for other projects \& distributions
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{\texttt{SOURCE\_DATE\_EPOCH} (closed bugs)}
+
+ \begin{itemize}
+  \item dh-strip-nondeterminism
+  \item \sout{\texttt{\#791823}}: debhelper
+  \item \sout{\texttt{\#787444}}: help2man
+  \item \sout{\texttt{\#790899}}: epydoc
+  \item \sout{\texttt{\#794004}}: ghostscript
+  \item \sout{\texttt{\#796130}}: man2html
+  \item \sout{\texttt{\#783475}}: texi2html
+  \item \sout{\texttt{\#794586}}: ocamldoc
+  \item \sout{\texttt{\#795942}}: wheel
+  \item ...
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{\texttt{SOURCE\_DATE\_EPOCH} (open bugs)}
+
+ \begin{itemize}
+  \item gcc (\texttt{\_\_DATE\_\_} and \texttt{\_\_TIME\_\_} macros) \texttt{\footnotesize{\url{https://gcc.gnu.org/ml/gcc-patches/2015-06/msg02210.html}}}
+  \item \texttt{\#792687, \#804141}: gettext
+  \item \texttt{\#792201}: doxygen
+  \item \texttt{\#800797}: docbook-utils
+  \item \texttt{\#801621}: perl (Pod::Man)
+  \item \texttt{\#790801}: txt2man
+  \item \texttt{\#791815}: libxslt
+  \item \texttt{\#794681}: qt4-x11 (qthelpgenerator)
+  \item \texttt{\#792202}: texlive-bin
+  \item ...
+ \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
  \frametitle{tests.reproducible-builds.org}
 
  \begin{itemize}
@@ -450,54 +511,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   identical}. So the tools for testing whether something is reproducible are
   either \texttt{diff} or \texttt{sha256sum}!
  \end{itemize}
-\end{frame}
-
-
-\begin{frame}
- \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
-
- \begin{itemize}
-  \item Build date usually not useful for the user
-  \item Value of \texttt{SOURCE\_DATE\_EPOCH} instead of current date \& for other seeds
-  \item In Debian, set from the latest \texttt{debian/changelog} entry
-  \item General solution for other projects \& distributions
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{\texttt{SOURCE\_DATE\_EPOCH} (closed bugs)}
-
- \begin{itemize}
-  \item dh-strip-nondeterminism
-  \item \sout{\texttt{\#791823}}: debhelper
-  \item \sout{\texttt{\#787444}}: help2man
-  \item \sout{\texttt{\#790899}}: epydoc
-  \item \sout{\texttt{\#794004}}: ghostscript
-  \item \sout{\texttt{\#796130}}: man2html
-  \item \sout{\texttt{\#783475}}: texi2html
-  \item \sout{\texttt{\#794586}}: ocamldoc
-  \item \sout{\texttt{\#795942}}: wheel
-  \item ...
- \end{itemize}
-\end{frame}
-
-
-\begin{frame}
- \frametitle{\texttt{SOURCE\_DATE\_EPOCH} (open bugs)}
-
- \begin{itemize}
-  \item gcc (\texttt{\_\_DATE\_\_} and \texttt{\_\_TIME\_\_} macros) \texttt{\footnotesize{\url{https://gcc.gnu.org/ml/gcc-patches/2015-06/msg02210.html}}}
-  \item \texttt{\#792687, \#804141}: gettext
-  \item \texttt{\#792201}: doxygen
-  \item \texttt{\#800797}: docbook-utils
-  \item \texttt{\#801621}: perl (Pod::Man)
-  \item \texttt{\#790801}: txt2man
-  \item \texttt{\#791815}: libxslt
-  \item \texttt{\#794681}: qt4-x11 (qthelpgenerator)
-  \item \texttt{\#792202}: texlive-bin
-  \item ...
- \end{itemize}
-
 \end{frame}
 
 
