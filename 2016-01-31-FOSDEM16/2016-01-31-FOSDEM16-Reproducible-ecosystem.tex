@@ -92,8 +92,8 @@
 
 \title[Reproducible builds ecosystem]{Reproducible builds ecosystem}
 \subtitle{Where some of us are \\
-and some hints where this could be going…}
-\author[h01ger]{%
+and some hints where this might be going…}
+\author[Holger 'h01ger' Levsen]{%
    \texorpdfstring{
             \centering
             Holger 'h01ger' Levsen\\
@@ -120,8 +120,11 @@ and some hints where this could be going…}
   \item Debian developer since 2007
   \item \only<1>{DebConf organizer}\only<2>{\sout{DebConf
   organizer}}\only<3>{\underline{DebConf organizer}},
-  founded the DebConf video team (\texttt{http://video.debian.net})
-  \item \only<1>{Debian-Edu}\only<2>{\sout{Debian-Edu}}\only<3>{\underline{Debian-Edu}} (Debian for education)
+  founded the DebConf video team
+   \begin{itemize}
+    \item \texttt{http://video.debian.net}
+   \end{itemize}
+ \item \only<1>{Debian-Edu}\only<2>{\sout{Debian-Edu}}\only<3>{\underline{Debian-Edu}} (Debian for education)
   \item Debian QA (quality assurance)
   \begin{itemize}
    \item \texttt{https://piuparts.debian.org}
@@ -151,7 +154,7 @@ and some hints where this could be going…}
   \item \small{\texttt{8F03 B243 8719 BA6B 1A35  0EB6 40C2 DEA2 F56C 7256}}
   \item Debian Reproducible builds team member
   \begin{itemize}
-   \item together with Lunar until April 2016 founded by the Linux Foundation
+   \item until April 2016 together with Lunar funded by the Linux Foundation
    \item within in the team I'm mostly working on
    \texttt{https://tests.reproducible-builds.org}
   \end{itemize}
@@ -164,7 +167,7 @@ and some hints where this could be going…}
  \begin{center}
   \begin{columns}
    \small
-   \column{.31\linewidth}
+   \column{.30\linewidth}
     {akira} \\
     {Andrew Ayer} \\
     {Asheesh Laroia} \\
@@ -177,7 +180,7 @@ and some hints where this could be going…}
     Drew Fisher \\
     Esa Peuha \\
     {Guillem Jover} \\
-   \column{.31\linewidth}
+   \column{.30\linewidth}
     Hans-Christoph Steiner \\
     {Helmut Grohne} \\
     \only<1>{Holger Levsen}\only<2>{{\color{debianred} Holger Levsen}} \\
@@ -190,7 +193,7 @@ and some hints where this could be going…}
     Nicolas Boulenguez \\
     {Niels Thykier} \\
     Niko Tyni \\
-   \column{.31\linewidth}
+   \column{.30\linewidth}
     {Paul Wise} \\
     Peter De Wachter \\
     Philip Rinn \\
@@ -212,10 +215,10 @@ and some hints where this could be going…}
  \begin{center}
   \begin{columns}
    \small
-   \column{.47\linewidth}
+   \column{.46\linewidth}
     {akira} \\
     \only<1>{Alexander Couzens}\only<2>{{\color{debianred} Alexander Couzens}} \\
-    \only<1>{anthraxx}\only<2>{{\color{debianred} anthraxx}} \\
+    \only<1>{Levente 'anthraxx' Polyak}\only<2>{{\color{debianred} Levente 'anthraxx' Polyak}} \\
     {Antonio Terceiro} \\
     {Axel Beckert} \\
     \only<1>{Bryan Newbold}\only<2>{{\color{debianred} Bryan Newbold}} \\
@@ -223,12 +226,12 @@ and some hints where this could be going…}
     {Daniel Kahn Gillmor} \\
     {Gabriele Giacone} \\
     \only<1>{Hans-Christoph Steiner}\only<2>{{\color{debianred} Hans-Christoph Steiner}} \\
-    \only<1>{Helmut Grohne}\only<2>{{\color{debianred} Helmut Grohne}} \\
+    Helmut Grohne \\
     \only<1>{Holger Levsen}\only<2>{{\color{debianred} Holger Levsen}} \\
     \only<1>{HW42}\only<2>{{\color{debianred} HW42}} \\
     {James McCoy} \\
     {Joachim Breitner} \\
-   \column{.47\linewidth}
+   \column{.46\linewidth}
     {Johannes 'josch' Schauer} \\
     {Jérémy Bobbio} \\
     {Mattia Rizzolo} \\
@@ -357,15 +360,26 @@ and some hints where this could be going…}
 \end{frame}
 
 \begin{frame}
+ \frametitle{Common problems}
+
+ \begin{itemize}
+  \item time stamps
+  \item<2-3> timezones
+  \item<2-3> locales
+  \item<3> everything else (seperated into known issues and the blurry rest)
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
  \frametitle{Documentation about common problems}
 
  \begin{itemize}
   \item \texttt{https://reproducible-builds.org/docs}
-  \item Lunar's talk from CCCamp 2015 on
+  \item Lunar's talk from CCCamp 2015 also on
   \texttt{https://media.ccc.de}
  \end{itemize}
  \begin{center}
- \includegraphics[width=0.7\textwidth]{images/cccamp2015_lunar_random.png}
+ \includegraphics[width=0.72\textwidth]{images/cccamp2015_lunar_random.png}
  \end{center}
 \end{frame}
 
@@ -373,12 +387,26 @@ and some hints where this could be going…}
  \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
 
  \begin{itemize}
-  \item Build date usually not useful for the user
-  \item Value of \texttt{SOURCE\_DATE\_EPOCH} instead of current date \& for other seeds
-  \item In Debian, set from the latest \texttt{debian/changelog} entry
-  \item General solution for other projects \& distributions
+  \item Build date (timestamps) usually not useful for the user
+  \item<2-3> \texttt{SOURCE\_DATE\_EPOCH} can be used instead of current date
+  \item<2-3> can also be used for random and other for other seeds
+  \item<2-3> \texttt{SOURCE\_DATE\_EPOCH} is defined as the last modification of
+  the source, since the epoch (1970-01-01)
+  \item<3> in Debian, set from the latest \texttt{debian/changelog} entry
+  \item<3> solution has been adopted by other projects \& distributions
+  (NetBSD, Guix, …)
  \end{itemize}
 \end{frame}
+
+\begin{frame}
+ \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
+
+ \begin{itemize}
+  \item \texttt{SOURCE\_DATE\_EPOCH} spec availble
+  \item \texttt{https://reproducible-builds.org/specs/}
+ \end{itemize}
+\end{frame}
+
 
 \begin{frame}
  \frametitle{\texttt{SOURCE\_DATE\_EPOCH} (closed bugs)}
@@ -500,43 +528,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 
 \begin{frame}
- \frametitle{Debian packages on tests.reproducible-builds.org}
-
- \begin{itemize}
-  \item \url {https://reproducible.debian.net/$src}
-  \item<2-3> { 165 categorised distinct issues }
-  \item<2-3> { 3,496 packages to be fixed in \texttt{sid}, but only 426 without annotated
-  issues }
-  \item<3> { 29 different "package sets", eg. \texttt{build-essential} is only 78\%
-  reproducible
-   \begin{center}
-    \includegraphics[height=0.5\paperheight]{images/stats_meta_pkg_state_build-essential.png}
-   \vfill
- \end{center}
-  }
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Debian package sets on tests.r-b.org}
-
- \begin{itemize}
-  \item \url {https://reproducible.debian.net/$src}
-  \item<2-3> { 165 categorised distinct issues }
-  \item<2-3> { 3,496 packages to be fixed in \texttt{sid}, but only 426 without annotated
-  issues }
-  \item<3> { 29 different "package sets", eg. \texttt{build-essential} is only 78\%
-  reproducible
-   \begin{center}
-    \includegraphics[height=0.5\paperheight]{images/stats_meta_pkg_state_build-essential.png}
-   \vfill
- \end{center}
-  }
- \end{itemize}
-\end{frame}
-
-
-\begin{frame}
  \frametitle{Notes and issues on tests.reproducible-builds.org}
 
  \begin{itemize}
@@ -548,18 +539,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \end{frame}
 
 
-\begin{frame}
- \frametitle{Future of tests.reproducible-builds.org}
-
- \begin{itemize}
- \item We still want more arm(64) cores!
- \item We want to test on other architectures!
- \item We want more people looking at the results!
- \item We want more people contributing code for their projects!
- \item We don't want to build twice and test against what we built, but rather
- the binaries distributed by these projects (if any)
- \end{itemize}
-\end{frame}
 
 \placelogofalse
 
@@ -624,39 +603,70 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 \placelogotrue
 
+\begin{frame}
+ \frametitle{Reproducible builds demand a defined build environment}
+ \begin{itemize}
+  \item Re-creating an identical build environment is mandatory too.
+  \item Without an identical build environment, reproducible builds will only
+  happen by sheer luck.
+  \item<2>{Only solved for Debian right now and currently proof of concept only…}
+ \end{itemize}
+\end{frame}
+
+
 \section{Status Debian}
 
 \begin{frame}
  \frametitle{Progress in Debian \texttt{unstable}}
+ \begin{tikzpicture}[remember picture]
+  \node[shift={(-0.75\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.65\paperheight]{images/stats_pkg_state.png}
+  };
+ \end{tikzpicture}
  \begin{center}
-  \includegraphics[height=0.73\paperheight]{images/stats_pkg_state.png}
-
-  \footnotesize{19,946 out of 23,584 source packages are reproducible \\
+  \footnotesize{19,967 out of 23,587 source packages are reproducible \\
     in our test framework}
   \vfill
  \end{center}
 \end{frame}
 
 \begin{frame}
- \frametitle{Missing bits}
+ \frametitle{Debian packages on tests.reproducible-builds.org}
+
  \begin{itemize}
-  \item NB. This is just a proof-of-concept, Debian is not 80\%
-  reproducible
-  \item Changes still need to be merged
+  \item \url {https://reproducible.debian.net/$src}
+  \item 165 categorised distinct issues
+  \item<2> 3,496 packages to be fixed in \texttt{sid}, but only 426 without annotated issues
  \end{itemize}
 \end{frame}
+
+\begin{frame}
+ \frametitle{Debian package sets on tests.r-b.org}
+
+ \begin{itemize}
+  \item { 29 different "package sets", eg. \texttt{required} is only 68\%
+  reproducible
+   \begin{center}
+    \includegraphics[height=0.6\paperheight]{images/stats_meta_pkg_state_required.png}
+   \vfill
+ \end{center}
+  }
+ \end{itemize}
+\end{frame}
+
+
 
 \begin{frame}
  \frametitle{Progress in the Debian Bug Tracking System (BTS)}
  \begin{tikzpicture}[remember picture]
   \node[at=(current page.center)] {
-    \includegraphics[height=0.73\paperheight]{images/stats_bugs_state.png}
+    \includegraphics[height=0.68\paperheight]{images/stats_bugs_sin_ftbfs_state.png}
   };
  \end{tikzpicture}
 \end{frame}
 
 \begin{frame}
- \frametitle{What we did in Debian since Summer 2014}
+ \frametitle{What we did in Debian}
 
  \begin{itemize}
   \item Agreed on using a fixed build path: \texttt{/build/}
@@ -774,10 +784,22 @@ Build-Environment:
  \begin{itemize}
   \item Section 4.15: “Sources \textbf{must} build reproducible binaries.”
   \item<2-3> We hope this will happen after stretch (Debian 9) release
-  \item<3> (In 2016: “Sources \textbf{shall} build reproducible binaries.”)
+  \item<3> In 2016: “Sources \textbf{shall} build reproducible binaries.”
  \end{itemize}
 \end{frame}
 
+\begin{frame}
+ \frametitle{Reminder}
+ \begin{itemize}
+  \item This is just a proof-of-concept, Debian is not 85\% reproducible
+  \item Patches still need to be merged
+  \item<2-4> I hope that Debian 9, "stretch", will be partially reproducible in a meaningful way
+  \item<3-4> Debian "unstable" as an easter (=end of March 2016) present?
+  \item<4> what's beyond (rebuilding, \texttt{.buildinfo} file handling, user
+  tools) mostly still needs \it{design} and code
+
+ \end{itemize}
+\end{frame}
 
 \section{Status Non-Debian World}
 
@@ -902,14 +924,19 @@ Build-Environment:
 
 \section{Future work}
 
+
 \begin{frame}
- \frametitle{Reproducible builds demand a defined build environment}
+ \frametitle{Future of tests.reproducible-builds.org}
+
  \begin{itemize}
-  \item Re-creating an identical build environment is mandatory too.
-  \item Without an identical build environment, reproducible builds will only
-  happen by sheer luck.
-  \item<2>{Only solved for Debian right now and currently proof of concept only…}
- \end{itemize}
+ \item We still want more arm(64) cores!
+ \item<2-6> We want to test on other architectures!
+ \item<3-6> We want to test other projects!
+ \item<4-6> We want more people looking at the results!
+ \item<5-6> We want more people contributing code for their projects!
+ \item<6> We don't want to build twice and test against what we built, but rather
+ the binaries distributed by these projects (if any)
+\end{itemize}
 \end{frame}
 
 \begin{frame}

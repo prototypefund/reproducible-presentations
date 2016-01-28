@@ -111,15 +111,18 @@ fix: only 1 hosts for other archs atm
 many good sideeffects
 	eg also arm bootloader improvements ;)
 
+mention mailinglists too
+
 slide:
 	this is not one persons work
 	this is not one teams work
-	this is 8 teams working together
+	this is 16 teams working together
 		since half a year
 		and really since early december
 	so there's quite a lot of work in progress
 
 future
+(move existing future slides further to the end)
 	funding
 	another meeting or two in 2016
 	fosdem devroom in 2017?!
@@ -128,8 +131,6 @@ future
 please help maintaining those distro tests
 
 irc notifications
-
-update graphs
 
 prepare demo using screenshots
 
