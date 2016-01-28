@@ -383,6 +383,11 @@ won't be enough}
  \begin{itemize}
   \item \texttt{amd64}: 111 cores and 198 GB RAM split on 9 VMs, provided by
   https://profitbricks.co.uk
+  \begin{itemize}
+   \item 4 VMs with 16 cores and 32 GB for Debian
+   \item 2 VMs with 8 cores and 16 GB for most of the rest
+   \item 1 extra VM for building FreeBSD
+ \end{itemize}
  \end{itemize}
  \begin{center}
   \includegraphics[height=0.2\paperheight]{images/profitbricks_logo.png}
@@ -395,8 +400,9 @@ won't be enough}
  \frametitle{armhf architecture on tests.reproducible-builds.org}
 
  \begin{itemize}
-  \item \texttt{armhf}: 14 nodes with 50 cores and 23 GB RAM drawing 100 watts
-  (combined), provided by vagrant@debian.org.
+  \item \texttt{armhf}: 14 nodes with 50 cores and 23 GB RAM
+  \item combined they only draw 100 watts of power
+  \item hosted by \texttt{vagrant@debian.org}, several hardware sponsors, 4.5k USD by Debian
  \end{itemize}
  \begin{center}
   \includegraphics[height=0.5\paperheight]{images/2016-01-26-180836.jpg}
@@ -538,7 +544,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{itemize}
   \item \texttt{https://tests.reproducible-builds.org/coreboot}
   \item 99.2\% reproducible with \texttt{seabios} payload
-  \item maintained by Alexander 'lynxis' Couzens
+  \item tests maintained by Alexander 'lynxis' Couzens
   \item rpm repo available by dhiru
   \item recreating the build env: FIXME, need to check
  \end{itemize}
@@ -554,10 +560,10 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{itemize}
   \item \texttt{https://tests.reproducible-builds.org/coreboot}
   \item selected images are 100\% reproducible and selected packages 99.7\%
-  \item using 13 patches not yet accepted upstream
-  \item maintained by Alexander 'lynxis' Couzens and Bryan Newbold
+  \item using 13 patches send upstream on January 25th
+  \item tests maintained by Alexander 'lynxis' Couzens and Bryan Newbold
   \item recreating the build env: needs to checked
-  \item user verification tools: not really
+  \item user verification tools: not yet
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
@@ -565,6 +571,71 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   };
  \end{tikzpicture}
 \end{frame}
+
+\begin{frame}[plain]
+ \frametitle{Status NetBSD}
+ \begin{itemize}
+  \item \texttt{https://tests.reproducible-builds.org/netbsd}
+  \item 21 (38.8\%) out of 54 built NetBSD files are reproducible
+  \item tests maintained by Thomas 'wiz' Klausner and h01ger
+  \item \texttt{MKREPRO=yes}
+  \item \texttt{MK\_TIMESTAMP=\$SOURCE\_DATE\_EPOCH}
+  \item recreating the build env: ?
+  \item user verification tools: not yet
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.33\paperheight]{images/netbsd.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain]
+ \frametitle{Status FreeBSD}
+ \begin{itemize}
+  \item \texttt{https://tests.reproducible-builds.org/freebsd}
+  \item base system not yet reproducible
+  \item 63\% of 15k ports were reproducible in 2013 already, their wiki says
+  \item tests maintained by h01ger
+  \item recreating the build env: ?
+  \item user verification tools: not yet
+  \item talk today, in K.4.601 at 15:40 CET
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.33\paperheight]{images/freebsd.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain]
+ \frametitle{Status ElectroBSD}
+ \begin{itemize}
+  \item I have no idea…
+  \item talk today, in K.4.601 at 14:35 CET
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.33\paperheight]{images/electrobsd.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain]
+ \frametitle{Status Guix}
+ \begin{itemize}
+  \item I have little idea
+  \item talk yesterday
+  \item recreating the build env: by design
+  \item user verification tool: yes! (Guix challange)
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.33\paperheight]{images/guix.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
 
 \begin{frame}[plain]
  \frametitle{Status Fedora}

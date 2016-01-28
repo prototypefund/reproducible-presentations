@@ -71,6 +71,7 @@ make slides for each distro
 		suse could reuse scripts
 		ubuntu
 		openbsd
+		gentoo (stage1)
 		you name it
 	debian
 		"last year we had 70 issues (now 180), but instead we rather present progress in 10 projects"
