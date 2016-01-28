@@ -61,7 +61,9 @@
 \usetikzlibrary{positioning}
 
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{images/swirl-lightest.pdf}}
-\logo{\includegraphics[viewport=274 335 360 440,width=1cm]{images/openlogo-nd.pdf}}
+\newif\ifplacelogo
+\placelogotrue
+\logo{\ifplacelogo\includegraphics[viewport=274 335 360 440,width=1cm]{images/openlogo-nd.pdf}\fi}
 
 \definecolor{debianred}{rgb}{.780,.000,.211} % 199,0,54
 \definecolor{debianblue}{rgb}{0,.208,.780} % 0,53,199
@@ -89,9 +91,8 @@
 \setbeamercolor{block title}{fg=debianblue}
 
 \title[Reproducible builds ecosystem]{Reproducible builds ecosystem}
-\subtitle{We are not there yet \\
-and why "just" achieving reproducible builds \\
-won't be enough}
+\subtitle{Where some of us are \\
+and some hints where this could be going…}
 \author[h01ger]{%
    \texorpdfstring{
             \centering
@@ -105,7 +106,7 @@ won't be enough}
 
 \begin{document}
 
-\begin{frame}
+\begin{frame}[plain]
  \titlepage
 \end{frame}
 
@@ -124,9 +125,21 @@ won't be enough}
   \item Debian QA (quality assurance)
   \begin{itemize}
    \item \texttt{https://piuparts.debian.org}
-   \item \texttt{https://jenkins.debian.net} (>1000 jobs continously testing Debian)
+   \item \texttt{https://jenkins.debian.net} (~1100 jobs continously testing Debian)
   \end{itemize}
   \item \only<1>{Debian LTS}\only<2>{\sout{Debian LTS}}\only<3>{\underline{Debian LTS}} (Long Term Support)
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Detour: naming is a hard problem…}
+ \begin{itemize}
+ \item \texttt{https://jenkins.debian.net}
+ \item \only<1>{\texttt{https://reproducible.debian.net}}\only<2-3>{\sout{\texttt{https://reproducible.debian.net}}}
+ \item \texttt{https://tests.reproducible-builds.org}
+ \item \texttt{https://reproducible-builds.org}
+ \item<2-3> all point to \texttt{78.137.96.196}
+ \item<3> \small{and sometimes only \texttt{https://tests.r-b.org} fit on the slides}
  \end{itemize}
 \end{frame}
 
@@ -134,15 +147,15 @@ won't be enough}
  \frametitle{more about me}
 
  \begin{itemize}
-  \item \small{\texttt{8F03B243 8719BA6B 1A350EB6 40C2DEA2 F56C7256}}
-  \item \only<2-5>{Debian Reproducible builds team member}
+  \item \small{\texttt{B8BF 5413 7B09 D35C F026  FE9D 091A B856 069A AA1C}}
+  \item \small{\texttt{8F03 B243 8719 BA6B 1A35  0EB6 40C2 DEA2 F56C 7256}}
+  \item Debian Reproducible builds team member
   \begin{itemize}
-   \item \only<3-5>{currently founded by the Linux Foundation \\
-   \small{(until April 2016)}}
-   \item \only<4-5>{in the team I'm mostly working on
-   \texttt{https://tests.reproducible-builds.org}}
+   \item together with Lunar until April 2016 founded by the Linux Foundation
+   \item within in the team I'm mostly working on
+   \texttt{https://tests.reproducible-builds.org}
   \end{itemize}
-  \item<5> \texttt{sudo apt-get install torbrowser-launcher}
+  \item<2> \texttt{sudo apt-get install torbrowser-launcher}
 \end{itemize}
 \end{frame}
 
@@ -151,7 +164,7 @@ won't be enough}
  \begin{center}
   \begin{columns}
    \small
-   \column{.33\linewidth}
+   \column{.31\linewidth}
     {akira} \\
     {Andrew Ayer} \\
     {Asheesh Laroia} \\
@@ -164,10 +177,10 @@ won't be enough}
     Drew Fisher \\
     Esa Peuha \\
     {Guillem Jover} \\
-   \column{.33\linewidth}
+   \column{.31\linewidth}
     Hans-Christoph Steiner \\
     {Helmut Grohne} \\
-    \only<1>{Holger Levsen}\only<2>{{\color{debianblue} Holger Levsen}} \\
+    \only<1>{Holger Levsen}\only<2>{{\color{debianred} Holger Levsen}} \\
     {Jelmer Vernooij} \\
     {josch} \\
     Juan Picca \\
@@ -177,7 +190,7 @@ won't be enough}
     Nicolas Boulenguez \\
     {Niels Thykier} \\
     Niko Tyni \\
-   \column{.33\linewidth}
+   \column{.31\linewidth}
     {Paul Wise} \\
     Peter De Wachter \\
     Philip Rinn \\
@@ -192,6 +205,48 @@ won't be enough}
   \end{columns}
  \end{center}
 \end{frame}
+
+
+\begin{frame}
+ \frametitle{jenkins.debian.net.git contributors}
+ \begin{center}
+  \begin{columns}
+   \small
+   \column{.47\linewidth}
+    {akira} \\
+    \only<1>{Alexander Couzens}\only<2>{{\color{debianred} Alexander Couzens}} \\
+    \only<1>{anthraxx}\only<2>{{\color{debianred} anthraxx}} \\
+    {Antonio Terceiro} \\
+    {Axel Beckert} \\
+    \only<1>{Bryan Newbold}\only<2>{{\color{debianred} Bryan Newbold}} \\
+    {Chris Lamb} \\
+    {Daniel Kahn Gillmor} \\
+    {Gabriele Giacone} \\
+    \only<1>{Hans-Christoph Steiner}\only<2>{{\color{debianred} Hans-Christoph Steiner}} \\
+    \only<1>{Helmut Grohne}\only<2>{{\color{debianred} Helmut Grohne}} \\
+    \only<1>{Holger Levsen}\only<2>{{\color{debianred} Holger Levsen}} \\
+    \only<1>{HW42}\only<2>{{\color{debianred} HW42}} \\
+    {James McCoy} \\
+    {Joachim Breitner} \\
+   \column{.47\linewidth}
+    {Johannes 'josch' Schauer} \\
+    {Jérémy Bobbio} \\
+    {Mattia Rizzolo} \\
+    {Niels Thykier} \\
+    {Paul Wise} \\
+    {Petter Reinholdtsen} \\
+    {Philip Hands} \\
+    \only<1>{Reiner Herrmann}\only<2>{{\color{debianred} Reiner Herrmann}} \\
+    {Samuel Thibault} \\
+    {Steven Chamberlain} \\
+    {Tails developers} \\
+    {Ulrike Uhlig} \\
+    {Wolfgang Schweer} \\
+    {Wouter Verhelst} \\
+  \end{columns}
+ \end{center}
+\end{frame}
+
 
 \begin{frame}
  \frametitle{Who are you?}
@@ -216,13 +271,13 @@ won't be enough}
 \end{frame}
 
 \begin{frame}[fragile]
- \frametitle{A few example's from that 31c3 talk}
+ \frametitle{A few examples from that 31c3 talk}
  \begin{itemize}
   \item CVE-2002-0083: remote root exploit in \texttt{sshd}, a single bit difference in the binary
-  \item 31c3 talk had a live demo with a kernel module modifying source code in memory only
-  \item financial incentives to crack developer machines…
-  \item how can you be sure what's running on your machine or on a build
-  daemon network? Do you ever leave your \only<1>{USB3 ports}\only<2>{computers} alone?
+  \item<2-5> 31c3 talk had a live demo with a kernel module modifying source code in memory only
+  \item<3-5> financial incentives to crack developer machines…
+  \item<4-5> {how can you be sure what's running on your machine or on a build
+  daemon network? Do you ever leave your} \only<4>{USB3 ports alone?}\only<5>{computers alone?}
  \end{itemize}
 \end{frame}
 
@@ -370,15 +425,16 @@ won't be enough}
   \texttt{experimental}
   \item Also testing: coreboot, OpenWrt, NetBSD, FreeBSD,
   Arch Linux, Fedora and soon FDroid and Guix too
-  \item \only<2>{230 jenkins jobs running on 22 hosts}
-  \item \only<2>{42 scripts with a total of 4k lines of Python and 6k lines
-  Bash}
-  \item \only<2>{29 contributors for \texttt{jenkins.debian.net.git}}
+  \item<2> 230 jenkins jobs running on 22 hosts
+  \item<2> 42 scripts with a total of 4k lines of Python and 6k lines of Bash
+  Shell
+  \item<2> 29 contributors for \texttt{jenkins.debian.net.git}
  \end{itemize}
 \end{frame}
 
+
 \begin{frame}
- \frametitle{amd64 architecture on tests.reproducible-builds.org}
+ \frametitle{amd64 architecture on tests.r-b.org}
 
  \begin{itemize}
   \item \texttt{amd64}: 111 cores and 198 GB RAM split on 9 VMs, provided by
@@ -386,6 +442,7 @@ won't be enough}
   \begin{itemize}
    \item 4 VMs with 16 cores and 32 GB for Debian
    \item 2 VMs with 8 cores and 16 GB for most of the rest
+   \item 1 jenkins VM and 1 jenkins-test VM
    \item 1 extra VM for building FreeBSD
  \end{itemize}
  \end{itemize}
@@ -397,7 +454,7 @@ won't be enough}
 
 
 \begin{frame}
- \frametitle{armhf architecture on tests.reproducible-builds.org}
+ \frametitle{armhf architecture on tests.r-b.org}
 
  \begin{itemize}
   \item \texttt{armhf}: 14 nodes with 50 cores and 23 GB RAM
@@ -443,7 +500,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 
 \begin{frame}
- \frametitle{Good to know about tests.reproducible-builds.org}
+ \frametitle{Debian packages on tests.reproducible-builds.org}
 
  \begin{itemize}
   \item \url {https://reproducible.debian.net/$src}
@@ -461,6 +518,37 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \end{frame}
 
 \begin{frame}
+ \frametitle{Debian package sets on tests.r-b.org}
+
+ \begin{itemize}
+  \item \url {https://reproducible.debian.net/$src}
+  \item<2-3> { 165 categorised distinct issues }
+  \item<2-3> { 3,496 packages to be fixed in \texttt{sid}, but only 426 without annotated
+  issues }
+  \item<3> { 29 different "package sets", eg. \texttt{build-essential} is only 78\%
+  reproducible
+   \begin{center}
+    \includegraphics[height=0.5\paperheight]{images/stats_meta_pkg_state_build-essential.png}
+   \vfill
+ \end{center}
+  }
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Notes and issues on tests.reproducible-builds.org}
+
+ \begin{itemize}
+  \item { 180 categorised distinct issues }
+  \item { 3,496 categorized notes }
+  \item<2-3> { maintained in \texttt{notes.git} }
+  \item<3> { currently Debian only, but cross distro notes are planned}
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
  \frametitle{Future of tests.reproducible-builds.org}
 
  \begin{itemize}
@@ -473,16 +561,16 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{itemize}
 \end{frame}
 
+\placelogofalse
 
 {
 \usebackgroundtemplate{%
  \begin{tikzpicture}[remember picture,overlay]%
-  \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.1\paperwidth, 0.15\paperheight)},at=(current page.south east)] {
     \includegraphics[width=0.2\paperwidth]{images/diffoscope_logo.png}
   };
  \end{tikzpicture}%
 }
-
 
 \begin{frame}{diffoscope}
  \frametitle{Debugging problems: diffoscope}
@@ -497,10 +585,10 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item Available from \texttt{git}, PyPI, Debian (sid and stretch), \\
    Arch Linux, Guix, Homebrew.
   \item Maintainers in other distros wanted.
-  \item \url{http://diffoscope.org/}
+  \item \url{https://diffoscope.org/}
  \end{itemize}
 \end{frame}
-}
+
 
 \begin{frame}
  \frametitle{diffoscope example (HTML output)}
@@ -510,6 +598,16 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   };
  \end{tikzpicture}
 \end{frame}
+
+
+\begin{frame}{diffoscope}
+ \frametitle{Try diffoscope}
+ \begin{itemize}
+  \item \texttt{https://try.diffoscope.org}
+ \end{itemize}
+\end{frame}
+
+
 
 \begin{frame}
  \frametitle{\texttt{diffoscope} is "just" for debugging}
@@ -522,11 +620,13 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{itemize}
 \end{frame}
 
+}
 
+\placelogotrue
 
 \section{Status Debian}
 
-\begin{frame}[plain]
+\begin{frame}
  \frametitle{Progress in Debian \texttt{unstable}}
  \begin{center}
   \includegraphics[height=0.73\paperheight]{images/stats_pkg_state.png}
@@ -537,123 +637,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{center}
 \end{frame}
 
-\section{Status Non-Debian World}
-
-\begin{frame}[plain]
- \frametitle{Status coreboot}
- \begin{itemize}
-  \item \texttt{https://tests.reproducible-builds.org/coreboot}
-  \item 99.2\% reproducible with \texttt{seabios} payload
-  \item tests maintained by Alexander 'lynxis' Couzens
-  \item rpm repo available by dhiru
-  \item recreating the build env: FIXME, need to check
- \end{itemize}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.33\paperheight]{images/coreboot.png}
-  };
- \end{tikzpicture}
-\end{frame}
-
-\begin{frame}[plain]
- \frametitle{Status OpenWrt}
- \begin{itemize}
-  \item \texttt{https://tests.reproducible-builds.org/coreboot}
-  \item selected images are 100\% reproducible and selected packages 99.7\%
-  \item using 13 patches send upstream on January 25th
-  \item tests maintained by Alexander 'lynxis' Couzens and Bryan Newbold
-  \item recreating the build env: needs to checked
-  \item user verification tools: not yet
- \end{itemize}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.33\paperheight]{images/openwrt.png}
-  };
- \end{tikzpicture}
-\end{frame}
-
-\begin{frame}[plain]
- \frametitle{Status NetBSD}
- \begin{itemize}
-  \item \texttt{https://tests.reproducible-builds.org/netbsd}
-  \item 21 (38.8\%) out of 54 built NetBSD files are reproducible
-  \item tests maintained by Thomas 'wiz' Klausner and h01ger
-  \item \texttt{MKREPRO=yes}
-  \item \texttt{MK\_TIMESTAMP=\$SOURCE\_DATE\_EPOCH}
-  \item recreating the build env: ?
-  \item user verification tools: not yet
- \end{itemize}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.33\paperheight]{images/netbsd.png}
-  };
- \end{tikzpicture}
-\end{frame}
-
-\begin{frame}[plain]
- \frametitle{Status FreeBSD}
- \begin{itemize}
-  \item \texttt{https://tests.reproducible-builds.org/freebsd}
-  \item base system not yet reproducible
-  \item 63\% of 15k ports were reproducible in 2013 already, their wiki says
-  \item tests maintained by h01ger
-  \item recreating the build env: ?
-  \item user verification tools: not yet
-  \item talk today, in K.4.601 at 15:40 CET
- \end{itemize}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.33\paperheight]{images/freebsd.png}
-  };
- \end{tikzpicture}
-\end{frame}
-
-\begin{frame}[plain]
- \frametitle{Status ElectroBSD}
- \begin{itemize}
-  \item I have no idea…
-  \item talk today, in K.4.601 at 14:35 CET
- \end{itemize}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.33\paperheight]{images/electrobsd.png}
-  };
- \end{tikzpicture}
-\end{frame}
-
-\begin{frame}[plain]
- \frametitle{Status Guix}
- \begin{itemize}
-  \item I have little idea
-  \item talk yesterday
-  \item recreating the build env: by design
-  \item user verification tool: yes! (Guix challange)
- \end{itemize}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.33\paperheight]{images/guix.png}
-  };
- \end{tikzpicture}
-\end{frame}
-
-
-\begin{frame}[plain]
- \frametitle{Status Fedora}
- \begin{itemize}
-  \item \texttt{https://tests.reproducible-builds.org/fedora} (23)
-  \item maintained by Dhiru Kholia and h01ger
-  \item rpm repo available by Dhiru
-  \item rpm format includes build time and build host and…
-  \item recreating the build env: unaddressed
- \end{itemize}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.33\paperheight]{images/fedora.png}
-  };
- \end{tikzpicture}
-\end{frame}
-
-
 \begin{frame}
  \frametitle{Missing bits}
  \begin{itemize}
@@ -663,9 +646,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{itemize}
 \end{frame}
 
-\begin{frame}[plain]
+\begin{frame}
  \frametitle{Progress in the Debian Bug Tracking System (BTS)}
- \begin{tikzpicture}[remember picture,overlay]
+ \begin{tikzpicture}[remember picture]
   \node[at=(current page.center)] {
     \includegraphics[height=0.73\paperheight]{images/stats_bugs_state.png}
   };
@@ -794,6 +777,128 @@ Build-Environment:
   \item<3> (In 2016: “Sources \textbf{shall} build reproducible binaries.”)
  \end{itemize}
 \end{frame}
+
+
+\section{Status Non-Debian World}
+
+\placelogofalse
+
+\begin{frame}
+ \frametitle{Status coreboot}
+ \begin{itemize}
+  \item \texttt{https://tests.r-b.org/coreboot}
+  \item 99.2\% reproducible with \texttt{seabios} payload
+  \item tests maintained by Alexander 'lynxis' Couzens
+  \item rpm repo available by dhiru
+  \item recreating the build env: FIXME, need to check
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.15\paperwidth, 0.18\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.33\paperheight]{images/coreboot.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Status OpenWrt}
+ \begin{itemize}
+  \item \texttt{https://tests.r-b.org/coreboot}
+  \item selected images are 100\% reproducible and selected packages 99.7\%
+  \item using 13 patches send upstream on January 25th
+  \item tests maintained by Alexander 'lynxis' Couzens and Bryan Newbold
+  \item recreating the build env: needs to checked
+  \item user verification tools: not yet
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.18\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.4\paperheight]{images/openwrt.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Status NetBSD}
+ \begin{itemize}
+  \item \texttt{https://tests.r-b.org/netbsd}
+  \item 21 (38.8\%) out of 54 built NetBSD files are reproducible
+  \item tests maintained by Thomas 'wiz' Klausner and h01ger
+  \item \texttt{MKREPRO=yes}
+  \item \texttt{MK\_TIMESTAMP=\$SOURCE\_DATE\_EPOCH}
+  \item recreating the build env: ?
+  \item user verification tools: not yet
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.15\paperwidth, 0.18\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.33\paperheight]{images/netbsd.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Status FreeBSD}
+ \begin{itemize}
+  \item \texttt{https://tests.reproducible-builds.org/freebsd}
+  \item base system not yet reproducible
+  \item 63\% of 15k ports were reproducible in 2013 already, their wiki says
+  \item tests maintained by h01ger
+  \item recreating the build env: ?
+  \item user verification tools: not yet
+  \item talk today, in K.4.601 at 15:40 CET
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.33\paperheight]{images/freebsd.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Status ElectroBSD}
+ \begin{itemize}
+  \item I have no idea…
+  \item talk today, in K.4.601 at 14:35 CET
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.33\paperheight]{images/electrobsd.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Status Guix}
+ \begin{itemize}
+  \item I have little idea
+  \item talk yesterday
+  \item recreating the build env: by design
+  \item user verification tool: yes! (Guix challange)
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.33\paperheight]{images/guix.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Status Fedora}
+ \begin{itemize}
+  \item \texttt{https://tests.reproducible-builds.org/fedora} (23)
+  \item maintained by Dhiru Kholia and h01ger
+  \item rpm repo available by Dhiru
+  \item rpm format includes build time and build host and…
+  \item recreating the build env: unaddressed
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.33\paperheight]{images/fedora.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+
+\placelogotrue
 
 \section{Future work}
 

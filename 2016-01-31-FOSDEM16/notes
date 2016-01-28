@@ -7,9 +7,6 @@ aim for 60 slides or less (talk slot is 50min, give time for questions)
 open nothing in browser, have all the screenshots ready
 - issue page
 - one issue in detail
-- adequate pkg page
-- adequate diff page
-- archlinux/freebsd/coreboot/openwrt pages
 - dashboard
 - spec
 - howto
@@ -26,17 +23,13 @@ or 85% of Debian main ;-)
 or something - i'll get into the details later
 
 describe debian test setup
-	hw amd64 / armhf
-		14 boards, 100 watts, 50 cores, 23GB of ram...
-		show images/2016-01-26-180836.jpg
-	distros tested
 	debian repo
 	debian pkg pages
 	debian notes.git
 	debian bugs
 	debian stats + pkgs sets
 		armhf/testing done in 23 days
-	variations added
+	check variations added
 
 reproducible-builds.org/specs - the url is missing prominemtly... SOURCE_DATE_EPOCH
 
@@ -47,19 +40,10 @@ mention athen meeting somewhere appropriate
 go through reports since athens
 
 make slides for each distro
-	1. tested on t.r-b.o
-	2. team or one person
-	3. recreating the build env?
-	4. user verification tools
 	archlinux
-	fedora
-	freebsd
-	netbsd
-	electrobsd
-	openwrt
+	netbsd - FIXME: recreating the build env?
 	coreboot - FIXME: recreating the build env?
 	qubes
-	guix - guix challange
 	fdroid
 	unmentioned, with known activity:
 		baserock
@@ -95,9 +79,6 @@ status other tests:
 	not all variations debian has are applied, notable not yet date+time
 	seperation of test logic and html page creation planned
 
-after: show THANKS from jenkins
-
-
 2015: 1 reproducible talk
 2016: 4 talks:
 	saturday:
@@ -123,8 +104,20 @@ future about tests.r-b.o slide: polish
 mention twitter.com/ReproBuilds
 
 future: want more archs. 64gb absolute minimum. but where are the arm64 clouds?
-	mail / ask for those 200gb diskspace and future commitments… oder ruf sie an?
-		derzeit reichen die (anderen) ressourcen…
+	want more ressources
+
+fix: only 1 hosts for other archs atm
+
+many good sideeffects
+	eg also arm bootloader improvements ;)
+
+slide:
+	this is not one persons work
+	this is not one teams work
+	this is 8 teams working together
+		since half a year
+		and really since early december
+	so there's quite a lot of work in progress
 
 future
 	funding
@@ -133,6 +126,8 @@ future
 	tests.r-b.o doing rebuilds against releases
 
 please help maintaining those distro tests
+
+irc notifications
 
 update graphs
 
