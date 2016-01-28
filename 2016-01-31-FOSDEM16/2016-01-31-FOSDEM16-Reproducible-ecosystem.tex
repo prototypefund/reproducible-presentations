@@ -531,6 +531,56 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{center}
 \end{frame}
 
+\section{Status Non-Debian World}
+
+\begin{frame}[plain]
+ \frametitle{Status coreboot}
+ \begin{itemize}
+  \item \texttt{https://tests.reproducible-builds.org/coreboot}
+  \item 99.2\% reproducible with \texttt{seabios} payload
+  \item maintained by Alexander 'lynxis' Couzens
+  \item rpm repo available by dhiru
+  \item recreating the build env: FIXME, need to check
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.33\paperheight]{images/coreboot.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain]
+ \frametitle{Status OpenWrt}
+ \begin{itemize}
+  \item \texttt{https://tests.reproducible-builds.org/coreboot}
+  \item selected images are 100\% reproducible and selected packages 99.7\%
+  \item using 13 patches not yet accepted upstream
+  \item maintained by Alexander 'lynxis' Couzens and Bryan Newbold
+  \item recreating the build env: needs to checked
+  \item user verification tools: not really
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.33\paperheight]{images/openwrt.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain]
+ \frametitle{Status Fedora}
+ \begin{itemize}
+  \item \texttt{https://tests.reproducible-builds.org/fedora} (23)
+  \item maintained by Dhiru Kholia and h01ger
+  \item rpm repo available by Dhiru
+  \item rpm format includes build time and build host and…
+  \item recreating the build env: unaddressed
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.15\paperwidth, 0.4\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.33\paperheight]{images/fedora.png}
+  };
+ \end{tikzpicture}
+\end{frame}
 
 
 \begin{frame}

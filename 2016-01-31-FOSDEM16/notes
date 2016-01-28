@@ -47,16 +47,31 @@ mention athen meeting somewhere appropriate
 go through reports since athens
 
 make slides for each distro
+	1. tested on t.r-b.o
+	2. team or one person
+	3. recreating the build env?
+	4. user verification tools
 	archlinux
 	fedora
 	freebsd
 	netbsd
 	electrobsd
 	openwrt
-	coreboot
+	coreboot - FIXME: recreating the build env?
 	qubes
-	guix
+	guix - guix challange
 	fdroid
+	unmentioned, with known activity:
+		baserock
+		nixos
+		qubes
+		bitcoin / tor
+		windows or any commercial vendor except gambling
+	unmentioned, unknown activities?
+		suse could reuse scripts
+		ubuntu
+		openbsd
+		you name it
 	debian
 		"last year we had 70 issues (now 180), but instead we rather present progress in 10 projects"
 		describe blockers:
@@ -74,6 +89,10 @@ make slides for each distro
 		X notes in Y issues on these
 		Z uncatarogized
 		hepl, be Zorro!
+
+status other tests:
+	not all variations debian has are applied, notable not yet date+time
+	seperation of test logic and html page creation planned
 
 after: show THANKS from jenkins
 
@@ -110,6 +129,7 @@ future
 	funding
 	another meeting or two in 2016
 	fosdem devroom in 2017?!
+	tests.r-b.o doing rebuilds against releases
 
 please help maintaining those distro tests
 
