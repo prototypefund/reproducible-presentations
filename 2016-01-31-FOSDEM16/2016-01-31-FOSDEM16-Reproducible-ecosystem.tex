@@ -601,16 +601,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 \placelogotrue
 
-\begin{frame}
- \frametitle{Reproducible builds demand a defined build environment}
- \begin{itemize}
-  \item Re-creating an identical build environment is mandatory too.
-  \item Without an identical build environment, reproducible builds will only
-  happen by sheer luck.
-  \item<2>{Only solved for Debian right now and currently proof of concept only…}
- \end{itemize}
-\end{frame}
-
 
 \section{Status Debian}
 
@@ -648,8 +638,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{Debian packages on tests.reproducible-builds.org}
  \begin{itemize}
   \item \url {https://reproducible.debian.net/$src}
-  \item 165 categorised distinct issues
-  \item<2> 3,496 packages to be fixed in \texttt{sid}, but only 426 without annotated issues
  \end{itemize}
 \end{frame}
 
@@ -789,7 +777,7 @@ Build-Environment:
 \end{frame}
 
 \begin{frame}
- \frametitle{Reminder}
+ \frametitle{Reminder / Summary}
  \begin{itemize}
   \item This is just a proof-of-concept, Debian is not 85\% reproducible
   \item Patches still need to be merged
@@ -811,8 +799,8 @@ Build-Environment:
   \item \texttt{https://tests.r-b.org/coreboot}
   \item 99.2\% reproducible with \texttt{seabios} payload
   \item tests maintained by Alexander 'lynxis' Couzens
-  \item rpm repo available by dhiru
-  \item recreating the build env: FIXME, need to check
+  \item unclear what the next steps are, maybe rebuilding released binaries?
+  \item needs more active involvement from coreboot developers
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.15\paperwidth, 0.18\paperheight)},at=(current page.south east)] {
@@ -830,6 +818,7 @@ Build-Environment:
   \item tests maintained by Alexander 'lynxis' Couzens and Bryan Newbold
   \item recreating the build env: needs to checked
   \item user verification tools: not yet
+  \item next, once patches are merged: rebuilding released binaries?!
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.18\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
@@ -848,6 +837,7 @@ Build-Environment:
   \item \texttt{MK\_TIMESTAMP=\$SOURCE\_DATE\_EPOCH}
   \item recreating the build env: ?
   \item user verification tools: not yet
+  \item next: ask Thomas :)
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.15\paperwidth, 0.18\paperheight)},at=(current page.south east)] {
@@ -866,6 +856,7 @@ Build-Environment:
   \item recreating the build env: ?
   \item user verification tools: not yet
   \item talk today, in K.4.601 at 15:40 CET
+  \item next: watch talks, discuss with developers
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
@@ -877,7 +868,7 @@ Build-Environment:
 \begin{frame}
  \frametitle{Status ElectroBSD}
  \begin{itemize}
-  \item I have no idea…
+  \item I have no idea… but am curious to find out!
   \item talk today, in K.4.601 at 14:35 CET
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
@@ -894,6 +885,7 @@ Build-Environment:
   \item talk yesterday
   \item recreating the build env: by design
   \item user verification tool: yes! (Guix challange)
+  \item<2> next: check your inbox, h01ger!
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
@@ -908,9 +900,11 @@ Build-Environment:
  \begin{itemize}
   \item \texttt{https://tests.r-b.org/fedora} (23)
   \item maintained by Dhiru Kholia and h01ger
-  \item rpm repo available by Dhiru
+  \item rpm repo available by Dhiru, but still \textbf{0\% reproducible}
   \item rpm format includes build time and build host and…
   \item recreating the build env: unaddressed
+  \item next: 24+rawhide, first reproducible rpm
+  \item next: get more people involved
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
@@ -926,6 +920,7 @@ Build-Environment:
   \item maintained by Levente 'anthraxx' Polyak and h01ger
   \item reproducible patches available for \texttt{pacman} by anthraxx
   \item recreating the build env: unaddressed
+  \item next: use those patches, upstream them
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
@@ -941,18 +936,15 @@ Build-Environment:
 
 
 \begin{frame}
- \frametitle{Future of tests.reproducible-builds.org}
-
+ \frametitle{Reproducible builds demand a defined build environment}
  \begin{itemize}
- \item We still want more (arm(64)) cores!
- \item<2-6> We want to test other architectures!
- \item<3-6> We want to test other projects!
- \item<4-6> We want more people looking at the results!
- \item<5-6> We want more people contributing code for their projects!
- \item<6> We don't want to build twice and test against what we built, but rather
- the binaries distributed by these projects (if any)
-\end{itemize}
+  \item Being able to re-create this build environment is mandatory too.
+  \item Without an \textit{sufficiently identical} build environment, reproducible builds will only
+  happen by sheer luck.
+  \item<2>{Only solved for Debian right now and currently proof of concept only…}
+ \end{itemize}
 \end{frame}
+
 
 \begin{frame}
  \frametitle{Debian release process}
@@ -981,9 +973,10 @@ Build-Environment:
  \frametitle{Rebuilders and sharing signed checksums}
  \begin{itemize}
   \item Almost no work has been done here yet.
-  \item<2-3> Continuous rebuilds should happen in a systematic way and resulting
+  \item<2-4> Continuous rebuilds should happen in a systematic way and resulting
   checksums properly published.
-  \item<3> And then we need a system to sign those checksums and share them. 
+  \item<3-4> And then we need a system to sign those checksums and share them.
+  \item<4> Different projects, different solutions? 
  \end{itemize}
 \end{frame}
 
@@ -991,11 +984,9 @@ Build-Environment:
  \frametitle{Rebuilders and sharing signed checksums, cont.}
  \begin{itemize}
   \item Individuelly signed checksums (think web of trust) could work in the
-  Debian case (we have a gpg web of trust), but won't scale.
-  \item<2-4> { We'll probably could use systematic rebuilders, run by large organisations
+  Debian case (we have a gpg web of trust), but IMO won't scale.
+  \item<2> { We'll probably could use systematic rebuilders, run by large organisations
   (ACLU, CCC, CERN, DECIX, DESY, Deutsche Bank, EDF, EON, Greenpeace, NASA, NSA, XYZ).}
-  \item<3-4> { …and automated installers for those… }
-  \item<4> { …and howtos (\texttt {gpg --gen-key})…}
  \end{itemize}
 \end{frame}
 
@@ -1011,6 +1002,32 @@ Build-Environment:
   \item<4>{ "Which rebuilders do you want to trust?"}
  \end{itemize}
 \end{frame}
+
+\begin{frame}
+ \frametitle{Future of tests.reproducible-builds.org}
+
+ \begin{itemize}
+ \item We still want more (arm(64)) cores!
+ \item<2-6> We want to test other architectures!
+ \item<3-6> We want to test other projects!
+ \item<4-6> We want more people looking at the results!
+ \item<5-6> We want more people contributing code for their projects!
+ \item<6> We don't want to build twice and test against what we built, but rather
+ the binaries distributed by these projects (if any)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Summary}
+ \begin{itemize}
+  \item We've come a long way.
+  \item We've made impressive progress.
+  \item We're still not nearly where we want to be.
+  \item<2-3> In fact, it's still not clear where we need to be going.
+  \item<3> Keep up the great work!
+ \end{itemize}
+\end{frame}
+
 
 \section{Getting involved}
 

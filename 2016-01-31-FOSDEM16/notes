@@ -28,6 +28,8 @@ drop mentioning stip-nondeterminism
 
 diffoscope can use debug symbols now
 
+"identical build env" is non sense
+
 go through reports since athens
 add SOURCE_DATE_EPOCH adoption outside Debian…
 
@@ -101,4 +103,5 @@ prepare demo using screenshots
 
 disclaimer:
 	the mistakes are mine
+	to better present this here,  chronologic order has been changed
 	this is the work of *many* more people than mentioned, this is free software!
