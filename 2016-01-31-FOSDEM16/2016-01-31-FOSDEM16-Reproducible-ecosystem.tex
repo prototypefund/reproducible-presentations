@@ -467,11 +467,11 @@ and some hints where this might be going…}
  \frametitle{amd64 architecture on tests.r-b.org}
 
  \begin{itemize}
-  \item \texttt{amd64}: 111 cores and 198 GB RAM split on 9 VMs, provided by
+  \item \texttt{amd64}: 106 cores and 282 GB RAM split on 9 VMs, provided by
   https://profitbricks.co.uk
   \begin{itemize}
-   \item 4 VMs with 16 cores and 32 GB for Debian
-   \item 2 VMs with 8 cores and 16 GB for most of the rest
+   \item 4 VMs with 17/18 cores and 32 GB for Debian
+   \item 1 VM (soon 2) with 8 cores and 16 GB for most of the rest
    \item 1 jenkins VM and 1 jenkins-test VM
    \item 1 extra VM for building FreeBSD
  \end{itemize}
@@ -515,12 +515,15 @@ domainname & \texttt{debian.net} & \texttt{i-capture-the-domainname} \\
 uid & \texttt{1111} & \texttt{2222} \\
 gid & \texttt{1111} & \texttt{2222} \\
 UTS namespace & shared with the host & \textit{modified using \texttt{/usr/bin/unshare --uts}} \\
-kernel version & Linux 3.16.0-4 / 4.2.0-0.bpo & Linux 2.6.56-4 / 2.6.62-0.bpo.1 \\
+kernel version & Linux 3.16 or 4.X & on amd64 always varied, on armhf
+sometimes \\
 umask & 0022 & 0002 \\
-CPU type & \multicolumn{2}{l}{same for both builds \textit{(work in progress)}} \\
-filesystem & \multicolumn{2}{l}{same for both builds \textit{(work in progress - disorderfs)}} \\
-year, month, date & \multicolumn{2}{l}{same for both builds \textit{(work in progress)}} \\
-hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minute differs… \textit{(work in progress)}} \\
+CPU type & \multicolumn{2}{l}{same for both builds on amd64 \textit{(work in progress)}} \\
+ & on armhf varied a bit & \\
+filesystem & \multicolumn{2}{l}{same for both builds on amd64: (\texttt{tmpfs}), on armhf \texttt{ext3/4}} \\
+ & & \textit{(and we have} \texttt{disorderfs}\textit{, but the code is disabled)} \\
+year, month, date & \multicolumn{2}{l}{on amd64: 398 days variation, on armhf not yet} \\
+hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minute differs… } \\
 \textit{everything else} & \multicolumn{2}{l}{\textit{is likely the same…}}
     \end{tabular}
    }
@@ -554,7 +557,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 }
 
 \begin{frame}{diffoscope}
- \frametitle{Debugging problems: diffoscope}
+ \frametitle{Debugging problems: \texttt{diffoscope}}
 
  \begin{itemize}
   \item Examines differences \textbf{in depth}.
@@ -572,7 +575,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 
 \begin{frame}
- \frametitle{diffoscope example (HTML output)}
+ \frametitle{\texttt{diffoscope} example (HTML output)}
  \begin{tikzpicture}[remember picture]
   \node[at=(current page.center)] {
    \includegraphics[width=0.9\paperwidth]{images/diffoscope_example_html.png}

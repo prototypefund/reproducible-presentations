@@ -30,7 +30,10 @@ describe debian test setup
 	debian bugs categories, nah
 	debian stats
 		armhf/testing done in 23 days
-	check variations added
+	mention variations from TODO
+	check variations "look"
+
+diffoscope can use debug symbols now
 
 go through reports since athens
 add SOURCE_DATE_EPOCH adoption outside Debian…
@@ -81,28 +84,14 @@ explain shortcuts:
         defined build environment with little variations
         subsets
 
-fix: only 1 hosts for other archs atm
     23 cores and 64 GB memory for jenkins.debian.net
-    18 cores and 48 GB memory for profitbricks-build1-amd64.debian.net
-    18 cores and 48 GB memory for profitbricks-build2-amd64.debian.net
-    8 cores and 16 GB memory for profitbricks-build3-amd64.debian.net
-    4 cores and 8 GB memory for profitbricks-build4-amd64.debian.net
-    17 cores and 48 GB memory for profitbricks-build5-amd64.debian.net
-    17 cores and 48 GB memory for profitbricks-build6-amd64.debian.net
-    3 cores and 6 GB memory for freebsd-jenkins.debian.net (also running on Profitbricks virtual hardware)
+	really?
 
-many good sideeffects
+    many good sideeffects
 	eg also arm bootloader improvements ;)
 	faster builds
 	check our wiki page on that
 
-slide:
-	this is not one persons work
-	this is not one teams work
-	this is 16 teams working together
-		since half a year
-		and really since early december
-	so there's quite a lot of work in progress
 
 future other tests:
 	not all variations debian has are applied, notable not yet date+time
