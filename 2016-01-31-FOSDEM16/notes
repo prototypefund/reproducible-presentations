@@ -1,14 +1,6 @@
 demo: PTH=$(mktemp -d); OPTH=$PWD; P=giftrans; cp ${P}_* $PTH/; cd $PTH ; dpkg-source -x ${P}*.dsc ; for X in 1 2 3 4 5 ; do (cd ${P}-*/; dpkg-buildpackage -b -uc -us); mkdir -p .$X ; cp $P_*.deb .$X; done ; rm *deb ; echo; sha1sum *dsc *z .*/*.deb | grep -v giftrans-dbgsym ; cd - ; echo "don't foget to rm -r $PTH"
 
 really show live demo there? :)
-aim for 60 slides or less (talk slot is 50min, give time for questions)
-
-open nothing in browser, have all the screenshots ready
-- issue page
-- one issue in detail
-- dashboard
-- howto
-- (have torbrowser open and pages loaded to be able to show things)
 
 
 
@@ -31,7 +23,8 @@ describe debian test setup
 	debian stats
 		armhf/testing done in 23 days
 	mention variations from TODO
-	check variations "look"
+	
+drop mentioning stip-nondeterminism
 
 diffoscope can use debug symbols now
 
@@ -52,13 +45,18 @@ make slides for each distro
 		nixos
 		qubes
 		bitcoin / tor
-		windows or any commercial vendor except gambling
+		gambling industry
 	unmentioned, unknown activities?
 		suse could reuse scripts
 		ubuntu
 		openbsd
 		gentoo (stage1)
 		you name it
+		windows or any commercial vendor except gambling
+			medicine
+			arms
+			critical infrastructure
+			cars (hello VW)
 	debian
 		"last year we had 70 issues (now 180), but instead we rather present progress in 10 projects"
 		describe blockers:
@@ -71,7 +69,7 @@ make slides for each distro
 		describe nice to haves:
 			reprepro
 			etc
-		20k reproducible source packages in main alone!
+		20k reproducible source packages in main alone! reached on january 29th
 		so 3k left to fix
 		X notes in Y issues on these
 		Z uncatarogized
@@ -84,14 +82,10 @@ explain shortcuts:
         defined build environment with little variations
         subsets
 
-    23 cores and 64 GB memory for jenkins.debian.net
-	really?
-
     many good sideeffects
 	eg also arm bootloader improvements ;)
 	faster builds
 	check our wiki page on that
-
 
 future other tests:
 	not all variations debian has are applied, notable not yet date+time
@@ -102,7 +96,6 @@ future
 	another meeting or two in 2016
 	fosdem devroom in 2017?!
 	tests.r-b.o doing rebuilds against releases
-
 
 prepare demo using screenshots
 

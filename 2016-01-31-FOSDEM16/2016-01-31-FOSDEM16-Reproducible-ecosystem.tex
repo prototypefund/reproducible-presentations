@@ -390,10 +390,10 @@ and some hints where this might be going…}
 
  \begin{itemize}
   \item Build date (timestamps) usually not useful for the user
-  \item<2-3> \texttt{SOURCE\_DATE\_EPOCH} can be used instead of current date
-  \item<2-3> can also be used for random and other for other seeds
   \item<2-3> \texttt{SOURCE\_DATE\_EPOCH} is defined as the last modification of
   the source, since the epoch (1970-01-01)
+  \item<2-3> \texttt{SOURCE\_DATE\_EPOCH} can be used instead of current date
+  \item<2-3> can also be used for random seeds etc.
   \item<3> in Debian, set from the latest \texttt{debian/changelog} entry
   \item<3> solution has been adopted by other projects \& distributions
   (NetBSD, Guix, …)
@@ -467,14 +467,14 @@ and some hints where this might be going…}
  \frametitle{amd64 architecture on tests.r-b.org}
 
  \begin{itemize}
-  \item \texttt{amd64}: 106 cores and 282 GB RAM split on 9 VMs, provided by
-  https://profitbricks.co.uk
+  \item \texttt{amd64}: 106 cores and 282 GB RAM split on 9 VMs
   \begin{itemize}
    \item 4 VMs with 17/18 cores and 32 GB for Debian
    \item 1 VM (soon 2) with 8 cores and 16 GB for most of the rest
    \item 1 jenkins VM and 1 jenkins-test VM
    \item 1 extra VM for building FreeBSD
  \end{itemize}
+ \item sponsored by \texttt{https://profitbricks.co.uk}
  \end{itemize}
  \begin{center}
   \includegraphics[height=0.2\paperheight]{images/profitbricks_logo.png}
@@ -488,11 +488,17 @@ and some hints where this might be going…}
 
  \begin{itemize}
   \item \texttt{armhf}: 14 nodes with 50 cores and 23 GB RAM
-  \item combined they only draw 100 watts of power
-  \item hosted by \texttt{vagrant@debian.org}, several hardware sponsors, 4.5k USD by Debian
- \end{itemize}
+  \begin{itemize}
+   \item a few more nodes planned
+   \item combined they only draw 100 watts of power
+   \item<2> roughly takes 4 weeks to build one Debian suite
+  \end{itemize}
+  \item \small{hosted by \texttt{vagrant@debian.org}, several hardware sponsors
+  (Debian, TechNexion, LeMaker, SolidRun, Beagleboard.org and Aikidev, LLC)
+  plus 4.5k USD by Debian}
+\end{itemize}
  \begin{center}
-  \includegraphics[height=0.5\paperheight]{images/2016-01-26-180836.jpg}
+  \includegraphics[height=0.42\paperheight]{images/2016-01-26-180836.jpg}
   \vfill
  \end{center}
 \end{frame}
@@ -530,19 +536,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \end{table}
  \end{center}
 \end{frame}
-
-
-\begin{frame}
- \frametitle{Notes and issues on tests.reproducible-builds.org}
-
- \begin{itemize}
-  \item { 180 categorised distinct issues }
-  \item { 3,496 categorized notes }
-  \item<2-3> { maintained in \texttt{notes.git} }
-  \item<3> { currently Debian only, but cross distro notes are planned}
- \end{itemize}
-\end{frame}
-
 
 
 \placelogofalse
@@ -634,6 +627,22 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \vfill
  \end{center}
 \end{frame}
+
+\begin{frame}
+ \frametitle{Notes and issues on tests.reproducible-builds.org}
+
+ \begin{itemize}
+  \item { 179 categorised distinct issues }
+  \item { 3,793 notes }
+  \item<2-4> { 2527 unreproducible packages in \texttt{sid}, but only 138 without a 
+  note }
+  \item<2-4> { 737 packages failing to build, but only 76 without a note }
+  \item<3-4> { maintained in \texttt{notes.git} }
+  \item<4> { currently Debian only, but cross distro notes are planned}
+ \end{itemize}
+\end{frame}
+
+
 
 \begin{frame}
  \frametitle{Debian packages on tests.reproducible-builds.org}
