@@ -2,45 +2,43 @@ demo: PTH=$(mktemp -d); OPTH=$PWD; P=giftrans; cp ${P}_* $PTH/; cd $PTH ; dpkg-s
 
 really show live demo there? :)
 aim for 60 slides or less (talk slot is 50min, give time for questions)
-1024x768 
 
 open nothing in browser, have all the screenshots ready
 - issue page
 - one issue in detail
 - dashboard
-- spec
 - howto
 - (have torbrowser open and pages loaded to be able to show things)
 
-the whole world is watching? no (not that slide, but its true…)
-fosdem 2014 lunar in a dev room
-fosdem 2015 lunar and holger in k building
-fosdem 2016 holger in janson
-will 2016 be the year of the reproducible llinux desktop? maybe
-or 2017?! (i think so, find a nice pic to prove it)
-and mayne not on the desktop, but just servers
-or 85% of Debian main ;-)
-or something - i'll get into the details later
+
+
+
+end (or beginning?):
+	the whole world is watching? no (not that slide, but its true… or maybe that slide indeed)
+	fosdem 2014 lunar in a dev room
+	fosdem 2015 lunar and holger in k building
+	fosdem 2016 holger in janson
+	will 2016 be the year of the reproducible linux desktop? maybe
+	or 2017?! (i think so, find a nice pic to prove it)
+	and mayne not on the desktop, but just servers
+	or 85% of Debian main ;-)
+	or something - i'll get into the details later
 
 describe debian test setup
 	debian repo
-	debian pkg pages
-	debian notes.git
-	debian bugs
-	debian stats + pkgs sets
+	debian bugs categories, nah
+	debian stats
 		armhf/testing done in 23 days
 	check variations added
 
-reproducible-builds.org/specs - the url is missing prominemtly... SOURCE_DATE_EPOCH
-
+go through reports since athens
 add SOURCE_DATE_EPOCH adoption outside Debian…
 
-mention athen meeting somewhere appropriate
-
-go through reports since athens
+need logos:
+	fdroid
+	qubes
 
 make slides for each distro
-	archlinux
 	netbsd - FIXME: recreating the build env?
 	coreboot - FIXME: recreating the build env?
 	qubes
@@ -75,43 +73,26 @@ make slides for each distro
 		Z uncatarogized
 		hepl, be Zorro!
 
-status other tests:
-	not all variations debian has are applied, notable not yet date+time
-	seperation of test logic and html page creation planned
-
-2015: 1 reproducible talk
-2016: 4 talks:
-	saturday:
-      	https://fosdem.org/2016/schedule/event/deployments_with_gnu_guix/
-	sunday:
-	https://fosdem.org/2016/schedule/event/reproducible_ecosystem/
-        https://fosdem.org/2016/schedule/event/reproducible_freebsd_packages/
-        https://fosdem.org/2016/schedule/event/electrobsd/
-	
-
-explain how recreating the build env has not been solved everywhere
+dpkg: mention recent developments… same for ftp!
 
 explain shortcuts:
         defined build environment with little variations
         subsets
 
-I hope that Debian 9, "stretch", will be partially reproducible in a meaningful way
-and sid as a easter present
-
-go through slides look for reproducible.debian.net confusion…
-
-future about tests.r-b.o slide: polish
-mention twitter.com/ReproBuilds
-
-future: want more archs. 64gb absolute minimum. but where are the arm64 clouds?
-	want more ressources
-
 fix: only 1 hosts for other archs atm
+    23 cores and 64 GB memory for jenkins.debian.net
+    18 cores and 48 GB memory for profitbricks-build1-amd64.debian.net
+    18 cores and 48 GB memory for profitbricks-build2-amd64.debian.net
+    8 cores and 16 GB memory for profitbricks-build3-amd64.debian.net
+    4 cores and 8 GB memory for profitbricks-build4-amd64.debian.net
+    17 cores and 48 GB memory for profitbricks-build5-amd64.debian.net
+    17 cores and 48 GB memory for profitbricks-build6-amd64.debian.net
+    3 cores and 6 GB memory for freebsd-jenkins.debian.net (also running on Profitbricks virtual hardware)
 
 many good sideeffects
 	eg also arm bootloader improvements ;)
-
-mention mailinglists too
+	faster builds
+	check our wiki page on that
 
 slide:
 	this is not one persons work
@@ -121,17 +102,19 @@ slide:
 		and really since early december
 	so there's quite a lot of work in progress
 
+future other tests:
+	not all variations debian has are applied, notable not yet date+time
+	seperation of test logic and html page creation planned
+
 future
-(move existing future slides further to the end)
 	funding
 	another meeting or two in 2016
 	fosdem devroom in 2017?!
 	tests.r-b.o doing rebuilds against releases
 
-please help maintaining those distro tests
-
-irc notifications
 
 prepare demo using screenshots
 
-look up recent IOS fail / attack
+disclaimer:
+	the mistakes are mine
+	this is the work of *many* more people than mentioned, this is free software!

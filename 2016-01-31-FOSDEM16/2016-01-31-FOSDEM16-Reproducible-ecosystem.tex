@@ -377,10 +377,12 @@ and some hints where this might be going…}
   \item \texttt{https://reproducible-builds.org/docs}
   \item Lunar's talk from CCCamp 2015 also on
   \texttt{https://media.ccc.de}
+ \begin{tikzpicture}[remember picture]
+  \node[shift={(-1.05\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
+    \includegraphics[width=0.83\textwidth]{images/cccamp2015_lunar_random.png}
+  };
+ \end{tikzpicture}
  \end{itemize}
- \begin{center}
- \includegraphics[width=0.72\textwidth]{images/cccamp2015_lunar_random.png}
- \end{center}
 \end{frame}
 
 \begin{frame}
@@ -580,7 +582,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 
 \begin{frame}{diffoscope}
- \frametitle{Try diffoscope}
+ \frametitle{Try \texttt{diffoscope}}
  \begin{itemize}
   \item \texttt{https://try.diffoscope.org}
  \end{itemize}
@@ -632,7 +634,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 \begin{frame}
  \frametitle{Debian packages on tests.reproducible-builds.org}
-
  \begin{itemize}
   \item \url {https://reproducible.debian.net/$src}
   \item 165 categorised distinct issues
@@ -642,27 +643,30 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 \begin{frame}
  \frametitle{Debian package sets on tests.r-b.org}
-
- \begin{itemize}
-  \item { 29 different "package sets", eg. \texttt{required} is only 68\%
-  reproducible
-   \begin{center}
-    \includegraphics[height=0.6\paperheight]{images/stats_meta_pkg_state_required.png}
-   \vfill
- \end{center}
-  }
- \end{itemize}
-\end{frame}
-
-
-
-\begin{frame}
- \frametitle{Progress in the Debian Bug Tracking System (BTS)}
  \begin{tikzpicture}[remember picture]
-  \node[at=(current page.center)] {
-    \includegraphics[height=0.68\paperheight]{images/stats_bugs_sin_ftbfs_state.png}
+  \node[shift={(-0.75\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.65\paperheight]{images/stats_meta_pkg_state_required.png}
   };
  \end{tikzpicture}
+ \begin{center}
+  \footnotesize{29 different "package sets", eg. \texttt{required} is only 68\%
+  reproducible}
+  \vfill
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Progress in the Debian bug tracker}
+ \begin{tikzpicture}[remember picture]
+  \node[shift={(-0.75\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.65\paperheight]{images/stats_bugs_sin_ftbfs_state.png}
+  };
+ \end{tikzpicture}
+ \begin{center}
+  \footnotesize{As a rule, we file bugs with patches. \\
+  There are very few exceptions.}
+  \vfill
+ \end{center}
 \end{frame}
 
 \begin{frame}
@@ -672,12 +676,10 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item Agreed on using a fixed build path: \texttt{/build/}
   \item Recording the build environment: \texttt{.buildinfo}
   \item \texttt{strip-nondeterminism}
-  \item \texttt{reproducible.debian.net} has become
-  \texttt{tests.reproducible-builds.org}
   \item \texttt{diffoscope} (formerly \texttt{debbindiff})
   \item \texttt{SOURCE\_DATE\_EPOCH}
   \item \texttt{disorderfs}
-  \item 700+ patches: \texttt{dpkg}, \texttt{debhelper}, \texttt{sbuild}, …
+  \item 1000+ patches: \texttt{dpkg}, \texttt{debhelper}, \texttt{sbuild}, …
   \item …
  \end{itemize}
 \end{frame}
@@ -687,15 +689,13 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{Tell the world \& collaborate}
 
  \begin{itemize}
-  \item Recent talks (some available with subtitles):
-   \begin{itemize}
-    \item 2015-08-13: Chaos Communication Camp 2015
-    \item 2015-08-20: DebConf15
-   \end{itemize}
+  \item \texttt{reproducible.debian.net} which has become
+  \texttt{tests.reproducible-builds.org}
   \item Weekly reports since May 2015
   \item Summit in December 2015 (Athens)
    \begin{itemize}
     \item 40 people from 16 projects
+  \item Summit in April/May 2016?!
    \end{itemize}
  \end{itemize}
 \end{frame}
@@ -755,18 +755,6 @@ Build-Environment:
   \item \texttt{\#787980}: normalize file permissions when creating control.tar
   \item \texttt{\#719845}: make file order within {data,control}.tar.gz deterministic
   \item \texttt{dpkg-genbuldinfo}: \textit{patch already written, but waiting on agreement about spec}
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{\texttt{sbuild}}
-
- \begin{itemize}
-  \item \sout{\texttt{\#790868}: allow sbuild to use a deterministic build
-  path to build packages}
-  \item \texttt{\#778571}: predictible build location for reproducible builds
-  (\texttt{/build})
-  \item Finish the \texttt{srebuild} script
  \end{itemize}
 \end{frame}
 
@@ -859,7 +847,7 @@ Build-Environment:
 \begin{frame}
  \frametitle{Status FreeBSD}
  \begin{itemize}
-  \item \texttt{https://tests.reproducible-builds.org/freebsd}
+  \item \texttt{https://tests.r-b.org/freebsd}
   \item base system not yet reproducible
   \item 63\% of 15k ports were reproducible in 2013 already, their wiki says
   \item tests maintained by h01ger
@@ -906,7 +894,7 @@ Build-Environment:
 \begin{frame}
  \frametitle{Status Fedora}
  \begin{itemize}
-  \item \texttt{https://tests.reproducible-builds.org/fedora} (23)
+  \item \texttt{https://tests.r-b.org/fedora} (23)
   \item maintained by Dhiru Kholia and h01ger
   \item rpm repo available by Dhiru
   \item rpm format includes build time and build host and…
@@ -915,6 +903,21 @@ Build-Environment:
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/fedora.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Status Arch Linux}
+ \begin{itemize}
+  \item \texttt{https://tests.r-b.org/archlinux}
+  \item maintained by Levente 'anthraxx' Polyak and h01ger
+  \item reproducible patches available for \texttt{pacman} by anthraxx
+  \item recreating the build env: unaddressed
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.33\paperheight]{images/archlinux.png}
   };
  \end{tikzpicture}
 \end{frame}
@@ -929,8 +932,8 @@ Build-Environment:
  \frametitle{Future of tests.reproducible-builds.org}
 
  \begin{itemize}
- \item We still want more arm(64) cores!
- \item<2-6> We want to test on other architectures!
+ \item We still want more (arm(64)) cores!
+ \item<2-6> We want to test other architectures!
  \item<3-6> We want to test other projects!
  \item<4-6> We want more people looking at the results!
  \item<5-6> We want more people contributing code for their projects!
@@ -997,7 +1000,7 @@ Build-Environment:
  \end{itemize}
 \end{frame}
 
-\section{Want to help?}
+\section{Getting involved}
 
 \begin{frame}
  \frametitle{As a software developer}
@@ -1009,7 +1012,7 @@ Build-Environment:
 \end{frame}
 
 \begin{frame}
- \frametitle{Get involved - learning by doing}
+ \frametitle{Getting involved - learning by doing}
 
  \begin{itemize}
   \item Test for yourself:
@@ -1027,7 +1030,7 @@ Build-Environment:
 \end{frame}
 
 \begin{frame}
- \frametitle{Join the (Debian) team!}
+ \frametitle{Join the Reproducible builds team(s)!}
 
  \begin{itemize}
   \item Why?
@@ -1086,16 +1089,19 @@ Build-Environment:
  \frametitle{Questions, comments, ideas?}
 
  \begin{itemize}
-  \item \url{https://reproducible-builds.org/docs}
-  \item \url{https://tests.reproducible-builds.org}
-  \item \texttt{\#reproducible-builds} on \texttt{irc.OFTC.net}
-  \item \small{and/or \texttt{\#debian-reproducible} too!}
- \end{itemize}
+  \item<2-3> \url{https://reproducible-builds.org/docs}
+  \item<2-3> \url{https://tests.reproducible-builds.org}
+  \item<2-3> \texttt{\#reproducible-builds} on \texttt{irc.OFTC.net}
+  \item<2-3> \small{and/or \texttt{\#debian-reproducible} too!}
+  \item<2-3> \small\it{with IRC notification by \texttt{KGB-0}}
+  \item<3> \url{https://lists.reproducible-builds.org}
+  \item<3> \url{https://twitter.com/ReproBuild}
+  \end{itemize}
 \end{frame}
 
 
 \begin{frame}
- \frametitle{Thanks!}
+ \frametitle{Thanks to…! …and thank \textbf{you}, too!}
 
  \begin{itemize}
   \item
@@ -1117,9 +1123,7 @@ Build-Environment:
   \resizebox{0.9\textwidth}{!}{%
    \begin{tabular}{rl}
     \texttt{holger@debian.org} & \texttt{B8BF 5413 7B09 D35C F026} \\
-                               & \texttt{FE9D 091A B856 069A AA1C} \\
-                              \\
-    \texttt{https://reproducible-builds.org}
+                               & \texttt{FE9D 091A B856 069A AA1C}
    \end{tabular}
   }
  \end{center}
