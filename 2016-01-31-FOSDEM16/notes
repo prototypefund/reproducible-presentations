@@ -12,6 +12,7 @@ open nothing in browser, have all the screenshots ready
 
 
 
+go through paper plans
 
 end (or beginning?):
 	the whole world is watching? no (not that slide, but its true… or maybe that slide indeed)
@@ -41,7 +42,7 @@ need logos:
 make slides for each distro
 	netbsd - FIXME: recreating the build env?
 	coreboot - FIXME: recreating the build env?
-	qubes
+	qubes 4.0
 	fdroid
 	unmentioned, with known activity:
 		baserock
@@ -74,6 +75,7 @@ make slides for each distro
 		hepl, be Zorro!
 
 dpkg: mention recent developments… same for ftp!
+re-read: https://wiki.debian.org/ReproducibleBuilds/About etc
 
 explain shortcuts:
         defined build environment with little variations
