@@ -3,6 +3,22 @@ demo: PTH=$(mktemp -d); OPTH=$PWD; P=giftrans; cp ${P}_* $PTH/; cd $PTH ; dpkg-s
 really show live demo there? :)
 
 
+koji records the build
+	can be used to recreate it, in theory, in practice this needs documentation / be done
+rpm container has
+	build date
+	build host
+	signature
+	signature changes between development and release
+
+whye  xplain why bit identical (eg cdroms)
+all of it:
+
+mention gsoc, new people
+
+emphasize this is too much for me…
+add thanks slide for all the people working on it in other projects
+
 
 go through paper plans
 

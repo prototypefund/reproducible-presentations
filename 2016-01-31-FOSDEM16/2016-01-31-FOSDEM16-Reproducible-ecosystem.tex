@@ -346,6 +346,18 @@ and some hints where this might be going…}
 \end{center}
 \end{frame}
 
+ \begin{itemize}
+  \item \texttt{https://reproducible-builds.org/docs}
+  \item Lunar's talk from CCCamp 2015 also on
+  \texttt{https://media.ccc.de}
+ \begin{tikzpicture}[remember picture]
+  \node[shift={(-1.05\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
+    \includegraphics[width=0.83\textwidth]{images/cccamp2015_lunar_random.png}
+  };
+ \end{tikzpicture}
+ \end{itemize}
+\end{frame}
+
 \section{Common ressources}
 
 \begin{frame}
@@ -373,17 +385,6 @@ and some hints where this might be going…}
 \begin{frame}
  \frametitle{Documentation about common problems}
 
- \begin{itemize}
-  \item \texttt{https://reproducible-builds.org/docs}
-  \item Lunar's talk from CCCamp 2015 also on
-  \texttt{https://media.ccc.de}
- \begin{tikzpicture}[remember picture]
-  \node[shift={(-1.05\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
-    \includegraphics[width=0.83\textwidth]{images/cccamp2015_lunar_random.png}
-  };
- \end{tikzpicture}
- \end{itemize}
-\end{frame}
 
 \begin{frame}
  \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
@@ -454,7 +455,7 @@ and some hints where this might be going…}
   \item Continuously testing Debian \texttt{testing}, \texttt{unstable} and
   \texttt{experimental}
   \item Also testing: coreboot, OpenWrt, NetBSD, FreeBSD,
-  Arch Linux, Fedora and soon FDroid and Guix too
+  Arch Linux, Fedora and soon F-Droid and Guix too
   \item<2> 230 jenkins jobs running on 22 hosts
   \item<2> 42 scripts with a total of 4k lines of Python and 6k lines of Bash
   Shell
@@ -850,7 +851,7 @@ Build-Environment:
  \frametitle{Status FreeBSD}
  \begin{itemize}
   \item \texttt{https://tests.r-b.org/freebsd}
-  \item base system not yet reproducible
+  \item base system not yet reproducible, but almost there
   \item 63\% of 15k ports were reproducible in 2013 already, their wiki says
   \item tests maintained by h01ger
   \item recreating the build env: ?
@@ -878,22 +879,6 @@ Build-Environment:
  \end{tikzpicture}
 \end{frame}
 
-\begin{frame}
- \frametitle{Status Guix}
- \begin{itemize}
-  \item I have little idea
-  \item talk yesterday
-  \item recreating the build env: by design
-  \item user verification tool: yes! (Guix challange)
-  \item<2> next: check your inbox, h01ger!
- \end{itemize}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.33\paperheight]{images/guix.png}
-  };
- \end{tikzpicture}
-\end{frame}
-
 
 \begin{frame}
  \frametitle{Status Fedora}
@@ -902,8 +887,8 @@ Build-Environment:
   \item maintained by Dhiru Kholia and h01ger
   \item rpm repo available by Dhiru, but still \textbf{0\% reproducible}
   \item rpm format includes build time and build host and…
-  \item recreating the build env: unaddressed
-  \item next: 24+rawhide, first reproducible rpm
+  \item recreating the build env: koji
+  \item next: 24+rawhide, first reproducible rpm, use koji
   \item next: get more people involved
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
@@ -925,6 +910,30 @@ Build-Environment:
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/archlinux.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Status F-Droid}
+ \begin{itemize}
+  \item not yet: \texttt{https://tests.r-b.org/f-droid}
+  \item maintained by Hans-Christoph Steiner and h01ger
+  \item work has just begun…
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Status Guix}
+ \begin{itemize}
+  \item I still have little idea, sadly missed the talk yesterday
+  \item recreating the build env: by design
+  \item user verification tool: yes! (Guix challange)
+  \item<2> next: check your inbox, h01ger!
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.33\paperheight]{images/guix.png}
   };
  \end{tikzpicture}
 \end{frame}
@@ -963,7 +972,7 @@ Build-Environment:
  \begin{itemize}
   \item Probably 100,000 new files per Debian suite; 50\% increase per suite
   \item Mirrors would not be happy, so should not go there
-  \item We'll need more files when we have detached signatures
+  \item<2> We'll need more files with detached signatures…
   \item<2>{Revoking signatures?}
   \item<2>{...}
  \end{itemize}
@@ -986,7 +995,9 @@ Build-Environment:
   \item Individuelly signed checksums (think web of trust) could work in the
   Debian case (we have a gpg web of trust), but IMO won't scale.
   \item<2> { We'll probably could use systematic rebuilders, run by large organisations
-  (ACLU, CCC, CERN, DECIX, DESY, Deutsche Bank, EDF, EON, Greenpeace, NASA, NSA, XYZ).}
+  (ACLU, CCC, CERN, Deutsche Bank, EDF, EON, Greenpeace, NASA, NSA, XYZ).}
+  \item Fedora rebuilds Debian, Debian rebuilds OpenSUSE, OpenSUSE rebuilds
+  NetBSD, etc…
  \end{itemize}
 \end{frame}
 
@@ -1010,8 +1021,8 @@ Build-Environment:
  \item We still want more (arm(64)) cores!
  \item<2-6> We want to test other architectures!
  \item<3-6> We want to test other projects!
- \item<4-6> We want more people looking at the results!
- \item<5-6> We want more people contributing code for their projects!
+ \item<4-6> We want more people contributing code for their projects!
+ \item<5-6> We want more people looking at the results!
  \item<6> We don't want to build twice and test against what we built, but rather
  the binaries distributed by these projects (if any)
 \end{itemize}
