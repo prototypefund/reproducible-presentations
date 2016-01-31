@@ -949,20 +949,20 @@ Build-Environment:
   \item Being able to re-create this build environment is mandatory too.
   \item Without an \textit{sufficiently identical} build environment, reproducible builds will only
   happen by sheer luck.
-  \item<2>{Only solved for Debian right now and currently proof of concept only…}
+  \item<2>{I've only seen this verified for Debian so far…}
+  \item<2>{I'd very much like to be corrected here}
  \end{itemize}
 \end{frame}
 
 
 \begin{frame}
- \frametitle{Debian release process}
+ \frametitle{Release process issues}
  \begin{itemize}
-  \item In our current design and practices, rebuilding stretch will require
-  package versions which are not part of stretch.
-  \item This design might put a high load on snapshot.debian.org.
-  \item<2-4>{Rebuilding all of Debian a month prio the release? }
-  \item<3-4>{Cross-builds could even speed up slow archs.}
-  \item<4>{More discussions needed. Freeze probably on November 5th 2016.}
+  \item In our current design and practices, rebuilding Debian
+  \texttt{stretch} will require
+  package versions which are not part of \texttt{stretch}.
+  \item {Rebuilding all of Debian a month prio the release? }
+  \item<2> This problem is per se not Debian specific at all…
  \end{itemize}
 \end{frame}
 
@@ -981,10 +981,8 @@ Build-Environment:
  \frametitle{Rebuilders and sharing signed checksums}
  \begin{itemize}
   \item Almost no work has been done here yet.
-  \item<2-4> Continuous rebuilds should happen in a systematic way and resulting
-  checksums properly published.
-  \item<3-4> And then we need a system to sign those checksums and share them.
-  \item<4> Different projects, different solutions? 
+  \item<2-3> Systematic, automatic rebuilds? 
+  \item<3> Different projects, different solutions? 
  \end{itemize}
 \end{frame}
 
@@ -993,9 +991,9 @@ Build-Environment:
  \begin{itemize}
   \item Individuelly signed checksums (think web of trust) could work in the
   Debian case (we have a gpg web of trust), but IMO won't scale.
-  \item<2> { We'll probably could use systematic rebuilders, run by large organisations
+  \item<2-3> { Another idea: rebuilders, run by large organisations
   (ACLU, CCC, CERN, Deutsche Bank, EDF, EON, Greenpeace, NASA, NSA, XYZ).}
-  \item Fedora rebuilds Debian, Debian rebuilds OpenSUSE, OpenSUSE rebuilds
+  \item<3> Fedora rebuilds Debian, Debian rebuilds OpenSUSE, OpenSUSE rebuilds
   NetBSD, etc…
  \end{itemize}
 \end{frame}
@@ -1035,6 +1033,7 @@ Build-Environment:
   \item We're still not nearly where we want to be.
   \item<2-3> In fact, it's still not clear where we need to be going.
   \item<3> Keep up the great work!
+  \item<3> Join the fun! There are many big and small things to do!
  \end{itemize}
 \end{frame}
 
