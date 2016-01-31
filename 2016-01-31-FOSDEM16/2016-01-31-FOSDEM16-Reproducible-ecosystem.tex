@@ -255,9 +255,8 @@ and some hints where this might be going…}
  \frametitle{Who are you?}
  \begin{itemize}
   \item Contributed to Free Software?
-  \item<2-4> Seen a talk about reproducible builds last year?
-  \item<3-4> Contributed to this effort?
-  \item<4> Seen the Guix talk yesterday?
+  \item<2-3> Seen a talk about reproducible builds last year?
+  \item<3> Contributed to this effort?
  \end{itemize}
 \end{frame}
 
@@ -346,17 +345,6 @@ and some hints where this might be going…}
 \end{center}
 \end{frame}
 
- \begin{itemize}
-  \item \texttt{https://reproducible-builds.org/docs}
-  \item Lunar's talk from CCCamp 2015 also on
-  \texttt{https://media.ccc.de}
- \begin{tikzpicture}[remember picture]
-  \node[shift={(-1.05\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
-    \includegraphics[width=0.83\textwidth]{images/cccamp2015_lunar_random.png}
-  };
- \end{tikzpicture}
- \end{itemize}
-\end{frame}
 
 \section{Common ressources}
 
@@ -372,6 +360,20 @@ and some hints where this might be going…}
 \end{frame}
 
 \begin{frame}
+ \frametitle{Documentation about common problems}
+ \begin{itemize}
+  \item \texttt{https://reproducible-builds.org/docs}
+  \item Lunar's talk from CCCamp 2015 also on
+  \texttt{https://media.ccc.de}
+ \begin{tikzpicture}[remember picture]
+  \node[shift={(-1.05\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
+    \includegraphics[width=0.83\textwidth]{images/cccamp2015_lunar_random.png}
+  };
+ \end{tikzpicture}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
  \frametitle{Common problems}
 
  \begin{itemize}
@@ -381,9 +383,6 @@ and some hints where this might be going…}
   \item<3> everything else (seperated into known issues and the blurry rest)
  \end{itemize}
 \end{frame}
-
-\begin{frame}
- \frametitle{Documentation about common problems}
 
 
 \begin{frame}
@@ -397,7 +396,7 @@ and some hints where this might be going…}
   \item<2-3> can also be used for random seeds etc.
   \item<3> in Debian, set from the latest \texttt{debian/changelog} entry
   \item<3> solution has been adopted by other projects \& distributions
-  (NetBSD, Guix, …)
+  (NetBSD, FreeBSD, Arch Linux, Guix, …)
  \end{itemize}
 \end{frame}
 
@@ -430,7 +429,7 @@ and some hints where this might be going…}
 
 
 \begin{frame}
- \frametitle{\texttt{SOURCE\_DATE\_EPOCH} (open bugs)}
+ \frametitle{\texttt{SOURCE\_DATE\_EPOCH} (open/pending bugs)}
 
  \begin{itemize}
   \item gcc (\texttt{\_\_DATE\_\_} and \texttt{\_\_TIME\_\_} macros) \texttt{\footnotesize{\url{https://gcc.gnu.org/ml/gcc-patches/2015-06/msg02210.html}}}
@@ -463,46 +462,6 @@ and some hints where this might be going…}
  \end{itemize}
 \end{frame}
 
-
-\begin{frame}
- \frametitle{amd64 architecture on tests.r-b.org}
-
- \begin{itemize}
-  \item \texttt{amd64}: 106 cores and 282 GB RAM split on 9 VMs
-  \begin{itemize}
-   \item 4 VMs with 17/18 cores and 32 GB for Debian
-   \item 1 VM (soon 2) with 8 cores and 16 GB for most of the rest
-   \item 1 jenkins VM and 1 jenkins-test VM
-   \item 1 extra VM for building FreeBSD
- \end{itemize}
- \item sponsored by \texttt{https://profitbricks.co.uk}
- \end{itemize}
- \begin{center}
-  \includegraphics[height=0.2\paperheight]{images/profitbricks_logo.png}
-  \vfill
- \end{center}
-\end{frame}
-
-
-\begin{frame}
- \frametitle{armhf architecture on tests.r-b.org}
-
- \begin{itemize}
-  \item \texttt{armhf}: 14 nodes with 50 cores and 23 GB RAM
-  \begin{itemize}
-   \item a few more nodes planned
-   \item combined they only draw 100 watts of power
-   \item<2> roughly takes 4 weeks to build one Debian suite
-  \end{itemize}
-  \item \small{hosted by \texttt{vagrant@debian.org}, several hardware sponsors
-  (Debian, TechNexion, LeMaker, SolidRun, Beagleboard.org and Aikidev)
-  plus 4.5k USD by Debian}
-\end{itemize}
- \begin{center}
-  \includegraphics[height=0.42\paperheight]{images/2016-01-26-180836.jpg}
-  \vfill
- \end{center}
-\end{frame}
 
 \begin{frame}[fragile]
  \frametitle{Variations (when testing Debian)}
@@ -603,6 +562,46 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \placelogotrue
 
 
+\begin{frame}
+ \frametitle{amd64 architecture on tests.r-b.org}
+
+ \begin{itemize}
+  \item \texttt{amd64}: 106 cores and 282 GB RAM split on 9 VMs
+  \begin{itemize}
+   \item 4 VMs with 17/18 cores and 32 GB for Debian
+   \item 1 VM (soon 2) with 8 cores and 16 GB for most of the rest
+   \item 1 jenkins VM and 1 jenkins-test VM
+   \item 1 extra VM for building FreeBSD
+ \end{itemize}
+ \item sponsored by \texttt{https://profitbricks.co.uk}
+ \end{itemize}
+ \begin{center}
+  \includegraphics[height=0.2\paperheight]{images/profitbricks_logo.png}
+  \vfill
+ \end{center}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{armhf architecture on tests.r-b.org}
+
+ \begin{itemize}
+  \item \texttt{armhf}: 14 nodes with 50 cores and 23 GB RAM
+  \begin{itemize}
+   \item a few more nodes planned
+   \item combined they only draw 100 watts of power
+   \item<2> roughly takes 4 weeks to build one Debian suite
+  \end{itemize}
+  \item \small{hosted by \texttt{vagrant@debian.org}, several hardware sponsors
+  (Debian, TechNexion, LeMaker, SolidRun, Beagleboard.org and Aikidev)
+  plus 4.5k USD by Debian}
+\end{itemize}
+ \begin{center}
+  \includegraphics[height=0.42\paperheight]{images/2016-01-26-180836.jpg}
+  \vfill
+ \end{center}
+\end{frame}
+
 \section{Status Debian}
 
 \begin{frame}
@@ -613,7 +612,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   };
  \end{tikzpicture}
  \begin{center}
-  \footnotesize{19,967 out of 23,587 source packages are reproducible \\
+  \footnotesize{20,079 (85\%) out of 23,595 source packages are reproducible \\
     in our test framework}
   \vfill
  \end{center}
@@ -624,10 +623,10 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
  \begin{itemize}
   \item { 179 categorised distinct issues }
-  \item { 3,793 notes }
-  \item<2-4> { 2527 unreproducible packages in \texttt{sid}, but only 138 without a 
+  \item { 3,792 notes }
+  \item<2-4> { 2549 unreproducible packages in \texttt{sid}, but only 139 without a 
   note }
-  \item<2-4> { 737 packages failing to build, but only 76 without a note }
+  \item<2-4> { 728 packages failing to build, but only 74 without a note }
   \item<3-4> { maintained in \texttt{notes.git} }
   \item<4> { currently Debian only, but cross distro notes are planned}
  \end{itemize}
@@ -800,7 +799,7 @@ Build-Environment:
   \item \texttt{https://tests.r-b.org/coreboot}
   \item 99.2\% reproducible with \texttt{seabios} payload
   \item tests maintained by Alexander 'lynxis' Couzens
-  \item unclear what the next steps are, maybe rebuilding released binaries?
+  \item unclear what the next steps are…
   \item needs more active involvement from coreboot developers
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
