@@ -57,12 +57,10 @@ make slides for each distro
 	netbsd - FIXME: recreating the build env?
 	coreboot - FIXME: recreating the build env?
 	qubes 4.0
-	fdroid
 	unmentioned, with known activity:
-		baserock
-		nixos
-		qubes
-		bitcoin / tor
+		NixOS
+		Qubes
+		Bitcoin / Tor
 		gambling industry
 	unmentioned, unknown activities?
 		suse could reuse scripts
