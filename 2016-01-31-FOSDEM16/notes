@@ -1,6 +1,5 @@
 demo: PTH=$(mktemp -d); OPTH=$PWD; P=giftrans; cp ${P}_* $PTH/; cd $PTH ; dpkg-source -x ${P}*.dsc ; for X in 1 2 3 4 5 ; do (cd ${P}-*/; dpkg-buildpackage -b -uc -us); mkdir -p .$X ; cp $P_*.deb .$X; done ; rm *deb ; echo; sha1sum *dsc *z .*/*.deb | grep -v giftrans-dbgsym ; cd - ; echo "don't foget to rm -r $PTH"
 
-really show live demo there? :)
 
 
 koji records the build
@@ -11,16 +10,10 @@ rpm container has
 	signature
 	signature changes between development and release
 
-whye  xplain why bit identical (eg cdroms)
-all of it:
-
 mention gsoc, new people
 
 emphasize this is too much for me…
 add thanks slide for all the people working on it in other projects
-
-
-go through paper plans
 
 end (or beginning?):
 	the whole world is watching? no (not that slide, but its true… or maybe that slide indeed)
@@ -36,60 +29,15 @@ end (or beginning?):
 describe debian test setup
 	debian repo
 	debian bugs categories, nah
-	debian stats
-		armhf/testing done in 23 days
 	mention variations from TODO
 	
-drop mentioning stip-nondeterminism
-
 diffoscope can use debug symbols now
 
-"identical build env" is non sense
-
-go through reports since athens
 add SOURCE_DATE_EPOCH adoption outside Debian…
 
 need logos:
 	fdroid
-	qubes
-
-make slides for each distro
-	netbsd - FIXME: recreating the build env?
-	coreboot - FIXME: recreating the build env?
 	qubes 4.0
-	unmentioned, with known activity:
-		NixOS
-		Qubes
-		Bitcoin / Tor
-		gambling industry
-	unmentioned, unknown activities?
-		suse could reuse scripts
-		ubuntu
-		openbsd
-		gentoo (stage1)
-		you name it
-		windows or any commercial vendor except gambling
-			medicine
-			arms
-			critical infrastructure
-			cars (hello VW)
-	debian
-		"last year we had 70 issues (now 180), but instead we rather present progress in 10 projects"
-		describe blockers:
-			dpkg
-				#759999 and #759886 are both blocked on "--clamp-mtime is only available since tar/1.28-1 and not in upstream tar"
-					upstream patch, without feedback yet: https://lists.gnu.org/archive/html/help-tar/2016-01/msg00000.html
-				#138409: dpkg-dev: please add support for .buildinfo files
-			ftp.d.o
-				https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=763822#10
-		describe nice to haves:
-			reprepro
-			etc
-		20k reproducible source packages in main alone! reached on january 29th
-		so 3k left to fix
-		X notes in Y issues on these
-		Z uncatarogized
-		hepl, be Zorro!
 
 dpkg: mention recent developments… same for ftp!
 re-read: https://wiki.debian.org/ReproducibleBuilds/About etc
@@ -98,9 +46,10 @@ explain shortcuts:
         defined build environment with little variations
         subsets
 
-    many good sideeffects
+many good sideeffects
+	QA QA QA
 	eg also arm bootloader improvements ;)
-	faster builds
+	faster builds, saves money
 	check our wiki page on that
 
 future other tests:
@@ -112,8 +61,6 @@ future
 	another meeting or two in 2016
 	fosdem devroom in 2017?!
 	tests.r-b.o doing rebuilds against releases
-
-prepare demo using screenshots
 
 disclaimer:
 	the mistakes are mine
