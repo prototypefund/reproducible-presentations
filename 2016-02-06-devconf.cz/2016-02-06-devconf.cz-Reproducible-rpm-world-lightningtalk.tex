@@ -247,7 +247,8 @@ to describe this properly in 10 minutes…}
  \begin{itemize}
   \item CVE-2002-0083: remote root exploit in \texttt{sshd}, a single bit difference in the binary
   \item<2-5> 31c3 talk had a live demo with a kernel module modifying source code in memory only
-  \item<3-5> financial incentives to crack developer machines…
+  \item<3-5> financial incentives to crack developer machines or a projects
+  build infrastructure…
   \item<4-5> {how can you be sure what's running on your machine or on a build
   daemon network? Do you ever leave your} \only<4>{USB3 ports alone?}\only<5>{computers alone?}
  \end{itemize}
@@ -265,17 +266,6 @@ to describe this properly in 10 minutes…}
   }
  \end{center}
 \end{frame}
-
-\begin{frame}[fragile]
- \frametitle{More benefits…}
- \begin{itemize}
-  \item smaller deltas, thus faster updates possible
-  \item in Debian: lots of QA benefits
-  \item Google does reproducible builds, to save money
-  \item …
- \end{itemize}
-\end{frame}
-
 
 
 \begin{frame}
@@ -325,6 +315,17 @@ to describe this properly in 10 minutes…}
   it's only free software if it's reproducible!}}
 \end{center}
 \end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{More benefits than "just" security…}
+ \begin{itemize}
+  \item smaller deltas, thus faster updates possible
+  \item in Debian: lots of QA benefits
+  \item Google does reproducible builds, to save money
+  \item …
+ \end{itemize}
+\end{frame}
+
 
 
 \section{Common ressources}
@@ -582,14 +583,16 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
  \begin{itemize}
   \item Weekly reports since May 2015
-  \item<2-3> First Reproducible World Summit in December 2015 (Athens, Greece)
+  \item<2-4> First Reproducible World Summit in December 2015 (Athens, Greece)
    \begin{itemize}
-    \item<2-3> 40 people from 16 projects
-    \item<2-3> \texttt{reproducible.debian.net} has become
+    \item<2-4> 40 people from 16 projects
+    \item<2-4> \texttt{reproducible.debian.net} has become
   \texttt{tests.reproducible-builds.org}
-  \item<3> another Summit in April/May 2016?! Talk to me if you want to
+  \item<3-4> another Summit, probably in May/June 2016?! Talk to me if you want to
   attend.
    \end{itemize}
+   \item<4> "We don't care about Debian (only), we care about free and open
+   source software."
  \end{itemize}
 \end{frame}
 
@@ -601,7 +604,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   happen by sheer luck.
   \item<2>{I've only seen this verified for Debian so far… \texttt{koji}
   is designed for that too, Guix as well…}
-\item<2> {I'd very much like to be corrected here, with tests.}
+ \begin{itemize}
+ \item \texttt{.buildinfo} files in Debian…
+\end{itemize}
  \end{itemize}
 \end{frame}
 
@@ -609,12 +614,12 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{Reminder / Summary}
  \begin{itemize}
   \item This is just a proof-of-concept, Debian is not 85\% reproducible
-  \item Patches still need to be merged
-  \item<2-4> I hope that Debian 9, "stretch", will be partially reproducible in a meaningful way
-  \item<3-4> Debian "unstable" as an easter (=end of March 2016) present?
-  \item<4> what's beyond (rebuilding, \texttt{.buildinfo} file handling, user
+  \item<2-5> Debian "unstable" this summer?!!
+  \item<3-5> I hope that Debian 9, "stretch", will be partially reproducible
+  in a meaningful way, in 2017
+  \item<4-5> what's beyond (rebuilding, \texttt{.buildinfo} file handling, user
   tools) mostly still needs \it{design} and code
-
+  \item<5> will Debian 10, "buster", be 100\% reproducible?
  \end{itemize}
 \end{frame}
 
@@ -644,12 +649,14 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item rpm repo available by Dhiru, but still \textbf{0\% reproducible}
   \item rpm format includes build time, build host and embedded signature
   \item recreating the build env: koji
-  \item next: 24+rawhide, first reproducible rpm, use koji
-  \item next: get more people involved
+  \item next: 24+rawhide
+  \item next: get more people involved - \textbf{you ?}
+  \item next: first reproducible rpm
+  \item next: use koji
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.33\paperheight]{images/fedora.png}
+  \node[shift={(-0.12\paperwidth, 0.19\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.29\paperheight]{images/fedora.png}
   };
  \end{tikzpicture}
 \end{frame}
@@ -776,11 +783,14 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{Questions, comments, ideas?}
 
  \begin{itemize}
-  \item<2-3> \url{https://reproducible-builds.org/docs}
-  \item<2-3> \url{https://tests.reproducible-builds.org}
-  \item<2-3> \texttt{\#reproducible-builds} on \texttt{irc.OFTC.net}
-  \item<3> \url{https://lists.reproducible-builds.org}
-  \item<3> \url{https://twitter.com/ReproBuild}
+  \item \url{https://reproducible-builds.org/docs}
+  \item \url{https://tests.reproducible-builds.org}
+  \item \texttt{\#reproducible-builds} on \texttt{irc.OFTC.net}
+  \item<2-3> \url{https://lists.reproducible-builds.org}
+  \item<2-3> \url{https://twitter.com/ReproBuild}
+  \item<3> Mike and Seth's talk from 31c3 about motivations
+  \item<3> Lunar's talk about fixing reproducible issues from CCCamp 15
+  \item<3> my talk "the Reproducible builds ecosystem" from FOSDEM 16
   \end{itemize}
 \end{frame}
 
