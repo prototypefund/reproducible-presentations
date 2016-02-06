@@ -188,47 +188,6 @@ to describe this properly in 10 minutes…}
 \end{frame}
 
 
-\begin{frame}
- \frametitle{jenkins.debian.net.git contributors}
- \begin{center}
-  \begin{columns}
-   \small
-   \column{.46\linewidth}
-    {akira} \\
-    \only<1>{Alexander Couzens}\only<2>{{\color{debianred} Alexander Couzens}} \\
-    \only<1>{Levente 'anthraxx' Polyak}\only<2>{{\color{debianred} Levente 'anthraxx' Polyak}} \\
-    {Antonio Terceiro} \\
-    {Axel Beckert} \\
-    \only<1>{Bryan Newbold}\only<2>{{\color{debianred} Bryan Newbold}} \\
-    {Chris Lamb} \\
-    {Daniel Kahn Gillmor} \\
-    {Gabriele Giacone} \\
-    \only<1>{Hans-Christoph Steiner}\only<2>{{\color{debianred} Hans-Christoph Steiner}} \\
-    Helmut Grohne \\
-    \only<1>{Holger Levsen}\only<2>{{\color{debianred} Holger Levsen}} \\
-    \only<1>{HW42}\only<2>{{\color{debianred} HW42}} \\
-    {James McCoy} \\
-    {Joachim Breitner} \\
-   \column{.46\linewidth}
-    {Johannes 'josch' Schauer} \\
-    {Jérémy Bobbio} \\
-    {Mattia Rizzolo} \\
-    {Niels Thykier} \\
-    {Paul Wise} \\
-    {Petter Reinholdtsen} \\
-    {Philip Hands} \\
-    \only<1>{Reiner Herrmann}\only<2>{{\color{debianred} Reiner Herrmann}} \\
-    {Samuel Thibault} \\
-    {Steven Chamberlain} \\
-    {Tails developers} \\
-    {Ulrike Uhlig} \\
-    {Wolfgang Schweer} \\
-    {Wouter Verhelst} \\
-  \end{columns}
- \end{center}
-\end{frame}
-
-
 
 \section{Motivation}
 
@@ -562,21 +521,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{center}
 \end{frame}
 
-\begin{frame}
- \frametitle{What we did in Debian}
-
- \begin{itemize}
-  \item Agreed on using a fixed build path: \texttt{/build/}
-  \item Recording the build environment: \texttt{.buildinfo}
-  \item \texttt{strip-nondeterminism}
-  \item \texttt{diffoscope} (formerly \texttt{debbindiff})
-  \item \texttt{SOURCE\_DATE\_EPOCH}
-  \item \texttt{disorderfs}
-  \item 1000+ patches: \texttt{dpkg}, \texttt{debhelper}, \texttt{sbuild}, …
-  \item …
- \end{itemize}
-\end{frame}
-
 
 \begin{frame}
  \frametitle{Tell the world \& collaborate}
@@ -704,10 +648,11 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{itemize}
   \item Individuelly signed checksums (think web of trust) could work in the
   Debian case (we have a gpg web of trust), but IMO won't scale.
-  \item<2-3> { Another idea: rebuilders, run by large organisations
+  \item<2-4> { Another idea: rebuilders, run by large organisations
   (ACLU, CCC, CERN, Deutsche Bank, EDF, EON, Greenpeace, NASA, NSA, XYZ).}
-  \item<3> Fedora rebuilds Debian, Debian rebuilds OpenSUSE, OpenSUSE rebuilds
+  \item<3-4> Fedora rebuilds Debian, Debian rebuilds OpenSUSE, OpenSUSE rebuilds
   NetBSD, etc…
+  \item<4> Big customers could just rebuild everything themselves.
  \end{itemize}
 \end{frame}
 
