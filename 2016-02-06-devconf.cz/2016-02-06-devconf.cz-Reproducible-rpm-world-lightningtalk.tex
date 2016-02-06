@@ -91,7 +91,8 @@
 
 \setbeamercolor{block title}{fg=debianblue}
 
-\title[Reproducible builds for the RPM world]{Reproducible builds for RPMs}
+\title[Reproducible builds for RPMs]{Bit by bit identically reproducible
+builds \\ for the RPM world}
 \subtitle{Lightning talk \\
 as if it were possible\\
 to describe this properly in 10 minutes…}
@@ -187,6 +188,12 @@ to describe this properly in 10 minutes…}
  \end{center}
 \end{frame}
 
+\begin{frame}
+ \frametitle{Who are you?}
+ \begin{itemize}
+  \item<2> Seen a talk about reproducible builds?
+ \end{itemize}
+\end{frame}
 
 
 \section{Motivation}
@@ -251,6 +258,10 @@ to describe this properly in 10 minutes…}
 
 \begin{frame}
  \frametitle{Demo}
+ \begin{itemize}
+ \item<2-3> Build a package 5 times, get 5 .debs with different checksums
+ \item<3> Build a package 5 times, get 5 .debs with the same checksum
+ \end{itemize}
 % show this once running in plain sid,
 % and then in sid with our modified toolchain.
 %
@@ -333,10 +344,11 @@ to describe this properly in 10 minutes…}
   \item Build date (timestamps) usually not useful for the user
   \item \texttt{SOURCE\_DATE\_EPOCH} is defined as the last modification of
   the source, since the epoch (1970-01-01)
-  \item \texttt{SOURCE\_DATE\_EPOCH} can be used instead of current date
+  \item can be used instead of current date
   \item can also be used for random seeds etc.
   \item in Debian, set from the latest \texttt{debian/changelog} entry
-  \item<2> solution has been adopted by other projects \& distributions
+  \item<2> many upstreams support it already
+  \item<2> has been adopted by other distributions
   (NetBSD, FreeBSD, Arch Linux, Guix, …)
  \end{itemize}
 \end{frame}
@@ -541,29 +553,15 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \end{frame}
 
 \begin{frame}
- \frametitle{Detour: Reproducible builds demand a defined build environment}
- \begin{itemize}
-  \item …and being able to re-create this build environment is mandatory too.
-  \item Without an \textit{sufficiently identical} build environment, reproducible builds will only
-  happen by sheer luck.
-  \item<2>{I've only seen this verified for Debian so far… \texttt{koji}
-  is designed for that too, Guix as well…}
- \begin{itemize}
- \item \texttt{.buildinfo} files in Debian…
-\end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}
  \frametitle{Reminder / Summary}
  \begin{itemize}
   \item This is just a proof-of-concept, Debian is not 85\% reproducible
   \item<2-5> Debian "unstable" this summer?!!
   \item<3-5> I hope that Debian 9, "stretch", will be partially reproducible
-  in a meaningful way, in 2017
-  \item<4-5> what's beyond (rebuilding, \texttt{.buildinfo} file handling, user
+  in a meaningful way, in 2017.
+  \item<4-5> What's beyond (rebuilding, \texttt{.buildinfo} file handling, user
   tools) mostly still needs \it{design} and code
-  \item<5> will Debian 10, "buster", be 100\% reproducible?
+  \item<5> Will Debian 10, "buster", be 100\% reproducible?
  \end{itemize}
 \end{frame}
 
@@ -617,17 +615,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{itemize}
 \end{frame}
 
-\begin{frame}
- \frametitle{Unmentioned, unknown activities?}
- \begin{itemize}
-\item  OpenSUSE (could be tested easily…)
-\item  Ubuntu
-\item  OpenBSD
-\item  Gentoo (stage1)
- \item ?
-\end{itemize}
-\end{frame}
-
 
 \placelogotrue
 
@@ -638,8 +625,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{itemize}
   \item Almost no work has been done here yet. We are just at the first step:
   being able to rebuild reproducibly…
-  \item<2-3> Systematic, automatic rebuilds? 
-  \item<3> Different projects, different solutions? 
+  \item<2> Different projects, different solutions?
  \end{itemize}
 \end{frame}
 
@@ -717,6 +703,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
     \item Talk to me here or talk to us on IRC or via mail.
     \item RTFM, there is lots of documentation
     \item Experiment - learning by doing
+    \item Use+debug existing patches to \texttt{rpm-build}
    \end{itemize}
  \end{itemize}
 \end{frame}
