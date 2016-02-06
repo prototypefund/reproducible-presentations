@@ -93,12 +93,13 @@
 
 \title[Reproducible builds for the RPM world]{Reproducible builds for RPMs}
 \subtitle{Lightning talk \\
-as if it were possible to describe this properly in 5 minutes…}
+as if it were possible\\
+to describe this properly in 10 minutes…}
 \author[Holger 'h01ger' Levsen]{%
    \texorpdfstring{
             \centering
             Holger 'h01ger' Levsen\\
-            \href{mailto:holger@layer-acht.org}{holger@layer-acht.org}
+            \href{mailto:holger@debian.org}{holger@debian.org}
    }{h01ger}}
 \institute[Debian]{}
 \date[devconf.cz]{%
@@ -264,6 +265,17 @@ as if it were possible to describe this properly in 5 minutes…}
   }
  \end{center}
 \end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{More benefits…}
+ \begin{itemize}
+  \item smaller deltas, thus faster updates possible
+  \item in Debian: lots of QA benefits
+  \item Google does reproducible builds, to save money
+  \item …
+ \end{itemize}
+\end{frame}
+
 
 
 \begin{frame}
@@ -453,7 +465,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item Falls back to binary comparison.
   \item Available from \texttt{git}, PyPI, Debian (sid and stretch), \\
    Arch Linux, Guix, Homebrew. Works on BSD.
-  \item Maintainers in other distros wanted.
+  \item Maintainers in other distros wanted. \textbf{hint, hint.}
   \item \url{https://diffoscope.org/}
  \end{itemize}
 \end{frame}
@@ -530,6 +542,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{Debian packages on tests.reproducible-builds.org}
  \begin{itemize}
   \item \url {https://reproducible.debian.net/$src}
+  \item<2> package sets
  \end{itemize}
 \end{frame}
 
@@ -613,7 +626,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{Skipped stati}
  \begin{itemize}
   \item \texttt{https://tests.r-b.org/coreboot}
-  \item \texttt{https://tests.r-b.org/coreboot}
+  \item \texttt{https://tests.r-b.org/openwrt}
   \item \texttt{https://tests.r-b.org/netbsd}
   \item \texttt{https://tests.r-b.org/freebsd}
   \item \texttt{https://tests.r-b.org/archlinux}
@@ -629,7 +642,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item \texttt{https://tests.r-b.org/fedora} (23)
   \item maintained by Dhiru Kholia and h01ger
   \item rpm repo available by Dhiru, but still \textbf{0\% reproducible}
-  \item rpm format includes build time and build host and…
+  \item rpm format includes build time, build host and embedded signature
   \item recreating the build env: koji
   \item next: 24+rawhide, first reproducible rpm, use koji
   \item next: get more people involved
@@ -644,11 +657,11 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \begin{frame}
  \frametitle{Unmentioned, with known activities}
  \begin{itemize}
-\item Bitcoin
-\item Tor
+\item Bitcoin (2011)
+\item Tor (2013)
     \item NixOS
     \item Qubes
-\item    commercial, propietary Software
+\item    few commercial, propietary Software
 \item ?
  \end{itemize}
 \end{frame}
@@ -730,7 +743,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item Docs on the web: \\
     \small{\url{https://reproducible-builds.org/docs/}} \\
     \small{\url{https://wiki.debian.org/ReproducibleBuilds/ExperimentalToolchain}}
-  \item Ask for help on \texttt{\#debian-reproducible} or on mailing list
+  \item Ask for help on \texttt{\#reproducible-builds} or on mailing list
  \end{itemize}
 \end{frame}
 
@@ -744,7 +757,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
     \item Every distribution should be reproducible!
     \item Learn something new everyday
     \item Change the (software) world!
-    \item \texttt{https://tests.reproducible-builds.org/\$project} needs
+    \item \texttt{https://tests.reproducible-builds.org/fedora} needs
     \textbf{your} help
    \end{itemize}
   \item How to get started?
@@ -766,8 +779,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item<2-3> \url{https://reproducible-builds.org/docs}
   \item<2-3> \url{https://tests.reproducible-builds.org}
   \item<2-3> \texttt{\#reproducible-builds} on \texttt{irc.OFTC.net}
-  \item<2-3> \small{and/or \texttt{\#debian-reproducible} too!}
-  \item<2-3> \small\it{with IRC notification by \texttt{KGB-0}}
   \item<3> \url{https://lists.reproducible-builds.org}
   \item<3> \url{https://twitter.com/ReproBuild}
   \end{itemize}
