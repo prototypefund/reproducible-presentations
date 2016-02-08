@@ -312,6 +312,17 @@ to describe this properly in 10 minutes…}
 \end{frame}
 
 \begin{frame}
+ \frametitle{Common problems}
+
+ \begin{itemize}
+  \item time stamps
+  \item timezones
+  \item locales
+  \item everything else (seperated into known issues and the blurry rest)
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
  \frametitle{Documentation about common problems}
  \begin{itemize}
   \item \texttt{https://reproducible-builds.org/docs}
@@ -322,17 +333,6 @@ to describe this properly in 10 minutes…}
     \includegraphics[width=0.83\textwidth]{images/cccamp2015_lunar_random.png}
   };
  \end{tikzpicture}
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Common problems}
-
- \begin{itemize}
-  \item time stamps
-  \item timezones
-  \item locales
-  \item<2> everything else (seperated into known issues and the blurry rest)
  \end{itemize}
 \end{frame}
 
@@ -347,9 +347,8 @@ to describe this properly in 10 minutes…}
   \item can be used instead of current date
   \item can also be used for random seeds etc.
   \item in Debian, set from the latest \texttt{debian/changelog} entry
-  \item<2> many upstreams support it already
-  \item<2> has been adopted by other distributions
-  (NetBSD, FreeBSD, Arch Linux, Guix, …)
+  \item can be set to the latest git commit too or the latest file
+  modification date
  \end{itemize}
 \end{frame}
 
@@ -359,6 +358,9 @@ to describe this properly in 10 minutes…}
  \begin{itemize}
   \item \texttt{SOURCE\_DATE\_EPOCH} spec available:
   \item \texttt{https://reproducible-builds.org/specs/}
+  \item many upstreams support it already
+  \item has been adopted by other distributions
+  (NetBSD, FreeBSD, Arch Linux, Guix, …)
  \end{itemize}
 \end{frame}
 
@@ -374,8 +376,8 @@ to describe this properly in 10 minutes…}
   \item 230 jenkins jobs
   \item 7 \texttt{amd64} nodes, 120 cores and 300 GB ram
   \item 15 \texttt{armhf} nodes, 54 cores and 25 GB ram
-  \item<2> 42 scripts in Python and Bash, 282 lines of code in average
-  \item<2> 29 contributors for \texttt{jenkins.debian.net.git}
+  \item 42 scripts in Python and Bash, 282 lines of code in average
+  \item 29 contributors for \texttt{jenkins.debian.net.git}
  \end{itemize}
 \end{frame}
 
@@ -459,7 +461,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
  \begin{itemize}
   \item Reminder: \texttt{diffoscope} is for \textbf{debugging}
-  \item<2> "reproducible" according to our definition means: \textbf{bit by bit
+  \item "reproducible" according to our definition means: \textbf{bit by bit
   identical}. So the tools for testing whether something is reproducible are
   either \texttt{diff} or \texttt{sha256sum}!
  \end{itemize}
@@ -486,29 +488,28 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{center}
 \end{frame}
 
-\begin{frame}
- \frametitle{Notes and issues on tests.reproducible-builds.org}
-
- \begin{itemize}
-  \item { 179 categorised distinct issues }
-  \item { 3,792 notes }
-  \item<2-4> { 2549 unreproducible packages in \texttt{sid}, but only 139 without a 
-  note }
-  \item<2-4> { 728 packages failing to build, but only 74 without a note }
-  \item<3-4> { maintained in \texttt{notes.git} }
-  \item<4> { currently Debian only, but cross distro notes are planned}
- \end{itemize}
-\end{frame}
-
-
 
 \begin{frame}
  \frametitle{Debian packages on tests.reproducible-builds.org}
  \begin{itemize}
-  \item \url {https://reproducible.debian.net/$src}
-  \item<2> package sets
+  \item \url{https://reproducible.debian.net/$src}
+  \item 29 package sets 
  \end{itemize}
 \end{frame}
+
+\begin{frame}
+ \frametitle{Notes and issues on tests.reproducible-builds.org}
+
+ \begin{itemize}
+  \item 179 categorised distinct issues
+  \item 3,792 notes
+  \item 2549 unreproducible packages in \texttt{sid}, but only 139 without a note
+  \item 728 packages failing to build, but only 74 without a note
+  \item maintained in \texttt{notes.git}
+  \item currently Debian only, but cross distro notes are planned
+ \end{itemize}
+\end{frame}
+
 
 
 \begin{frame}
@@ -531,17 +532,14 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
  \begin{itemize}
   \item Weekly reports since May 2015
-  \item<2-4> First Reproducible World Summit in December 2015 (Athens, Greece)
+  \item<2-3> First Reproducible World Summit in December 2015 (Athens, Greece)
    \begin{itemize}
-    \item<2-4> 40 people from 16 projects
-    \item<2-4> \texttt{reproducible.debian.net} has become
-  \texttt{tests.reproducible-builds.org}
-  \item<3-4> Planning for next summit, probably in May/June 2016, has just
-  begun
-  \item<3-4> Talk to me if you want to
-  attend.
+    \item<2-3> 40 people from 16 projects
+    \item<2-3> \texttt{reproducible.debian.net} has become \texttt{tests.reproducible-builds.org}
+    \item<2-3> Planning for next summit, probably in May/June 2016, has just begun
+    \item<2-3> Talk to me if you want to attend.
    \end{itemize}
-   \item<4> "We don't care about Debian (only), we care about free and open
+  \item<3> "We don't care about Debian (only), we care about free and open
    source software."
  \end{itemize}
 \end{frame}
@@ -550,11 +548,11 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{Reminder / Summary}
  \begin{itemize}
   \item This is just a proof-of-concept, Debian is not 85\% reproducible
-  \item<2-5> Debian "unstable" this summer?!!
-  \item<3-5> I hope that Debian 9, "stretch", will be partially reproducible
+  \item Debian "unstable" this summer?!!
+  \item<2-3> I hope that Debian 9, "stretch", will be partially reproducible
   in a meaningful way, in 2017.
-  \item<4-5> Will Debian 10, "buster", be 100\% reproducible?
-  \item<5> What's beyond (rebuilding, \texttt{.buildinfo} file handling, user
+  \item<2-3> Will Debian 10, "buster", be 100\% reproducible?
+  \item<3> What's beyond (rebuilding, \texttt{.buildinfo} file handling, user
   tools) mostly still needs \it{design} and code
  \end{itemize}
 \end{frame}
@@ -631,7 +629,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{itemize}
   \item Almost no work has been done here yet. We are just at the first step:
   being able to rebuild reproducibly…
-  \item<2> Different projects, different solutions?
+  \item Different projects, different solutions?
  \end{itemize}
 \end{frame}
 
@@ -640,11 +638,11 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{itemize}
   \item Individuelly signed checksums (think web of trust) could work in the
   Debian case (we have a gpg web of trust), but IMO won't scale.
-  \item<2-4> { Another idea: rebuilders, run by large organisations
+  \item { Another idea: rebuilders, run by large organisations
   (ACLU, CCC, CERN, Deutsche Bank, EDF, EON, Greenpeace, NASA, NSA, XYZ).}
-  \item<3-4> Fedora rebuilds Debian, Debian rebuilds OpenSUSE, OpenSUSE rebuilds
+  \item Fedora rebuilds Debian, Debian rebuilds OpenSUSE, OpenSUSE rebuilds
   NetBSD, etc…
-  \item<4> Big customers could just rebuild everything themselves.
+  \item Big customers could just rebuild everything themselves.
  \end{itemize}
 \end{frame}
 
@@ -653,11 +651,10 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{Integration in user tools}
  \begin{itemize}
   \item "Do you really want to install this unreproducible software (y/N)"
-  \item<2-4> "Do you want to build those packages which unconfirmed checksums,
+  \item<2-3> "Do you want to build those packages which unconfirmed checksums,
   before installing? (Y/n)"
-  \item<3-4>{ "How many signed checksums do you require to call a package
-  'reproducible'?"}
-  \item<4>{ "Which rebuilders do you want to trust?"}
+  \item<3>{ "How many signed checksums do you require to call a package
+  'reproducible'?" - and whom do you trust?}
  \end{itemize}
 \end{frame}
 
