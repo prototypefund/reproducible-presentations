@@ -1,6 +1,6 @@
 .PHONY: all source images
 
-PRESENTATION = 2016-02-06-devconf.cz-Reproducible-rpm-world-lightningtalk
+PRESENTATION = 2016-Lightning-talk-template
 
 all: $(PRESENTATION).pdf
 
