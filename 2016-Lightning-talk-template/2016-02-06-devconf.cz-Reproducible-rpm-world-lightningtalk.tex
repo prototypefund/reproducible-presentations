@@ -330,9 +330,9 @@ to describe this properly in 10 minutes…}
 
  \begin{itemize}
   \item time stamps
-  \item<2-3> timezones
-  \item<2-3> locales
-  \item<3> everything else (seperated into known issues and the blurry rest)
+  \item timezones
+  \item locales
+  \item<2> everything else (seperated into known issues and the blurry rest)
  \end{itemize}
 \end{frame}
 
@@ -371,8 +371,9 @@ to describe this properly in 10 minutes…}
   \texttt{experimental}
   \item Also testing: coreboot, OpenWrt, NetBSD, FreeBSD,
   Arch Linux, Fedora and soon F-Droid and Guix too
-  \item<2> 230 jenkins jobs running on seven amd64 nodes with 120 cores and
-  300 GB ram combined and 15 small armhf nodes…
+  \item 230 jenkins jobs
+  \item 7 \texttt{amd64} nodes, 120 cores and 300 GB ram
+  \item 15 \texttt{armhf} nodes, 54 cores and 25 GB ram
   \item<2> 42 scripts in Python and Bash, 282 lines of code in average
   \item<2> 29 contributors for \texttt{jenkins.debian.net.git}
  \end{itemize}
@@ -426,7 +427,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 }
 
 \begin{frame}{diffoscope}
- \frametitle{Debugging problems: \texttt{diffoscope}}
+ \frametitle{Debugging problems: \texttt{https://try.diffoscope.org}}
 
  \begin{itemize}
   \item Examines differences \textbf{in depth}.
@@ -435,9 +436,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   binaries, unpacks Gettext files, …
   \item Easy to extend to new file formats.
   \item Falls back to binary comparison.
-  \item Available from \texttt{git}, PyPI, Debian (sid and stretch), \\
+  \item Available from \texttt{git}, PyPI, Debian, \\
    Arch Linux, Guix, Homebrew. Works on BSD.
-  \item Maintainers in other distros wanted. \textbf{hint, hint.}
+  \item Maintainers in other distros wanted.
   \item \url{https://diffoscope.org/}
  \end{itemize}
 \end{frame}
@@ -451,15 +452,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   };
  \end{tikzpicture}
 \end{frame}
-
-
-\begin{frame}{diffoscope}
- \frametitle{Try \texttt{diffoscope}}
- \begin{itemize}
-  \item \texttt{https://try.diffoscope.org}
- \end{itemize}
-\end{frame}
-
 
 
 \begin{frame}
@@ -732,11 +724,11 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item \url{https://reproducible-builds.org/docs}
   \item \url{https://tests.reproducible-builds.org}
   \item \texttt{\#reproducible-builds} on \texttt{irc.OFTC.net}
-  \item<2-3> \url{https://lists.reproducible-builds.org}
-  \item<2-3> \url{https://twitter.com/ReproBuild}
-  \item<3> Mike and Seth's talk from 31c3 about motivations
-  \item<3> Lunar's talk about fixing reproducible issues from CCCamp 15
-  \item<3> my talk "the Reproducible builds ecosystem" from FOSDEM 16
+  \item \url{https://lists.reproducible-builds.org}
+  \item \url{https://twitter.com/ReproBuild}
+  \item Mike and Seth's talk from 31c3 about motivations
+  \item Lunar's talk about fixing reproducible issues from CCCamp 15
+  \item my talk "the Reproducible builds ecosystem" from FOSDEM 16
   \end{itemize}
 \end{frame}
 
