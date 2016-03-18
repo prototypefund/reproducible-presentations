@@ -1,16 +1,16 @@
 demo: PTH=$(mktemp -d); OPTH=$PWD; P=giftrans; cp ${P}_* $PTH/; cd $PTH ; dpkg-source -x ${P}*.dsc ; for X in 1 2 3 4 5 ; do (cd ${P}-*/; dpkg-buildpackage -b -uc -us); mkdir -p .$X ; cp $P_*.deb .$X; done ; rm *deb ; echo; sha1sum *dsc *z .*/*.deb | grep -v giftrans-dbgsym ; cd - ; echo "don't foget to rm -r $PTH"
 
-weekly news
-	new editor
-update images
+distro icons bischen nach rechts
+update 
+	all graphs and numbers attached
+	230 jobs on X hosts
+	"Notes and issues"
+	check: diffoscope in fedora?	
+	check: S_D_E adopted by rpm already? -> erwähnen bei "adopted"
 more pkg sets
-	essential
+	key packages
 	subgraph
-update:
-	tar blocks dpkg
-	i386+armhf coming
-
-
+re-read notes below
 
 koji records the build
 	can be used to recreate it, in theory, in practice this needs documentation / be done
@@ -68,8 +68,8 @@ future other tests:
 
 future
 	funding
-	another meeting or two in 2016
-	fosdem devroom in 2017?!
+	another meeting in 2016
+	fosdem devroom in 2017?
 	tests.r-b.o doing rebuilds against releases
 
 disclaimer:

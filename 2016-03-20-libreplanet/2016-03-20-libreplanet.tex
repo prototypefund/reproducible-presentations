@@ -1,4 +1,4 @@
-\documentclass[14pt]{beamer}
+\documentclass[14pt,aspectratio=169]{beamer}
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{caption label separator}{:}
 \setbeamercolor{caption name}{fg=normal text.fg}
@@ -256,8 +256,9 @@ and some hints where this might be going…}
  \frametitle{Who are you?}
  \begin{itemize}
   \item Contributed to Free Software?
-  \item<2-3> Seen a talk about reproducible builds last year?
-  \item<3> Contributed to this effort?
+  \item<2-4> Contributed to Debian?
+  \item<2-4> Seen a talk about reproducible builds?
+  \item<4> Contributed to this effort?
  \end{itemize}
 \end{frame}
 
@@ -457,7 +458,7 @@ and some hints where this might be going…}
   \item Also testing: coreboot, OpenWrt, NetBSD, FreeBSD,
   Arch Linux, Fedora and soon F-Droid and Guix too
   \item<2-3> 230 jenkins jobs running on 22 hosts
-  \item<2-3> 42 scripts with a total of 4k lines of Python and 6k lines of Bash
+  \item<2-3> 41 scripts with a total of 4k lines of Python and 6k lines of Bash
   Shell
   \item<2-3> 29 contributors for \texttt{jenkins.debian.net.git}
   \item<3> Really simple code.
@@ -471,7 +472,7 @@ and some hints where this might be going…}
 
  \begin{center}
   \begin{table}
-   \resizebox{0.95\textwidth}{!}{%
+   \resizebox{0.90\textwidth}{!}{%
     \begin{tabular}{l|ll}
 \textbf{variation} & \textbf{first build} & \textbf{second build} \\
 \hline
@@ -524,7 +525,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item Falls back to binary comparison.
   \item Available from \texttt{git}, PyPI, Debian (sid and stretch), \\
    Arch Linux, Guix, Homebrew. Works on BSD.
-  \item Maintainers in other distros wanted.
+  \item Maintainers (upstream and in other distros) wanted.
   \item \url{https://diffoscope.org/}
  \end{itemize}
 \end{frame}
@@ -577,6 +578,12 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
    \item 1 extra VM for building FreeBSD
  \end{itemize}
  \item sponsored by \texttt{https://profitbricks.co.uk}
+ \item<2> next week: downscale to 2 VMs and dedicate those 2 others to
+ \texttt{i386}
+  \begin{itemize}
+   \item<2> then rebuilding all of \texttt{unstable} and \texttt{testing} on both
+   archs will roughly take two weeks…
+  \end{itemize}
  \end{itemize}
  \begin{center}
   \includegraphics[height=0.2\paperheight]{images/profitbricks_logo.png}
@@ -667,7 +674,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{tikzpicture}
  \begin{center}
   \footnotesize{As a rule, we file bugs with patches. \\
-  There are very few exceptions.}
+  There were very few exceptions.}
   \vfill
  \end{center}
 \end{frame}
@@ -693,16 +700,20 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
  \begin{itemize}
   \item Weekly reports since May 2015
+   \begin{itemize}
+    \item need a new editor
+   \end{itemize}
   \item<2-4> First Reproducible World Summit in December 2015 (Athens, Greece)
    \begin{itemize}
     \item<2-4> 40 people from 16 projects
     \item<2-4> \texttt{reproducible.debian.net} has become
   \texttt{tests.reproducible-builds.org}
-  \item<3-4> another Summit in April/May 2016?!
+  \item<3-4> another summit in Summer 2016, somewhere in Europe
    \end{itemize}
   \item<4> 2 GSoC students in 2015, totally new contributors, totally rocking
   \begin{itemize}
- \item<4> more GSoC/Outreachy contributors this year?!!
+ \item<4> more GSoC/Outreachy contributors this year - maybe you? Deadline is
+ March 25th
    \end{itemize}
  \end{itemize}
 \end{frame}
@@ -787,19 +798,20 @@ Build-Environment:
  \begin{itemize}
   \item Section 4.15: “Sources \textbf{must} build reproducible binaries.”
   \item<2-3> We hope this will happen after stretch (Debian 9) release
-  \item<3> In 2016: “Sources \textbf{shall} build reproducible binaries.”
+  \item<3> In 2016: “Sources \textbf{shall} build reproducible binaries.” ?
  \end{itemize}
 \end{frame}
 
 \begin{frame}
  \frametitle{Reminder / Summary}
  \begin{itemize}
-  \item This is just a proof-of-concept, Debian is not 85\% reproducible
+  \item This is just a proof-of-concept, Debian is not 87\% reproducible
   \item Patches still need to be merged
   \item<2-4> I hope that Debian 9, "stretch", will be partially reproducible in a meaningful way
-  \item<3-4> Debian "unstable" as an easter (=end of March 2016) present?
-  \item<4> what's beyond (rebuilding, \texttt{.buildinfo} file handling, user
-  tools) mostly still needs \it{design} and code
+  \item<3-4> Debian \texttt{unstable} still needs changes to \texttt{dpkg} and
+  \texttt{ftp.debian.org} (for keeping \texttt{.buildinfo} files)
+  \item<4> what's beyond (rebuilding, \texttt{.buildinfo} file signing and
+  distribution, user tools) mostly still needs \it{design} and code
 
  \end{itemize}
 \end{frame}
@@ -870,8 +882,7 @@ Build-Environment:
   \item tests maintained by h01ger
   \item recreating the build env: ?
   \item user verification tools: not yet
-  \item talk today, in K.4.601 at 15:40 CET
-  \item next: watch talks, discuss with developers
+  \item next: test ports?
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
@@ -883,8 +894,8 @@ Build-Environment:
 \begin{frame}
  \frametitle{Status ElectroBSD}
  \begin{itemize}
-  \item I have no idea… but am curious to find out!
-  \item talk today, in K.4.601 at 14:35 CET
+  \item FreeBSD fork, small subset of software
+  \item reproducibility as a design goal and tested during development
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
@@ -900,9 +911,10 @@ Build-Environment:
   \item \texttt{https://tests.r-b.org/fedora} (23)
   \item maintained by Dhiru Kholia and h01ger
   \item rpm repo available by Dhiru, but still \textbf{0\% reproducible}
-  \item rpm format includes build time and build host and…
+  \item first patch merged
+  \item rpm format includes build time and build host and signatures…
   \item recreating the build env: koji
-  \item next: 24+rawhide, first reproducible rpm, use koji
+  \item next: test 24+rawhide, first reproducible rpm, use koji
   \item next: get more people involved
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
@@ -940,10 +952,10 @@ Build-Environment:
 \begin{frame}
  \frametitle{Status Guix}
  \begin{itemize}
-  \item I still have little idea, sadly missed the talk yesterday
+  \item I still have little idea and time
   \item recreating the build env: by design
   \item user verification tool: yes! (Guix challenge)
-  \item<2> next: check your inbox, h01ger!
+  \item<2> next: test it
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
@@ -1055,8 +1067,10 @@ Build-Environment:
  \frametitle{Future of tests.reproducible-builds.org}
 
  \begin{itemize}
- \item We still want more (arm(64)) cores!
  \item We want to test other architectures!
+  \begin{itemize}
+   \item \texttt{arm64} finally on the horizon
+  \end{itemize}
  \item We want to test other projects!
  \item We want more people contributing code for their projects!
  \item We want more people looking at the results!
@@ -1148,15 +1162,6 @@ Build-Environment:
     \item RTFM, there is lots of documentation
     \item Experiment - learning by doing
    \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Listen to more talks in K.4.601 today!}
-
- \begin{itemize}
-  \item 14:35 ElectroBSD - Getting a reproducible BSD out of the door
-  \item 15:40 Reproducible builds in FreeBSD packages
  \end{itemize}
 \end{frame}
 
