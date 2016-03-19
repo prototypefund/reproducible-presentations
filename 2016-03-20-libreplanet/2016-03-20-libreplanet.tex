@@ -1,4 +1,4 @@
-\documentclass[14pt,aspectratio=169]{beamer}
+\documentclass[14pt]{beamer}
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{caption label separator}{:}
 \setbeamercolor{caption name}{fg=normal text.fg}
@@ -257,7 +257,7 @@ and some hints where this might be going…}
  \begin{itemize}
   \item Contributed to Free Software?
   \item<2-4> Contributed to Debian?
-  \item<2-4> Seen a talk about reproducible builds?
+  \item<3-4> Seen a talk about reproducible builds?
   \item<4> Contributed to this effort?
  \end{itemize}
 \end{frame}
@@ -398,7 +398,7 @@ and some hints where this might be going…}
   \item<2-3> can also be used for random seeds etc.
   \item<3> in Debian, set from the latest \texttt{debian/changelog} entry
   \item<3> solution has been adopted by other projects \& distributions
-  (NetBSD, FreeBSD, Arch Linux, Guix, …)
+  (NetBSD, FreeBSD, Arch Linux, Guix, Fedora…)
  \end{itemize}
 \end{frame}
 
@@ -457,7 +457,7 @@ and some hints where this might be going…}
   \texttt{experimental}
   \item Also testing: coreboot, OpenWrt, NetBSD, FreeBSD,
   Arch Linux, Fedora and soon F-Droid and Guix too
-  \item<2-3> 230 jenkins jobs running on 24 hosts
+  \item<2-3> 275 jenkins jobs running on 24 hosts
   \item<2-3> 41 scripts with a total of 4k lines of Python and 6k lines of Bash
   Shell
   \item<2-3> 29 contributors for \texttt{jenkins.debian.net.git}
@@ -472,7 +472,7 @@ and some hints where this might be going…}
 
  \begin{center}
   \begin{table}
-   \resizebox{0.90\textwidth}{!}{%
+   \resizebox{0.97\textwidth}{!}{%
     \begin{tabular}{l|ll}
 \textbf{variation} & \textbf{first build} & \textbf{second build} \\
 \hline
@@ -524,7 +524,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item Easy to extend to new file formats.
   \item Falls back to binary comparison.
   \item Available from \texttt{git}, PyPI, Debian (sid and stretch), \\
-   Arch Linux, Guix, Homebrew. Works on BSD.
+   Fedora, Arch Linux, FreeBSD, NetBSD, Guix, Homebrew..
   \item Maintainers (upstream and in other distros) wanted.
   \item \url{https://diffoscope.org/}
  \end{itemize}
@@ -622,7 +622,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   };
  \end{tikzpicture}
  \begin{center}
-  \footnotesize{20,079 (85\%) out of 23,595 source packages are reproducible \\
+  \footnotesize{20,514 (85.8\%) out of 23,902 source packages are reproducible \\
     in our test framework}
   \vfill
  \end{center}
@@ -632,11 +632,11 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{Notes and issues on tests.reproducible-builds.org}
 
  \begin{itemize}
-  \item { 179 categorised distinct issues }
-  \item { 3,792 notes }
-  \item<2-4> { 2549 unreproducible packages in \texttt{sid}, but only 139 without a 
+  \item { 188 categorised distinct issues }
+  \item { 3,591 notes }
+  \item<2-4> { 2507 unreproducible packages in \texttt{sid}, but only 287 without a 
   note }
-  \item<2-4> { 728 packages failing to build, but only 74 without a note }
+  \item<2-4> { 690 packages failing to build, but only 132 without a note }
   \item<3-4> { maintained in \texttt{notes.git} }
   \item<4> { currently Debian only, but cross distro notes are planned}
  \end{itemize}
@@ -659,11 +659,26 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   };
  \end{tikzpicture}
  \begin{center}
-  \footnotesize{34 different "package sets", eg. \texttt{required} is only 68\%
-  reproducible}
+  \footnotesize{34 different "package sets", eg. \texttt{required} is only
+  70.2\% reproducible}
   \vfill
  \end{center}
 \end{frame}
+
+\begin{frame}
+ \frametitle{Debian package sets on tests.r-b.org}
+ \begin{tikzpicture}[remember picture]
+  \node[shift={(-0.75\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.65\paperheight]{images/stats_meta_pkg_state_key_packages.png}
+  };
+ \end{tikzpicture}
+ \begin{center}
+  \footnotesize{Debian's \texttt{key\_packages} are 81.2\% reproducible,
+  but 489 packages (14.7\%) will still need to be fixed}
+  \vfill
+ \end{center}
+\end{frame}
+
 
 \begin{frame}
  \frametitle{Progress in the Debian bug tracker}
@@ -712,7 +727,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
    \end{itemize}
   \item<4> 2 GSoC students in 2015, totally new contributors, totally rocking
   \begin{itemize}
- \item<4> more GSoC/Outreachy contributors this year - maybe you? Deadline is
+ \item<4> more GSoC/Outreachy contributors this year - maybe \textbf{you}? Deadline is
  March 25th
    \end{itemize}
  \end{itemize}
@@ -805,7 +820,8 @@ Build-Environment:
 \begin{frame}
  \frametitle{Reminder / Summary}
  \begin{itemize}
-  \item This is just a proof-of-concept, Debian is not 87\% reproducible
+  \item This is just a proof-of-concept, Debian is not 87\% reproducible,
+  Debian is 0\% reproducible.
   \item Patches still need to be merged
   \item<2-4> I hope that Debian 9, "stretch", will be partially reproducible in a meaningful way
   \item<3-4> Debian \texttt{unstable} still needs changes to \texttt{dpkg} and
@@ -815,6 +831,20 @@ Build-Environment:
 
  \end{itemize}
 \end{frame}
+
+\begin{frame}
+ \frametitle{Summary, next step}
+ \begin{center}
+ \huge{ \texttt{tar --clamp-mtime}}
+  \item  \end{center}
+ \begin{itemize}
+ \item \texttt{https://savannah.gnu.org/patch/?8925}
+ \item patch included in Debian since 2015-11-15
+ \item doesn't help us, we need it upstream
+ \item if you know \texttt{GNU tar} upstream developers…
+ \end{itemize}
+\end{frame}
+
 
 \section{Status Non-Debian World}
 
@@ -830,7 +860,7 @@ Build-Environment:
   \item needs more active involvement from coreboot developers
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.18\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.13\paperwidth, 0.18\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/coreboot.png}
   };
  \end{tikzpicture}
@@ -848,7 +878,7 @@ Build-Environment:
   \item next, once patches are merged: rebuilding released binaries?!
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.18\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.16\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.4\paperheight]{images/openwrt.png}
   };
  \end{tikzpicture}
@@ -867,7 +897,7 @@ Build-Environment:
   \item next: ask Thomas :)
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.18\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.13\paperwidth, 0.18\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/netbsd.png}
   };
  \end{tikzpicture}
@@ -885,7 +915,7 @@ Build-Environment:
   \item next: test ports?
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.13\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/freebsd.png}
   };
  \end{tikzpicture}
@@ -898,7 +928,7 @@ Build-Environment:
   \item reproducibility as a design goal and tested during development
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.13\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/electrobsd.png}
   };
  \end{tikzpicture}
@@ -914,11 +944,12 @@ Build-Environment:
   \item first patch merged
   \item rpm format includes build time and build host and signatures…
   \item recreating the build env: koji
-  \item next: test 24+rawhide, first reproducible rpm, use koji
+  \item next: test 24+rawhide
+  \item next: first reproducible rpm, use koji
   \item next: get more people involved
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.13\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/fedora.png}
   };
  \end{tikzpicture}
@@ -934,7 +965,7 @@ Build-Environment:
   \item next: use those patches, upstream them
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.13\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/archlinux.png}
   };
  \end{tikzpicture}
@@ -958,7 +989,7 @@ Build-Environment:
   \item<2> next: test it
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.13\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/guix.png}
   };
  \end{tikzpicture}
@@ -969,8 +1000,9 @@ Build-Environment:
  \begin{itemize}
 \item Bitcoin
 \item Tor
-    \item NixOS
-    \item Qubes
+\item NixOS
+\item Qubes
+\item (Subgraph)
 \item    commercial, propietary Software
 \item ?
  \end{itemize}
@@ -980,7 +1012,7 @@ Build-Environment:
  \frametitle{Detour: what, reproducible commercial Software???}
  \begin{itemize}
 \item Guess which
-\item <2-3>   windows? (the source is available)
+\item <2-3>   Microsoft Windows? (the source is available)
 \item <2-3>   medical devices in your body?
 \item <2-3>   arms?
 \item <2-3>   critical infrastructure like in nuclear powerplants?
