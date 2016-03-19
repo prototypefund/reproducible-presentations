@@ -290,7 +290,7 @@ and some hints where this might be going…}
 
  At a CIA conference in 2012:
  \begin{center}
-  \includegraphics[width=0.8\textwidth]{images/strawhorse.png}
+  \includegraphics[width=0.82\textwidth]{images/strawhorse.png}
 
   {\footnotesize
   \url{firstlook.org/theintercept/2015/03/10/ispy-cia-campaign-steal-apples-secrets/}
@@ -357,7 +357,7 @@ and some hints where this might be going…}
   \item \texttt{https://reproducible-builds.org}
  \end{itemize}
  \begin{center}
- \includegraphics[width=0.7\textwidth]{images/rbwww1.png}
+ \includegraphics[width=0.62\textwidth]{images/rbwww1.png}
  \end{center}
 \end{frame}
 
@@ -367,11 +367,9 @@ and some hints where this might be going…}
   \item \texttt{https://reproducible-builds.org/docs}
   \item Lunar's talk from CCCamp 2015 also on
   \texttt{https://media.ccc.de}
- \begin{tikzpicture}[remember picture]
-  \node[shift={(-1.05\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
-    \includegraphics[width=0.83\textwidth]{images/cccamp2015_lunar_random.png}
-  };
- \end{tikzpicture}
+ \begin{center}
+    \includegraphics[width=0.7\textwidth]{images/cccamp2015_lunar_random.png}
+ \end{center}
  \end{itemize}
 \end{frame}
 
@@ -472,7 +470,7 @@ and some hints where this might be going…}
 
  \begin{center}
   \begin{table}
-   \resizebox{0.90\textwidth}{!}{%
+   \resizebox{0.85\textwidth}{!}{%
     \begin{tabular}{l|ll}
 \textbf{variation} & \textbf{first build} & \textbf{second build} \\
 \hline
@@ -535,7 +533,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{\texttt{diffoscope} example (HTML output)}
  \begin{tikzpicture}[remember picture]
   \node[at=(current page.center)] {
-   \includegraphics[width=0.9\paperwidth]{images/diffoscope_example_html.png}
+   \includegraphics[width=0.82\paperwidth]{images/diffoscope_example_html.png}
   };
  \end{tikzpicture}
 \end{frame}
@@ -586,7 +584,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \end{itemize}
  \end{itemize}
  \begin{center}
-  \includegraphics[height=0.2\paperheight]{images/profitbricks_logo.png}
+  \includegraphics[height=0.25\paperheight]{images/profitbricks_logo.png}
   \vfill
  \end{center}
 \end{frame}
@@ -616,15 +614,12 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 \begin{frame}
  \frametitle{Progress in Debian \texttt{unstable}}
- \begin{tikzpicture}[remember picture]
-  \node[shift={(-0.75\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.65\paperheight]{images/stats_pkg_state.png}
-  };
- \end{tikzpicture}
  \begin{center}
-  \footnotesize{20,079 (85\%) out of 23,595 source packages are reproducible \\
+  \includegraphics[height=0.65\paperheight]{images/stats_pkg_state.png}
+
+  {\footnotesize{20,079 (85\%) out of 23,595 source packages are reproducible \\
     in our test framework}
-  \vfill
+  }
  \end{center}
 \end{frame}
 
@@ -653,29 +648,21 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 \begin{frame}
  \frametitle{Debian package sets on tests.r-b.org}
- \begin{tikzpicture}[remember picture]
-  \node[shift={(-0.75\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.65\paperheight]{images/stats_meta_pkg_state_required.png}
-  };
- \end{tikzpicture}
  \begin{center}
-  \footnotesize{29 different "package sets", eg. \texttt{required} is only 68\%
-  reproducible}
-  \vfill
+  \includegraphics[height=0.65\paperheight]{images/stats_meta_pkg_state_required.png}
+
+  {\footnotesize{29 different "package sets", eg. \texttt{required} is only 68\%
+  reproducible}}
  \end{center}
 \end{frame}
 
 \begin{frame}
  \frametitle{Progress in the Debian bug tracker}
- \begin{tikzpicture}[remember picture]
-  \node[shift={(-0.75\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.65\paperheight]{images/stats_bugs_sin_ftbfs_state.png}
-  };
- \end{tikzpicture}
  \begin{center}
-  \footnotesize{As a rule, we file bugs with patches. \\
-  There were very few exceptions.}
-  \vfill
+    \includegraphics[height=0.65\paperheight]{images/stats_bugs_sin_ftbfs_state.png}
+
+  {\footnotesize{As a rule, we file bugs with patches. \\
+  There were very few exceptions.}}
  \end{center}
 \end{frame}
 
@@ -830,7 +817,7 @@ Build-Environment:
   \item needs more active involvement from coreboot developers
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.18\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.10\paperwidth, 0.18\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/coreboot.png}
   };
  \end{tikzpicture}
@@ -848,7 +835,7 @@ Build-Environment:
   \item next, once patches are merged: rebuilding released binaries?!
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.18\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.13\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.4\paperheight]{images/openwrt.png}
   };
  \end{tikzpicture}
@@ -867,7 +854,7 @@ Build-Environment:
   \item next: ask Thomas :)
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.18\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.10\paperwidth, 0.18\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/netbsd.png}
   };
  \end{tikzpicture}
@@ -885,7 +872,7 @@ Build-Environment:
   \item next: test ports?
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.10\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/freebsd.png}
   };
  \end{tikzpicture}
@@ -898,7 +885,7 @@ Build-Environment:
   \item reproducibility as a design goal and tested during development
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.10\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/electrobsd.png}
   };
  \end{tikzpicture}
@@ -918,7 +905,7 @@ Build-Environment:
   \item next: get more people involved
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.10\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/fedora.png}
   };
  \end{tikzpicture}
@@ -934,7 +921,7 @@ Build-Environment:
   \item next: use those patches, upstream them
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.10\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/archlinux.png}
   };
  \end{tikzpicture}
@@ -958,7 +945,7 @@ Build-Environment:
   \item<2> next: test it
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.15\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.10\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/guix.png}
   };
  \end{tikzpicture}
