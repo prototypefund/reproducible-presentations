@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Reproducible builds: Fulfilling the original promise of free software</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <script>
+  var link = document.createElement( 'link' );
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+  document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides" style="text-align: left;">
+      <section data-background="images/debian_logo.png" data-background-size="10%" data-background-position="90% 10%">
+        <h2>Reproducible builds</h2>
+        <h6>Fulfilling the original promise of free software</h6>
+      </section>
+
+      <section>
+        <h2>Who am I?</h2>
+      </section>
+
+      <section data-background="images/rms.jpg">
+        &nbsp;
+      </section>
+
+      <!-- whoami -->
+
+      <section>
+        <h2>Four freedoms</h2>
+
+        <ul>
+          <li>Freedom to study how the program works</li>
+          <li>Freedom to run the program for any purpose</li>
+          <li>Freedom to redistribute copies</li>
+          <li>Freedom to distribute copies of your modified version</li>
+        </ul>
+      </section>
+
+      <section data-transition="none">
+        <h2>Four freedoms</h2>
+
+        <ul>
+          <li>Freedom to study how the program works</li>
+          <li>Freedom to run the program for any purpose</li>
+          <li><strike>Freedom to redistribute copies</strike></li>
+          <li><strike>Freedom to distribute copies of your modified version</strike></li>
+        </ul>
+      </section>
+
+      <section data-transition="none">
+        <h2>Four freedoms</h2>
+
+        <ul>
+          <li>Freedom to study how the program works</li>
+          <li>Freedom to <u>run the program</u> for any purpose</li>
+          <li><strike>Freedom to redistribute copies</strike></li>
+          <li><strike>Freedom to distribute copies of your modified version</strike></li>
+        </ul>
+      </section>
+
+      <section data-background="images/install.jpg" data-background-size="80%" data-background-color="black">
+        &nbsp;
+      </section>
+
+      <section>
+        <h2>Can we trust this process?</h2>
+      </section>
+
+      <section data-background="images/trust.jpg">
+        &nbsp;
+      </section>
+
+      <section>
+        <h3>Reproducible builds</h3>
+
+        <ul>
+          <li>Ensure compilation always produces the same result</li>
+          <li>Multiple parties compare results</li>
+          <li>Attacker needs to infect everything simultaneously</li>
+          <li>Bit-for-bit identical</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Can we now really trust what is running on your computers?</h3>
+      </section>
+
+      <section>
+        <h2>Challenges</h2>
+        <ul>
+          <li>Timestamps</li>
+          <li>Timezones &amp; locales</li>
+          <li>Different versions of libraries</li>
+          <li>Non-deterministic file ordering</li>
+          <li>Users, groups, <code>umask</code>, environment variables</li>
+          <li>Random behaviour (eg. hash ordering)</li>
+          <li>Build paths</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Technical advantages</h2>
+
+        <ul>
+          <li>Unsafe/unreliable behaviour (eg. internet access)</li>
+          <li>Non-deterministic behaviour</li>
+          <li>Being able to "go back in time"</li>
+          <li>Detect corrupted build environments</li>
+          <li>Easier to test changes/revisions</li>
+        </ul>
+      </section>
+
+      <section data-background="images/debian.jpg">
+        <ul>
+          <li>Continuously testing archive</li>
+          <li>7 <code>amd64</code> machines, 120 cores, 300 GB RAM, 15 <code>armhf</code> nodes</li>
+          <li>20,079 / 23,595 packages are reproducible</li>
+          <li>Still need some core changes</li>
+        </ul>
+      </section>
+
+      <section data-background="images/diffoscope.png">
+        &nbsp;
+      </section>
+
+      <section>
+        <h2>Beyond Debian&hellip;</h2>
+        <ul>
+          <li>coreboot, Fedora, OpenWRT, NetBSD, FreeBSD, Arch, Qubes</li>
+          <li>F-Droid, NixOS, Guix</li>
+          <li>Reproducible World Summit</li>
+          <li>Independent rebuilders</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Getting involved</h2>
+        <ul>
+          <li>Test for yourself</li> <!-- every distribution should be reproducible -->
+          <li>Stop using dates (or use <code><a href="https://reproducible-builds.org/specs/">SOURCE_DATE_EPOCH</a></code>)</li>
+          <li>Visit <a href="https://reproducible-builds.org/">reproducible-builds.org</a></li>
+          <li><code>#reproducible-builds</code> on <code>irc.oftc.net</code></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Questions?</h2>
+        <h6>
+          <a href="http://twitter.com/lolamby">@lolamby</a>
+          <br>
+          <a href="mailto:lamby@debian.org">lamby@debian.org</a>
+        </h6>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: false,
+      progress: false,
+      history: true
+    });
+  </script>
+</body>
+</html>
