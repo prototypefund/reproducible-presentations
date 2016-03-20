@@ -484,6 +484,7 @@ domainname & \texttt{debian.net} & \texttt{i-capture-the-domainname} \\
 \texttt{env USER} & \texttt{pbuilder1} & \texttt{pbuilder2} \\
 uid & \texttt{1111} & \texttt{2222} \\
 gid & \texttt{1111} & \texttt{2222} \\
+shell & \texttt{dash} & \texttt{bash} \\
 UTS namespace & shared with the host & \textit{modified using \texttt{/usr/bin/unshare --uts}} \\
 kernel version & Linux 3.16 or 4.X & on amd64 always varied, on armhf
 sometimes \\
@@ -705,6 +706,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item \texttt{SOURCE\_DATE\_EPOCH}
   \item \texttt{disorderfs}
   \item 1000+ patches: \texttt{dpkg}, \texttt{debhelper}, \texttt{sbuild}, …
+  \item 7 packages modified to achive those 85.8\%
   \item …
  \end{itemize}
 \end{frame}
@@ -739,7 +741,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item …and being able to re-create this build environment is mandatory too.
   \item Without an \textit{sufficiently identical} build environment, reproducible builds will only
   happen by sheer luck.
-  \item<2>{I've only seen this verified for Debian so far… \texttt{koji}
+  \item<2>{I've only verified for Debian so far… \texttt{koji}
   is designed for that too, Guix as well…}
 \item<2> {I'd very much like to be corrected here, with tests.}
  \end{itemize}
@@ -833,7 +835,7 @@ Build-Environment:
 \end{frame}
 
 \begin{frame}
- \frametitle{Summary, next step}
+ \frametitle{Summary, next step for Debian}
  \begin{center}
  \huge{ \texttt{tar --clamp-mtime}}
   \item  \end{center}
@@ -857,7 +859,7 @@ Build-Environment:
   \item 99.2\% reproducible with \texttt{seabios} payload
   \item tests maintained by Alexander 'lynxis' Couzens
   \item unclear what the next steps are…
-  \item needs more active involvement from coreboot developers
+  \item needs involvement from coreboot developers
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.13\paperwidth, 0.18\paperheight)},at=(current page.south east)] {
@@ -924,7 +926,7 @@ Build-Environment:
 \begin{frame}
  \frametitle{Status ElectroBSD}
  \begin{itemize}
-  \item FreeBSD fork, small subset of software
+  \item FreeBSD fork, binary blobs removed, small subset of software
   \item reproducibility as a design goal and tested during development
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
@@ -941,7 +943,7 @@ Build-Environment:
   \item \texttt{https://tests.r-b.org/fedora} (23)
   \item maintained by Dhiru Kholia and h01ger
   \item rpm repo available by Dhiru, but still \textbf{0\% reproducible}
-  \item first patch merged
+  \item first patch for \texttt{rpm} merged
   \item rpm format includes build time and build host and signatures…
   \item recreating the build env: koji
   \item next: test 24+rawhide
@@ -986,7 +988,7 @@ Build-Environment:
   \item I still have little idea and time
   \item recreating the build env: by design
   \item user verification tool: yes! (Guix challenge)
-  \item<2> next: test it
+  \item next: test it
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.13\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
@@ -1130,9 +1132,10 @@ Build-Environment:
 \begin{frame}
  \frametitle{As a software developer}
  \begin{itemize}
-  \item Stop using build dates
-  \item Use \texttt{SOURCE\_DATE\_EPOCH} instead
-  \item See \url{https://reproducible-builds.org/specs/}
+  \item Merge our patches
+  \item<2> Stop using build dates
+  \item<2> Use \texttt{SOURCE\_DATE\_EPOCH} instead
+  \item<2> See \url{https://reproducible-builds.org/specs/}
  \end{itemize}
 \end{frame}
 
