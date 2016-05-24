@@ -1,0 +1,69 @@
+demo: PTH=$(mktemp -d); OPTH=$PWD; P=giftrans; cp ${P}_* $PTH/; cd $PTH ; dpkg-source -x ${P}*.dsc ; for X in 1 2 3 4 5 ; do (cd ${P}-*/; dpkg-buildpackage -b -uc -us); mkdir -p .$X ; cp $P_*.deb .$X; done ; rm *deb ; echo; sha1sum *dsc *z .*/*.deb | grep -v giftrans-dbgsym ; cd - ; echo "don't foget to rm -r $PTH"
+
+demo as screenshots
+re-read notes below
+
+koji records the build
+	can be used to recreate it, in theory, in practice this needs documentation / be done
+rpm container has
+	build date
+	build host
+	signature
+	signature changes between development and release
+
+mention gsoc, new people
+
+emphasize this is too much for me…
+add thanks slide for all the people working on it in other projects
+
+end (or beginning?):
+	the whole world is watching? no (not that slide, but its true… or maybe that slide indeed)
+	fosdem 2014 lunar in a dev room
+	fosdem 2015 lunar and holger in k building
+	fosdem 2016 holger in janson
+	will 2016 be the year of the reproducible linux desktop? maybe
+	or 2017?! (i think so, find a nice pic to prove it)
+	and mayne not on the desktop, but just servers
+	or 85% of Debian main ;-)
+	or something - i'll get into the details later
+
+describe debian test setup
+	debian repo
+	debian bugs categories, nah
+	mention variations from TODO
+	
+diffoscope can use debug symbols now
+
+add SOURCE_DATE_EPOCH adoption outside Debian…
+
+need logos:
+	fdroid
+	qubes 4.0
+
+dpkg: mention recent developments… same for ftp!
+re-read: https://wiki.debian.org/ReproducibleBuilds/About etc
+
+explain shortcuts:
+        defined build environment with little variations
+        subsets
+
+many good sideeffects
+	QA QA QA
+	eg also arm bootloader improvements ;)
+	faster builds, saves money
+	check our wiki page on that
+
+future other tests:
+	not all variations debian has are applied, notable not yet date+time
+	seperation of test logic and html page creation planned
+
+future
+	funding
+	another meeting in 2016
+	fosdem devroom in 2017?
+	tests.r-b.o doing rebuilds against releases
+
+disclaimer:
+	the mistakes are mine
+	to better present this here,  chronologic order has been changed
+	this is the work of *many* more people than mentioned, this is free software!
