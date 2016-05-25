@@ -357,107 +357,38 @@ and some hints where this might be going…}
 \end{frame}
 
 \begin{frame}
- \frametitle{Documentation about common problems}
- \begin{itemize}
-  \item \texttt{https://reproducible-builds.org/docs}
-  \item Lunar's talk from CCCamp 2015 also on
-  \texttt{https://media.ccc.de}
- \begin{tikzpicture}[remember picture]
-  \node[shift={(-1.05\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
-    \includegraphics[width=0.83\textwidth]{images/cccamp2015_lunar_random.png}
-  };
- \end{tikzpicture}
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Common problems}
-
- \begin{itemize}
-  \item time stamps
-  \item<2-3> timezones
-  \item<2-3> locales
-  \item<3> everything else (seperated into known issues and the blurry rest)
- \end{itemize}
-\end{frame}
-
-
-\begin{frame}
- \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
-
- \begin{itemize}
-  \item Build date (timestamps) usually not useful for the user
-  \item<2-3> \texttt{SOURCE\_DATE\_EPOCH} is defined as the last modification of
-  the source, since the epoch (1970-01-01)
-  \item<2-3> \texttt{SOURCE\_DATE\_EPOCH} can be used instead of current date
-  \item<2-3> can also be used for random seeds etc.
-  \item<3> in Debian, set from the latest \texttt{debian/changelog} entry
-  \item<3> solution has been adopted by other projects \& distributions
-  (NetBSD, FreeBSD, Arch Linux, Guix, Fedora…)
- \end{itemize}
-\end{frame}
-
-
-\begin{frame}
- \frametitle{\texttt{SOURCE\_DATE\_EPOCH} (closed bugs)}
-
- \begin{itemize}
-  \item dh-strip-nondeterminism
-  \item gcc (\texttt{\_\_DATE\_\_} and \texttt{\_\_TIME\_\_} macros) \texttt{\footnotesize{\url{https://gcc.gnu.org/ml/gcc-patches/2015-06/msg02210.html}}}
-  \item \sout{\texttt{\#791823}}: debhelper
-  \item \sout{\texttt{\#787444}}: help2man
-  \item \sout{\texttt{\#790899}}: epydoc
-  \item \sout{\texttt{\#794004}}: ghostscript
-  \item \sout{\texttt{\#796130}}: man2html
-  \item \sout{\texttt{\#783475}}: texi2html
-  \item \sout{\texttt{\#794586}}: ocamldoc
-  \item \sout{\texttt{\#795942}}: wheel
-  \item \sout{\texttt{\#792202}}: texlive-bin
-  \item ...
- \end{itemize}
-\end{frame}
-
-
-\begin{frame}
- \frametitle{\texttt{SOURCE\_DATE\_EPOCH} (open/pending bugs)}
-
- \begin{itemize}
-  \item \texttt{\#792687, \#804141}: gettext
-  \item \texttt{\#792201}: doxygen
-  \item \texttt{\#800797}: docbook-utils
-  \item \texttt{\#801621}: perl (Pod::Man)
-  \item \texttt{\#790801}: txt2man
-  \item \texttt{\#791815}: libxslt
-  \item \texttt{\#794681}: qt4-x11 (qthelpgenerator)
-  \item ...
- \end{itemize}
-
-\end{frame}
-
-\begin{frame}
- \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
-
- \begin{itemize}
-  \item \texttt{SOURCE\_DATE\_EPOCH} spec availble
-  \item \texttt{https://reproducible-builds.org/specs/}
- \end{itemize}
-\end{frame}
-
-
-\begin{frame}
  \frametitle{tests.reproducible-builds.org}
 
  \begin{itemize}
-  \item Continuously testing Debian \texttt{testing}, \texttt{unstable} and
+  \item<2-5> Continuously testing Debian \texttt{testing}, \texttt{unstable} and
   \texttt{experimental}
-  \item Also testing: coreboot, OpenWrt, NetBSD, FreeBSD,
+  \item<3-5> on \texttt{amd64} and \texttt{i386} and \texttt{armhf}
+  \item<4-5> Also testing: coreboot, OpenWrt, NetBSD, FreeBSD,
   Arch Linux, Fedora and soon F-Droid and Guix too
-  \item<2-3> 275 jenkins jobs running on 24 hosts
-  \item<2-3> 41 scripts with a total of 4k lines of Python and 6k lines of Bash
+  \item<5> 275 jenkins jobs running on 24 hosts
+  \item<5> 41 scripts with a total of 4k lines of Python and 6k lines of Bash
   Shell
-  \item<2-3> 29 contributors for \texttt{jenkins.debian.net.git}
-  \item<3> Really simple code.
-  \item<3> Untested patches are fine as long as they only break your stuff.
+  \item<5> 29 contributors for \texttt{jenkins.debian.net.git}
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{CPU architectures on tests.r-b.org}
+
+ \begin{itemize}
+  \item \texttt{amd64} and \texttt{i386}: 106 cores and 282 GB RAM split on 9 VMs
+  \item most ressources used on Debian…
+ \item sponsored by \texttt{https://profitbricks.co.uk} since 2014 (2012)
+ \end{itemize}
+ \begin{center}
+  \includegraphics[height=0.2\paperheight]{images/profitbricks_logo.png}
+  \vfill
+ \end{center}
+ \begin{itemize}
+  \item \texttt{armhf}: 14 nodes with 50 cores and 23 GB RAM sponsored by
+  Debian
+  \item \texttt{arm64}: coming soon
  \end{itemize}
 \end{frame}
 
@@ -496,6 +427,35 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \end{table}
  \end{center}
 \end{frame}
+
+
+
+
+\begin{frame}
+ \frametitle{Common problems}
+
+ \begin{itemize}
+  \item time stamps
+  \item<2-3> timezones
+  \item<2-3> locales
+  \item<3> everything else (seperated into known issues and the blurry rest)
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Documentation about common problems}
+ \begin{itemize}
+  \item \texttt{https://reproducible-builds.org/docs}
+  \item Lunar's talk from CCCamp 2015 also on
+  \texttt{https://media.ccc.de}
+ \begin{tikzpicture}[remember picture]
+  \node[shift={(-1.05\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
+    \includegraphics[width=0.83\textwidth]{images/cccamp2015_lunar_random.png}
+  };
+ \end{tikzpicture}
+ \end{itemize}
+\end{frame}
+
 
 
 \placelogofalse
@@ -563,50 +523,66 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 
 \begin{frame}
- \frametitle{amd64 architecture on tests.r-b.org}
+ \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
 
  \begin{itemize}
-  \item \texttt{amd64}: 106 cores and 282 GB RAM split on 9 VMs
-  \begin{itemize}
-   \item 4 VMs with 17/18 cores and 32 GB for Debian
-   \item 1 VM (soon 2) with 8 cores and 16 GB for most of the rest
-   \item 1 jenkins VM and 1 jenkins-test VM
-   \item 1 extra VM for building FreeBSD
+  \item Build date (timestamps) usually not useful for the user
+  \item<2-3> \texttt{SOURCE\_DATE\_EPOCH} is defined as the last modification of
+  the source, since the epoch (1970-01-01)
+  \item<2-3> \texttt{SOURCE\_DATE\_EPOCH} can be used instead of current date
+  \item<2-3> can also be used for random seeds etc.
+  \item<3> in Debian, set from the latest \texttt{debian/changelog} entry
+  \item<3> solution has been adopted by other projects \& distributions
+  (NetBSD, FreeBSD, Arch Linux, Guix, Fedora…)
  \end{itemize}
- \item sponsored by \texttt{https://profitbricks.co.uk}
- \item<2> next week: downscale to 2 VMs and dedicate those 2 others to
- \texttt{i386}
-  \begin{itemize}
-   \item<2> then rebuilding all of \texttt{unstable} and \texttt{testing} on both
-   archs will roughly take two weeks…
-  \end{itemize}
- \end{itemize}
- \begin{center}
-  \includegraphics[height=0.2\paperheight]{images/profitbricks_logo.png}
-  \vfill
- \end{center}
 \end{frame}
 
 
 \begin{frame}
- \frametitle{armhf architecture on tests.r-b.org}
+ \frametitle{\texttt{SOURCE\_DATE\_EPOCH} (closed bugs)}
 
  \begin{itemize}
-  \item \texttt{armhf}: 14 nodes with 50 cores and 23 GB RAM
-  \begin{itemize}
-   \item a few more nodes planned
-   \item combined they only draw 100 watts of power
-   \item<2> roughly takes 4 weeks to build one Debian suite
-  \end{itemize}
-  \item \small{hosted by \texttt{vagrant@debian.org}, several hardware sponsors
-  (Debian, TechNexion, LeMaker, SolidRun, Beagleboard.org and Aikidev)
-  plus 4.5k USD by Debian}
-\end{itemize}
- \begin{center}
-  \includegraphics[height=0.42\paperheight]{images/2016-01-26-180836.jpg}
-  \vfill
- \end{center}
+  \item dh-strip-nondeterminism
+  \item gcc (\texttt{\_\_DATE\_\_} and \texttt{\_\_TIME\_\_} macros) \texttt{\footnotesize{\url{https://gcc.gnu.org/ml/gcc-patches/2015-06/msg02210.html}}}
+  \item \sout{\texttt{\#791823}}: debhelper
+  \item \sout{\texttt{\#787444}}: help2man
+  \item \sout{\texttt{\#790899}}: epydoc
+  \item \sout{\texttt{\#794004}}: ghostscript
+  \item \sout{\texttt{\#796130}}: man2html
+  \item \sout{\texttt{\#783475}}: texi2html
+  \item \sout{\texttt{\#794586}}: ocamldoc
+  \item \sout{\texttt{\#795942}}: wheel
+  \item \sout{\texttt{\#792202}}: texlive-bin
+  \item ...
+ \end{itemize}
 \end{frame}
+
+
+\begin{frame}
+ \frametitle{\texttt{SOURCE\_DATE\_EPOCH} (open/pending bugs)}
+
+ \begin{itemize}
+  \item \texttt{\#792687, \#804141}: gettext
+  \item \texttt{\#792201}: doxygen
+  \item \texttt{\#800797}: docbook-utils
+  \item \texttt{\#801621}: perl (Pod::Man)
+  \item \texttt{\#790801}: txt2man
+  \item \texttt{\#791815}: libxslt
+  \item \texttt{\#794681}: qt4-x11 (qthelpgenerator)
+  \item ...
+ \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+ \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
+
+ \begin{itemize}
+  \item \texttt{SOURCE\_DATE\_EPOCH} spec availble
+  \item \texttt{https://reproducible-builds.org/specs/}
+ \end{itemize}
+\end{frame}
+
 
 \section{Status Debian}
 
