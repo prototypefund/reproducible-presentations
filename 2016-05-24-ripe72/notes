@@ -10,16 +10,13 @@ missing / updates
 	32+64 bit kernel varian
 	intel/amd cpu type
 
-remove sdde closed bugs page
+those 90.1% -> those 88% (90% in sid)
 tell the world later
-remove buildinfo example
-probably dpkg-dak blockers too, its on the summary
 s#Reminder##
-shorten status... details
-drpo one of the rebuilders slides?
+drop one of the rebuilders slides?
 getting involed: #reproducible-builds
-s#reproducible.d.n#tests.rb-o#
-s#KGB##
+"detour" is ein doofes word
+
 
 suseconf
 flock
