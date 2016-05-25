@@ -1,3 +1,25 @@
+ripe notes
+----------
+1000 bugs fixed, x with patch open
+300 jobs?
+20k fixed, 90%
+35 pkg sets
+demo static
+cii funding hopefully soon
+future unclear + different
+suseconf
+flock
+debian: freeze 31.dec.2016
+	then more, new, work ahead (after the release)
+no policy requirement anyway yet, we want to change that
+	(we want to change the meaning of free software)
+4 new gsoc + outreachy students
+summit in autumn 2016
+shorter
+
+old notes
+---------
+
 demo: PTH=$(mktemp -d); OPTH=$PWD; P=giftrans; cp ${P}_* $PTH/; cd $PTH ; dpkg-source -x ${P}*.dsc ; for X in 1 2 3 4 5 ; do (cd ${P}-*/; dpkg-buildpackage -b -uc -us); mkdir -p .$X ; cp $P_*.deb .$X; done ; rm *deb ; echo; sha1sum *dsc *z .*/*.deb | grep -v giftrans-dbgsym ; cd - ; echo "don't foget to rm -r $PTH"
 
 demo as screenshots

@@ -131,20 +131,10 @@ and some hints where this might be going…}
    \item \texttt{https://jenkins.debian.net} (~1100 jobs continously testing Debian)
   \end{itemize}
   \item \sout{Debian LTS} (Long Term Support)
+  \item \texttt{sudo (apt|dnf) install torbrowser-launcher}
  \end{itemize}
 \end{frame}
 
-\begin{frame}
- \frametitle{Detour: naming is a hard problem…}
- \begin{itemize}
- \item \texttt{https://jenkins.debian.net}
- \item \only<1>{\texttt{https://reproducible.debian.net}}\only<2-3>{\sout{\texttt{https://reproducible.debian.net}}}
- \item \texttt{https://tests.reproducible-builds.org}
- \item \texttt{https://reproducible-builds.org}
- \item<2-3> all point to the same system, \texttt{78.137.96.196}
- \item<3> \small{and sometimes only \texttt{https://tests.r-b.org} fit on the slides}
- \end{itemize}
-\end{frame}
 
 \begin{frame}
  \frametitle{more about me}
@@ -157,9 +147,8 @@ and some hints where this might be going…}
    \item until April 2016 together with Lunar funded by the Linux Foundation
    \item within in the team I'm mostly working on
    \texttt{https://tests.reproducible-builds.org}
+   \item applied for extended funding in April 2016…
   \end{itemize}
-  \item<2> \texttt{sudo apt install torbrowser-launcher}
-  \item<2> \texttt{sudo dnf install torbrowser-launcher}
 \end{itemize}
 \end{frame}
 
@@ -264,9 +253,7 @@ and some hints where this might be going…}
  \frametitle{Who are you?}
  \begin{itemize}
   \item Contributed to Free Software?
-  \item<2-4> Contributed to Debian?
-  \item<3-4> Seen a talk about reproducible builds?
-  \item<4> Contributed to this effort?
+  \item<2> Seen a talk about reproducible builds?
  \end{itemize}
 \end{frame}
 
@@ -410,21 +397,13 @@ and some hints where this might be going…}
  \end{itemize}
 \end{frame}
 
-\begin{frame}
- \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
-
- \begin{itemize}
-  \item \texttt{SOURCE\_DATE\_EPOCH} spec availble
-  \item \texttt{https://reproducible-builds.org/specs/}
- \end{itemize}
-\end{frame}
-
 
 \begin{frame}
  \frametitle{\texttt{SOURCE\_DATE\_EPOCH} (closed bugs)}
 
  \begin{itemize}
   \item dh-strip-nondeterminism
+  \item gcc (\texttt{\_\_DATE\_\_} and \texttt{\_\_TIME\_\_} macros) \texttt{\footnotesize{\url{https://gcc.gnu.org/ml/gcc-patches/2015-06/msg02210.html}}}
   \item \sout{\texttt{\#791823}}: debhelper
   \item \sout{\texttt{\#787444}}: help2man
   \item \sout{\texttt{\#790899}}: epydoc
@@ -433,6 +412,7 @@ and some hints where this might be going…}
   \item \sout{\texttt{\#783475}}: texi2html
   \item \sout{\texttt{\#794586}}: ocamldoc
   \item \sout{\texttt{\#795942}}: wheel
+  \item \sout{\texttt{\#792202}}: texlive-bin
   \item ...
  \end{itemize}
 \end{frame}
@@ -442,7 +422,6 @@ and some hints where this might be going…}
  \frametitle{\texttt{SOURCE\_DATE\_EPOCH} (open/pending bugs)}
 
  \begin{itemize}
-  \item gcc (\texttt{\_\_DATE\_\_} and \texttt{\_\_TIME\_\_} macros) \texttt{\footnotesize{\url{https://gcc.gnu.org/ml/gcc-patches/2015-06/msg02210.html}}}
   \item \texttt{\#792687, \#804141}: gettext
   \item \texttt{\#792201}: doxygen
   \item \texttt{\#800797}: docbook-utils
@@ -450,10 +429,18 @@ and some hints where this might be going…}
   \item \texttt{\#790801}: txt2man
   \item \texttt{\#791815}: libxslt
   \item \texttt{\#794681}: qt4-x11 (qthelpgenerator)
-  \item \texttt{\#792202}: texlive-bin
   \item ...
  \end{itemize}
 
+\end{frame}
+
+\begin{frame}
+ \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
+
+ \begin{itemize}
+  \item \texttt{SOURCE\_DATE\_EPOCH} spec availble
+  \item \texttt{https://reproducible-builds.org/specs/}
+ \end{itemize}
 \end{frame}
 
 
@@ -830,7 +817,7 @@ Build-Environment:
 \begin{frame}
  \frametitle{Reminder / Summary}
  \begin{itemize}
-  \item This is just a proof-of-concept, Debian is not 87\% reproducible,
+  \item This is just a proof-of-concept, Debian is not 90\% reproducible,
   Debian is 0\% reproducible.
   \item Patches still need to be merged
   \item<2-4> I hope that Debian 9, "stretch", will be partially reproducible in a meaningful way
@@ -842,18 +829,6 @@ Build-Environment:
  \end{itemize}
 \end{frame}
 
-\begin{frame}
- \frametitle{Summary, next step for Debian}
- \begin{center}
- \huge{ \texttt{tar --clamp-mtime}}
-  \item  \end{center}
- \begin{itemize}
- \item \texttt{https://savannah.gnu.org/patch/?8925}
- \item patch included in Debian since 2015-11-15
- \item doesn't help us, we need it upstream
- \item if you know \texttt{GNU tar} upstream developers…
- \end{itemize}
-\end{frame}
 
 
 \section{Status Non-Debian World}
@@ -1010,6 +985,9 @@ Build-Environment:
  \begin{itemize}
 \item Bitcoin
 \item Tor
+\item Signal
+\item OpenSUSE (could be tested easily…)
+\item Ubuntu
 \item NixOS
 \item Qubes
 \item (Subgraph)
@@ -1034,8 +1012,6 @@ Build-Environment:
 \begin{frame}
  \frametitle{Unmentioned, unknown activities?}
  \begin{itemize}
-\item  OpenSUSE (could be tested easily…)
-\item  Ubuntu
 \item  OpenBSD
 \item  Gentoo (stage1)
  \item ?
@@ -1049,16 +1025,6 @@ Build-Environment:
 
 
 
-\begin{frame}
- \frametitle{Release process issues}
- \begin{itemize}
-  \item In our current design and practices, rebuilding Debian
-  \texttt{stretch} will require
-  package versions which are not part of \texttt{stretch}.
-  \item {Rebuilding all of Debian a month prio the release? }
-  \item<2> This problem is per se not Debian specific at all…
- \end{itemize}
-\end{frame}
 
 \begin{frame}
  \frametitle{Distributing \texttt{.buildinfo} files}
@@ -1105,22 +1071,6 @@ Build-Environment:
  \end{itemize}
 \end{frame}
 
-\begin{frame}
- \frametitle{Future of tests.reproducible-builds.org}
-
- \begin{itemize}
- \item We want to test other architectures!
-  \begin{itemize}
-   \item \texttt{arm64} finally on the horizon
-  \end{itemize}
- \item We want to test other projects!
- \item We want more people contributing code for their projects!
- \item We want more people looking at the results!
- \item We don't want to build twice and test against what we built, but rather
- the binaries distributed by these projects (if any)
- \item<2> This is "just" a testing framework…
-\end{itemize}
-\end{frame}
 
 \begin{frame}
  \frametitle{Summary}
@@ -1183,27 +1133,6 @@ Build-Environment:
     \item Propose changes for toolchain
     \item Submit patches for individual packages
     \item Write more general documentation and talk to the world
-   \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Form another team!}
-
- \begin{itemize}
-  \item Why?
-   \begin{itemize}
-    \item Every distribution should be reproducible!
-    \item Learn something new everyday
-    \item Change the (software) world!
-    \item \texttt{https://tests.reproducible-builds.org/\$project} needs
-    \textbf{your} help
-   \end{itemize}
-  \item How to get started?
-   \begin{itemize}
-    \item Talk to me here or talk to us on IRC or via mail.
-    \item RTFM, there is lots of documentation
-    \item Experiment - learning by doing
    \end{itemize}
  \end{itemize}
 \end{frame}
