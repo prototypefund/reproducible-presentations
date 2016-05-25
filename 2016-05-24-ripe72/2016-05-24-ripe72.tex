@@ -320,6 +320,36 @@ and some hints where this might be going…}
 
 \begin{frame}
  \frametitle{Demo}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Demo - unreproducible builds}
+ \begin{itemize}
+  \item \small{\texttt{db4c5c4d6eaec2268eeab750920e34004292ec3a   giftrans\_1.12.2-19.dsc}}
+  \item \small{\texttt{a931a19e832024f509f7902b2b5560f8e46f004b  giftrans\_1.12.2-19.debian.tar.xz}}
+  \item \small{\texttt{816067762fe7d41f2b73f0acd2da0e51a1b93f27  giftrans\_1.12.2.orig.tar.gz}}
+  \item \small{\texttt{97f656caf73a5c73bd86e7e0d7f134c55ad83fc8  .1/giftrans\_1.12.2-19\_amd64.deb}}
+  \item \small{\texttt{08211b176c889e8270aa87a1a753b3bc24c6aed0  .2/giftrans\_1.12.2-19\_amd64.deb}}
+  \item \small{\texttt{1365e56a2217fa44afe3594333b9aa70fc0dd8d4  .3/giftrans\_1.12.2-19\_amd64.deb}}
+  \item \small{\texttt{b486c9337968b04b7159c2500c03434cbac6f50b  .4/giftrans\_1.12.2-19\_amd64.deb}}
+  \item \small{\texttt{50aef605a36eec64c307812a32553d38f30d1672  .5/giftrans\_1.12.2-19\_amd64.deb}}
+ \end{itemize}
+\end{frame}
+\begin{frame}
+ \frametitle{Demo - reproducible builds}
+ \begin{itemize}
+  \item \small{\texttt{db4c5c4d6eaec2268eeab750920e34004292ec3a   giftrans\_1.12.2-19.dsc}}
+  \item \small{\texttt{a931a19e832024f509f7902b2b5560f8e46f004b  giftrans\_1.12.2-19.debian.tar.xz}}
+  \item \small{\texttt{816067762fe7d41f2b73f0acd2da0e51a1b93f27  giftrans\_1.12.2.orig.tar.gz}}
+  \item \small{\texttt{2a7c368a7fb1857b964a53fd53fd39d466e81d3a  .1/giftrans\_1.12.2-19\_amd64.deb}}
+  \item \small{\texttt{2a7c368a7fb1857b964a53fd53fd39d466e81d3a  .2/giftrans\_1.12.2-19\_amd64.deb}}
+  \item \small{\texttt{2a7c368a7fb1857b964a53fd53fd39d466e81d3a  .3/giftrans\_1.12.2-19\_amd64.deb}}
+  \item \small{\texttt{2a7c368a7fb1857b964a53fd53fd39d466e81d3a  .4/giftrans\_1.12.2-19\_amd64.deb}}
+  \item \small{\texttt{2a7c368a7fb1857b964a53fd53fd39d466e81d3a  .5/giftrans\_1.12.2-19\_amd64.deb}}
+ \end{itemize}
+\end{frame}
+
+
 % show this once running in plain sid,
 % and then in sid with our modified toolchain.
 %
@@ -332,7 +362,6 @@ and some hints where this might be going…}
 %   dpkg-buildpackage -b -uc -us); mkdir -p .$X ; cp $P_*.deb .$X; done ; rm
 %   *.deb ; echo; sha1sum *dsc *z .*/*.deb | grep -v giftrans-dbgsym ; cd - ;
 % rm -r $PTH
-\end{frame}
 
 \begin{frame}[plain]
 \begin{center}
@@ -414,14 +443,16 @@ uid & \texttt{1111} & \texttt{2222} \\
 gid & \texttt{1111} & \texttt{2222} \\
 shell & \texttt{dash} & \texttt{bash} \\
 UTS namespace & shared with the host & \textit{modified using \texttt{/usr/bin/unshare --uts}} \\
-kernel version & Linux 3.16 or 4.X & on amd64 always varied, on armhf
+kernel version & Linux 3.16 or 4.X & on amd64 and i386 always varied, on armhf
 sometimes \\
+32 vs 64 bit kernel & one or the other & only varied on i386 \\
 umask & 0022 & 0002 \\
-CPU type & \multicolumn{2}{l}{same for both builds on amd64 \textit{(work in progress)}} \\
+CPU type & \multicolumn{2}{l}{Intel and AMD variation for i386 and amd64 \textit{(work in progress)}} \\
  & on armhf varied a bit & \\
-filesystem & \multicolumn{2}{l}{same for both builds on amd64: (\texttt{tmpfs}), on armhf \texttt{ext3/4}} \\
+filesystem & \multicolumn{2}{l}{same for both builds on amd64:
+(\texttt{tmpfs}), on i386 and armhf \texttt{ext3/4}} \\
  & & \textit{(and we have} \texttt{disorderfs}\textit{, but the code is disabled)} \\
-year, month, date & \multicolumn{2}{l}{on amd64: 398 days variation, on armhf not yet} \\
+year, month, date & \multicolumn{2}{l}{on amd64 and i386: 398 days variation, on armhf not yet} \\
 hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minute differs… } \\
 \textit{everything else} & \multicolumn{2}{l}{\textit{is likely the same…}}
     \end{tabular}
@@ -580,7 +611,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{tikzpicture}
  \begin{center}
   \footnotesize{21,365 (88.5\%) out of 24,135 source packages are reproducible \\
-    in our test framework}
+    in our test framework}<2>{90.1\% in \texttt{testing/amd64}}
   \vfill
  \end{center}
 \end{frame}
@@ -617,7 +648,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{tikzpicture}
  \begin{center}
   \footnotesize{35 different "package sets", eg. \texttt{required} is only
-  70.2\% reproducible}
+  73.1\% reproducible}
   \vfill
  \end{center}
 \end{frame}
@@ -663,7 +694,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item \texttt{SOURCE\_DATE\_EPOCH}
   \item \texttt{disorderfs}
   \item 1600+ patches: \texttt{dpkg}, \texttt{debhelper}, \texttt{sbuild}, …
-  \item 4 packages modified to achive those 90.1\%
+  \item 4 packages modified to achive those 88\% (90.1\%)
   \item …
  \end{itemize}
 \end{frame}
@@ -705,7 +736,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item it's clear we need something like them
   \item it's clear what needs to be specified
   \item it "just" needs to be done…
-  \item<2> and it *needs* to be done - we need "API"s to define inputs and
+  \item<2> and it \textbf{needs} to be done - we need "API"s to define inputs and
   outputs, these "API"s will be different in their implementation but the
   basic principiples will be the same. Without \texttt{.buildinfo} files
   reproducible rebuild are not doable in practice… 
@@ -722,8 +753,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item<2-4> First Reproducible World Summit in December 2015 (Athens, Greece)
    \begin{itemize}
     \item<2-4> 40 people from 16 projects
-    \item<2-4> \texttt{reproducible.debian.net} has become
-  \texttt{tests.reproducible-builds.org}
   \item<3-4> another summit in second half 2016, somewhere in Europe
    \end{itemize}
   \item<4> 2 GSoC students in 2015, totally new contributors, totally rocking
@@ -748,8 +777,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{itemize}
   \item This is just a proof-of-concept, Debian is not 90\% reproducible,
   Debian is 0\% reproducible.
-  \item Patches still need to be merged
-  \item<2-4> I hope that Debian 9, "stretch", will be partially reproducible in a meaningful way
+  \item Patches still need to be merged (until the end of the year)
+  \item<2-4> I hope that Debian 9, "stretch", will be \it{partially
+  reproducible in a meaningful way}
   \item<3-4> Debian \texttt{unstable} still needs changes to \texttt{dpkg} and
   \texttt{ftp.debian.org} (for keeping \texttt{.buildinfo} files)
   \item<4> what's beyond (rebuilding, \texttt{.buildinfo} file signing and
@@ -841,6 +871,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item rpm format includes build time and build host and signatures…
   \item recreating the build env: koji
   \item next: first reproducible rpm, use koji
+  \item<2> help/patches from SuSE? :)
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.13\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
