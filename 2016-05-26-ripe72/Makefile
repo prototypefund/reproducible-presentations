@@ -1,6 +1,6 @@
 .PHONY: all source images
 
-PRESENTATION = 2016-05-24-ripe72
+PRESENTATION = 2016-05-26-ripe72
 
 all: $(PRESENTATION).pdf
 
