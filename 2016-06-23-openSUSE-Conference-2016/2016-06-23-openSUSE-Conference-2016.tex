@@ -390,6 +390,7 @@ and some hints where this might be going…}
  \frametitle{a very brief history}
 
  \begin{itemize}
+  \item ...
   \item Bitcoin (2012)
   \item TorBrowser and Tor (2012)
   \item<2-4> Debian (2013)
@@ -636,8 +637,8 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{center}
     \includegraphics[height=0.7\paperheight]{images/stats_pkg_state.png}
 
-  \footnotesize{21,365 (88.5\%) out of 24,135 source packages are reproducible \\
-    in our test framework (and 90.1\% in \texttt{testing/amd64})}
+  \footnotesize{21,666 (89.0\%) out of 24,323 source packages are reproducible \\
+    in our test framework (and 90.2\% in \texttt{testing/amd64})}
   \vfill
  \end{center}
 \end{frame}
@@ -646,11 +647,11 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{Notes and issues on tests.reproducible-builds.org}
 
  \begin{itemize}
-  \item { 194 categorised distinct issues }
-  \item { 3,085 notes }
-  \item<2-4> { 1879 unreproducible packages in \texttt{sid/amd64}, but only
-  227 without a  note }
-  \item<2-4> { 516 packages failing to build, but only 92 without a note }
+  \item { 206 categorised distinct issues }
+  \item { 3,261 notes }
+  \item<2-4> { 1844 unreproducible packages in \texttt{sid/amd64}, but only
+  211 without a  note }
+  \item<2-4> { 655 packages failing to build, but only 149 without a note }
   \item<3-4> { maintained in \texttt{notes.git} }
   \item<4> { currently Debian only, but cross distro notes are planned}
  \end{itemize}
@@ -670,8 +671,8 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \begin{center}
     \includegraphics[height=0.7\paperheight]{images/stats_meta_pkg_state_required.png}
 
- \footnotesize{35 different "package sets", eg. \texttt{required} is only
-  73.1\% reproducible}
+ \footnotesize{42 different "package sets", eg. \texttt{required} is only
+  74.3\% reproducible}
   \vfill
  \end{center}
 \end{frame}
@@ -681,8 +682,8 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \begin{center}
     \includegraphics[height=0.7\paperheight]{images/stats_meta_pkg_state_key_packages.png}
 
- \footnotesize{Debian's \texttt{key\_packages} are 84.5\% reproducible,
-  but 435 packages (12.8\%) \\ 
+ \footnotesize{Debian's \texttt{key\_packages} are 86.9\% reproducible,
+  but 437 packages (10\%) \\ 
   will still need to be fixed}
   \vfill
  \end{center}
@@ -710,8 +711,8 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item \texttt{diffoscope} (formerly \texttt{debbindiff})
   \item \texttt{SOURCE\_DATE\_EPOCH}
   \item \texttt{disorderfs}
-  \item 1600+ patches: \texttt{dpkg}, \texttt{debhelper}, \texttt{sbuild}, …
-  \item 4 packages modified to achive those 88\% (90.1\%)
+  \item 1700+ patches: \texttt{dpkg}, \texttt{debhelper}, \texttt{sbuild}, …
+  \item 2 packages modified to achieve those 89\% (90.2\%)
   \item …
  \end{itemize}
 \end{frame}
@@ -745,6 +746,32 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+ \frametitle{Example \texttt{.buildinfo} file}
+
+{\small
+\begin{verbatim}
+Format: 1.9
+Build-Architecture: amd64
+Source: txtorcon
+Binary: python-txtorcon
+Architecture: all
+Version: 0.11.0-1
+Build-Path: /build/txtorcon-0.11.0-1
+Checksums-Sha256:
+ a26549d9…7b 125910 python-txtorcon_0.11.0-1_all.deb
+ 28f6bcbe…69 2039 txtorcon_0.11.0-1.dsc
+Build-Environment:
+ base-files (= 8),
+ base-passwd (= 3.5.37),
+ bash (= 4.3-11+b1),
+ …
+\end{verbatim}
+}
+\end{frame}
+
+
+
 \begin{frame}
  \frametitle{\texttt{.buildinfo} files elsewhere}
 
@@ -753,10 +780,10 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item it's clear we need something like them
   \item it's clear what needs to be specified
   \item it "just" needs to be done…
-  \item<2> and it \textbf{needs} to be done - we need "API"s to define inputs and
+  \item<2> and it \textbf{needs} to be done: we need "API"s to define inputs and
   outputs, these "API"s will be different in their implementation but the
   basic principiples will be the same. Without \texttt{.buildinfo} files
-  reproducible rebuild are not doable in practice… 
+  reproducible rebuilds are not doable in practice…!
  \end{itemize}
 \end{frame}
 
@@ -773,7 +800,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item<3-4> another summit in second half 2016, somewhere in Europe
    \end{itemize}
   \item<4> 2 GSoC students in 2015, totally new contributors, totally rocking
-  \item<4> 4 GSoC and Outreachy students in 2016
+  \item<4> 4 GSoC and Outreachy students in 2016, also rocking already!
  \end{itemize}
 \end{frame}
 
@@ -815,7 +842,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{Status coreboot}
  \begin{itemize}
   \item \texttt{https://tests.r-b.org/coreboot}
-  \item 99.2\% reproducible with \texttt{seabios} payload
+  \item 100\% reproducible with \texttt{seabios} payload
   \item tests maintained by Alexander 'lynxis' Couzens
   \item unclear what the next steps are… they don't release binaries…
   \item needs involvement from coreboot developers
@@ -830,11 +857,11 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \begin{frame}
  \frametitle{Status OpenWrt}
  \begin{itemize}
-  \item \texttt{https://tests.r-b.org/coreboot}
+  \item \texttt{https://tests.r-b.org/openwrt}
   \item selected images are 100\% reproducible and selected packages 99.7\%
-  \item using 13 patches send upstream on January 25th
+  \item using 13 patches send upstream on January 25th 2016
   \item tests maintained by Alexander 'lynxis' Couzens and Bryan Newbold
-  \item recreating the build env: needs to checked in practice
+  \item recreating the build env: needs to be checked in practice
   \item user verification tools: not yet
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
@@ -867,8 +894,10 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item \texttt{https://tests.r-b.org/freebsd}
   \item base system not yet reproducible, but almost there
   \item 63\% of 15k ports were reproducible in 2013 already, their wiki says
-  \item tests maintained by h01ger so far…
+  \item tests maintained by h01ger so far… but Ed Maste has recently started
+  work
   \item recreating the build env: ?
+  \item hopefully soon testing ports (=packages) too 
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.11\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
@@ -922,7 +951,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \end{frame}
 
 \begin{frame}
- \frametitle{Unmentioned, with known activities}
+ \frametitle{More projects with known activities}
  \begin{itemize}
 \item Bitcoin, Tor,
 \item Signal
@@ -950,7 +979,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \end{frame}
 
 \begin{frame}
- \frametitle{Unmentioned, unknown activities?}
+ \frametitle{Unknown activities?}
  \begin{itemize}
 \item  OpenBSD
 \item  Gentoo (stage1)
