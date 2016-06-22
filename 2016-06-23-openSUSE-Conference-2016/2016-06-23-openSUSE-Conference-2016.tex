@@ -274,14 +274,20 @@ and some hints where this might be going…}
  \end{center}
 \end{frame}
 
+
+
 \begin{frame}[fragile]
  \frametitle{A few examples from that 31C3 talk}
  \begin{itemize}
   \item CVE-2002-0083: remote root exploit in \texttt{sshd}, a single bit difference in the binary
-  \item<2-4> 31C3 talk had a live demo with a kernel module modifying source code in memory only
-  \item<3-4> financial incentives to crack developer machines…
-  \item<4-4> {how can you be sure what's running on your machine or on a build
+  \item<2-5> 31C3 talk had a live demo with a kernel module modifying source code in memory only
+  \item<3-5> Financial incentives to crack developer machines… attack one, 0wn
+  millions.
+  \item<4-5> {How can you be sure what's running on your machine or on a build
   daemon network? Are your computers really always physically safe?}
+  \item<5> Hacking OBS is very affordable for state sponsored
+  attackers and large criminal organisations and AIUI would expose all SuSE
+  installations. You are a target because your customers are.
  \end{itemize}
 \end{frame}
 
@@ -298,6 +304,21 @@ and some hints where this might be going…}
  \end{center}
 \end{frame}
 
+\begin{frame}
+ \frametitle{Summary: the source of the problem…}
+ \begin{itemize}
+  \item Free Software is great!
+   \begin{itemize}
+    \item Use
+    \item Share
+    \item Study
+    \item Modify
+   \end{itemize}
+  \item<2> Free Software is about source code, but noone uses the sources, we all
+  use binaries.
+ \end{itemize}
+\end{frame}
+
 
 \begin{frame}
  \frametitle{The solution}
@@ -305,8 +326,10 @@ and some hints where this might be going…}
  \begin{center}
  \Large{
  Promise that anyone can always generate
- identical binary packages
- from a given source}
+
+ bit by bit identical binary packages
+
+ from a given source.}
 \end{center}
 \end{frame}
 
@@ -653,7 +676,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   211 without a  note }
   \item<2-4> { 655 packages failing to build, but only 149 without a note }
   \item<3-4> { maintained in \texttt{notes.git} }
-  \item<4> { currently Debian only, but cross distro notes are planned}
+  \item<4> { currently Debian only, but we will turn those into cross distro notes}
  \end{itemize}
 \end{frame}
 
@@ -776,7 +799,7 @@ Build-Environment:
  \frametitle{\texttt{.buildinfo} files elsewhere}
 
  \begin{itemize}
-  \item neither used nor specified elsewhere
+  \item neither used nor specified elsewhere \textbf{yet}
   \item it's clear we need something like them
   \item it's clear what needs to be specified
   \item it "just" needs to be done…
@@ -826,7 +849,7 @@ Build-Environment:
   reproducible in a meaningful way}
   \item<3-4> Debian \texttt{unstable} still needs changes to \texttt{dpkg} and
   \texttt{ftp.debian.org} (for keeping \texttt{.buildinfo} files)
-  \item<4> what's beyond (rebuilding, \texttt{.buildinfo} file signing and
+  \item<4> What's beyond (rebuilding, \texttt{.buildinfo} file signing and
   distribution, user tools) mostly still needs \it{design} and code
 
  \end{itemize}
@@ -897,7 +920,7 @@ Build-Environment:
   \item tests maintained by h01ger so far… but Ed Maste has recently started
   work
   \item recreating the build env: ?
-  \item hopefully soon testing ports (=packages) too 
+  \item soon testing ports (=packages) too 
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.11\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
@@ -947,8 +970,17 @@ Build-Environment:
   \item not yet: \texttt{https://tests.r-b.org/f-droid}
   \item maintained by Hans-Christoph Steiner and h01ger
   \item work has just begun…
+  \item<2> need help with vagrant. please contact me if you can help…
  \end{itemize}
 \end{frame}
+
+\begin{frame}
+ \frametitle{Status openSUSE}
+ \begin{itemize}
+  \item Watch Bernhard's talk directly after this one!
+ \end{itemize}
+\end{frame}
+
 
 \begin{frame}
  \frametitle{More projects with known activities}
