@@ -1,4 +1,4 @@
-\documentclass[14pt]{beamer}
+\documentclass[14pt,aspectratio=169]{beamer}
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{caption label separator}{:}
 \setbeamercolor{caption name}{fg=normal text.fg}
@@ -101,7 +101,7 @@ and some hints where this might be going…}
             \href{mailto:holger@layer-acht.org}{holger@layer-acht.org}
    }{h01ger}}
 \institute[Debian]{}
-\date[OSC2016]{%
+\date[openSUSE 2016]{%
  openSUSE Conference 2016 (Nürnberg, DE)\\
  \small{2016-06-23}}
 
@@ -116,7 +116,7 @@ and some hints where this might be going…}
 
  \begin{itemize}
   \item \small{\texttt{B8BF 5413 7B09 D35C F026  FE9D 091A B856 069A AA1C}}
-  \item Debian user since 1995
+  \item Debian user since 1995 - though my very first installation was SuSE :)
   \item Debian contributor since 2001
   \item Debian developer since 2007
   \item DebConf organizer,
@@ -131,7 +131,6 @@ and some hints where this might be going…}
    \item \texttt{https://jenkins.debian.net} (~1100 jobs continously testing Debian)
   \end{itemize}
   \item \sout{Debian LTS} (Long Term Support)
-  \item \texttt{sudo (apt|dnf) install torbrowser-launcher}
  \end{itemize}
 \end{frame}
 
@@ -151,6 +150,7 @@ and some hints where this might be going…}
   \begin{itemize}
    \item applied for extended funding in April 2016…
   \end{itemize}
+  \item<2>{basically no idea about Reproducible SUSE ;-)}
 \end{itemize}
 \end{frame}
 
@@ -175,8 +175,8 @@ and some hints where this might be going…}
     Drew Fisher \\
     Esa Peuha \\
     {Fabian Wolff} \\
-    {Guillem Jover} \\
    \column{.30\linewidth}
+    {Guillem Jover} \\
     Hans-Christoph Steiner \\
     {Helmut Grohne} \\
     \only<1>{Holger Levsen}\only<2>{{\color{debianred} Holger Levsen}} \\
@@ -191,8 +191,8 @@ and some hints where this might be going…}
     Nicolas Boulenguez \\
     {Niels Thykier} \\
     Niko Tyni \\
-    {Paul Wise} \\
    \column{.30\linewidth}
+    {Paul Wise} \\
     Peter De Wachter \\
     Philip Rinn \\
     {Reiner Herrmann} \\
@@ -268,17 +268,17 @@ and some hints where this might be going…}
  \frametitle{The problem}
 
  \begin{center}
-  \includegraphics[width=0.7\textwidth]{images/31c3.png}
+  \includegraphics[width=0.71\textwidth]{images/31c3.png}
 
-  Available on \url{media.ccc.de}, 31c3
+  Available on \url{media.ccc.de}, 31C3
  \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
- \frametitle{A few examples from that 31c3 talk}
+ \frametitle{A few examples from that 31C3 talk}
  \begin{itemize}
   \item CVE-2002-0083: remote root exploit in \texttt{sshd}, a single bit difference in the binary
-  \item<2-4> 31c3 talk had a live demo with a kernel module modifying source code in memory only
+  \item<2-4> 31C3 talk had a live demo with a kernel module modifying source code in memory only
   \item<3-4> financial incentives to crack developer machines…
   \item<4-4> {how can you be sure what's running on your machine or on a build
   daemon network? Are your computers really always physically safe?}
@@ -286,7 +286,7 @@ and some hints where this might be going…}
 \end{frame}
 
 \begin{frame}[fragile]
- \frametitle{Another example from real life}
+ \frametitle{Another example from real life\only<2>{: XCode Ghost}}
 
  At a CIA conference in 2012:
  \begin{center}
@@ -325,33 +325,34 @@ and some hints where this might be going…}
  \frametitle{Demo}
 \end{frame}
 
-\begin{frame}
- \frametitle{Demo - unreproducible builds}
- \begin{itemize}
-  \item \small{\texttt{db4c5c4d6eaec2268eeab750920e34004292ec3a   giftrans\_1.12.2-19.dsc}}
-  \item \small{\texttt{a931a19e832024f509f7902b2b5560f8e46f004b  giftrans\_1.12.2-19.debian.tar.xz}}
-  \item \small{\texttt{816067762fe7d41f2b73f0acd2da0e51a1b93f27  giftrans\_1.12.2.orig.tar.gz}}
-  \item \small{\texttt{97f656caf73a5c73bd86e7e0d7f134c55ad83fc8  .1/giftrans\_1.12.2-19\_amd64.deb}}
-  \item \small{\texttt{08211b176c889e8270aa87a1a753b3bc24c6aed0  .2/giftrans\_1.12.2-19\_amd64.deb}}
-  \item \small{\texttt{1365e56a2217fa44afe3594333b9aa70fc0dd8d4  .3/giftrans\_1.12.2-19\_amd64.deb}}
-  \item \small{\texttt{b486c9337968b04b7159c2500c03434cbac6f50b  .4/giftrans\_1.12.2-19\_amd64.deb}}
-  \item \small{\texttt{50aef605a36eec64c307812a32553d38f30d1672  .5/giftrans\_1.12.2-19\_amd64.deb}}
- \end{itemize}
-\end{frame}
-\begin{frame}
- \frametitle{Demo - reproducible builds}
- \begin{itemize}
-  \item \small{\texttt{db4c5c4d6eaec2268eeab750920e34004292ec3a   giftrans\_1.12.2-19.dsc}}
-  \item \small{\texttt{a931a19e832024f509f7902b2b5560f8e46f004b  giftrans\_1.12.2-19.debian.tar.xz}}
-  \item \small{\texttt{816067762fe7d41f2b73f0acd2da0e51a1b93f27  giftrans\_1.12.2.orig.tar.gz}}
-  \item \small{\texttt{2a7c368a7fb1857b964a53fd53fd39d466e81d3a  .1/giftrans\_1.12.2-19\_amd64.deb}}
-  \item \small{\texttt{2a7c368a7fb1857b964a53fd53fd39d466e81d3a  .2/giftrans\_1.12.2-19\_amd64.deb}}
-  \item \small{\texttt{2a7c368a7fb1857b964a53fd53fd39d466e81d3a  .3/giftrans\_1.12.2-19\_amd64.deb}}
-  \item \small{\texttt{2a7c368a7fb1857b964a53fd53fd39d466e81d3a  .4/giftrans\_1.12.2-19\_amd64.deb}}
-  \item \small{\texttt{2a7c368a7fb1857b964a53fd53fd39d466e81d3a  .5/giftrans\_1.12.2-19\_amd64.deb}}
- \end{itemize}
-\end{frame}
 
+%\begin{frame}
+% \frametitle{Demo - unreproducible builds}
+% \begin{itemize}
+%  \item \small{\texttt{db4c5c4d6eaec2268eeab750920e34004292ec3a   giftrans\_1.12.2-19.dsc}}
+%  \item \small{\texttt{a931a19e832024f509f7902b2b5560f8e46f004b  giftrans\_1.12.2-19.debian.tar.xz}}
+%  \item \small{\texttt{816067762fe7d41f2b73f0acd2da0e51a1b93f27  giftrans\_1.12.2.orig.tar.gz}}
+%  \item \small{\texttt{97f656caf73a5c73bd86e7e0d7f134c55ad83fc8  .1/giftrans\_1.12.2-19\_amd64.deb}}
+%  \item \small{\texttt{08211b176c889e8270aa87a1a753b3bc24c6aed0  .2/giftrans\_1.12.2-19\_amd64.deb}}
+%  \item \small{\texttt{1365e56a2217fa44afe3594333b9aa70fc0dd8d4  .3/giftrans\_1.12.2-19\_amd64.deb}}
+%  \item \small{\texttt{b486c9337968b04b7159c2500c03434cbac6f50b  .4/giftrans\_1.12.2-19\_amd64.deb}}
+%  \item \small{\texttt{50aef605a36eec64c307812a32553d38f30d1672  .5/giftrans\_1.12.2-19\_amd64.deb}}
+% \end{itemize}
+%\end{frame}
+%\begin{frame}
+% \frametitle{Demo - reproducible builds}
+% \begin{itemize}
+%  \item \small{\texttt{db4c5c4d6eaec2268eeab750920e34004292ec3a   giftrans\_1.12.2-19.dsc}}
+%  \item \small{\texttt{a931a19e832024f509f7902b2b5560f8e46f004b  giftrans\_1.12.2-19.debian.tar.xz}}
+%  \item \small{\texttt{816067762fe7d41f2b73f0acd2da0e51a1b93f27  giftrans\_1.12.2.orig.tar.gz}}
+%  \item \small{\texttt{2a7c368a7fb1857b964a53fd53fd39d466e81d3a  .1/giftrans\_1.12.2-19\_amd64.deb}}
+%  \item \small{\texttt{2a7c368a7fb1857b964a53fd53fd39d466e81d3a  .2/giftrans\_1.12.2-19\_amd64.deb}}
+%  \item \small{\texttt{2a7c368a7fb1857b964a53fd53fd39d466e81d3a  .3/giftrans\_1.12.2-19\_amd64.deb}}
+%  \item \small{\texttt{2a7c368a7fb1857b964a53fd53fd39d466e81d3a  .4/giftrans\_1.12.2-19\_amd64.deb}}
+%  \item \small{\texttt{2a7c368a7fb1857b964a53fd53fd39d466e81d3a  .5/giftrans\_1.12.2-19\_amd64.deb}}
+% \end{itemize}
+%\end{frame}
+%
 
 % show this once running in plain sid,
 % and then in sid with our modified toolchain.
@@ -365,26 +366,42 @@ and some hints where this might be going…}
 %   dpkg-buildpackage -b -uc -us); mkdir -p .$X ; cp $P_*.deb .$X; done ; rm
 %   *.deb ; echo; sha1sum *dsc *z .*/*.deb | grep -v giftrans-dbgsym ; cd - ;
 % rm -r $PTH
+%
+% cd Projects/reproducible/presentations/demo
+% scriptreplay -t sid.tm -s sid.out
+% scriptreplay -t sid-reproducible.tm -s sid-reproducible.out
 
 \begin{frame}[plain]
 \begin{center}
  \Huge{This should become the \textbf{norm}.}
 
- \visible<2>{\small{ We want to change the meaning of "free software":
+ \visible<2-3>{\small{ We want to change the meaning of "free software":
 
   it's only free software if it's reproducible!}}
+
+ \visible<3>{\small{Because one can only be sure it's free software
+ 
+ if it's reproducible!}}
 \end{center}
 \end{frame}
 
-\begin{frame}[plain]
-\begin{center}
- \Huge{This should become the \textbf{norm}.}
 
- \visible<1>{\small{ It is impossible to know 
- 
- whether something is free software
-  if it's not reproducible!}}
-\end{center}
+\begin{frame}
+ \frametitle{a very brief history}
+
+ \begin{itemize}
+  \item Bitcoin (2012)
+  \item TorBrowser and Tor (2012)
+  \item<2-4> Debian (2013)
+  \item<2-4> FreeBSD (2013)
+  \item<3-4> reproducible.debian.net (2014)
+  \item<3-4>{ 2015:
+  \begin{itemize}
+   \item 15 talks given
+   \item reproducible-builds.org
+   \item meeting in Athens with 16 projects
+ \end{itemize}}
+ \end{itemize}
 \end{frame}
 
 
@@ -408,8 +425,8 @@ and some hints where this might be going…}
   \item<2-5> Continuously testing Debian \texttt{testing}, \texttt{unstable} and
   \texttt{experimental}
   \item<3-5> on \texttt{amd64} and \texttt{i386} and \texttt{armhf}
-  \item<4-5> Also testing: coreboot, OpenWrt, NetBSD, FreeBSD,
-  Arch Linux, Fedora and soon F-Droid and Guix too
+  \item<4-5> Also testing: OpenWrt, coreboot, NetBSD, FreeBSD.
+  \item<4-5> Arch Linux, Fedora and F-Droid work in progress…
   \item<5> 311 jenkins jobs running on 31 hosts
   \item<5> 41 scripts with a total of 4k lines of Python and 6k lines of Bash
   Shell
@@ -443,7 +460,7 @@ and some hints where this might be going…}
 
  \begin{center}
   \begin{table}
-   \resizebox{0.97\textwidth}{!}{%
+   \resizebox{0.85\textwidth}{!}{%
     \begin{tabular}{l|ll}
 \textbf{variation} & \textbf{first build} & \textbf{second build} \\
 \hline
@@ -453,8 +470,7 @@ domainname & \texttt{debian.net} & \texttt{i-capture-the-domainname} \\
 \texttt{env LANG} & \texttt{C} & \texttt{fr\_CH.UTF-8} \\
 \texttt{env LC\_ALL} & not set & \texttt{fr\_CH.UTF-8} \\
 \texttt{env USER} & \texttt{pbuilder1} & \texttt{pbuilder2} \\
-uid & \texttt{1111} & \texttt{2222} \\
-gid & \texttt{1111} & \texttt{2222} \\
+uid/gid & \texttt{1111} & \texttt{2222} \\
 shell & \texttt{dash} & \texttt{bash} \\
 UTS namespace & shared with the host & \textit{modified using \texttt{/usr/bin/unshare --uts}} \\
 kernel version & Linux 3.16 or 4.X & on amd64 and i386 always varied, on armhf
@@ -496,8 +512,8 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item Lunar's talk from CCCamp 2015 also on
   \texttt{https://media.ccc.de}
  \begin{tikzpicture}[remember picture]
-  \node[shift={(-1.05\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
-    \includegraphics[width=0.83\textwidth]{images/cccamp2015_lunar_random.png}
+  \node[shift={(-0.5\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
+    \includegraphics[width=0.73\textwidth]{images/cccamp2015_lunar_random.png}
   };
  \end{tikzpicture}
  \end{itemize}
@@ -598,7 +614,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item \sout{\texttt{\#796130}}: man2html
   \item \sout{\texttt{\#783475}}: texi2html
   \item \sout{\texttt{\#794586}}: ocamldoc
-  \item \sout{\texttt{\#795942}}: wheel
   \item \sout{\texttt{\#792202}}: texlive-bin
   \item ...
  \end{itemize}
@@ -618,12 +633,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 \begin{frame}
  \frametitle{Progress in Debian \texttt{unstable/amd64}}
- \begin{tikzpicture}[remember picture]
-  \node[shift={(-0.75\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.65\paperheight]{images/stats_pkg_state.png}
-  };
- \end{tikzpicture}
  \begin{center}
+    \includegraphics[height=0.7\paperheight]{images/stats_pkg_state.png}
+
   \footnotesize{21,365 (88.5\%) out of 24,135 source packages are reproducible \\
     in our test framework (and 90.1\% in \texttt{testing/amd64})}
   \vfill
@@ -655,13 +667,10 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 \begin{frame}
  \frametitle{Debian package sets on tests.r-b.org}
- \begin{tikzpicture}[remember picture]
-  \node[shift={(-0.75\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.65\paperheight]{images/stats_meta_pkg_state_required.png}
-  };
- \end{tikzpicture}
- \begin{center}
-  \footnotesize{35 different "package sets", eg. \texttt{required} is only
+  \begin{center}
+    \includegraphics[height=0.7\paperheight]{images/stats_meta_pkg_state_required.png}
+
+ \footnotesize{35 different "package sets", eg. \texttt{required} is only
   73.1\% reproducible}
   \vfill
  \end{center}
@@ -669,13 +678,10 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 \begin{frame}
  \frametitle{Debian package sets on tests.r-b.org}
- \begin{tikzpicture}[remember picture]
-  \node[shift={(-0.75\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.65\paperheight]{images/stats_meta_pkg_state_key_packages.png}
-  };
- \end{tikzpicture}
- \begin{center}
-  \footnotesize{Debian's \texttt{key\_packages} are 84.5\% reproducible,
+  \begin{center}
+    \includegraphics[height=0.7\paperheight]{images/stats_meta_pkg_state_key_packages.png}
+
+ \footnotesize{Debian's \texttt{key\_packages} are 84.5\% reproducible,
   but 435 packages (12.8\%) \\ 
   will still need to be fixed}
   \vfill
@@ -685,12 +691,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 \begin{frame}
  \frametitle{Progress in the Debian bug tracker}
- \begin{tikzpicture}[remember picture]
-  \node[shift={(-0.75\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.65\paperheight]{images/stats_bugs_sin_ftbfs_state.png}
-  };
- \end{tikzpicture}
  \begin{center}
+    \includegraphics[height=0.7\paperheight]{images/stats_bugs_sin_ftbfs_state.png}
+
   \footnotesize{As a rule, we file bugs with patches. \\
   There were very few exceptions.}
   \vfill
@@ -720,9 +723,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item …and being able to re-create this build environment is mandatory too.
   \item Without an \textit{sufficiently identical} build environment, reproducible builds will only
   happen by sheer luck.
-  \item<2>{I've only verified for Debian so far… \texttt{koji}
+  \item<2>{I've only verified this works for Debian so far… \texttt{koji}
   is designed for that too, Guix as well…}
-\item<2> {I'd very much like to be corrected here, with tests.}
+\item<2> {I'd very much like to hear about your experiences.}
  \end{itemize}
 \end{frame}
 
@@ -818,7 +821,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item needs involvement from coreboot developers
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.13\paperwidth, 0.18\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.11\paperwidth, 0.18\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/coreboot.png}
   };
  \end{tikzpicture}
@@ -835,7 +838,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item user verification tools: not yet
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.16\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.14\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.4\paperheight]{images/openwrt.png}
   };
  \end{tikzpicture}
@@ -852,7 +855,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item recreating the build env: ?
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.13\paperwidth, 0.18\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.11\paperwidth, 0.18\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/netbsd.png}
   };
  \end{tikzpicture}
@@ -868,7 +871,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item recreating the build env: ?
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.13\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.11\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/freebsd.png}
   };
  \end{tikzpicture}
@@ -888,7 +891,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item<2> help/patches from SuSE? :)
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.13\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.11\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/fedora.png}
   };
  \end{tikzpicture}
@@ -903,7 +906,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item recreating the build env: unaddressed
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.13\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.11\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.33\paperheight]{images/archlinux.png}
   };
  \end{tikzpicture}
@@ -928,7 +931,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \item Guix, NixOS
 \item ElectroBSD
 \item Qubes, TAILS, Subgraph OS
-\item    commercial, propietary Software
+\item commercial, propietary Software
 \item ?
  \end{itemize}
 \end{frame}
@@ -1029,9 +1032,12 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{As a software developer}
  \begin{itemize}
   \item Merge our patches
-  \item<2> Stop using build dates
-  \item<2> Use \texttt{SOURCE\_DATE\_EPOCH} instead
-  \item<2> See \url{https://reproducible-builds.org/specs/}
+  \item<2> {Stop using build dates:
+  \begin{itemize}
+  \item use \texttt{SOURCE\_DATE\_EPOCH} instead
+  \item see \url{https://reproducible-builds.org/specs/}
+ \end{itemize}
+  }
  \end{itemize}
 \end{frame}
 

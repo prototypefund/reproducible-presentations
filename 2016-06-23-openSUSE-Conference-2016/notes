@@ -1,10 +1,14 @@
 notes for suse conf talk
 ------------------------
-- add "history" slide mentioning bitcoin and tor
 - add slides: sources are nice, because 1-4, but everybody uses binaries…
 - re-add .buildinfo example
-- show an issue? and a package note?
+- show an issue? and a package note? (by common problems?)
 - give 1-3 examples of unreproducible issues
+- update stats and images
+
+to keep in mind:
+- explain reproducible suse talk after this one
+- whats the name of the opensuse build system?
 
 old notes
 ---------
