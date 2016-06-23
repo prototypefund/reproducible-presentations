@@ -1,16 +1,10 @@
 notes for suse conf talk
 ------------------------
-- show an issue? and a package note? (by common problems?)
-- add suse logo…
-- add suse to r-b/o and put that on the slide
 - give 1-3 examples of unreproducible issues
 	open in browser
 		linux
 		libreoffice
 
-
-to keep in mind:
-- explain reproducible suse talk after this one
 - whats the name of the opensuse build system?  exactly that.
 
 old notes

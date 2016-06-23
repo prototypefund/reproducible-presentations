@@ -291,7 +291,7 @@ and some hints where this might be going…}
   \item<4-5> {How can you be sure what's running on your machine or on a build
   daemon network? Are your computers really always physically safe?}
   \item<5> Hacking OBS is very affordable for state sponsored
-  attackers and large criminal organisations and AIUI would expose all SuSE
+  attackers and large criminal organisations and AIUI would expose all openSuSE
   installations. You are a target because your customers are.
  \end{itemize}
 \end{frame}
@@ -683,9 +683,47 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   211 without a  note }
   \item<2-4> { 655 packages failing to build, but only 149 without a note }
   \item<3-4> { maintained in \texttt{notes.git} }
-  \item<4> { currently Debian only, but we will turn those into cross distro notes}
+  \item<4> { currently Debian only, but we will turn those into cross distro
+  (and upstream) notes}
  \end{itemize}
 \end{frame}
+
+\begin{frame}
+ \frametitle{examples of issues from notes.git}
+ \begin{itemize}
+ \item timestamps\_in\_cpio\_archive
+ \item randomness\_in\_ocaml\_provides
+ \item leaks\_path\_environment\_variable
+ \item python-ply\_compiled\_parse\_tables
+ \item timestamps\_in\_documentation\_generated\_by\_docbook\_dbtimestamp
+ \item plist\_weirdness
+ \item timestamps\_generated\_by\_eigenbase\_resgen
+ \item different\_due\_to\_umask
+ \item timestamps\_in\_manpages\_generated\_by\_docbook\_utils
+ \item different\_pot\_creation\_date\_in\_gettext\_mo\_files
+ \item ftbfs\_uninvestigated\_test\_failures
+
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{examples of issues from notes.git}
+ \begin{itemize}
+ \item unsorted\_file\_glob\_by\_cmake
+ \item timestamps\_generated\_by\_mangosdk\_spiprocessor
+ \item randomness\_in\_icc\_colour\_profiles
+ \item undeterministic\_symlinking\_by\_rdfind
+ \item random\_order\_in\_ruby\_rdoc\_indices
+ \item timestamps\_in\_edj\_files\_generated\_by\_edje\_cc
+ \item timestamps\_in\_documentation\_generated\_by\_asciidoctor
+ \item timestamps\_in\_zip
+ \item random\_order\_in\_plexus\_comonents\_xml
+ \item timestamps\_in\_png
+ \item random\_order\_in\_documentation\_generated\_by\_javadoc
+ \end{itemize}
+\end{frame}
+
+
 
 
 
