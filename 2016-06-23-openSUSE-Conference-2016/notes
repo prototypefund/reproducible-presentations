@@ -1,11 +1,9 @@
-notes for suse conf talk
+notes after suse conf talk
 ------------------------
-- give 1-3 examples of unreproducible issues
-	open in browser
-		linux
-		libreoffice
-
-- whats the name of the opensuse build system?  exactly that.
+explain notes earlier
+not explained: everything reproducible, not only the binary
+why .buildinfo files also wasnt explained well…
+suse uses S_D_E now too
 
 old notes
 ---------
