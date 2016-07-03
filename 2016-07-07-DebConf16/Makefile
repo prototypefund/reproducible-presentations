@@ -1,6 +1,6 @@
 .PHONY: all source images
 
-PRESENTATION = 2016-07-03-DebConf16
+PRESENTATION = 2016-07-07-DebConf16
 
 all: $(PRESENTATION).pdf
 
