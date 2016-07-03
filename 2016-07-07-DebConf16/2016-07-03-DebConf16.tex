@@ -91,19 +91,12 @@
 
 \setbeamercolor{block title}{fg=debianblue}
 
-\title[Reproducible builds ecosystem]{Reproducible builds ecosystem}
-\subtitle{Where some of us are \\
-and some hints where this might be going…}
-\author[Holger 'h01ger' Levsen]{%
-   \texorpdfstring{
-            \centering
-            Holger 'h01ger' Levsen\\
-            \href{mailto:holger@layer-acht.org}{holger@layer-acht.org}
-   }{h01ger}}
+\title[Reproducible Builds status update]{Reproducible Builds status update}
+\author[Chris 'lamby' Lamb Holger 'h01ger' Levsen]{}
 \institute[Debian]{}
-\date[openSUSE 2016]{%
- openSUSE Conference 2016 (Nürnberg, DE)\\
- \small{2016-06-23}}
+\date[DebConf16]{%
+ DebConf16 (Cape Town, SA)\\
+ \small{2016-07-07}}
 
 \begin{document}
 
@@ -111,52 +104,9 @@ and some hints where this might be going…}
  \titlepage
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.11\paperwidth, 0.2\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.2\paperheight]{images/openSUSE.png}
+    \includegraphics[height=0.2\paperheight]{images/Dc16_703x473.png}
   };
  \end{tikzpicture}
-\end{frame}
-
-\begin{frame}
- \frametitle{about me}
-
- \begin{itemize}
-  \item \small{\texttt{B8BF 5413 7B09 D35C F026  FE9D 091A B856 069A AA1C}}
-  \item Debian user since 1995 - though my very first installation was SuSE :)
-  \item Debian contributor since 2001
-  \item Debian developer since 2007
-  \item DebConf organizer,
-  founded the DebConf video team
-   \begin{itemize}
-    \item \texttt{http://video.debian.net}
-   \end{itemize}
- \item Debian-Edu (Debian for education)
-  \item Debian QA (quality assurance)
-  \begin{itemize}
-   \item \texttt{https://piuparts.debian.org}
-   \item \texttt{https://jenkins.debian.net} (~1100 jobs continously testing Debian)
-  \end{itemize}
-  \item \sout{Debian LTS} (Long Term Support)
- \end{itemize}
-\end{frame}
-
-
-\begin{frame}
- \frametitle{more about me}
-
- \begin{itemize}
-  \item \small{\texttt{B8BF 5413 7B09 D35C F026  FE9D 091A B856 069A AA1C}}
-  \item \small{\texttt{8F03 B243 8719 BA6B 1A35  0EB6 40C2 DEA2 F56C 7256}}
-  \item Debian Reproducible builds team member
-  \begin{itemize}
-   \item within in the team I'm mostly working on
-   \texttt{https://tests.reproducible-builds.org}
-  \end{itemize}
-   \item until April 2016 together with Lunar funded by the Linux Foundation
-  \begin{itemize}
-   \item applied for extended funding in April 2016…
-  \end{itemize}
-  \item<2>{basically no idea about Reproducible SUSE ;-)}
-\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -170,7 +120,7 @@ and some hints where this might be going…}
     {Andrew Ayer} \\
     {Asheesh Laroia} \\
     {Ceridwen} \\
-    {Chris Lamb} \\
+    \only<1>{Chris Lamb}\only<2>{{\color{debianred} Chris Lamb}} \\
     {Chris West} \\
     {Christoph Berg} \\
     {Daniel Kahn Gillmor} \\
@@ -1232,32 +1182,13 @@ Build-Environment:
  \begin{center}
   \resizebox{0.9\textwidth}{!}{%
    \begin{tabular}{rl}
+    \texttt{lamby@debian.org}  & \texttt{C2FE 4BD2 71C1 39B8 6C53} \\
+                               & \texttt{3E46 1E95 3E27 D431 1E58} \\
     \texttt{holger@debian.org} & \texttt{B8BF 5413 7B09 D35C F026} \\
                                & \texttt{FE9D 091A B856 069A AA1C}
    \end{tabular}
   }
  \end{center}
-\end{frame}
-
-\begin{frame}{}
-\begin{textblock}{12}(2, 6)
-    \tiny{
-      Copyright \copyright{} 2014--2016 \\
-         Holger Levsen \texttt{holger@layer-acht.org} and others.\\[3.0mm]
-      Copyright of images included in this document are held by
-      their respective owners.
-      \\[3.0mm]
-      This work is licensed under the \alert{Creative Commons
-        Attribution-Share Alike 3.0} License.  To view a copy of this
-      license, visit
-      \url{http://creativecommons.org/licenses/by-sa/3.0/} or send a
-      letter to Creative Commons, 171 Second Street, Suite 300, San
-      Francisco, California, 94105, USA.
-      \\[2.0mm]
-      The source of this document is available from
-      \url{https://anonscm.debian.org/git/reproducible/presentations.git}.
-    }
-  \end{textblock}
 \end{frame}
 
 \end{document}
