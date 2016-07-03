@@ -13,7 +13,7 @@ $(PRESENTATION).pdf: $(PRESENTATION).tex $(IMGS)
 	build=1; \
 	while [ $$build -le 5 ]; do \
 		build=$$(($$build + 1)); \
-		lualatex -interaction=nonstopmode $<; \
+		lualatex $<; \
 		if sha1sum -c $(PRESENTATION).aux.sha1sum > /dev/null 2>&1; then \
 			break; \
 		fi; \
