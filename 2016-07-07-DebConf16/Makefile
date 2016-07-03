@@ -25,7 +25,7 @@ clean:
 		$(PRESENTATION).out $(PRESENTATION).snm $(PRESENTATION).toc \
 		$(PRESENTATION).vrb $(PRESENTATION).aux.sha1sum $(PRESENTATION).pdfpc
 
-distclean:
+distclean: clean
 	rm -f $(PRESENTATION).pdf
 
 deps:
