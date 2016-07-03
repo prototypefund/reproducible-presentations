@@ -27,3 +27,6 @@ clean:
 
 distclean:
 	rm -f $(PRESENTATION).pdf
+
+deps:
+	sudo apt-get install texlive-full
