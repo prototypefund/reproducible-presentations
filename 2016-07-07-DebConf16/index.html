@@ -148,22 +148,14 @@
         </ul>
       </section>
 
-      <!--
-      Whilst anyone can inspect the source code of free software for malicious
-      flaws, most Linux distributions provide binary (or "compiled") packages
-      to end users.
-
-      The motivation behind "reproducible" builds is to allow verification that
-      no flaws have been introduced during this compilation process by
-      promising identical binary packages are always generated from a given
-      source.
-      -->
+      <section data-background="images/install.jpg" data-background-size="80%" data-background-color="black">
+      </section>
 
       <section data-background="images/install2.jpg" data-background-size="80%" data-background-color="black">
         <ul>
           <li>Ensure compilation always produces the same result</li>
           <li>Multiple parties compare results</li>
-          <li>Attacker needs to infect everybody simultaneously</li>
+          <li>Attacker needs to infect/blackmail everybody simultaneously</li>
           <li>Bit-for-bit identical</li>
         </ul>
       </section>
@@ -174,20 +166,6 @@
         <p class="text-center">
           <code>media.ccc.de</code>, 31C3</li>
         </p>
-      </section>
-
-      <section>
-        <ul>
-          <li>Timestamps</li>
-          <li>Timezones &amp; locale-specific content</li>
-          <li>Non-deterministic file ordering</li>
-          <li>Users, groups, <code>umask</code>, environment variables</li>
-          <li>Random behaviour (eg. hash ordering)</li>
-          <li>Build paths</li>
-          <li>Locale-specific ordering</li>
-          <li>Non-determistic data (eg. uninitialised memory)</li>
-          <li>Deliberate randomness (crypto keys)</li>
-        </ul>
       </section>
 
       <section>
@@ -222,13 +200,13 @@
       <section>
         <dl>
           <dt><code>#138409</code></dt>
-          <dd>dpkg-dev: please add support for .buildinfo files</dd>
+          <dd>dpkg-dev: please add support for <code>.buildinfo</code> files</dd>
 
           <dt><code>#787980</code></dt>
-          <dd>dpkg: please normalize file permissions when creating control.tar</dd>
+          <dd>dpkg: please normalize file permissions when creating <code>control.tar</code></dd>
 
           <dt><code>#802241</code></dt>
-          <dd>dpkg: please store the hash of the installed .deb and allow to query it</dd>
+          <dd>dpkg: please store the hash of the installed <code>.deb</code> and allow to query it</dd>
         </dl>
       </section>
 
@@ -238,23 +216,25 @@
           <li>Build environment recording (<code>.buildinfo</code>)</li>
           <li>
             1800+ patches: <code>dpkg</code>, <code>debhelper</code>, <code>sbuild</code>, &hellip;
-            <ul>
-              <li>
-                gcc (<code>__DATE__</code> &amp; <code>__TIME__</code>)
-                <br><a href="https://gcc.gnu.org/ml/gcc-patches/2015-06/msg02210.html">https://gcc.gnu.org/ml/gcc-patches/2015-06/msg02210.html</a>
-              </li>
-            </ul>
           </li>
           <li>
-            Tools:
-            <ul>
-              <li><code>diffoscope</code> (formerly <code>debbindiff</code>)</li>
-              <li><code>disorderfs</code></li>
-              <li><code>reprotest</code></li>
-              <li><code>strip-nondeterminism</code></li>
-            </ul>
+            GCC (<code>__DATE__</code> &amp; <code>__TIME__</code>)
+            <br><a href="https://gcc.gnu.org/ml/gcc-patches/2015-06/msg02210.html">https://gcc.gnu.org/ml/gcc-patches/2015-06/msg02210.html</a>
           </li>
         </ul>
+      </section>
+
+      <section>
+        <ul>
+          <li><code>diffoscope</code> (formerly <code>debbindiff</code>)</li>
+          <li><code>disorderfs</code></li>
+          <li><code>reprotest</code></li>
+          <li><code>strip-nondeterminism</code></li>
+        </ul>
+      </section>
+
+      <section data-background="images/diffoscope.png">
+        &nbsp;
       </section>
 
       <section>
@@ -272,10 +252,6 @@
         <p class="text-center">
           <a href="https://reproducible-builds.org/specs/">reproducible-builds.org/specs</a>
         </p>
-      </section>
-
-      <section data-background="images/diffoscope.png">
-        &nbsp;
       </section>
 
       <section>
