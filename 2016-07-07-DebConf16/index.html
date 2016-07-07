@@ -243,20 +243,31 @@
 
       <section>
         <ul>
-          <li>Agreed on using fixed build path</li>
+          <li>Agreed on a fixed build path</li>
           <li>Build environment recording (<code>.buildinfo</code>)</li>
-          <li><code>diffoscope</code> (formerly <code>debbindiff</code>)</li>
-          <li><code>disorderfs</code></li>
-          <li><code>reprotest</code></li>
-          <li><code>strip-nondeterminism</code></li>
-          <li>1800+ patches: <code>dpkg</code>, <code>debhelper</code>, <code>sbuild</code>, &hellip;</li>
-          <li>gcc (<code>__DATE__</code> &amp; <code>__TIME__</code>)
-            <br><a href="https://gcc.gnu.org/ml/gcc-patches/2015-06/msg02210.html">https://gcc.gnu.org/ml/gcc-patches/2015-06/msg02210.html</a></li>
+          <li>
+            1800+ patches: <code>dpkg</code>, <code>debhelper</code>, <code>sbuild</code>, &hellip;
+            <ul>
+              <li>
+                gcc (<code>__DATE__</code> &amp; <code>__TIME__</code>)
+                <br><a href="https://gcc.gnu.org/ml/gcc-patches/2015-06/msg02210.html">https://gcc.gnu.org/ml/gcc-patches/2015-06/msg02210.html</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Tools:
+            <ul>
+              <li><code>diffoscope</code> (formerly <code>debbindiff</code>)</li>
+              <li><code>disorderfs</code></li>
+              <li><code>reprotest</code></li>
+              <li><code>strip-nondeterminism</code></li>
+            </ul>
+          </li>
         </ul>
       </section>
 
       <section>
-        <h2><code>SOURCE_DATE_EPOCH</code></h2>
+        <h4><code>SOURCE_DATE_EPOCH</code></h4>
 
         <ul>
           <li>Build date usually not useful for the user</li>
@@ -289,15 +300,15 @@
           <li><code>testing</code>, <code>unstable</code>, <code>experimental</code></li>
           <li><code>amd64</code>, <code>i386</code>, <code>armhf</code></li>
           <li>OpenWrt, coreboot, NetBSD, FreeBSD</li>
-          <li>Arch Linux, Fedora and F-Droid (WIP)</li>
-          <li>Outreachy (spectranaut)</li>
+          <li>Arch Linux, Fedora, F-Droid (WIP)</li>
+          <li>Outreachy student (<code>spectranaut</code>)</li>
         </ul>
 
         <br>
         <br>
 
         <p class="text-center">
-          Sponsored by <code>profitbricks.co.uk</code>
+          Hardware sponsored by
         </p>
 
         <img src="images/profitbricks_logo.png">
@@ -379,7 +390,7 @@
               <td colspan="2">Linux 3.16 or 4.x (<code>armhf</code> WIP)</td>
             </tr>
             <tr>
-              <td>32 vs 64 bit kernel</td>
+              <td>32/64-bit kernel</td>
               <td colspan="2"><code>i386</code> only</td>
             </tr>
             <tr>
@@ -408,39 +419,22 @@
       <section>
         <h2>Beyond Debian&hellip;</h2>
         <ul>
-          <li>OpenSuse, coreboot, Fedora, OpenWRT, NetBSD, FreeBSD, Arch, Qubes, F-Droid, NixOS, Guix</li>
-          <li>Reproducible World Summit</li>
-        </ul>
-      </section>
-
-      <section>
-        <ul>
-          <li><code>dpkg</code></li>
-          <li><code>debhelper</code></li>
-          <li><code>dh-strip-nondeterminism</code></li>
-          </li>
           <li>
-            Other upstreams &amp; distributions (NetBSD, FreeBSD, Arch,
-            Guix, Fedora&hellip;)
-          </li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Outside of Debian</h2>
-
-        <ul>
-          <li>Bitcoin (2012)</li>
-          <li>TorBrowser and Tor (2012)</li>
-          <li>Debian (2013)</li>
-          <li>FreeBSD (2013)</li>
-          <li>reproducible.debian.net (2014)</li>
-          <li>2015</li>
-          <ul>
-            <li>15 talks given</li>
-            <li><a href="http://reproducible-builds.org">reproducible-builds.org</a></li>
-            <li>Meeting in Athens with 16 projects</li>
-          </ul>
+            Distributions
+            <ul>
+              <li>OpenSuse</li>
+              <li>coreboot</li>
+              <li>Fedora</li>
+              <li>OpenWRT</li>
+              <li>NetBSD</li>
+              <li>FreeBSD</li>
+              <li>Arch</li>
+              <li>Qubes</li>
+              <li>F-Droid</li>
+              <li>NixOS</li>
+              <li>Guix</li>
+            </ul>
+          <li>Reproducible World Summit</li>
         </ul>
       </section>
 
