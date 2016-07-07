@@ -1,0 +1,12 @@
+.reveal .text-center {
+  text-align: center;
+}
+
+.reveal dd {
+  margin-bottom: 30px;
+}
+
+.reveal section img {
+  margin: 30px auto;
+  display: block;
+}

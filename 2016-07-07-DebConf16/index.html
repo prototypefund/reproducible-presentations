@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Reproducible builds status update</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/night.css" id="theme">
+  <link rel="stylesheet" href="css/custom.css">
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <script>
+  var link = document.createElement( 'link' );
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+  document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides" style="text-align: left;">
+      <section data-background="images/debian.jpg">
+        <h3>
+          Reproducible builds status update
+        </h3>
+        <h5>
+          DebConf16
+        </h5>
+      </section>
+
+      <section>
+        <h2>Who am I?</h2>
+
+        <ul>
+          <li>Freelance software engineer</li>
+          <li>DD since 2008</li>
+          <li>Reproducible builds since Jan 2015</li>
+          <li>FTP assistant</li>
+          <li>Packaging (<code>redis</code>, <code>python-django</code>, &hellip;)</li>
+          <li>QA work, <code>travis.debian.net</code>, AptFs</li>
+          <li>Previously: Debian Live, Debian Installer, <code>#debian-devel-changes</code>, X.Org, <code>timeline.debian.net</code>, &hellip;</li>
+        </ul>
+      </section>
+
+      <section>
+        <table style="font-size: 90%">
+          <tr>
+            <td>
+              akira<br>
+              Alexis Bienvenüe<br>
+              Andrew Ayer<br>
+              Asheesh Laroia<br>
+              Ceridwen<br>
+              Chris Lamb<br>
+              Chris West<br>
+              Christoph Berg<br>
+              Daniel Kahn Gillmor<br>
+              Daniel Shahaf<br>
+              David Suarez<br>
+              Dhole<br>
+              Drew Fisher<br>
+              Esa Peuha<br>
+              Fabian Wolff
+            </td>
+            <td>
+              Guillem Jover<br>
+              Hans-Christoph Steiner<br>
+              Helmut Grohne<br>
+              Holger Levsen<br>
+              HW42<br>
+              Intrigeri<br>
+              Jelmer Vernooij<br>
+              josch<br>
+              Juan Picca<br>
+              Lunar<br>
+              Mathieu Bridon<br>
+              Mattia Rizzolo<br>
+              Nicolas Boulenguez<br>
+              Niels Thykier<br>
+              Niko Tyni
+            </td>
+            <td>
+              Paul Wise<br>
+              Peter De Wachter<br>
+              Philip Rinn<br>
+              Reiner Herrmann<br>
+              Santiago Vila<br>
+              Sascha Steinbiss<br>
+              Satyam Zode<br>
+              Scarlett Clark<br>
+              Stefano Rivera<br>
+              Stéphane Glondu<br>
+              Steven Chamberlain<br>
+              Tom Fitzhenry<br>
+              Valerie Young<br>
+              Valentin Lorentz<br>
+              Wookey<br>
+              Ximin Luo
+            </td>
+          </tr>
+        </table>
+      </section>
+
+      <!-- History lesson -->
+
+      <section data-background="images/rms.jpg">
+        &nbsp;
+      </section>
+
+      <section>
+        <h2>Four freedoms</h2>
+
+        <ul>
+          <li>Freedom to study how the program works</li>
+          <li>Freedom to run the program for any purpose</li>
+          <li>Freedom to redistribute copies</li>
+          <li>Freedom to distribute copies of your modified version</li>
+        </ul>
+      </section>
+
+      <section data-transition="none">
+        <h2>Four freedoms</h2>
+
+        <ul>
+          <li>Freedom to study how the program works</li>
+          <li>Freedom to run the program for any purpose</li>
+          <li><strike>Freedom to redistribute copies</strike></li>
+          <li><strike>Freedom to distribute copies of your modified version</strike></li>
+        </ul>
+      </section>
+
+      <section data-transition="none">
+        <h2>Four freedoms</h2>
+
+        <ul>
+          <li>Freedom to study how the program works</li>
+          <li>Freedom to <u>run the program</u> for any purpose</li>
+          <li><strike>Freedom to redistribute copies</strike></li>
+          <li><strike>Freedom to distribute copies of your modified version</strike></li>
+        </ul>
+      </section>
+
+      <!--
+      Whilst anyone can inspect the source code of free software for malicious
+      flaws, most Linux distributions provide binary (or "compiled") packages
+      to end users.
+
+      The motivation behind "reproducible" builds is to allow verification that
+      no flaws have been introduced during this compilation process by
+      promising identical binary packages are always generated from a given
+      source.
+      -->
+
+      <section data-background="images/install.jpg" data-background-size="80%" data-background-color="black">
+        &nbsp;
+      </section>
+
+      <section data-background="images/install2.jpg" data-background-size="80%" data-background-color="black" data-transition="none">
+        <ul>
+          <li>Ensure compilation always produces the same result</li>
+          <li>Multiple parties compare results</li>
+          <li>Attacker needs to infect everybody simultaneously</li>
+          <li>Bit-for-bit identical</li>
+        </ul>
+      </section>
+
+      <section>
+        <img src="images/31c3.png">
+
+        <p class="text-center">
+          Available on <code>media.ccc.de</code>, 31C3</li>
+        </p>
+      </section>
+
+      <section>
+        <h2>Challenges</h2>
+        <ul>
+          <li>Timestamps</li>
+          <li>Timezones &amp; locale-specific content</li>
+          <li>Non-deterministic file ordering</li>
+          <li>Users, groups, <code>umask</code>, environment variables</li>
+          <li>Random behaviour (eg. hash ordering)</li>
+          <li>Build paths</li>
+          <li>Locale-specific ordering</li>
+          <li>Non-determistic data (eg. uninitialised memory)</li>
+          <li>Deliberate randomness (crypto keys)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Technical advantages</h2>
+
+        <ul>
+          <li>Detect corrupted build environments</li>
+          <li>Unsafe/unreliable/privacy-leaking behaviours</li>
+          <li>Non-deterministic behaviour in general</li>
+          <li>Being able to "go back in time"</li>
+          <li>Easier to test changes &amp; revisions</li>
+        </ul>
+      </section>
+
+      <section data-background="images/debian.jpg">
+      </section>
+
+      <section data-background="images/debian.jpg">
+        <h3>
+          <center>
+            <code>testing/amd64</code> &rarr; 90.1% reproducible
+          </center>
+        </h3>
+      </section>
+
+      <section data-background="images/debian.jpg">
+        <h3>
+          <center>
+            <code>unstable/amd64</code> &rarr; 88.4% reproducible
+          </center>
+        </h3>
+      </section>
+
+      <section>
+        <dl>
+          <dt><code>#138409</code></dt>
+          <dd>dpkg-dev: please add support for .buildinfo files</dd>
+
+          <dt><code>#787980</code></dt>
+          <dd>dpkg: please normalize file permissions when creating control.tar</dd>
+        </dl>
+      </section>
+
+      <section>
+        <ul>
+          <li>Agreed on using fixed build path</li>
+          <li>Build environment recording (<code>.buildinfo</code>)</li>
+          <li><code>diffoscope</code> (formerly <code>debbindiff</code>)</li>
+          <li><code>disorderfs</code></li>
+          <li><code>strip-nondeterminism</code></li>
+          <li>1800+ patches: <code>dpkg</code>, <code>debhelper</code>, <code>sbuild</code>, &hellip;</li>
+          <li>gcc (<code>__DATE__</code> &amp; <code>__TIME__</code>)
+            <br><a href="https://gcc.gnu.org/ml/gcc-patches/2015-06/msg02210.html">https://gcc.gnu.org/ml/gcc-patches/2015-06/msg02210.html</a>
+        </ul>
+      </section>
+
+      <section>
+        <h2><code>SOURCE_DATE_EPOCH</code></h2>
+
+        <ul>
+          <li>Build date usually not useful for the user</li>
+          <li>Defined as the last modification of the source since UNIX epoch</li>
+          <li>Can be used for random seeds etc.</li>
+        </ul>
+
+        <br>
+        <br>
+
+        <p class="text-center">
+          <a href="https://reproducible-builds.org/specs/">reproducible-builds.org/specs</a>
+        </p>
+      </section>
+
+      <section data-background="images/diffoscope.png">
+        &nbsp;
+      </section>
+
+      <section>
+        <p>
+          <img src="images/rbwww1.png">
+        </p>
+      </section>
+
+      <section>
+        <h2>tests.reproducible-builds.org</h2>
+
+        <ul>
+          <li><code>testing</code>, <code>unstable</code>, <code>experimental</code></li>
+          <li><code>amd64</code>, <code>i386</code>, <code>armhf</code></li>
+          <li>OpenWrt, coreboot, NetBSD, FreeBSD</li>
+          <li>Arch Linux, Fedora and F-Droid (WIP)</li>
+        </ul>
+
+        <br>
+        <br>
+
+        <p class="text-center">
+          Sponsored by <code>profitbricks.co.uk</code>
+        </p>
+
+        <img src="images/profitbricks_logo.png">
+      </section>
+
+      <section>
+        <h2>Variations</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>1<sup>st</sup></th>
+              <th>2<sup>nd</sup></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>hostname</td>
+              <td><code>jenkins</code></td>
+              <td><code>i-capture-the-hostname</code></td>
+            </tr>
+            <tr>
+              <td>domainname</td>
+              <td><code>debian.net</code></td>
+              <td><code>i-capture-the-domainname</code></td>
+            </tr>
+            <tr>
+              <td><code>env TZ</code></td>
+              <td><code>GMT+12</code></td>
+              <td><code>GMT-14</code></td>
+            </tr>
+            <tr>
+              <td><code>env LANG</code></td>
+              <td><code>C</code></td>
+              <td><code>fr_CH.UTF-8</code></td>
+            </tr>
+            <tr>
+              <td><code>env LC_ALL</code></td>
+              <td>(not set)</td>
+              <td><code>fr_CH.UTF-8</code></td>
+            </tr>
+            <tr>
+              <td><code>env USER</code></td>
+              <td><code>pbuilder1</code></td>
+              <td><code>pbuilder2</code></td>
+            </tr>
+            <tr>
+              <td>uid/gid</td>
+              <td><code>1111</code></td>
+              <td><code>2222</code></td>
+            </tr>
+            <tr>
+              <td>shell</td>
+              <td><code>dash</code></td>
+              <td><code>bash</code></td>
+            </tr>
+            <tr>
+              <td>UTS namespace</td>
+              <td>shared w/host</td>
+              <td><code>/usr/bin/unshare --uts</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <table>
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>1<sup>st</sup></th>
+              <th>2<sup>nd</sup></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>kernel</td>
+              <td colspan="2">Linux 3.16 or 4.x (<code>armhf</code> WIP)</td>
+            </tr>
+            <tr>
+              <td>32 vs 64 bit kernel</td>
+              <td colspan="2"><code>i386</code> only</td>
+            </tr>
+            <tr>
+              <td><code>umask</code></td>
+              <td><code>0022</code></td>
+              <td><code>0002</code></td>
+            </tr>
+            <tr>
+              <td>CPU type</td>
+              <td colspan="2">Intel and AMD variation for <code>i386/amd64</code> (WIP)</td>
+            </tr>
+            <tr>
+              <td>filesystem</td>
+              <td colspan="2">
+                <code>tmpfs</code> / <code>ext3</code> / <code>ext4</code> / <code>disorderfs</code> (WIP)
+              </td>
+            </tr>
+            <tr>
+              <td>Day</td>
+              <td colspan="2">398 days variation (<code>i386/amd64</code>)</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Beyond Debian&hellip;</h2>
+        <ul>
+          <li>coreboot, Fedora, OpenWRT, NetBSD, FreeBSD, Arch, Qubes, F-Droid, NixOS, Guix</li>
+          <li>Reproducible World Summit</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <ul>
+          <li><code>dpkg</code></li>
+          <li><code>debhelper</code></li>
+          <li><code>dh-strip-nondeterminism</code></li>
+          </li>
+          <li>
+            Other upstreams &amp; distributions (NetBSD, FreeBSD, Arch,
+            Guix, Fedora&hellip;)
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Outside of Debian</h2>
+
+        <ul>
+          <li>Bitcoin (2012)</li>
+          <li>TorBrowser and Tor (2012)</li>
+          <li>Debian (2013)</li>
+          <li>FreeBSD (2013)</li>
+          <li>reproducible.debian.net (2014)</li>
+          <li>2015</li>
+          <ul>
+            <li>15 talks given</li>
+            <li><a href="http://reproducible-builds.org">reproducible-builds.org</a></li>
+            <li>Meeting in Athens with 16 projects</li>
+          </ul>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Getting involved</h2>
+        <ul>
+          <li>Test for yourself</li>
+          <li>Stop using dates (or use <code><a href="https://reproducible-builds.org/specs/">SOURCE_DATE_EPOCH</a></code>)</li>
+          <li>Visit <a href="https://reproducible-builds.org/">reproducible-builds.org</a></li>
+          <li><code>#debian-reproducible</code> on <code>irc.oftc.net</code></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Questions?</h2>
+
+        <br>
+
+        <h6>
+          <a href="mailto:lamby@debian.org">lamby@debian.org</a>
+        </h6>
+        <h6>
+          <code>
+            C2FE 4BD2 71C1 39B8 6C53 3E46 1E95 3E27 D431 1E58
+          </code>
+        </h6>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: false,
+      progress: false,
+      history: true
+    });
+  </script>
+</body>
+</html>
