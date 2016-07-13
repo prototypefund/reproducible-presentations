@@ -1,0 +1,172 @@
+#+TITLE: The Many ARMed Monster of Reproducibility
+#+AUTHOR: Vagrant Cascadian
+#+EMAIL: vagrant@debian.org
+#+DATE: Debconf16, 2016-07-04
+#+DESCRIPTION:
+#+KEYWORDS: 
+#+LANGUAGE:  en
+#+OPTIONS:   H:1 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME:
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger]
+#+latex_header: \mode<beamer>{\usetheme{Madrid}}
+
+* About reproducible builds
+
+ - Packages with the same source code, built with the same toolchain, should come out identical.
+ - reproducible-builds.org
+
+* What lead to the creation of a monster?
+
+ - u-boot was marked as reproducible
+ - I knew it was wrong:
+
+   U-Boot SPL 2016.01+dfsg1-3 (*Feb 21 2016 - 21:39:10*)
+
+ - Handful of arm systems
+
+* Humble Beginnings
+
+ - In August of 2015, work was done to enable two dual-core and two
+   quad-core build machines.
+
+ [[./images/hb2_20160630_021.jpg]]
+
+* It Lives!
+ - In September, the network went live, building around 200 source
+   packages a day.
+ - With over 20,000 packages in the archive, it would take over 100
+   days to build everything in unstable...
+
+* The Monster Grows In Strength and Numbers
+
+ - I bought a couple more boards...
+ - Donation from beagleboard.org of a beagleboard-x15
+ - In December 2015, the Debian Project Leader approved a proposal to
+   triple the capacity of our build network.
+
+ [[./images/bbx15_20160630_012.jpg]]
+
+* Recent Sightings
+
+  [[./images/rack_20160630_010.jpg]]
+
+* Current configuration
+ - Three dual-core, 1gb ram 
+ - Two quad-core, 1gb ram
+ - Two dual-core, 2gb ram
+ - Eight quad-core, 2gb ram
+ - Three quad-core, ~4gb ram
+ - Three octa-core, 2gb ram 
+
+* How many Whatsits?
+
+ (3*2)+(2*4)+(2*2)+(8*4)+(3*4)+(3*8) =
+
+ *86 cores!!!!*
+
+ (3*1)+(2*1)+(2*2)+(8*2)+(3*4)+(3*2) =
+
+ *43 gb ram!!!!*
+
+* Devouring the archive
+ - Builds about 1400 or more packages a day!
+
+ [[./images/stats_builds_per_day_armhf-2016-06-30.png]]
+
+ - Builds unstable, testing and experimental in around 45 days.
+
+* Building in Power
+
+ - The whole armhf build network runs in under 180 watts!
+
+ [[./images/power/b20160630_029.jpg]]
+ 
+* Space
+ [[./images/heater_20160702_210953_1.jpg]]
+
+ - A space heater used at debconf16 uses 400-800 watts!
+
+* Hungry for Bandwidth
+
+  June 2016
+  |          | received   | transmitted |
+  |          |            |             |
+  | firewall | 137.37 GiB | 643.67 GiB  |
+  |          |            |             |
+  | proxy    | 115.68 GiB | 4.99 TiB    |
+
+* Boards of a feather
+
+  - Cubox-i4pro and i4x4
+  - Hummingboard-i2ex
+  - Wandboard Quad and Dual
+  - Firefly-RK3288
+  - Beagleboard-x15
+  - Cubietruck
+  - Bananapi
+  - OrangePI Plus2
+  - Raspberry PI 2
+  - Odroid-XU4
+  - Odroid-U3
+
+* Platforms enabled in the Debian
+  - linux: Odroid-U3, Firefly-RK3288, Odroid-XU4, BeagleBoard-X15
+  - u-boot: Odroid-XU4, Firefly-RK3288, BeagleBoard-X15,
+    Cubietruck plus, OrangePI plus
+  - debian-installer: BeagleBoard-X15, Firefly-RK3288
+
+* Platforms to pout about
+  - lack mainline kernel and u-boot:
+    - Cubieboard4, Odroid-C1+
+  - lack mainline kernel:
+    - Cubietruck plus, Lemaker HiKey
+  - Non-free firmware blobs:
+    - raspberry pi 2, Odroid-U3, Odroid-XU4, Odroid-C1+, Firefly(??)
+  - Mainline u-boot support for all ram:
+    - Firefly-RK3288 4gb variant, Cubox-i4x4
+
+* In December of 2017, the reproducible build network became aware
+
+  - Other boards:
+    - Pine64, Odroid-C2
+    - Lemaker Cello, HP Moonshot
+  - Build archictecture-independent packages on different architecture
+    for first and second build.
+* By 2050...
+  - The Autonomous Reproducible Build Network Produced a bit-for-bit
+    copy of the entire earth.
+* Thanks
+  - Holger for all the work to integrate armhf and continued
+    maintenance of jenkins.debian.net
+  - Hardware donations: Debian, LeMaker, BeagleBoard.org Solid-Run
+  - All the great reproducible builds folks!
+  - Most photos by delib
+* hb1
+  [[./images/boards/hb1_20160630_015.jpg]]
+* rpi2
+  [[./images/boards/rpi2_20160630_017.jpg]]
+* cb3
+  [[./images/boards/cb3_20160630_011.jpg]]
+* rpi2
+  [[./images/boards/rpi2_20160630_045.jpg]]
+* cbxi
+  [[./images/boards/cbxi_20160630_025.jpg]]
+* odxu4
+  [[./images/boards/odxu4_20160630_022.jpg]]
+* wbq
+  [[./images/boards/wbq_20160630_064.jpg]]
+* firefly
+  [[./images/boards/firefly_20160630_014.jpg]]
+* opi2
+  [[./images/boards/opi2_20160630_043.jpg]]
+* firefly
+  [[./images/boards/firefly_20160630_042.jpg]]
+* opi2
+  [[./images/boards/opi2_20160630_044.jpg]]
