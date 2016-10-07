@@ -91,21 +91,22 @@
 
 \setbeamercolor{block title}{fg=debianblue}
 
-\title[Reproducible builds for RPMs]{Bit by bit identically reproducible
-builds \\ for the RPM world}
+\title[Reproducible builds for OpenWrt]{Bit by bit identically reproducible
+builds \\ for OpenWrt and LEDE}
 \subtitle{Lightning talk \\
 with probably still too much information \\
 for 15 minutes…}
-\author[Holger 'h01ger' Levsen]{%
+\author[h01ger and lynxis]{%
    \texorpdfstring{
             \centering
+            Alexander 'lynxis' Couzens\\
+            \href{mailto:lynxis@fe80.eu}{lynxis@fe80.eu}\\
             Holger 'h01ger' Levsen\\
             \href{mailto:holger@debian.org}{holger@debian.org}
-   }{h01ger}}
-\institute[Debian]{}
-\date[\$PLACE]{%
- \$event (\$location)\\
- \small{2016-02-06}}
+   }{h01ger and lynxis}}
+\date[OpenWrt Summit, Berlin]{%
+ OpenWrt Summit in Berlin, Germany\\
+ \small{2016-10-13}}
 
 \begin{document}
 
@@ -114,11 +115,12 @@ for 15 minutes…}
 \end{frame}
 
 \begin{frame}
- \frametitle{about me}
+ \frametitle{about h01ger}
 
  \begin{itemize}
   \item \small{\texttt{B8BF 5413 7B09 D35C F026  FE9D 091A B856 069A AA1C}}
   \item Debian user since 1995
+  \item OpenWrt user since 2006
   \item Debian contributor since 2001
   \item Debian developer since 2007
   \item \underline{DebConf organizer},
@@ -130,13 +132,22 @@ for 15 minutes…}
   \item Debian QA (quality assurance)
   \begin{itemize}
    \item \texttt{https://piuparts.debian.org}
-   \item \texttt{https://jenkins.debian.net} (~1100 jobs continously testing Debian)
+   \item \texttt{https://jenkins.debian.net} (~1200 jobs continously testing Debian)
   \end{itemize}
   \item \underline{Debian LTS} (Long Term Support)
   \item Debian Reproducible builds team member
   \begin{itemize}
-   \item until April 2016 together with Lunar funded by the Linux Foundation
+   \item since April 2015 funded by the Linux Foundation
  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{about lynxis}
+
+ \begin{itemize}
+  \item Debian user since 2003
+  \item OpenWrt user since 2006
  \end{itemize}
 \end{frame}
 
@@ -740,6 +751,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
     \only<2>{All “Reproducible Builds” teams \\
         {\small (you are just \textbf{so} awesome!)}}
   \item Linux Foundation and the Core Infrastructure Initiative
+  \item OpenWrt Summit
 \end{itemize}
 
  \begin{center}
@@ -753,8 +765,10 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \resizebox{0.9\textwidth}{!}{%
    \begin{tabular}{rl}
     \texttt{holger@debian.org} & \texttt{B8BF 5413 7B09 D35C F026} \\
-                               & \texttt{FE9D 091A B856 069A AA1C}
-   \end{tabular}
+                               & \texttt{FE9D 091A B856 069A AA1C} \\
+    \texttt{lynxis@fe80.eu} & \texttt{390D CF78 8BF9 AA50 4F8F} \\
+                               & \texttt{F1E2 C29E 9DA6 A0DF 8604}
+\end{tabular}
   }
  \end{center}
 \end{frame}

@@ -1,6 +1,6 @@
 .PHONY: all source images
 
-PRESENTATION = 2016-Lightning-talk-template
+PRESENTATION = 2016-10-13-OpenWrt-Summit
 
 all: $(PRESENTATION).pdf
 
