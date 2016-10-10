@@ -683,11 +683,15 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \section{Future work}
 
 \begin{frame}
- \frametitle{Rebuilders and sharing signed checksums}
+ \frametitle{Rebuilds and sharing signed checksums}
  \begin{itemize}
   \item Almost no work has been done here yet. We are just at the first step:
   being able to rebuild reproducibly…
   \item Different projects, different solutions?
+ \begin{itemize}
+  \item<2> something like \texttt{.buildinfo} files (defining the environment,
+  the input and the output(s)) will be needed everywhere
+ \end{itemize}
  \end{itemize}
 \end{frame}
 
