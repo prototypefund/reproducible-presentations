@@ -1,4 +1,4 @@
-\documentclass[14pt]{beamer}
+\documentclass[14pt,aspectratio=169]{beamer}
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{caption label separator}{:}
 \setbeamercolor{caption name}{fg=normal text.fg}
@@ -532,7 +532,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \begin{frame}
  \frametitle{Progress in Debian \texttt{unstable}}
  \begin{tikzpicture}[remember picture]
-  \node[shift={(-0.75\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.5\paperwidth, \paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.65\paperheight]{images/stats_pkg_state.png}
   };
  \end{tikzpicture}
@@ -570,7 +570,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \begin{frame}
  \frametitle{Progress in the Debian bug tracker}
  \begin{tikzpicture}[remember picture]
-  \node[shift={(-0.75\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.5\paperwidth, \paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.65\paperheight]{images/stats_bugs_sin_ftbfs_state.png}
   };
  \end{tikzpicture}
@@ -615,7 +615,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \begin{frame}[plain]
  \begin{tikzpicture}[remember picture,overlay]
   \node[at=(current page.center)] {
-    \includegraphics[width=\paperwidth]{images/wholeworld.jpg}
+    \includegraphics[height=1.25\paperheight]{images/wholeworld.jpg}
     % Credits to Kevin ‘Chuise’ Jackson
     % http://dumhi.com/about
   };
