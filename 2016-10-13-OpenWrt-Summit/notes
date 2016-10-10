@@ -3,10 +3,9 @@ notes for openwrt/lede talk…
 		hosts
 		reproducibility stats
 	update graphs
-	add new page to explain status of openwrt / lede
-	merge other distro pages
 	mention summit 2016
 	mention build path in debian unstable, not in testing (two graphs)
+	no time for "detour: commerical software"?!
 
 
 demo: PTH=$(mktemp -d); OPTH=$PWD; P=giftrans; cp ${P}_* $PTH/; cd $PTH ; dpkg-source -x ${P}*.dsc ; for X in 1 2 3 4 5 ; do (cd ${P}-*/; dpkg-buildpackage -b -uc -us); mkdir -p .$X ; cp $P_*.deb .$X; done ; rm *deb ; echo; sha1sum *dsc *z .*/*.deb | grep -v giftrans-dbgsym ; cd - ; echo "don't foget to rm -r $PTH"
