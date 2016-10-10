@@ -92,7 +92,7 @@
 \setbeamercolor{block title}{fg=debianblue}
 
 \title[Reproducible builds everywhere]{Reproducible
-builds everywhere \\ eg. in OpenWrt and LEDE}
+builds everywhere \\ eg. in Debian, OpenWrt and LEDE}
 \subtitle{Bit by bit identical binaries \\
 from a given source}
 \author[h01ger and lynxis]{%
@@ -633,34 +633,25 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{Skipped stati}
  \begin{itemize}
   \item \texttt{https://tests.r-b.org/coreboot}
-  \item \texttt{https://tests.r-b.org/openwrt}
   \item \texttt{https://tests.r-b.org/netbsd}
   \item \texttt{https://tests.r-b.org/freebsd}
-  \item \texttt{https://tests.r-b.org/archlinux}
+  \item paused: \texttt{https://tests.r-b.org/archlinux}
+  \item paused: \texttt{https://tests.r-b.org/fedora}
   \item not yet: \texttt{https://tests.r-b.org/f-droid}
-  \item not yet: \texttt{https://tests.r-b.org/guix}
  \end{itemize}
 \end{frame}
 
 
 \begin{frame}
- \frametitle{Status Fedora}
+ \frametitle{OpenWrt and LEDE}
  \begin{itemize}
-  \item \texttt{https://tests.r-b.org/fedora} (23)
-  \item maintained by Dhiru Kholia and h01ger
-  \item rpm repo available by Dhiru, but still \textbf{0\% reproducible}
-  \item rpm format includes build time, build host and embedded signature
-  \item recreating the build env: koji
-  \item next: 24+rawhide
-  \item next: get more people involved - \textbf{you ?}
-  \item next: first reproducible rpm
-  \item next: use koji
+  \item \texttt{https://tests.r-b.org/openwrt}
+  \item \texttt{https://tests.r-b.org/lede}
+  \item maintained by lynxis, deki and h01ger
+  \item 1000 packages build, 1/12 (OpenWrt/LEDE) images build
+  \item packages look good, but not all variations tested yet
+  \item images not yet.
  \end{itemize}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.12\paperwidth, 0.19\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.29\paperheight]{images/fedora.png}
-  };
- \end{tikzpicture}
 \end{frame}
 
 \begin{frame}
@@ -746,7 +737,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 
 \begin{frame}
- \frametitle{Form the Fedora reproducible builds team!}
+ \frametitle{Form your reproducible builds team!}
 
  \begin{itemize}
   \item Why?
@@ -754,12 +745,12 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
     \item Every distribution should be reproducible!
     \item Learn something new everyday
     \item Change the (software) world!
-    \item \texttt{https://tests.reproducible-builds.org/fedora} needs
-    \textbf{your} help
+    \item \texttt{https://tests.reproducible-builds.org/openwrt} needs \textbf{your} help
+    \item \texttt{https://tests.reproducible-builds.org/lede} needs \textbf{your} help
    \end{itemize}
   \item How to get started?
    \begin{itemize}
-    \item Talk to me here or talk to us on IRC or via mail.
+    \item Talk to lynsis or h01ger here or talk to us on IRC or via mail.
     \item RTFM, there is lots of documentation
     \item Experiment - learning by doing
     \item Use+debug existing patches to \texttt{rpm-build}
@@ -774,14 +765,13 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{Questions, comments, ideas?}
 
  \begin{itemize}
-  \item \url{https://reproducible-builds.org/docs}
-  \item \url{https://tests.reproducible-builds.org}
+  \item \url{https://reproducible-builds.org/}
   \item \texttt{\#reproducible-builds} on \texttt{irc.OFTC.net}
   \item \url{https://lists.reproducible-builds.org}
   \item \url{https://twitter.com/ReproBuild}
   \item Mike and Seth's talk from 31c3 about motivations
   \item Lunar's talk about fixing reproducible issues from CCCamp 15
-  \item my talk "the Reproducible builds ecosystem" from FOSDEM 16
+  \item h01ger's talk "the Reproducible builds ecosystem" from FOSDEM 16
   \end{itemize}
 \end{frame}
 
