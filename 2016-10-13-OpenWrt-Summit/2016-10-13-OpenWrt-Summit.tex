@@ -361,117 +361,12 @@ from a given source}
 
  \begin{itemize}
   \item \texttt{https://reproducible-builds.org}
+  \item git repositories, IRC channels, mailinglists, webspace
  \end{itemize}
  \begin{center}
  \includegraphics[width=0.7\textwidth]{images/rbwww1.png}
  \end{center}
 \end{frame}
-
-\begin{frame}
- \frametitle{Common problems}
-
- \begin{itemize}
-  \item time stamps
-  \item timezones
-  \item locales
-  \item everything else (seperated into known issues and the blurry rest)
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Documentation about common problems}
- \begin{itemize}
-  \item \texttt{https://reproducible-builds.org/docs}
-  \item Lunar's talk from CCCamp 2015 also on
-  \texttt{https://media.ccc.de}
- \begin{tikzpicture}[remember picture]
-  \node[shift={(-1.05\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
-    \includegraphics[width=0.83\textwidth]{images/cccamp2015_lunar_random.png}
-  };
- \end{tikzpicture}
- \end{itemize}
-\end{frame}
-
-
-\begin{frame}
- \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
-
- \begin{itemize}
-  \item Build date (timestamps) usually not useful for the user
-  \item \texttt{SOURCE\_DATE\_EPOCH} is defined as the last modification of
-  the source, since the epoch (1970-01-01)
-  \item can be used instead of current date
-  \item can also be used for random seeds etc.
-  \item in Debian, set from the latest \texttt{debian/changelog} entry
-  \item can be set to the latest git commit too or the latest file
-  modification date
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
-
- \begin{itemize}
-  \item \texttt{SOURCE\_DATE\_EPOCH} spec available:
-  \item \texttt{https://reproducible-builds.org/specs/}
-  \item many upstreams support it already
-  \item has been adopted by other distributions
-  (NetBSD, FreeBSD, Arch Linux, Guix, …)
- \end{itemize}
-\end{frame}
-
-
-\begin{frame}
- \frametitle{tests.reproducible-builds.org}
-
- \begin{itemize}
-  \item Continuously testing Debian \texttt{testing}, \texttt{unstable} and
-  \texttt{experimental}
-  \item Also testing: coreboot, OpenWrt, LEDE, NetBSD, FreeBSD,
-  Arch Linux, Fedora and soon F-Droid and Guix too
-  \item 230 jenkins jobs
-  \item 7 \texttt{amd64} nodes, 120 cores and 300 GB ram
-  \item 15 \texttt{armhf} nodes, 54 cores and 25 GB ram
-  \item 42 scripts in Python and Bash, 282 lines of code in average
-  \item 29 contributors for \texttt{jenkins.debian.net.git}
- \end{itemize}
-\end{frame}
-
-
-\begin{frame}[fragile]
- \frametitle{Variations (when testing Debian)}
-
- \begin{center}
-  \begin{table}
-   \resizebox{0.95\textwidth}{!}{%
-    \begin{tabular}{l|ll}
-\textbf{variation} & \textbf{first build} & \textbf{second build} \\
-\hline
-hostname & \texttt{jenkins} & \texttt{i-capture-the-hostname} \\
-domainname & \texttt{debian.net} & \texttt{i-capture-the-domainname} \\
-\texttt{env TZ} & \texttt{GMT+12} & \texttt{GMT-14} \\
-\texttt{env LANG} & \texttt{C} & \texttt{fr\_CH.UTF-8} \\
-\texttt{env LC\_ALL} & not set & \texttt{fr\_CH.UTF-8} \\
-\texttt{env USER} & \texttt{pbuilder1} & \texttt{pbuilder2} \\
-uid & \texttt{1111} & \texttt{2222} \\
-gid & \texttt{1111} & \texttt{2222} \\
-UTS namespace & shared with the host & \textit{modified using \texttt{/usr/bin/unshare --uts}} \\
-kernel version & Linux 3.16 or 4.X & on amd64 always varied, on armhf
-sometimes \\
-umask & 0022 & 0002 \\
-CPU type & \multicolumn{2}{l}{same for both builds on amd64 \textit{(work in progress)}} \\
- & on armhf varied a bit & \\
-filesystem & \multicolumn{2}{l}{same for both builds on amd64: (\texttt{tmpfs}), on armhf \texttt{ext3/4}} \\
- & & \textit{(and we have} \texttt{disorderfs}\textit{, but the code is disabled)} \\
-year, month, date & \multicolumn{2}{l}{on amd64: 398 days variation, on armhf not yet} \\
-hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minute differs… } \\
-\textit{everything else} & \multicolumn{2}{l}{\textit{is likely the same…}}
-    \end{tabular}
-   }
-  \end{table}
- \end{center}
-\end{frame}
-
 
 \placelogofalse
 
@@ -526,6 +421,112 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 }
 
 \placelogotrue
+
+
+\begin{frame}
+ \frametitle{tests.reproducible-builds.org}
+
+ \begin{itemize}
+  \item Continuously testing Debian \texttt{testing}, \texttt{unstable} and
+  \texttt{experimental}
+  \item Also testing: coreboot, OpenWrt, LEDE, NetBSD, FreeBSD,
+  Arch Linux, Fedora and soon F-Droid and Guix too
+  \item 230 jenkins jobs
+  \item 7 \texttt{amd64} nodes, 120 cores and 300 GB ram
+  \item 15 \texttt{armhf} nodes, 54 cores and 25 GB ram
+  \item 42 scripts in Python and Bash, 282 lines of code in average
+  \item 29 contributors for \texttt{jenkins.debian.net.git}
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+ \frametitle{Variations (when testing Debian)}
+
+ \begin{center}
+  \begin{table}
+   \resizebox{0.95\textwidth}{!}{%
+    \begin{tabular}{l|ll}
+\textbf{variation} & \textbf{first build} & \textbf{second build} \\
+\hline
+hostname & \texttt{jenkins} & \texttt{i-capture-the-hostname} \\
+domainname & \texttt{debian.net} & \texttt{i-capture-the-domainname} \\
+\texttt{env TZ} & \texttt{GMT+12} & \texttt{GMT-14} \\
+\texttt{env LANG} & \texttt{C} & \texttt{fr\_CH.UTF-8} \\
+\texttt{env LC\_ALL} & not set & \texttt{fr\_CH.UTF-8} \\
+\texttt{env USER} & \texttt{pbuilder1} & \texttt{pbuilder2} \\
+uid & \texttt{1111} & \texttt{2222} \\
+gid & \texttt{1111} & \texttt{2222} \\
+UTS namespace & shared with the host & \textit{modified using \texttt{/usr/bin/unshare --uts}} \\
+kernel version & Linux 3.16 or 4.X & on amd64 always varied, on armhf
+sometimes \\
+umask & 0022 & 0002 \\
+CPU type & \multicolumn{2}{l}{same for both builds on amd64 \textit{(work in progress)}} \\
+ & on armhf varied a bit & \\
+filesystem & \multicolumn{2}{l}{same for both builds on amd64: (\texttt{tmpfs}), on armhf \texttt{ext3/4}} \\
+ & & \textit{(and we have} \texttt{disorderfs}\textit{, but the code is disabled)} \\
+year, month, date & \multicolumn{2}{l}{on amd64: 398 days variation, on armhf not yet} \\
+hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minute differs… } \\
+\textit{everything else} & \multicolumn{2}{l}{\textit{is likely the same…}}
+    \end{tabular}
+   }
+  \end{table}
+ \end{center}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Common problems}
+
+ \begin{itemize}
+  \item time stamps
+  \item timezones
+  \item locales
+  \item everything else (seperated into known issues and the blurry rest)
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Documentation about common problems}
+ \begin{itemize}
+  \item \texttt{https://reproducible-builds.org/docs}
+  \item Lunar's talk from CCCamp 2015 also on
+  \texttt{https://media.ccc.de}
+ \begin{tikzpicture}[remember picture]
+  \node[shift={(-1.05\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
+    \includegraphics[width=0.83\textwidth]{images/cccamp2015_lunar_random.png}
+  };
+ \end{tikzpicture}
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
+
+ \begin{itemize}
+  \item Build date (timestamps) usually not useful for the user
+  \item \texttt{SOURCE\_DATE\_EPOCH} is defined as the last modification of
+  the source, since the epoch (1970-01-01)
+  \item can be used instead of current date
+  \item can also be used for random seeds etc.
+  \item in Debian, set from the latest \texttt{debian/changelog} entry
+  \item can be set to the latest git commit too or the latest file
+  modification date
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
+
+ \begin{itemize}
+  \item \texttt{SOURCE\_DATE\_EPOCH} spec available:
+  \item \texttt{https://reproducible-builds.org/specs/}
+  \item many upstreams support it already
+  \item has been adopted by other distributions
+  (NetBSD, FreeBSD, Arch Linux, Guix, …)
+ \end{itemize}
+\end{frame}
 
 
 \section{Status Debian}
