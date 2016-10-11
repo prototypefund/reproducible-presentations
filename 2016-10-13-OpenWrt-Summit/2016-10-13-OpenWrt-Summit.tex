@@ -247,7 +247,7 @@ from a given source}
  \begin{itemize}
   \item<2-4> Seen a talk about reproducible builds?
   \item<3-4> Contributed to the efford?
-  \item<3-4> Uses Debian or a Debian based system?
+  \item<4> Uses Debian or a Debian based system?
  \end{itemize}
 \end{frame}
 
@@ -545,30 +545,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{center}
 \end{frame}
 
-
-\begin{frame}
- \frametitle{Debian packages on tests.reproducible-builds.org}
- \begin{itemize}
-  \item \url{https://reproducible.debian.net/$src}
-  \item 32 package sets 
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Notes and issues on tests.reproducible-builds.org}
-
- \begin{itemize}
-  \item 179 categorised distinct issues
-  \item 3,792 notes
-  \item 2549 unreproducible packages in \texttt{sid}, but only 139 without a note
-  \item 728 packages failing to build, but only 74 without a note
-  \item maintained in \texttt{notes.git}
-  \item currently Debian only, but cross distro notes are planned
- \end{itemize}
-\end{frame}
-
-
-
 \begin{frame}
  \frametitle{Progress in the Debian bug tracker}
  \begin{tikzpicture}[remember picture]
@@ -582,6 +558,40 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \vfill
  \end{center}
 \end{frame}
+
+\begin{frame}
+ \frametitle{Details on tests.reproducible-builds.org}
+
+ \begin{itemize}
+  \item \url{https://reproducible.debian.net/$src}
+  \item 32 package sets 
+  \item 179 categorised distinct issues
+  \item 3,792 notes
+  \item 2549 unreproducible packages in \texttt{sid}, but only 139 without a note
+  \item 728 packages failing to build, but only 74 without a note
+  \item maintained in \texttt{notes.git}
+  \item currently Debian only, but cross distro notes are planned
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Reminder / Summary / Whats missing}
+ \begin{itemize}
+  \item This is a proof-of-concept, Debian is not 90\% reproducible.
+  \item<2-4> Though most everything is finally in Debian now, except
+  \texttt{dpkg} and \texttt{.buildinfo} file support on the archive side.
+  \item<3-4> We hope that Debian 9, "stretch", will be partially reproducible
+  in a meaningful way, in 2017.
+  \item<3-4> What's beyond (rebuilding, \texttt{.buildinfo} file handling, user
+  tools) mostly still needs \it{design} and code. We are late for Stretch…
+  \item<4> Will Debian 10, "buster", be 100\% reproducible? We doubt it.
+  Maybe Debian 11.
+ \end{itemize}
+\end{frame}
+
+
+
 
 
 \begin{frame}
@@ -603,18 +613,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{itemize}
 \end{frame}
 
-\begin{frame}
- \frametitle{Reminder / Summary}
- \begin{itemize}
-  \item This is just a proof-of-concept, Debian is not 85\% reproducible
-  \item Debian "unstable" this summer?!!
-  \item<2-3> I hope that Debian 9, "stretch", will be partially reproducible
-  in a meaningful way, in 2017.
-  \item<2-3> Will Debian 10, "buster", be 100\% reproducible?
-  \item<3> What's beyond (rebuilding, \texttt{.buildinfo} file handling, user
-  tools) mostly still needs \it{design} and code
- \end{itemize}
-\end{frame}
 
 
 \section{Status Non-Debian World}
@@ -791,7 +789,7 @@ where}\only<2>{gamblingmachines}!)
     \only<2>{All “Reproducible Builds” teams \\
         {\small (you are just \textbf{so} awesome!)}}
   \item Linux Foundation and the Core Infrastructure Initiative
-  \item OpenWrt Summit
+  \item OpenWrt Summit and ELCE
 \end{itemize}
 
  \begin{center}
