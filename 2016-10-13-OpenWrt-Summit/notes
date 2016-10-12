@@ -1,16 +1,9 @@
 notes for openwrt/lede talk…
-	add slide: variations on openwrt/lede
 	add openwrt summit logo at end
 	add lots of logos?!
-	emphasize
-		we want to change what we are building to make *you* look at these pages every day
-		we can build openwrt + lede at least every day, thanks profitbricks!
-		we can build more branches…
-		100% now (show screenshot) but what variations are missing? list them and list current results
-	skip demo
-	S_D_R? https://wiki.debian.org/ReproducibleBuilds/BuildPathProposal
 	remove swirl background some more?
-	(debian) .buildinfo file example @openwrt slides?
+	better words on "skip demo"
+	S_D_R? https://wiki.debian.org/ReproducibleBuilds/BuildPathProposal
 
 
 

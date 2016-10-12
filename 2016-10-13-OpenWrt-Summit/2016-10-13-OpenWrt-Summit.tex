@@ -710,27 +710,45 @@ where}\only<2>{gamblingmachines}!)
 
 
 \begin{frame}
- \frametitle{OpenWrt and LEDE}
+ \frametitle{OpenWrt and LEDE tested for reproducible builds}
  \begin{itemize}
   \item \texttt{https://tests.r-b.org/openwrt}
   \item \texttt{https://tests.r-b.org/lede}
   \item maintained by lynxis, deki and h01ger
-  \item 1000 packages build, 1/12 (OpenWrt/LEDE) images build
-  \item packages look good, but not all variations tested yet
-  \item images not yet.
+  \item reproducible\_(openwrt|lede).sh scripts in \texttt{jenkins.debian.net.git}
+  \item 1,073/1,089 packages and 1/12 (OpenWrt/LEDE) images tested each week
+  \item variations: TZ, LANG, LC\_ALL, PATH, (umask), make -j, linux64 --uname-2.6, CAPTURE\_ENVIRONMENT
+
  \end{itemize}
 \end{frame}
 
 \begin{frame}
- \frametitle{OpenWrt and LEDE cont.}
+ \frametitle{TODO for tests.r-b.org/(openwrt|lede)}
  \begin{itemize}
-  \item (put results into database instead of building HTML with shell)
-  \item collaboration: \texttt{notes.git} shall get multi-arch support
-  \item add more variations
-  \item design \texttt{.buildinfo} files for OpenWrt/LEDE
+  \item we should add more variations (date, time, hostname, domain, use disorderfs, CPU type,
+  kernel, USER, HOME, SHELL, the base system)
+  \item<2-3> we want to change what we are building to make *you* look at these
+  pages every day
+  \item<2-3> we could build other branches too…
+  \item<2-3> we could build OpenWrt + LEDE at least every day, thanks again to
+  Profitbricks.com
+  \item<3> collaboration: \texttt{notes.git} shall get multi-project support
  \end{itemize}
 \end{frame}
 
+\begin{frame}
+ \frametitle{TODO: design \texttt{.buildinfo} files for OpenWrt and LEDE}
+ \begin{itemize}
+  \item rfc822 format
+  \item needs to define the environment
+  \item needs to define the sources (input)
+  \item needs to define the binaries (output)
+  \item<2-3> Debian has only .deb files as output, while OpenWrt/LEDE have packages
+  and images…
+  \item<3> OTOH the OpenWrt/LEDE build environment base is not defined in the
+  OpenWrt/LEDE git tag… IOW: you can build on Debian, Fedora or even on MacOS…
+ \end{itemize}
+\end{frame}
 
 \placelogotrue
 
