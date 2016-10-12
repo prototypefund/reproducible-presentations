@@ -1,8 +1,5 @@
 notes for openwrt/lede talk…
 	add slide: variations on openwrt/lede
-	update numbers
-		reproducibility stats
-	update graphs
 	mention build path in debian unstable, not in testing (two graphs)
 	add openwrt summit logo at end
 	add lots of logos?!
@@ -11,11 +8,20 @@ notes for openwrt/lede talk…
 		we can build openwrt + lede at least every day, thanks profitbricks!
 		we can build more branches…
 		100% now (show screenshot) but what variations are missing? list them and list current results
-	drop intro h+l
 	skip demo
 	add new team members…
+		daniel sh
+		emmanuel b
+		val
+		sgclark
+		ceridwen
+		sascha s
 	S_D_R?
 	remove swirl background some more?
+	(debian) .buildinfo file example @openwrt slides?
+
+
+
 
 
 demo: PTH=$(mktemp -d); OPTH=$PWD; P=giftrans; cp ${P}_* $PTH/; cd $PTH ; dpkg-source -x ${P}*.dsc ; for X in 1 2 3 4 5 ; do (cd ${P}-*/; dpkg-buildpackage -b -uc -us); mkdir -p .$X ; cp $P_*.deb .$X; done ; rm *deb ; echo; sha1sum *dsc *z .*/*.deb | grep -v giftrans-dbgsym ; cd - ; echo "don't foget to rm -r $PTH"
