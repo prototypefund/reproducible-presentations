@@ -1,6 +1,6 @@
 notes for openwrt/lede talk…
-	update numbers on jobs
-		hosts
+	add slide: variations on openwrt/lede
+	update numbers
 		reproducibility stats
 	update graphs
 	mention build path in debian unstable, not in testing (two graphs)
