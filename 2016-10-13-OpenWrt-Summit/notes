@@ -1,6 +1,5 @@
 notes for openwrt/lede talk…
 	add slide: variations on openwrt/lede
-	mention build path in debian unstable, not in testing (two graphs)
 	add openwrt summit logo at end
 	add lots of logos?!
 	emphasize
@@ -9,14 +8,7 @@ notes for openwrt/lede talk…
 		we can build more branches…
 		100% now (show screenshot) but what variations are missing? list them and list current results
 	skip demo
-	add new team members…
-		daniel sh
-		emmanuel b
-		val
-		sgclark
-		ceridwen
-		sascha s
-	S_D_R?
+	S_D_R? https://wiki.debian.org/ReproducibleBuilds/BuildPathProposal
 	remove swirl background some more?
 	(debian) .buildinfo file example @openwrt slides?
 
