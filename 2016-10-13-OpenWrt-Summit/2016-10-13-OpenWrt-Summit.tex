@@ -304,32 +304,6 @@ from a given source}
 
 \placelogofalse
 
-\begin{frame}
- \frametitle{OpenWrt / LEDE reproducible builds contributors}
- \begin{center}
-  \begin{columns}
-  \column{.46\linewidth}
-    {Alexander Couzens} \\
-    {Bryan Newbold} \\
-    {Dirk Neukirchen} \\
-    {Felix Fietkau} \\
-    {Jonas Gorski} \\
-    {Jo-Philipp Wich} \\
-    {Nathan Hintz} \\
-    {Reiner Herrmann} \\
-  \end{columns}
- \end{center}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.08\paperwidth, 0.12\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.15\paperheight]{images/lede.png}
-  };
- \end{tikzpicture}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.85\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.3\paperheight]{images/openwrt.png}
-  };
- \end{tikzpicture}
-\end{frame}
 
 \section{Motivation}
 
@@ -765,12 +739,11 @@ where}\only<2>{gamblingmachines}!)
 \begin{frame}
  \frametitle{OpenWrt and LEDE tested for reproducible builds}
  \begin{itemize}
-  \item \texttt{https://tests.r-b.org/openwrt}
-  \item \texttt{https://tests.r-b.org/lede}
-  \item maintained by lynxis, deki and h01ger
-  \item reproducible\_(openwrt|lede).sh scripts in \texttt{jenkins.debian.net.git}
-  \item 1,073/1,089 packages and 1/12 (OpenWrt/LEDE) images tested each week
-  \item variations: TZ, LANG, LC\_ALL, PATH, (umask), make -j, linux64 --uname-2.6, CAPTURE\_ENVIRONMENT
+  \item<2> \texttt{https://tests.r-b.org/openwrt}
+  \item<2> \texttt{https://tests.r-b.org/lede}
+  \item<2> reproducible\_(openwrt\_common|openwrt|lede).sh scripts in \texttt{jenkins.debian.net.git}
+  \item<2> 1,073/1,089 packages and 12/1 (OpenWrt/LEDE) images tested each week
+  \item<2> variations: TZ, LANG, LC\_ALL, PATH, (umask), make -j, linux64 --uname-2.6, CAPTURE\_ENVIRONMENT
  \end{itemize}
 
  \begin{tikzpicture}[remember picture,overlay]
@@ -786,17 +759,20 @@ where}\only<2>{gamblingmachines}!)
 \end{frame}
 
 \begin{frame}
- \frametitle{TODO for tests.r-b.org/(openwrt|lede)}
- \begin{itemize}
-  \item we should add more variations (date, time, hostname, domain, use disorderfs, CPU type,
-  kernel, USER, HOME, SHELL, the base system)
-  \item<2-3> we want to change what we are building to make \textbf{you} look at these
-  pages eve
-  \item<2-3> we could build other branches too…
-  \item<2-3> we could build OpenWrt + LEDE at least every day, thanks again to
-  Profitbricks.com
-  \item<3> collaboration: \texttt{notes.git} shall get multi-project support
- \end{itemize}
+ \frametitle{Thanks to these OpenWrt / LEDE reproducible builds contributors}
+ \begin{center}
+  \begin{columns}
+  \column{.46\linewidth}
+    {Alexander Couzens} \\
+    {Bryan Newbold} \\
+    {Dirk Neukirchen} \\
+    {Felix Fietkau} \\
+    {Jonas Gorski} \\
+    {Jo-Philipp Wich} \\
+    {Nathan Hintz} \\
+    {Reiner Herrmann} \\
+  \end{columns}
+ \end{center}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.08\paperwidth, 0.12\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.15\paperheight]{images/lede.png}
@@ -809,17 +785,17 @@ where}\only<2>{gamblingmachines}!)
  \end{tikzpicture}
 \end{frame}
 
+
 \begin{frame}
- \frametitle{TODO: design \texttt{.buildinfo} files for OpenWrt and LEDE}
+ \frametitle{TODO for tests.r-b.org/(openwrt|lede)}
  \begin{itemize}
-  \item rfc822 format
-  \item needs to define the environment
-  \item needs to define the sources (input)
-  \item needs to define the binaries (output)
-  \item<2-3> Debian has only .deb files as output, while OpenWrt/LEDE have packages
-  and images…
-  \item<3> OTOH the OpenWrt/LEDE build environment base is not defined in the
-  OpenWrt/LEDE git tag… IOW: you can build on Debian, Fedora or even on MacOS…
+  \item we should add more variations (date, time, build path, hostname, domain, use disorderfs, CPU type,
+  kernel, USER, HOME, SHELL, the base system).
+  \item we should test more targets.
+  \item<2-3> we could build other branches too…
+  \item<2-3> we could build OpenWrt + LEDE at least every day, thanks again to
+  Profitbricks.com.
+  \item<3> we want to make \textbf{you} look at these pages every day!
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.14\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
@@ -829,6 +805,28 @@ where}\only<2>{gamblingmachines}!)
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.93\paperwidth, 0.11\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.15\paperheight]{images/lede.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+ \frametitle{TODO: design \texttt{.buildinfo} files for OpenWrt and LEDE}
+ \begin{itemize}
+  \item rfc822 format
+  \item needs to define the environment
+  \item needs to define the sources (input)
+  \item needs to define the binaries (output)
+  \item<2> Debian has only .deb files as output, while OpenWrt/LEDE have packages
+  and images…
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.08\paperwidth, 0.12\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.15\paperheight]{images/lede.png}
+  };
+ \end{tikzpicture}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.85\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.3\paperheight]{images/openwrt.png}
   };
  \end{tikzpicture}
 \end{frame}
@@ -887,24 +885,9 @@ where}\only<2>{gamblingmachines}!)
  \end{itemize}
 \end{frame}
 
-\begin{frame}
- \frametitle{Getting involved - learning by doing}
-
- \begin{itemize}
-  \item Test for yourself:
-   \begin{itemize}
-    \item Build something twice, run diffoscope on the results
-   \end{itemize}
-  \item Docs on the web: \\
-    \small{\url{https://reproducible-builds.org/docs/}} \\
-  \item Ask for help on \texttt{\#reproducible-builds} or on mailing list
- \end{itemize}
-\end{frame}
-
 
 \begin{frame}
  \frametitle{Form your reproducible builds team!}
-
  \begin{itemize}
   \item Why?
    \begin{itemize}
@@ -916,30 +899,15 @@ where}\only<2>{gamblingmachines}!)
    \end{itemize}
   \item How to get started?
    \begin{itemize}
+    \item Build something twice, run diffoscope on the results.
     \item Talk to lynxis or h01ger here or talk to us on IRC or via mail.
     \item RTFM, there is lots of documentation
     \item Experiment - learning by doing
-    \item Use+debug existing patches to \texttt{rpm-build}
    \end{itemize}
  \end{itemize}
 \end{frame}
 
 \section{Questions, comments, ideas?}
-
-
-\begin{frame}
- \frametitle{Questions, comments, ideas?}
-
- \begin{itemize}
-  \item \url{https://reproducible-builds.org/}
-  \item \texttt{\#reproducible-builds} on \texttt{irc.OFTC.net}
-  \item \url{https://lists.reproducible-builds.org}
-  \item twitter: @ReproBuild
-  \item<2> Mike and Seth's talk from 31c3 about motivations
-  \item<2> Lunar's talk about fixing reproducible issues from CCCamp 15
-  \item<2> h01ger's talk "the Reproducible builds ecosystem" from FOSDEM 16
-  \end{itemize}
-\end{frame}
 
 \placelogotrue
 
@@ -974,6 +942,23 @@ where}\only<2>{gamblingmachines}!)
  \end{center}
 \end{frame}
 
+\placelogofalse
+
+\begin{frame}
+ \frametitle{Questions, comments, ideas?}
+
+ \begin{itemize}
+  \item \url{https://reproducible-builds.org/}
+  \item \texttt{\#reproducible-builds} on \texttt{irc.OFTC.net}
+  \item \url{https://lists.reproducible-builds.org}
+  \item twitter: @ReproBuild
+  \item<2> Mike and Seth's talk from 31c3 about motivations
+  \item<2> Lunar's talk about fixing reproducible issues from CCCamp 15
+  \item<2> h01ger's talk "the Reproducible builds ecosystem" from FOSDEM 16
+  \end{itemize}
+\end{frame}
+
+\placelogotrue
 
 \begin{frame}{}
 \begin{textblock}{12}(2, 6)
