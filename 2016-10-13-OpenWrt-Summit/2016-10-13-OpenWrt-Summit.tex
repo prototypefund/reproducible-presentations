@@ -138,6 +138,8 @@ from a given source}
  \end{itemize}
 \end{frame}
 
+\placelogofalse
+
 \begin{frame}
  \frametitle{about lynxis}
 
@@ -150,7 +152,18 @@ from a given source}
   \item tests.reproducible-builds.org contributor
   \item CCC member
  \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.08\paperwidth, 0.12\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.2\paperheight]{images/lede.png}
+  };
+ \end{tikzpicture}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.85\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.4\paperheight]{images/openwrt.png}
+  };
+ \end{tikzpicture}
 \end{frame}
+
 
 \begin{frame}
  \frametitle{about OpenWrt and LEDE}
@@ -163,6 +176,17 @@ from a given source}
   \item<2> They are two projects though and when there are differences we'll
   mention them.
  \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.14\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.4\paperheight]{images/openwrt.png}
+  };
+ \end{tikzpicture}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.93\paperwidth, 0.11\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.2\paperheight]{images/lede.png}
+  };
+ \end{tikzpicture}
+
 \end{frame}
 
 
@@ -175,6 +199,7 @@ from a given source}
  \end{itemize}
 \end{frame}
 
+\placelogotrue
 
 \begin{frame}
  \frametitle{Debian reproducible builds team}
@@ -277,6 +302,7 @@ from a given source}
  \end{center}
 \end{frame}
 
+\placelogofalse
 
 \begin{frame}
  \frametitle{OpenWrt / LEDE reproducible builds contributors}
@@ -293,6 +319,16 @@ from a given source}
     {Reiner Herrmann} \\
   \end{columns}
  \end{center}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.08\paperwidth, 0.12\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.2\paperheight]{images/lede.png}
+  };
+ \end{tikzpicture}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.85\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.4\paperheight]{images/openwrt.png}
+  };
+ \end{tikzpicture}
 \end{frame}
 
 \section{Motivation}
@@ -355,6 +391,8 @@ from a given source}
  \end{center}
 \end{frame}
 
+\placelogotrue
+
 \begin{frame}
  \frametitle{Debian demo (skipped)}
  \begin{itemize}
@@ -375,6 +413,8 @@ from a given source}
 %   *.deb ; echo; sha1sum *dsc *z .*/*.deb | grep -v giftrans-dbgsym ; cd - ;
 % rm -r $PTH
 \end{frame}
+
+\placelogofalse
 
 \begin{frame}[plain]
 \begin{center}
@@ -397,7 +437,6 @@ from a given source}
 \end{frame}
 
 
-
 \section{Common ressources}
 
 \begin{frame}
@@ -412,7 +451,6 @@ from a given source}
  \end{center}
 \end{frame}
 
-\placelogofalse
 
 {
 \usebackgroundtemplate{%
@@ -519,6 +557,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{center}
 \end{frame}
 
+\placelogofalse
 
 \begin{frame}
  \frametitle{Common problems}
@@ -576,6 +615,8 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{itemize}
 \end{frame}
 
+
+\placelogotrue
 
 \section{Status Debian}
 
@@ -719,8 +760,18 @@ where}\only<2>{gamblingmachines}!)
   \item reproducible\_(openwrt|lede).sh scripts in \texttt{jenkins.debian.net.git}
   \item 1,073/1,089 packages and 1/12 (OpenWrt/LEDE) images tested each week
   \item variations: TZ, LANG, LC\_ALL, PATH, (umask), make -j, linux64 --uname-2.6, CAPTURE\_ENVIRONMENT
-
  \end{itemize}
+
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.14\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.4\paperheight]{images/openwrt.png}
+  };
+ \end{tikzpicture}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.93\paperwidth, 0.11\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.2\paperheight]{images/lede.png}
+  };
+ \end{tikzpicture}
 \end{frame}
 
 \begin{frame}
@@ -735,6 +786,16 @@ where}\only<2>{gamblingmachines}!)
   Profitbricks.com
   \item<3> collaboration: \texttt{notes.git} shall get multi-project support
  \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.08\paperwidth, 0.12\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.2\paperheight]{images/lede.png}
+  };
+ \end{tikzpicture}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.85\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.4\paperheight]{images/openwrt.png}
+  };
+ \end{tikzpicture}
 \end{frame}
 
 \begin{frame}
@@ -749,9 +810,18 @@ where}\only<2>{gamblingmachines}!)
   \item<3> OTOH the OpenWrt/LEDE build environment base is not defined in the
   OpenWrt/LEDE git tag… IOW: you can build on Debian, Fedora or even on MacOS…
  \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.14\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.4\paperheight]{images/openwrt.png}
+  };
+ \end{tikzpicture}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.93\paperwidth, 0.11\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.2\paperheight]{images/lede.png}
+  };
+ \end{tikzpicture}
 \end{frame}
 
-\placelogotrue
 
 \section{Future work}
 
@@ -860,6 +930,7 @@ where}\only<2>{gamblingmachines}!)
   \end{itemize}
 \end{frame}
 
+\placelogotrue
 
 \begin{frame}
  \frametitle{Thanks to…! …and thank \textbf{you}, too!}
@@ -868,7 +939,6 @@ where}\only<2>{gamblingmachines}!)
   \item
     {All “Reproducible Builds” contributors \\
         {\small (you are just \textbf{so} awesome!)}}
-  \item Linux Foundation and the Core Infrastructure Initiative
   \item OpenWrt Summit and ELCE
 \end{itemize}
 
@@ -876,6 +946,8 @@ where}\only<2>{gamblingmachines}!)
   \includegraphics[height=0.1\paperheight]{images/linux_foundation_logo.png}
   \hspace{0.1\paperwidth}
   \includegraphics[height=0.1\paperheight]{images/cii_logo.png}
+  \hspace{0.1\paperwidth}
+  \includegraphics[height=0.1\paperheight]{images/profitbricks_logo.png}
  \end{center}
 
  \vfill
@@ -890,6 +962,7 @@ where}\only<2>{gamblingmachines}!)
   }
  \end{center}
 \end{frame}
+
 
 \begin{frame}{}
 \begin{textblock}{12}(2, 6)
