@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Reproducible builds status update</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+  <style type="text/css">
+  li {
+    margin-top: 28px !important;
+  }
+  ul ul li {
+    margin-top: 16px !important;
+  }
+  * {
+    text-transform: none !important;
+  }
+  a {
+    color: inherit !important;
+  }
+  code {
+    font-size: 90% !important;
+  }
+  table {
+    width: 100%;
+  }
+  .reveal table td {
+    border-bottom: none;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <script>
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+  document.getElementsByTagName('head')[0].appendChild( link );
+</script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides" style="text-align: left;">
+      <section data-background="images/debian_logo.png" data-background-size="10%" data-background-position="90% 10%">
+        <h2>Reproducible builds status update</h2>
+        <h4>
+          MiniDebConf, Cambridge
+          <br>
+          November 2016
+        </h4>
+      </section>
+
+      <section data-background="images/install.jpg" data-background-size="80%" data-background-color="black">
+        <h2>The problem</h2>
+        <ul>
+          <li class="fragment">Can inspect the source code of free software for flaws</li>
+          <li class="fragment">But distributions provide binary/compiled packages</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Can we trust this process?</h2>
+
+        <ul>
+          <li class="fragment">To get users, go after the developers</li>
+          <li class="fragment">Financial incentives to crack developer machines / build infrastructure</li>
+          <li class="fragment"><code>CVE-2002-0083</code>: Remote root exploit in OpenSSH (single bit difference in binary)</li>
+          <li class="fragment">Kernel module modifying source code when "viewed" by GCC only (see <code>media.ccc.de</code>)</li>
+          <li class="fragment">Compromised Apple iOS SDK, <em>Xcodeghost</em>, etc.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 style="line-height: 130%;">
+          The motivation behind "reproducible" builds is to allow verification
+          that no flaws have been introduced during the compilation process.
+        </h2>
+      </section>
+
+      <section>
+        <h2>The solution</h2>
+
+        <ol>
+          <li class="fragment">Ensure compilation always identical results</li>
+          <li class="fragment">Multiple parties compare compilation results</li>
+          <li class="fragment">Attacker needs to infect everybody simultaneously (or they are detected)</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Challenges</h2>
+        <ul>
+        <ul>
+          <li class="fragment">Timestamps</li>
+          <li class="fragment">Timezones &amp; locales</li>
+          <li class="fragment">Different versions of libraries</li>
+          <li class="fragment">Non-deterministic file ordering</li>
+          <li class="fragment">Dictionary/hash key ordering</li>
+          <li class="fragment">Users, groups, <code>umask</code>, environment variables</li>
+          <li class="fragment">Build paths</li>
+          <li class="fragment">Specifying the environment</li>
+        </ul>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Technical advantages</h2>
+
+        <ul>
+        <ul>
+          <li class="fragment">Faster to build; saves time, money &amp; the environment</li>
+          <li class="fragment">Easier to test changes/revisions</li>
+          <li class="fragment">Unsafe behaviour (eg. internet access)</li>
+          <li class="fragment">Unreliable / non-deterministic behaviours (eg. timing)</li>
+          <li class="fragment">Finds bugs in uncommon timezones or locales</li>
+          <li class="fragment">Detect corrupted build environments</li>
+          <li class="fragment">Find future build failures (eg. expired certificates)</li>
+        </ul>
+        </ul>
+      </section>
+
+      <section data-background="images/debian.jpg" data-background-color="black">
+        <h2>Reproducible builds in Debian</h2>
+
+        <p>Continuously build every package twice, varying:</p>
+
+        <ul class="fragment">
+          <ul>
+            <li class="fragment">Time &amp; date</li>
+            <li class="fragment">Hostname &amp; domain name</li>
+            <li class="fragment">Filesystem (<code>disorderfs</code>)</li>
+            <li class="fragment">Timezone &amp; locale</li>
+            <li class="fragment"><code>uid</code> &amp; <code>gid</code></li>
+            <li class="fragment">Kernel &amp; CPU type</li>
+            <li class="fragment">and more&hellip;</li>
+          </ul>
+        </ul>
+      </section>
+
+      <section data-background="images/testing_status.png">
+        &nbsp;
+      </section>
+
+      <section>
+        FIXME: More detailed in debian
+      </section>
+
+      <section>
+        FIXME: Dpkg patches, no custom packages in our repo, etc.
+      </section>
+
+      <section>
+        FIXME: build-path in unstable, SOURCE_ROOT patches
+      </section>
+
+      <section>
+        FIXME: buildinfo.debian.net
+      </section>
+
+      <section>
+        FIXME: Summit meeting
+      </section>
+
+      <section>
+        FIXME: Patches (thank Kinnison)
+      </section>
+
+      <section>
+        <h2>Beyond Debian&hellip;</h2>
+        <ul>
+          <li class="fragment">coreboot, Fedora, LEDE, OpenWRT, NetBSD, FreeBSD, Arch, Qubes, F-Droid, NixOS, Guix, etc.</li>
+          <li class="fragment">Other projects now using "our" testing framework</li>
+          <li class="fragment">Reproducible Builds summits (Athens, Berlin)</li>
+          <li class="fragment">Challenges moving from <code>debian-</code> prefixes, mailing lists, etc.</li>
+          <li class="fragment">Generic tools</li>
+        </ul>
+      </section>
+
+      <section data-background="images/diffoscope.png">
+        &nbsp;
+      </section>
+
+      <section>
+        <h2>Future work</h2>
+
+        <ul class="fragment">
+          <li class="fragment">Source code still vulnerable</li>
+          <li class="fragment">How to make it meaningful for end-users</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Getting involved</h2>
+        <ul class="fragment">
+          <li class="fragment">Check your own software</li>
+          <li class="fragment">Visit <a href="https://reproducible-builds.org/"><code>reproducible-builds.org</a></code></li class="fragment">
+          <li class="fragment">Stop using dates (or use <tt><a href="https://reproducible-builds.org/specs/">SOURCE_DATE_EPOCH</a></tt>)</li>
+          <li class="fragment"><code>#reproducible-builds</code> on <code>irc.oftc.net</code></li>
+        </ul>
+      </section>
+
+      <section data-background="images/debian.jpg" data-background-color="black">
+        <h2 style="text-align: center;">Questions?</h2>
+
+        <br>
+        <br>
+
+        <table>
+        <tr>
+          <td>
+            <a href="mailto:lamby@debian.org">lamby@debian.org</a>
+          </td>
+          <td style="text-align: right;">
+            <code>0xD4311E58</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="mailto:holger@debian.org">holger@debian.org</a>
+          </td>
+          <td style="text-align: right;">
+            <code>0x069AAA1C</code>
+          </td>
+        </tr>
+        </table>
+
+        <br>
+
+        <p style="text-align: center;">
+          <a href="https://reproducible-builds.org/"><code>reproducible-builds.org</code></a>
+          <br>
+          <code>#reproducible-builds</code> on <code>irc.oftc.net</code>
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: false,
+      progress: false,
+      history: true
+    });
+  </script>
+</body>
+</html>
