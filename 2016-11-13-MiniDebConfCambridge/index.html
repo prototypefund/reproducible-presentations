@@ -154,23 +154,58 @@
       </section>
 
       <section>
-        FIXME: More detailed in debian
+        FIXME: Add more detailed status in Debian
       </section>
 
       <section>
-        FIXME: Dpkg patches, no custom packages in our repo, etc.
+        <h2>Toolchain</h2>
+
+        <ul>
+          <li>Previously needed to use custom packages</li>
+          <li>Not needed since dpkg <code>1.18.11</code></li>
+        </ul>
       </section>
 
       <section>
-        FIXME: build-path in unstable, SOURCE_ROOT patches
+        <h2>Build paths</h2>
+
+        <ul>
+          <li class="fragment">Many builds embed path they are built from</li>
+          <li class="fragment">Previously used fixed build path</li>
+          <li class="fragment">In unstable, we now vary the build path &rarr; lots of unreproducibility</li>
+          <li class="fragment">Work on general solutions ongoing (eg. <code>SOURCE_PREFIX_MAP</code> for GCC)</li>
+        </ul>
       </section>
 
       <section>
-        FIXME: buildinfo.debian.net
+        <h2><code>.buildinfo</code> files</h2>
+
+        <ul>
+          <li class="fragment">Definition of the environment used during a build</li>
+          <li class="fragment">Specificies:
+          <ul>
+            <li>Inputs: <code>Build-Depends</code>, build path, etc.</li>
+            <li>Outputs: <code>.deb</code> checksums, etc.</li>
+          </ul>
+          <li class="fragment">Will be signed by autobuilders, third-parties, etc.</li>
+          <li class="fragment">Experimental server at <a href="https://buildinfo.debian.net/">buildinfo.debian.net</a></li>
+        </ul>
       </section>
 
       <section>
-        FIXME: Summit meeting
+        <h2>2016 summit meeting</h2>
+
+        <ul>
+          <li>Three-day workshop in Berlin, Germany</li>
+          <li>Follow-up to Athens 2015 event</li>
+        </ul>
+
+        <br>
+        <br>
+
+        <p style="text-align: center;">
+          <a href="https://reproducible-builds.org/events/berlin2016/"><code>reproducible-builds.org/events/berlin2016/</code></a>
+        </p>
       </section>
 
       <section>
