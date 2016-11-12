@@ -34,6 +34,10 @@
   .reveal table td {
     border-bottom: none;
   }
+  .reveal section img {
+    border: none;
+    box-shadow: none;
+  }
   </style>
 
   <!--[if lt IE 9]>
@@ -191,7 +195,7 @@
             <li>Inputs: <code>Build-Depends</code>, build path, etc.</li>
             <li>Outputs: <code>.deb</code> checksums, etc.</li>
           </ul>
-          <li class="fragment">dak needs to accept and forward them</li>
+          <li class="fragment"><code>dak</code> needs to accept and forward them</li>
           <li class="fragment">Will be signed by autobuilders, third-parties, etc.</li>
           <li class="fragment">Experimental server at <a href="https://buildinfo.debian.net/">buildinfo.debian.net</a></li>
         </ul>
@@ -221,7 +225,7 @@
         <h2>Beyond Debian&hellip;</h2>
         <ul>
           <li class="fragment">coreboot, Fedora, LEDE, OpenWRT, NetBSD, FreeBSD, Arch, Qubes, F-Droid, NixOS, Guix, etc.</li>
-          <li class="fragment">Other projects now using "our" testing framework, SOURCE_DATE_EPOCH, .buildinfo file concept</li>
+          <li class="fragment">Other projects now using "our" testing framework, <code>SOURCE_DATE_EPOCH</code>, <code>.buildinfo</code> file concept</li>
           <li class="fragment">Reproducible Builds summits (Athens, Berlin)</li>
           <li class="fragment">Challenges moving from <code>debian-</code> prefixes, mailing lists, etc.</li>
           <li class="fragment">Generic tools</li>
@@ -252,17 +256,19 @@
         </ul>
       </section>
 
+      <section data-background-color="white">
+        <h2>Thanks</h2>
 
-      <section>
-        <h2>Thanks to</h2>
-        <ul class="fragment">
-          <li class="fragment">Core Infrastructure Initiative of the Linux Foundation</li>
-          <li class="fragment">Profitbricks</li>
-          <li class="fragment"><em>you</em>!</li>
-          <li class="fragment">quite all of you, really. This is an tremendous effort of many many people working together. Thank <em>you</em>!</li>
-       </ul>
+        <br>
+
+        <p>
+          <img src="images/cii.png">
+          <br>
+          <img src="images/lf.png">
+          <br>
+          <img src="images/profitbricks.jpg">
+        </p>
       </section>
-
 
       <section data-background="images/debian.jpg" data-background-color="black">
         <h2 style="text-align: center;">Questions?</h2>
