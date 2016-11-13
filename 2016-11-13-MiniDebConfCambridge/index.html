@@ -58,11 +58,8 @@
     <div class="slides" style="text-align: left;">
       <section data-background="images/debian_logo.png" data-background-size="10%" data-background-position="90% 10%">
         <h2>Reproducible builds status update</h2>
-        <br>
         <h4>
           Chris Lamb &amp; Holger Levsen
-          <br>
-          MiniDebConf, Cambridge, November 2016
         </h4>
       </section>
 
@@ -144,7 +141,7 @@
           <ul>
             <li class="fragment">Time &amp; date</li>
             <li class="fragment">Hostname &amp; domain name</li>
-            <li class="fragment">Filesystem (<code>disorderfs</code>)</li>
+            <li class="fragment">Filesystem (<code><strike>disorderfs</strike></code>)</li>
             <li class="fragment">Timezone &amp; locale</li>
             <li class="fragment"><code>uid</code> &amp; <code>gid</code></li>
             <li class="fragment">Kernel &amp; CPU type</li>
@@ -162,10 +159,6 @@
       </section>
 
       <section>
-        FIXME: Add more detailed status in Debian, eg bugs or issues graphs?
-      </section>
-
-      <section>
         <h2>Toolchain</h2>
 
         <ul>
@@ -179,14 +172,14 @@
 
         <ul>
           <li class="fragment">Many builds embed path they are built from</li>
-          <li class="fragment">Previously used fixed build path</li>
+          <li class="fragment">Previously used same build path</li>
           <li class="fragment">In unstable, we now vary the build path &rarr; lots of unreproducibility</li>
           <li class="fragment">Work on general solutions ongoing (eg. <code>SOURCE_PREFIX_MAP</code> for GCC)</li>
         </ul>
       </section>
 
       <section>
-        <h2><code>.buildinfo</code> files</h2>
+        <h2><code>.buildinfo</code> files (1/2)</h2>
 
         <ul>
           <li class="fragment">Definition of the environment used during a build</li>
@@ -198,6 +191,20 @@
           <li class="fragment"><code>dak</code> needs to accept and forward them</li>
           <li class="fragment">Will be signed by autobuilders, third-parties, etc.</li>
           <li class="fragment">Experimental server at <a href="https://buildinfo.debian.net/">buildinfo.debian.net</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><code>.buildinfo</code> files (2/2)</h2>
+
+        <ul>
+          <li class="fragment">Outstanding questions:
+          <ul>
+            <li class="fragment">Filename scheme</li>
+            <li class="fragment">Time</li>
+            <li class="fragment">Environment variables</li>
+          </ul>
+          <li class="fragment">How to host 10,000s of files on <code>ftp-master.d.o</code></li>
         </ul>
       </section>
 
@@ -215,10 +222,6 @@
         <p style="text-align: center;">
           <a href="https://reproducible-builds.org/events/berlin2016/"><code>reproducible-builds.org/events/berlin2016/</code></a>
         </p>
-      </section>
-
-      <section>
-        FIXME: Patches (thank Kinnison)
       </section>
 
       <section>
