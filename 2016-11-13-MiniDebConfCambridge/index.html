@@ -144,6 +144,7 @@
             <li class="fragment">Filesystem (<code><strike>disorderfs</strike></code>)</li>
             <li class="fragment">Timezone &amp; locale</li>
             <li class="fragment"><code>uid</code> &amp; <code>gid</code></li>
+            <li class="fragment">GECOS information, the shell &amp; a bunch of environment variables  </li>
             <li class="fragment">Kernel &amp; CPU type</li>
             <li class="fragment">and more&hellip;</li>
           </ul>
@@ -172,7 +173,7 @@
 
         <ul>
           <li class="fragment">Many builds embed path they are built from</li>
-          <li class="fragment">Previously used same build path</li>
+          <li class="fragment">our test setup previously used same build path</li>
           <li class="fragment">In unstable, we now vary the build path &rarr; lots of unreproducibility</li>
           <li class="fragment">Work on general solutions ongoing (eg. <code>SOURCE_PREFIX_MAP</code> for GCC)</li>
         </ul>
@@ -185,7 +186,7 @@
           <li class="fragment">Definition of the environment used during a build</li>
           <li class="fragment">Specificies:
           <ul>
-            <li>Inputs: <code>Build-Depends</code>, build path, etc.</li>
+            <li>Inputs: <code>.dsc</code>, <code>Build-Depends</code>, build path, etc.</li>
             <li>Outputs: <code>.deb</code> checksums, etc.</li>
           </ul>
           <li class="fragment"><code>dak</code> needs to accept and forward them</li>
@@ -204,7 +205,7 @@
             <li class="fragment">Time</li>
             <li class="fragment">Environment variables</li>
           </ul>
-          <li class="fragment">How to host 10,000s of files on <code>ftp-master.d.o</code></li>
+          <li class="fragment">How to host 100,000s of files on <code>ftp-master.d.o</code></li>
         </ul>
       </section>
 
@@ -230,7 +231,7 @@
           <li class="fragment">coreboot, Fedora, LEDE, OpenWRT, NetBSD, FreeBSD, Arch, Qubes, F-Droid, NixOS, Guix, etc.</li>
           <li class="fragment">Other projects now using "our" testing framework, <code>SOURCE_DATE_EPOCH</code>, <code>.buildinfo</code> file concept</li>
           <li class="fragment">Reproducible Builds summits (Athens, Berlin)</li>
-          <li class="fragment">Challenges moving from <code>debian-</code> prefixes, mailing lists, etc.</li>
+          <li class="fragment">Some challenges moving from <code>debian-</code> prefixes, mailing lists, etc.</li>
           <li class="fragment">Generic tools</li>
         </ul>
       </section>
@@ -243,8 +244,8 @@
         <h2>Future work</h2>
 
         <ul class="fragment">
-          <li class="fragment">Source code still vulnerable</li>
           <li class="fragment">How to make it meaningful for end-users</li>
+          <li class="fragment">Source code still vulnerable</li>
         </ul>
       </section>
 
@@ -262,11 +263,11 @@
         <p>
           <img src="images/cii.png">
           <br>
-          <br>
           <img src="images/lf.png">
           <br>
-          <br>
           <img src="images/profitbricks.jpg">
+          <br>
+          <img src="images/debian_logo.png">
         </p>
       </section>
 
