@@ -91,25 +91,29 @@
 
 \setbeamercolor{block title}{fg=debianblue}
 
-\title[Reproducible builds everywhere]{Reproducible
-builds everywhere \\ eg. in Debian, OpenWrt and LEDE}
+
+\title[Reproducible Builds and Fedora]{Reproducible
+builds everywhere \\ eg. in Debian and Fedora and everywhere}
 \subtitle{Bit by bit identical binaries \\
 from a given source}
-\author[h01ger and lynxis]{%
+\author[Dennis and h01ger]{%
    \texorpdfstring{
             \centering
-            Alexander 'lynxis' Couzens\\
+            Dennis Gilmore\\
             Holger 'h01ger' Levsen
-   }{h01ger and lynxis}}
-\date[OpenWrt Summit, Berlin]{%
- OpenWrt Summit in Berlin, Germany\\
- \small{2016-10-13}}
+   }{Dennis and h01ger}}
+\date[DevConf.cz]{%
+ DevConf.cz in Brno, Czech Republic\\
+ \small{2017-01-27}}
 
 \begin{document}
+\placelogofalse
 
 \begin{frame}[plain]
  \titlepage
 \end{frame}
+
+\placelogotrue
 
 \begin{frame}
  \frametitle{about h01ger}
@@ -141,61 +145,31 @@ from a given source}
 \placelogofalse
 
 \begin{frame}
- \frametitle{about lynxis}
+ \frametitle{about Dennis}
 
  \begin{itemize}
   \item \small{\texttt{390D CF78 8BF9 AA50 4F8F  F1E2 C29E 9DA6 A0DF 8604}}
-  \item Debian user since 2003
-  \item OpenWrt user since 2006
-  \item LEDE founding member
-  \item coreboot hacker
-  \item tests.reproducible-builds.org contributor
-  \item CCC member
- \end{itemize}
+  \item Fedora user since 1984
+  \item Fedora contributor since fedora.us
+  \item Plattform lead at RedHat
+  \item Day job since 8 years: Fedora
+  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.08\paperwidth, 0.12\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.15\paperheight]{images/lede.png}
-  };
- \end{tikzpicture}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.85\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.3\paperheight]{images/openwrt.png}
+    \includegraphics[height=0.15\paperheight]{images/fedora.png}
   };
  \end{tikzpicture}
 \end{frame}
 
-
-\begin{frame}
- \frametitle{about OpenWrt and LEDE}
-
- \begin{itemize}
-  \item In this talk we'll ignore the distinction between the two:
-  \item when we say "OpenWrt" me mean "LEDE and OpenWrt",
-  \item when we say "LEDE" me mean "OpenWrt and LEDE",
-  \item when we say "OpenWrt and LEDE" we mean "LEDE and OpenWrt".
-  \item<2> They are two projects though and when there are differences we'll
-  mention them.
- \end{itemize}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.14\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.3\paperheight]{images/openwrt.png}
-  };
- \end{tikzpicture}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.93\paperwidth, 0.11\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.15\paperheight]{images/lede.png}
-  };
- \end{tikzpicture}
-
-\end{frame}
 
 
 \begin{frame}
  \frametitle{Who are you?}
  \begin{itemize}
-  \item<2-4> Seen a talk about reproducible builds?
-  \item<3-4> Contributed to the effort?
-  \item<4> Uses Debian or a Debian based system?
+  \item<2-5> Seen a talk about reproducible builds?
+  \item<3-5> Contributed to the effort?
+  \item<4-5> Uses Debian or a Debian based system?
+  \item<5> Uses Fedora, RedHat or a Fedora based system?
  \end{itemize}
 \end{frame}
 
@@ -901,7 +875,7 @@ where}\only<2>{gamblingmachines}!)
   \item How to get started?
    \begin{itemize}
     \item Build something twice, run diffoscope on the results.
-    \item Talk to lynxis or h01ger here or talk to us on IRC or via mail.
+    \item Talk to Dennis or h01ger here or talk to us on IRC or via mail.
     \item RTFM, there is lots of documentation
     \item Experiment - learning by doing
    \end{itemize}
@@ -919,7 +893,7 @@ where}\only<2>{gamblingmachines}!)
   \item
     {All “Reproducible Builds” contributors \\
         {\small (you are just \textbf{so} awesome!)}}
-  \item OpenWrt Summit and ELCE
+  \item DevConf.cz
 \end{itemize}
 
  \begin{center}
@@ -936,7 +910,7 @@ where}\only<2>{gamblingmachines}!)
    \begin{tabular}{rl}
     \texttt{holger@debian.org} & \texttt{B8BF 5413 7B09 D35C F026} \\
                                & \texttt{FE9D 091A B856 069A AA1C} \\
-    \texttt{lynxis@fe80.eu} & \texttt{390D CF78 8BF9 AA50 4F8F} \\
+    \texttt{dennis@ausil.us} & \texttt{FIXM EFIX MEFI XMEF IXME} \\
                                & \texttt{F1E2 C29E 9DA6 A0DF 8604}
 \end{tabular}
   }
@@ -964,7 +938,7 @@ where}\only<2>{gamblingmachines}!)
 \begin{frame}{}
 \begin{textblock}{12}(2, 6)
     \tiny{
-      Copyright \copyright{} 2014--2016 \\
+      Copyright \copyright{} 2014--2017 \\
          Holger Levsen \texttt{holger@layer-acht.org} and others.\\[3.0mm]
       Copyright of images included in this document are held by
       their respective owners.

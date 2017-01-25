@@ -1,6 +1,6 @@
 .PHONY: all source images
 
-PRESENTATION = 2016-10-13-OpenWrt-Summit
+PRESENTATION = 2017-01-27-devconf.cz
 
 all: $(PRESENTATION).pdf
 
