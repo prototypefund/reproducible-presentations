@@ -632,11 +632,10 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{itemize}
   \item This is a proof-of-concept, Debian is neither 91.2\% reproducible nor
   75.8\%. (and 10\% > 2,300 sources packages!)
-  \item<2-4> All our required changes are finally in Debian now, except
-  \texttt{dpkg} and \texttt{.buildinfo} file support on the archive side.
+  \item<2-4> All our required changes are finally in Debian now!
   \item<3-4> We hope that Debian 9, "stretch", will be partially reproducible
   in a meaningful way, in 2017.
-  \item<3-4> What's beyond (rebuilding, \texttt{.buildinfo} file handling, user
+  \item<3-4> Though, what's beyond (rebuilding, \texttt{.buildinfo} file handling, user
   tools) still needs \it{design} and code.
   \item<4> Will Debian 10, "buster", be 100\% reproducible?
  \end{itemize}
@@ -759,7 +758,7 @@ where}\only<2>{gamblingmachines}!)
  \begin{itemize}
  \item<1-3> So far we mostly worked on enabling us to do reproducible builds…
  \item<2-3> We'll need constant tests for future code.
- \item<3> And this still needs tools, infrastructure and policies to become
+ \item<3> And then, this still needs tools, infrastructure and policies to become
  meaningful and to be used in practice.
  \end{itemize}
 \end{frame}
@@ -772,8 +771,11 @@ where}\only<2>{gamblingmachines}!)
   \item Different projects, different solutions?
  \begin{itemize}
   \item<2> something like \texttt{.buildinfo} files (defining the environment,
-  the input and the output(s)) will be needed everywhere, but so far we only
-  have them for Debian…
+  the input and the output(s)) will be needed everywhere:
+  \item<2> implemented for Debian (both in sbuild and well as
+  buildinfo.debian.net)
+  \item<2> work has begun for coreboot, LEDE/OpenWrt and Fedora (mock/koji)
+  and maybe OpenSuSE (OpenBuildService)
  \end{itemize}
  \end{itemize}
 \end{frame}

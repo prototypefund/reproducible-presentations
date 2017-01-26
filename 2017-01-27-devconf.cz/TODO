@@ -2,11 +2,10 @@
 explain problem and solution better
 	also mention qa side effecs
 
-thank people for their work, diffoscope, disorderfs, armhf, mattia, val, … - mention peoples names and thank them.
+
+meta: thank people for their work, diffoscope, disorderfs, armhf, mattia, val, … - mention peoples names and thank them.
 
 gsoc + outreachy
-
- too many example rebuilders (aclu, adac…
 
 
 check dennis bio slide
@@ -34,7 +33,6 @@ diffoscope in fedora is 69
 patched rpm from bernhard
 mock, koji and .buildinfo files
 dnf and yum might create different environment
-t.r-b.o/fedora
 
 update skipping some
 update debian graphs
