@@ -7,7 +7,6 @@ talk starts "the problem" not "talk about the problem" and then it doesnt really
 
 check dennis bio slide
 	gpg fingerprint?
-	no redhat logo is fine? https://brand.redhat.com/logos/shadowman/ was too much for me ;)
 	i've used Dennis and h01ger
 have debian+fedora logo together on more slides
 
@@ -15,12 +14,22 @@ extra section: status fedora
 
 add back slide about reproducible builds in the commercial world
 explain .buildinfo in debian in more detail
+fdroid logo missing
 
 upstreaming patches project by bernhard
+
 mention suse in general
+	patched rpm: https://build.opensuse.org/package/show/home:bmwiedemann:reproducible/rpm?expand=0
+		< bmwiedemann> the new rpm-4.13 even has an option to override hostname via rpmmacros
+		< bmwiedemann> kvm -rtc base=2018-02-03 - for having test systems in the future
+		< bmwiedemann> stats so far: build-succeeded: 3172
+		< bmwiedemann> build-compare-failed: 1001
+		< bmwiedemann> build-compare-succeeded: 2171
+		< bmwiedemann> bit-by-bit-identical: 2117
+		< bmwiedemann> not-bit-by-bit-identical: 1055
 
 
-diffoscope in fedora
+diffoscope in fedora is 69
 patched rpm from bernhard
 mock, koji and .buildinfo files
 dnf and yum might create different environment
@@ -31,7 +40,13 @@ update debian graphs
 update debian team
 
 fsf priority project
+
 ars technica
+	debian is really stupid allowing developer build binaries to be uploaded from every developer
+		just because its useful to bootstrap new archs, which something like 3 people do
+	but the build network of fedora/redhat doesnt make things magically safe nor secure, OTOH its a ideal attack target… how much do you pay your admins? etc ;-)
 
 build path proposal
 john gilmore 1992 cygnus
+
+mention logo

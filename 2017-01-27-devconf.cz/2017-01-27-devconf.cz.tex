@@ -660,9 +660,10 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
     \item<3-4> 40 people from 16 projects
     \item<3-4> \texttt{reproducible.debian.net} has become \texttt{tests.reproducible-builds.org}
    \end{itemize}
-    \item<4> Second Reproducible World Summit in December 2016 in Berlin
+    \item<3-4> Second Reproducible World Summit in December 2016 in Berlin
    \begin{itemize}
-    \item<4> Talk to h01ger if you want to attend.
+    \item<4> Third summit planned for 2017, probably a hackathon in spring
+    2017 too
    \end{itemize}
  \end{itemize}
 \end{frame}
@@ -680,8 +681,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item \texttt{https://tests.r-b.org/netbsd}
   \item \texttt{https://tests.r-b.org/freebsd}
   \item paused: \texttt{https://tests.r-b.org/archlinux}
-  \item paused: \texttt{https://tests.r-b.org/fedora}
   \item not yet: \texttt{https://tests.r-b.org/f-droid}
+  \item \texttt{https://tests.r-b.org/openwrt}
+  \item \texttt{https://tests.r-b.org/lede}
  \end{itemize}
  \begin{center}
   \includegraphics[height=0.13\paperheight]{images/coreboot.png}
@@ -690,9 +692,13 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \hspace{0.05\paperwidth}
   \includegraphics[height=0.13\paperheight]{images/freebsd.png}
   \hspace{0.05\paperwidth}
+  \includegraphics[height=0.13\paperheight]{images/f-droid.png}
+  \hspace{0.05\paperwidth}
   \includegraphics[height=0.13\paperheight]{images/archlinux.png}
   \hspace{0.05\paperwidth}
-  \includegraphics[height=0.13\paperheight]{images/fedora.png}
+  \includegraphics[height=0.3\paperheight]{images/openwrt.png}
+  \hspace{0.05\paperwidth}
+  \includegraphics[height=0.15\paperheight]{images/lede.png}
 \end{center}
 \end{frame}
 
@@ -710,98 +716,39 @@ where}\only<2>{gamblingmachines}!)
  \end{itemize}
 \end{frame}
 
+\section{Status RPM world: Fedora and SuSE}
 
 \begin{frame}
- \frametitle{OpenWrt and LEDE tested for reproducible builds}
+ \frametitle{rpm, patches in use by OpenSuSE}
  \begin{itemize}
-  \item<2> \texttt{https://tests.r-b.org/openwrt}
-  \item<2> \texttt{https://tests.r-b.org/lede}
-  \item<2> reproducible\_(openwrt\_common|openwrt|lede).sh scripts in \texttt{jenkins.debian.net.git}
-  \item<2> 1,073/1,089 packages and 12/1 (OpenWrt/LEDE) images tested each week
-  \item<2> variations: TZ, LANG, LC\_ALL, PATH, (umask), make -j, linux64 --uname-2.6, CAPTURE\_ENVIRONMENT
- \end{itemize}
+  \item explain Bernhards Tests here
+  \end{itemize}
+\end{frame}
 
+\begin{frame}
+ \frametitle{tests.r-b.org/fedora}
+ \begin{itemize}
+  \item should be made working again
+  \item h01ger's plan for the next 2 days
+  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.14\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.3\paperheight]{images/openwrt.png}
-  };
- \end{tikzpicture}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.93\paperwidth, 0.11\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.15\paperheight]{images/lede.png}
+  \node[shift={(0.1\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.3\paperheight]{images/fedora.png}
   };
  \end{tikzpicture}
 \end{frame}
 
 \begin{frame}
- \frametitle{Thanks to these OpenWrt / LEDE reproducible builds contributors}
- \begin{center}
-  \begin{columns}
-  \column{.46\linewidth}
-    {Alexander Couzens} \\
-    {Bryan Newbold} \\
-    {Dirk Neukirchen} \\
-    {Felix Fietkau} \\
-    {Jonas Gorski} \\
-    {Jo-Philipp Wich} \\
-    {Nathan Hintz} \\
-    {Reiner Herrmann} \\
-  \end{columns}
- \end{center}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.08\paperwidth, 0.12\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.15\paperheight]{images/lede.png}
-  };
- \end{tikzpicture}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.85\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.3\paperheight]{images/openwrt.png}
-  };
- \end{tikzpicture}
-\end{frame}
-
-
-\begin{frame}
- \frametitle{TODO for tests.r-b.org/(openwrt|lede)}
+ \frametitle{TODO: design \texttt{.buildinfo} files from koji}
  \begin{itemize}
-  \item we should add more variations (date, time, build path, hostname, domain, use disorderfs, CPU type,
-  kernel, USER, HOME, SHELL, the base system).
-  \item we should test more targets.
-  \item<2-3> we could build other branches too…
-  \item<2-3> we could build OpenWrt + LEDE at least every day, thanks again to
-  Profitbricks.com.
-  \item<3> we want to make \textbf{you} look at these pages every day!
- \end{itemize}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.14\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.3\paperheight]{images/openwrt.png}
-  };
- \end{tikzpicture}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.93\paperwidth, 0.11\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.15\paperheight]{images/lede.png}
-  };
- \end{tikzpicture}
-\end{frame}
-
-\begin{frame}
- \frametitle{TODO: design \texttt{.buildinfo} files for OpenWrt and LEDE}
- \begin{itemize}
-  \item rfc822 format
+  \item rfc822 format?
   \item needs to define the environment
   \item needs to define the sources (input)
   \item needs to define the binaries (output)
-  \item<2> Debian has only .deb files as output, while OpenWrt/LEDE have packages
-  and images…
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.08\paperwidth, 0.12\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.15\paperheight]{images/lede.png}
-  };
- \end{tikzpicture}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.85\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.3\paperheight]{images/openwrt.png}
+  \node[shift={(0.1\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.3\paperheight]{images/fedora.png}
   };
  \end{tikzpicture}
 \end{frame}
@@ -929,7 +876,6 @@ where}\only<2>{gamblingmachines}!)
   \item twitter: @ReproBuild
   \item<2> Mike and Seth's talk from 31c3 about motivations
   \item<2> Lunar's talk about fixing reproducible issues from CCCamp 15
-  \item<2> h01ger's talk "the Reproducible builds ecosystem" from FOSDEM 16
   \end{itemize}
 \end{frame}
 
