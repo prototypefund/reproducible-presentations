@@ -9,15 +9,29 @@ check dennis bio slide
 	gpg fingerprint?
 	no redhat logo is fine? https://brand.redhat.com/logos/shadowman/ was too much for me ;)
 	i've used Dennis and h01ger
+have debian+fedora logo together on more slides
+
+extra section: status fedora
+
+add back slide about reproducible builds in the commercial world
+explain .buildinfo in debian in more detail
+
+upstreaming patches project by bernhard
+mention suse in general
+
 
 diffoscope in fedora
 patched rpm from bernhard
-mock and .buildinfo files
+mock, koji and .buildinfo files
+dnf and yum might create different environment
 t.r-b.o/fedora
 
 update skipping some
+update debian graphs
+update debian team
 
 fsf priority project
 ars technica
 
+build path proposal
 john gilmore 1992 cygnus
