@@ -235,45 +235,6 @@ from a given source}
 \end{frame}
 
 
-\begin{frame}
- \frametitle{jenkins.debian.net.git contributors}
- \begin{center}
-  \begin{columns}
-   \small
-   \column{.46\linewidth}
-    {akira} \\
-    \only<1>{Alexander Couzens}\only<2>{{\color{debianred} Alexander Couzens}} \\
-    \only<1>{Levente 'anthraxx' Polyak}\only<2>{{\color{debianred} Levente 'anthraxx' Polyak}} \\
-    {Antonio Terceiro} \\
-    {Axel Beckert} \\
-    \only<1>{Bryan Newbold}\only<2>{{\color{debianred} Bryan Newbold}} \\
-    {Chris Lamb} \\
-    {Daniel Kahn Gillmor} \\
-    {Gabriele Giacone} \\
-    \only<1>{Hans-Christoph Steiner}\only<2>{{\color{debianred} Hans-Christoph Steiner}} \\
-    Helmut Grohne \\
-    \only<1>{Holger Levsen}\only<2>{{\color{debianred} Holger Levsen}} \\
-    \only<1>{HW42}\only<2>{{\color{debianred} HW42}} \\
-    {James McCoy} \\
-    {Joachim Breitner} \\
-   \column{.46\linewidth}
-    {Johannes 'josch' Schauer} \\
-    {Jérémy Bobbio} \\
-    {Mattia Rizzolo} \\
-    {Niels Thykier} \\
-    {Paul Wise} \\
-    {Petter Reinholdtsen} \\
-    {Philip Hands} \\
-    \only<1>{Reiner Herrmann}\only<2>{{\color{debianred} Reiner Herrmann}} \\
-    {Samuel Thibault} \\
-    {Steven Chamberlain} \\
-    {Tails developers} \\
-    {Ulrike Uhlig} \\
-    {Wolfgang Schweer} \\
-    {Wouter Verhelst} \\
-  \end{columns}
- \end{center}
-\end{frame}
 
 \placelogofalse
 
@@ -284,10 +245,11 @@ from a given source}
  \frametitle{The problem: we need to believe}
  \begin{itemize}
   \item Free Software is great: one can study, modify, share and use it!
-  \item<2-3> We study, modify and share sources.
-  \item<2-3> We use binaries.
-  \item<3> We need to believe our binaries come from the sources they are said
-  to made from. 
+  \item<2-4> We study, modify and share source code.
+  \item<2-4> We use binaries.
+  \item<3-4> We need to believe our binaries come from the source code they are said to made from.
+  \item<4> \textbf{I don't want to believe.}
+ 
  \end{itemize}
 \end{frame}
 
@@ -305,13 +267,13 @@ from a given source}
  \frametitle{A few examples from that 31c3 talk}
  \begin{itemize}
   \item CVE-2002-0083: remote root exploit in \texttt{sshd}, a single bit difference in the binary
-  \item<2-6> 31c3 talk had a live demo with a kernel module modifying source code in memory only
-  \item<3-6> How can you be sure what's running on your machine or on a build
+  \item<2-5> 31c3 talk had a live demo with a kernel module modifying source code in memory only
+  \item<3-5> How can you be sure what's running on your machine or on a build
   daemon network connected to the net? Do you ever leave your computers
   physically alone? 
-  \item<4-6> How much do you pay your admins? Enough to withstand a multi million
+  \item<4-5> How much do you pay your admins? Enough to withstand a multi million
   dollar attack?
-  \item<6> Legal challanges. Could you be forced to backdoor (some of) your
+  \item<5> Legal challanges. Could you be forced to backdoor (some of) your
   software (for some customers)?
  \end{itemize}
 \end{frame}
@@ -392,10 +354,11 @@ same.}
 \begin{frame}[fragile]
  \frametitle{More benefits than "just" security…}
  \begin{itemize}
-  \item smaller deltas, thus faster updates possible
-  \item lots of QA benefits
-  \item Google does reproducible builds, to save time and money
-  \item …
+  \item lots and lots of QA benefits - we've found so many subtile bugs
+  \item<2-5> Google does reproducible builds, to save time and money
+  \item<3-5> smaller deltas, thus faster updates possible
+  \item<4-5> side effect: meaningful binary diff between two versions
+  \item<5> …
  \end{itemize}
 \end{frame}
 
@@ -467,14 +430,6 @@ same.}
 }
 
 
-\begin{frame}
- \frametitle{two more tools}
-
- \begin{itemize}
-  \item \texttt{strip-nondeterminism} 
-  \item<2> \texttt{reprotest} 
- \end{itemize}
-\end{frame}
 
 \placelogotrue
 
@@ -487,9 +442,7 @@ same.}
   \texttt{experimental}
   \item Also testing: coreboot, OpenWrt, LEDE, NetBSD, FreeBSD,
   Arch Linux, Fedora and soon F-Droid too
-  \item 12 \texttt{amd64} nodes, 150 cores and soon 500 GB RAM - thanks to
-  Profitbricks.com!
-  \item 44 \texttt{armhf} nodes, 98 cores and 53 GB RAM
+  \item 44 nodes (amd64/i386/arm64/armhf), 200 cores and 1 TB RAM
   \item 486 jenkins jobs running on jenkins.debian.net
   \item 43 scripts in Python and Bash, 283 lines of code in average
   \item 37 contributors for \texttt{jenkins.debian.net.git}
@@ -589,6 +542,14 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{itemize}
 \end{frame}
 
+\begin{frame}
+ \frametitle{two more tools}
+
+ \begin{itemize}
+  \item \texttt{strip-nondeterminism} 
+  \item<2> \texttt{reprotest} 
+ \end{itemize}
+\end{frame}
 
 \placelogotrue
 
@@ -741,15 +702,30 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \begin{frame}
  \frametitle{Skipping some more…}
  \begin{itemize}
+\item Cygnus.com (1992)
 \item Bitcoin (2011)
 \item Tor (2013)
-\item NixOS, Guix, ElectroBSD
-\item Qubes, Tails
-\item very few commercial, propietary software (\only<1>{guess
-where}\only<2>{gamblingmachines}!)
-\item ?
+\item NixOS, GNU Guix, ElectroBSD
+\item openSUSE
+\item Qubes, Tails, webconverger
+\item ducible (build tool for Windows)
+\item very few commercial, propietary software
  \end{itemize}
 \end{frame}
+
+\begin{frame}
+ \frametitle{Detour: what, reproducible commercial Software???}
+ \begin{itemize}
+\item Guess which
+\item <2-3>   windows? (the source is available)
+\item <2-3>   medical devices in your body?
+\item <2-3>   arms?
+\item <2-3>   critical infrastructure like in nuclear powerplants?
+\item <2-3>   cars?
+\item <3> Gambling machines!
+ \end{itemize}
+\end{frame}
+
 
 \section{Status RPM world: Fedora and SuSE}
 

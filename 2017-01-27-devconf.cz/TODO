@@ -2,30 +2,18 @@ meta:
 	thank people for their work, diffoscope, disorderfs, armhf, mattia, val, … - mention peoples names and thank them. there's time now.
 	
 
-explain problem and solution better
-	include our new definition
-	also mention qa side effecs
+include our new definition
+better mention qa side effecs
 
-replace j.d.n contributors with all involved projects?
+dennis bio first
 
-update skipping some
 update debian numbers
 update debian team
 update variation slide!
 gsoc + outreachy
 have debian+fedora logo together on more slides
-add back slide about reproducible builds in the commercial world
 explain .buildinfo in debian in more detail
-upstreaming patches project by bernhard
 
-
-fsf priority project
-john gilmore 1992 cygnus
-
-ars technica
-	debian is really stupid allowing developer build binaries to be uploaded from every developer
-		just because its useful to bootstrap new archs, which something like 3 people do
-	but the build network of fedora/redhat doesnt make things magically safe nor secure, OTOH its a ideal attack target… how much do you pay your admins? etc ;-)
 
 
 first fedora, then a suse slide:
