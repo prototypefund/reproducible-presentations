@@ -357,10 +357,11 @@ same.}
 \begin{frame}[fragile]
  \frametitle{More benefits than "just" security…}
  \begin{itemize}
-  \item lots and lots of QA benefits - we've found so many subtile bugs
-  \item<2-5> Google does reproducible builds, to save time and money
-  \item<3-5> smaller deltas, thus faster updates possible
-  \item<4-5> side effect: meaningful binary diff between two versions
+  \item Lots and lots of QA benefits - we've found so many subtile bugs.
+  \item<2-5> Google does reproducible builds, to save time and money.
+  \item<3-5> Smaller deltas, thus faster updates possible (for packages and
+  images).
+  \item<4-5> Side effect: meaningful binary diff between two versions.
   \item<5> …
  \end{itemize}
 \end{frame}
@@ -586,6 +587,21 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{center}
 \end{frame}
 
+\begin{frame}
+ \frametitle{Details on tests.reproducible-builds.org}
+
+ \begin{itemize}
+  \item \url{https://reproducible.debian.net/$src}
+  \item 48 package sets 
+  \item 282 categorised distinct issues
+  \item 7,413 notes
+  \item 1,595 unreproducible packages in \texttt{stretch/amd64} (testing), but only
+  111 without a note (5,288 in \texttt{unstable} but also only 154 without a
+  note)
+  \item maintained in \texttt{notes.git} by 49 contributors
+  \item currently Debian only, but cross distro notes are planned
+ \end{itemize}
+\end{frame}
 
 \begin{frame}
  \frametitle{Progress in the Debian bug tracker}
@@ -612,37 +628,35 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{itemize}
 \end{frame}
 
-\begin{frame}
- \frametitle{Details on tests.reproducible-builds.org}
-
- \begin{itemize}
-  \item \url{https://reproducible.debian.net/$src}
-  \item 48 package sets 
-  \item 282 categorised distinct issues
-  \item 7,413 notes
-  \item 1,595 unreproducible packages in \texttt{stretch/amd64} (testing), but only
-  111 without a note (5,288 in \texttt{unstable} but also only 154 without a
-  note)
-  \item maintained in \texttt{notes.git} by 49 contributors
-  \item currently Debian only, but cross distro notes are planned
- \end{itemize}
-\end{frame}
 
 
 \begin{frame}
- \frametitle{Summary / What's left to do}
+ \frametitle{Debian summary / What's left to do}
  \begin{itemize}
-  \item This is a proof-of-concept, Debian is neither 93.3\% reproducible nor
+  \item This is/was a proof-of-concept, Debian is neither 93.3\% reproducible nor
   78.9\%. (and 10\% > 2,500 sources packages!)
-  \item<2-4> All our required changes are finally in Debian now!
-  \item<3-4> We hope that Debian 9, "stretch", will be partially reproducible
-  in a meaningful way, in 2017.
-  \item<3-4> Though, what's beyond (rebuilding, \texttt{.buildinfo} file handling, user
-  tools) still needs \it{design} and code.
-  \item<4> Will Debian 10, "buster", be 100\% reproducible?
+  \item<2-3> All our required changes are finally in Debian now!
+  \item<2-3> Debian 9, "stretch", will only be partially reproducible.
+  \item<2-3> Because, Debian does not (yet?) do full rebuilds before
+  releasing… so stuff is in the archive which is not reproducible unless it's
+  rebuild.
+  \item<3> And then we don't distribute \texttt{.buildinfo} files yet.
+   That (and user tools) still needs more \it{design} and code.
  \end{itemize}
 \end{frame}
 
+
+\begin{frame}
+ \frametitle{Debian summary continued}
+ \begin{itemize}
+  \item Debian 9, "stretch", will only be partially reproducible.
+  \item Canonical can take our work now and make Ubuntu 17.04
+  (partyl) reproducible…
+  \item<2-3> Debian 10, "buster", will be partly reproducible in 2019.
+  \item<3> We hope will have \texttt{debian-policy} will mandate 100\%
+  reproducible builds for Debian 11, "bullseye", in 2021.
+ \end{itemize}
+\end{frame}
 
 
 
@@ -653,17 +667,14 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{itemize}
   \item "We don't care about Debian (only), we care about free and open
    source software."
-  \item<2-4> Weekly reports since May 2015
+  \item<2-4> 90 Weekly reports since May 2015
   \item<3-4> First Reproducible World Summit in December 2015 (Athens, Greece)
    \begin{itemize}
-    \item<3-4> 40 people from 16 projects
     \item<3-4> \texttt{reproducible.debian.net} has become \texttt{tests.reproducible-builds.org}
    \end{itemize}
     \item<3-4> Second Reproducible World Summit in December 2016 in Berlin
-   \begin{itemize}
     \item<4> Third summit planned for 2017, probably a hackathon in spring
     2017 too
-   \end{itemize}
  \end{itemize}
 \end{frame}
 
@@ -738,7 +749,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \frametitle{reproducible openSUSE}
  \begin{itemize}
   \item
-  \small{\texttt{https://build.opensuse.org/package/show \ \\
+  \small{\texttt{https://build.opensuse.org/package/show \\
   /home:bmwiedemann:reproducible/rpm?expand=0}}
   \item Bernhard Wiedemann has built openSUSE twice (with some variations):
   \begin{itemize}

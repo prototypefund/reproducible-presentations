@@ -1,16 +1,19 @@
 meta: 
 	thank people for their work, diffoscope, disorderfs, armhf, mattia, val, … - mention peoples names and thank them. there's time now.
-	
-explain stretch is not yet ready…
+
+
+update variation slide!
+explain .buildinfo in debian in more detail
+future work…
+
+backslash in tex?
+
 binary transparency
 
 include our new definition?
 better mention qa side effecs
 
-update variation slide!
 gsoc + outreachy
-have debian+fedora logo together on more slides
-explain .buildinfo in debian in more detail
 build path proposal
 mention logo
 
