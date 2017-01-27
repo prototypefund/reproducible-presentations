@@ -603,6 +603,23 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{itemize}
 \end{frame}
 
+
+\begin{frame}
+ \frametitle{Debian \texttt{.buildinfo} files}
+
+ \begin{itemize}
+  \item Aggregates in the same file:
+   \begin{itemize}
+    \item Sources (checksums)
+    \item Generated binaries (checksums)
+    \item Packages used to build (with specific version, checksums coming soon)
+   \end{itemize}
+  \item Can be later used to exactly recreate environment
+  \item For Debian, all versions are available from \url{snapshot.debian.org}
+ \end{itemize}
+\end{frame}
+
+
 \begin{frame}
  \frametitle{Progress in the Debian bug tracker}
  \begin{tikzpicture}[remember picture]
@@ -673,8 +690,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
     \item<3-4> \texttt{reproducible.debian.net} has become \texttt{tests.reproducible-builds.org}
    \end{itemize}
     \item<3-4> Second Reproducible World Summit in December 2016 in Berlin
-    \item<4> Third summit planned for 2017, probably a hackathon in spring
+    \item<3-4> Third summit planned for 2017, probably a hackathon in spring
     2017 too
+   \item<4> GSoC and Outreachy
  \end{itemize}
 \end{frame}
 
