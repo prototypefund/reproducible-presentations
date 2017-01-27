@@ -5,14 +5,12 @@ meta:
 include our new definition?
 better mention qa side effecs
 
-
-update debian numbers
-update debian team
 update variation slide!
 gsoc + outreachy
 have debian+fedora logo together on more slides
 explain .buildinfo in debian in more detail
-
+build path proposal
+mention logo
 
 
 first fedora, then a suse slide:
@@ -32,5 +30,4 @@ mock, koji and .buildinfo files
 dnf and yum might create different environments
 
 
-build path proposal
-mention logo
+

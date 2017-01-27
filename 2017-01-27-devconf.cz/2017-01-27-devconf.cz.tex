@@ -161,7 +161,7 @@ from a given source}
 \end{frame}
 
 \begin{frame}
- \frametitle{Debian reproducible builds team}
+ \frametitle{Debian reproducible builds contributors}
  \begin{center}
   \begin{columns}
    \footnotesize
@@ -170,22 +170,27 @@ from a given source}
     {Alexis Bienvenüe} \\
     {Andrew Ayer} \\
     {Asheesh Laroia} \\
+    Boyuan Yang \\
     {Ceridwen} \\
     {Chris Lamb} \\
     {Chris West} \\
     {Christoph Berg} \\
+    Clint Adams \\
+    Dafydd Harries \\
     {Daniel Kahn Gillmor} \\
     {Daniel Shahaf} \\
+    Daniel Stender \\
     David Suarez \\
     {Dhole} \\
     Drew Fisher \\
     Emmanuel Bourg \\
+    \column{.30\linewidth}
     Emanuel Bronshtein \\
     Esa Peuha \\
-    \column{.30\linewidth}
     {Fabian Wolff} \\
     {Guillem Jover} \\
     Hans-Christoph Steiner \\
+    Harlan Lieberman-Berg \\
     {Helmut Grohne} \\
     \only<1>{Holger Levsen}\only<2>{{\color{debianred} Holger Levsen}} \\
     HW42 \\
@@ -194,16 +199,18 @@ from a given source}
     {josch} \\
     Juan Picca \\
     {Lunar} \\
+    Maria Glukhova \\
     Mathieu Bridon \\
     {Mattia Rizzolo} \\
     Nicolas Boulenguez \\
     {Niels Thykier} \\
-    Niko Tyni \\
    \column{.30\linewidth}
+    Niko Tyni \\
     {Paul Wise} \\
     Peter De Wachter \\
     Philip Rinn \\
     {Reiner Herrmann} \\
+    Robbie Harwood \\
     {Santiago Vila} \\
     {Sascha Steinbiss} \\
     {Satyam Zode} \\
@@ -559,7 +566,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   };
  \end{tikzpicture}
  \begin{center}
-  \footnotesize{21,527 (91.2\%) out of 23,597 source packages are reproducible \\
+  \footnotesize{23,405 (93.3\%) out of 25,067 source packages are reproducible \\
     in our test framework on \texttt{amd64}}
   \vfill
  \end{center}
@@ -573,7 +580,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   };
  \end{tikzpicture}
  \begin{center}
-  \footnotesize{18,898 (75.8\%) out of 24,931 source packages are reproducible \\
+  \footnotesize{20,309 (78.9\%) out of 25,734 source packages are reproducible \\
     in our test framework on \texttt{amd64}} (difference due to build path variations)
   \vfill
  \end{center}
@@ -610,13 +617,13 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
  \begin{itemize}
   \item \url{https://reproducible.debian.net/$src}
-  \item 43 package sets 
-  \item 250 categorised distinct issues
-  \item 6,944 notes
-  \item 1,894 unreproducible packages in \texttt{stretch} (testing), but only
-  177 without a note (5,777 in \texttt{unstable} but also only 277 without a
+  \item 48 package sets 
+  \item 282 categorised distinct issues
+  \item 7,413 notes
+  \item 1,595 unreproducible packages in \texttt{stretch/amd64} (testing), but only
+  111 without a note (5,288 in \texttt{unstable} but also only 154 without a
   note)
-  \item maintained in \texttt{notes.git} by 47 contributors
+  \item maintained in \texttt{notes.git} by 49 contributors
   \item currently Debian only, but cross distro notes are planned
  \end{itemize}
 \end{frame}
@@ -625,8 +632,8 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \begin{frame}
  \frametitle{Summary / What's left to do}
  \begin{itemize}
-  \item This is a proof-of-concept, Debian is neither 91.2\% reproducible nor
-  75.8\%. (and 10\% > 2,300 sources packages!)
+  \item This is a proof-of-concept, Debian is neither 93.3\% reproducible nor
+  78.9\%. (and 10\% > 2,500 sources packages!)
   \item<2-4> All our required changes are finally in Debian now!
   \item<3-4> We hope that Debian 9, "stretch", will be partially reproducible
   in a meaningful way, in 2017.
