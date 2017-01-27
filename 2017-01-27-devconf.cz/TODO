@@ -1,26 +1,35 @@
+meta: 
+	thank people for their work, diffoscope, disorderfs, armhf, mattia, val, … - mention peoples names and thank them. there's time now.
+	
 
 explain problem and solution better
+	include our new definition
 	also mention qa side effecs
 
+replace j.d.n contributors with all involved projects?
 
-meta: thank people for their work, diffoscope, disorderfs, armhf, mattia, val, … - mention peoples names and thank them.
-
+update skipping some
+update debian numbers
+update debian team
+update variation slide!
 gsoc + outreachy
-
-
-check dennis bio slide
-	gpg fingerprint?
 have debian+fedora logo together on more slides
-
-
 add back slide about reproducible builds in the commercial world
 explain .buildinfo in debian in more detail
-
 upstreaming patches project by bernhard
 
+
+fsf priority project
+john gilmore 1992 cygnus
+
+ars technica
+	debian is really stupid allowing developer build binaries to be uploaded from every developer
+		just because its useful to bootstrap new archs, which something like 3 people do
+	but the build network of fedora/redhat doesnt make things magically safe nor secure, OTOH its a ideal attack target… how much do you pay your admins? etc ;-)
+
+
+first fedora, then a suse slide:
 mention suse in general
-	patched rpm: https://build.opensuse.org/package/show/home:bmwiedemann:reproducible/rpm?expand=0
-		< bmwiedemann> the new rpm-4.13 even has an option to override hostname via rpmmacros
 		< bmwiedemann> kvm -rtc base=2018-02-03 - for having test systems in the future
 		< bmwiedemann> stats so far: build-succeeded: 3172
 		< bmwiedemann> build-compare-failed: 1001
@@ -28,25 +37,13 @@ mention suse in general
 		< bmwiedemann> bit-by-bit-identical: 2117
 		< bmwiedemann> not-bit-by-bit-identical: 1055
 
-
 diffoscope in fedora is 69
 patched rpm from bernhard
+	patched rpm: https://build.opensuse.org/package/show/home:bmwiedemann:reproducible/rpm?expand=0
+		< bmwiedemann> the new rpm-4.13 even has an option to override hostname via rpmmacros
 mock, koji and .buildinfo files
-dnf and yum might create different environment
+dnf and yum might create different environments
 
-update skipping some
-update debian graphs
-update debian team
-update variation slide!
-
-fsf priority project
-
-ars technica
-	debian is really stupid allowing developer build binaries to be uploaded from every developer
-		just because its useful to bootstrap new archs, which something like 3 people do
-	but the build network of fedora/redhat doesnt make things magically safe nor secure, OTOH its a ideal attack target… how much do you pay your admins? etc ;-)
 
 build path proposal
-john gilmore 1992 cygnus
-
 mention logo
