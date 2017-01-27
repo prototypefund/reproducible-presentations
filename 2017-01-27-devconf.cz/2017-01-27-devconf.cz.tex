@@ -113,6 +113,25 @@ from a given source}
  \titlepage
 \end{frame}
 
+\placelogofalse
+
+\begin{frame}
+ \frametitle{about Dennis}
+
+ \begin{itemize}
+  \item \small{\texttt{28CA D001 51E6 21DA 1F2D  C13B 7EE5 B4E3 663C 50D1}}
+  \item Fedora user since Fedora Core 1 (2003)
+  \item Fedora contributor since fedora.us
+  \item Plattform lead at Red Hat
+  \item Day job for the last 8 years is Fedora Release Engineering
+  \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.08\paperwidth, 0.12\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.15\paperheight]{images/fedora.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
 \placelogotrue
 
 \begin{frame}
@@ -140,39 +159,6 @@ from a given source}
  \item<2> the Debian branding on these slides is obviously my fault…
  \end{itemize}
 \end{frame}
-
-\placelogofalse
-
-\begin{frame}
- \frametitle{about Dennis}
-
- \begin{itemize}
-  \item \small{\texttt{28CA D001 51E6 21DA 1F2D  C13B 7EE5 B4E3 663C 50D1}}
-  \item Fedora user since Fedora Core 1 (2003)
-  \item Fedora contributor since fedora.us
-  \item Plattform lead at Red Hat
-  \item Day job for the last 8 years is Fedora Release Engineering
-  \end{itemize}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.08\paperwidth, 0.12\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.15\paperheight]{images/fedora.png}
-  };
- \end{tikzpicture}
-\end{frame}
-
-
-
-\begin{frame}
- \frametitle{Who are you?}
- \begin{itemize}
-  \item<2-5> Seen a talk about reproducible builds?
-  \item<3-5> Contributed to the effort?
-  \item<4-5> Uses Debian or a Debian based system?
-  \item<5> Uses Fedora, RHEL, CentOS or a Fedora derivative based system?
- \end{itemize}
-\end{frame}
-
-\placelogotrue
 
 \begin{frame}
  \frametitle{Debian reproducible builds team}
@@ -235,8 +221,18 @@ from a given source}
 \end{frame}
 
 
-
 \placelogofalse
+
+\begin{frame}
+ \frametitle{Who are you?}
+ \begin{itemize}
+  \item<2-5> Seen a talk about reproducible builds?
+  \item<3-5> Contributed to the effort?
+  \item<4-5> Uses Debian or a Debian based system?
+  \item<5> Uses Fedora, RHEL, CentOS or a Fedora derivative based system?
+ \end{itemize}
+\end{frame}
+
 
 
 \section{Motivation}
@@ -297,7 +293,7 @@ from a given source}
 
  \begin{center}
  \Large{
- Promise that anyone can always and indipendently generate
+ Promise that anyone can always and independently generate
  identical binary packages from a given source}
 \end{center}
 \end{frame}
@@ -878,10 +874,10 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{center}
   \resizebox{0.9\textwidth}{!}{%
    \begin{tabular}{rl}
-    \texttt{holger@debian.org} & \texttt{B8BF 5413 7B09 D35C F026} \\
-                               & \texttt{FE9D 091A B856 069A AA1C} \\
     \texttt{dennis@ausil.us} & \texttt{28CA D001 51E6 21DA 1F2D} \\
-                               & \texttt{C13B 7EE5 B4E3 663C 50D1}
+                               & \texttt{C13B 7EE5 B4E3 663C 50D1} \\
+    \texttt{holger@debian.org} & \texttt{B8BF 5413 7B09 D35C F026} \\
+                               & \texttt{FE9D 091A B856 069A AA1C}
 \end{tabular}
   }
  \end{center}
