@@ -1,6 +1,8 @@
 meta: 
 	thank people for their work, diffoscope, disorderfs, armhf, mattia, val, … - mention peoples names and thank them. there's time now.
 	
+explain stretch is not yet ready…
+binary transparency
 
 include our new definition?
 better mention qa side effecs
@@ -11,23 +13,4 @@ have debian+fedora logo together on more slides
 explain .buildinfo in debian in more detail
 build path proposal
 mention logo
-
-
-first fedora, then a suse slide:
-mention suse in general
-		< bmwiedemann> kvm -rtc base=2018-02-03 - for having test systems in the future
-		< bmwiedemann> stats so far: build-succeeded: 3172
-		< bmwiedemann> build-compare-failed: 1001
-		< bmwiedemann> build-compare-succeeded: 2171
-		< bmwiedemann> bit-by-bit-identical: 2117
-		< bmwiedemann> not-bit-by-bit-identical: 1055
-
-diffoscope in fedora is 69
-patched rpm from bernhard
-	patched rpm: https://build.opensuse.org/package/show/home:bmwiedemann:reproducible/rpm?expand=0
-		< bmwiedemann> the new rpm-4.13 even has an option to override hostname via rpmmacros
-mock, koji and .buildinfo files
-dnf and yum might create different environments
-
-
 

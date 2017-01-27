@@ -126,7 +126,7 @@ from a given source}
   \item Day job for the last 8 years is Fedora Release Engineering
   \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.08\paperwidth, 0.12\paperheight)},at=(current page.south east)] {
+  \node[shift={(-0.07\paperwidth, 0.13\paperheight)},at=(current page.south east)] {
     \includegraphics[height=0.15\paperheight]{images/fedora.png}
   };
  \end{tikzpicture}
@@ -539,7 +539,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item \texttt{https://reproducible-builds.org/specs/}
   \item many upstreams support it already
   \item has been adopted by other distributions
-  (SuSE, OpenWrt, LEDE, NetBSD, FreeBSD, Arch Linux, coreboot, Guix, …) and many many
+  (openSUSE, OpenWrt, LEDE, NetBSD, FreeBSD, Arch Linux, coreboot, Guix, …) and many many
   upstreams (GCC, dpkg, rpm, mkisofs, ghostscript, libxslt, sphinx,
   texlive-bin, …)
  \end{itemize}
@@ -607,7 +607,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \item So we filed a lot of bugs… with patches…! 
  \item … but only in Debian and we rely on Debian maintainers sending them
  upstream.
- \item<2> Bernard Wiedemann (from OpenSUSE) thought that wasn't good enough
+ \item<2> Bernard Wiedemann (from openSUSE) thought that wasn't good enough
  and created \texttt{https://github.com/orgs/distropatches}
  \end{itemize}
 \end{frame}
@@ -711,10 +711,12 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \item NixOS, GNU Guix, ElectroBSD
 \item openSUSE
 \item Qubes, Tails, webconverger
+\item Google Bazil
 \item ducible (build tool for Windows)
 \item very few commercial, propietary software
  \end{itemize}
 \end{frame}
+
 
 \begin{frame}
  \frametitle{Detour: what, reproducible commercial Software???}
@@ -730,30 +732,58 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \end{frame}
 
 
-\section{Status RPM world: Fedora and SuSE}
+\section{Status RPM world: Fedora and openSUSE}
 
 \begin{frame}
- \frametitle{rpm, patches in use by OpenSuSE}
+ \frametitle{reproducible openSUSE}
  \begin{itemize}
-  \item explain Bernhards Tests here
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{tests.r-b.org/fedora}
- \begin{itemize}
-  \item should be made working again
-  \item h01ger's plan for the next 2 days
-  \end{itemize}
+  \item
+  \small{\texttt{https://build.opensuse.org/package/show \ \\
+  /home:bmwiedemann:reproducible/rpm?expand=0}}
+  \item Bernhard Wiedemann has built openSUSE twice (with some variations):
+  \begin{itemize}
+   \item build-succeeded: 3172
+   \item bit-by-bit-identical: 2117
+   \item not-bit-by-bit-identical: 1055
+ \end{itemize}
+ \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(0.1\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.3\paperheight]{images/fedora.png}
+  \node[shift={(-0.1\paperwidth, 0.13\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.15\paperheight]{images/openSUSE.png}
   };
  \end{tikzpicture}
 \end{frame}
 
 \begin{frame}
- \frametitle{TODO: design \texttt{.buildinfo} files from koji}
+ \frametitle{Fedora basics}
+ \begin{itemize}
+  \item \texttt{diffoscope} is available in Fedora
+  \item \texttt{yum} and \texttt{dnf} might create non-identical environments
+  \item \texttt{rpm}-4.13 has an option to override hostname via rpmmacros
+  \item signed RPMs -> re-apply signatur, will match for identical builds
+  \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.07\paperwidth, 0.13\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.15\paperheight]{images/fedora.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+ \frametitle{tests.r-b.org/fedora}
+ \begin{itemize}
+  \item used to test Fedora 23, should be made working again
+  \item or build elsewhere and machine readable exported
+  \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.07\paperwidth, 0.13\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.15\paperheight]{images/fedora.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+ \frametitle{TODO: design \texttt{.buildinfo} files from koji/mock/zypper}
  \begin{itemize}
   \item rfc822 format?
   \item needs to define the environment
@@ -761,11 +791,12 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item needs to define the binaries (output)
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(0.1\paperwidth, 0.1\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.3\paperheight]{images/fedora.png}
+  \node[shift={(-0.07\paperwidth, 0.13\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.15\paperheight]{images/fedora.png}
   };
  \end{tikzpicture}
 \end{frame}
+
 
 
 \section{Future work}
@@ -792,7 +823,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item<2> implemented for Debian (both in sbuild and well as
   buildinfo.debian.net)
   \item<2> work has begun for coreboot, LEDE/OpenWrt and Fedora (mock/koji)
-  and maybe OpenSuSE (OpenBuildService)
+  and maybe openSUSE (OpenBuildService)
  \end{itemize}
  \end{itemize}
 \end{frame}
@@ -804,7 +835,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   Debian case (we have a gpg web of trust), but IMO won't scale.
   \item { Another idea: rebuilders, run by large organisations
   (ACLU, CCC, Deutsche Bank, Greenpeace, NASA, NSA, US-Army).}
-  \item Fedora rebuilds Debian, Debian rebuilds OpenSUSE, OpenSUSE rebuilds
+  \item Fedora rebuilds Debian, Debian rebuilds openSUSE, openSUSE rebuilds
   NetBSD, etc…
   \item Big customers could just rebuild everything themselves.
  \end{itemize}
