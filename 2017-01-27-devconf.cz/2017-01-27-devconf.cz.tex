@@ -766,12 +766,10 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \end{frame}
 
 \begin{frame}
- \frametitle{Fedora basics}
+ \frametitle{tests.r-b.org/fedora}
  \begin{itemize}
-  \item \texttt{diffoscope} is available in Fedora
-  \item \texttt{yum} and \texttt{dnf} might create non-identical environments
-  \item \texttt{rpm}-4.13 has an option to override hostname via rpmmacros
-  \item signed RPMs -> re-apply signatur, will match for identical builds
+  \item used to test Fedora 23, could be made working again
+  \item or build elsewhere and machine readable exported
   \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.07\paperwidth, 0.13\paperheight)},at=(current page.south east)] {
@@ -781,10 +779,12 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \end{frame}
 
 \begin{frame}
- \frametitle{tests.r-b.org/fedora}
+ \frametitle{Fedora basics}
  \begin{itemize}
-  \item used to test Fedora 23, should be made working again
-  \item or build elsewhere and machine readable exported
+  \item \texttt{diffoscope} is available in Fedora
+  \item \texttt{yum} and \texttt{dnf} might create non-identical environments
+  \item \texttt{rpm}-4.13 has an option to override hostname via rpmmacros
+  \item signed RPMs -> re-apply signature, will match for identical builds
   \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.07\paperwidth, 0.13\paperheight)},at=(current page.south east)] {
@@ -815,7 +815,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \begin{frame}
  \frametitle{Future work}
  \begin{itemize}
- \item<1-3> So far we mostly worked on enabling us to do reproducible builds…
+ \item<1-3> So far we mostly worked on making reproducible builds possible…
  \item<2-3> We'll need constant tests for future code.
  \item<3> And then, this still needs tools, infrastructure and policies to become
  meaningful and to be used in practice.
