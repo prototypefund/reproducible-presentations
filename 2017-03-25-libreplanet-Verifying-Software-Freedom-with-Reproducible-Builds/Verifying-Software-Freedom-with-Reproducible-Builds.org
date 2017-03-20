@@ -1,0 +1,295 @@
+#+TITLE: Verifying Software Freedom with Reproducible Builds
+#+AUTHOR: Vagrant Cascadian
+#+EMAIL: vagrant@debian.org
+#+DATE: LibrePlanet 2017-03-25
+#+LANGUAGE:  en
+#+OPTIONS:   H:1 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+OPTIONS: ^:nil
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger]
+#+latex_header: \mode<beamer>{\usetheme{Madrid}}
+#+BEGIN_comment
+The Reproducible Builds project aims to move towards a world where
+binary software can be independently verified, by anyone, as the
+product of a given source.
+
+Many people interested in Free Software rely on the distributors
+of binary software to respect their freedoms.
+
+Unfortunately, most software incorporates unintended information
+into the binaries, resulting in differences in the binaries
+between consecutive builds. If software normally produces
+different binaries every time it is built, how can we verify and
+prove that it is the intended result of the source code?
+
+By incorportating best practices documented by the Reproducible
+Builds project into software development projects, an
+independently verifyable chain from the source code to the
+binaries can be formed.
+
+Once independent verification becomes common practice, people can
+get back to working with software that respects user freedoms.
+
+https://reproducible-builds.org
+#+END_comment
+
+* Goals
+
+  The Reproducible Builds project aims to bring us closer to a world
+  where binary software can be independently verified as the result of
+  building the provided source code.
+
+* Scientific Methods
+
+  Reproducibility is the ability of an entire experiment or study to
+  be duplicated, either by the same researcher or by someone else
+  working *independently*.
+  
+  https://en.wikipedia.org/wiki/Reproducibility
+
+* Source Code
+
+  - Source code is readable and writeable by trained +monkeys+ humans
+
+#+BEGIN_src python
+for banana in bananas:
+  eat(banana)
+#+END_src
+
+* Binary code
+
+  - Computers run binary code
+
+01100110 01101111 01110010 00100000 00100000 00100000
+00100000 00100000 00100000 00100000 00100000 00100000
+00100000 01100010 01100001 01101110 01100001 01101110
+01100001 00100000 00100000 00100000 00100000 00100000
+00100000 00100000 00100000 00100000 00100000 01101001
+01101110 00100000 00100000 00100000 00100000 00100000
+00100000 00100000 00100000 00100000 00100000 01100010
+01100001 01101110 01100001 01101110 01100001 01110011
+00111010 00001010 01100101 01100001 01110100 00101000
+01100010 01100001 01101110 01100001 01101110 01100001
+00101001
+
+* From Source to Binary
+
+  - How do you know the binary code the computer is running was
+    produced from the source code? Can you Prove it?
+
+#+BEGIN_VERSE
+Computer!
+I would like a bunch of bananas for breakfast, please.
+#+END_VERSE
+
+* Ooooh, Math(s)!
+
+    #+BEGIN_SRC shell
+    $ python -c 'x=1 ; y=1 ; print(x+y)'
+    2
+    #+END_SRC
+
+    #+BEGIN_SRC shell
+    $ python -c 'x=1 ; y=1 ; print(x+y)' | sha256sum
+    53c234e5e8472b6ac...8977b010655bfdd3c3  -
+    #+END_SRC
+
+    #+BEGIN_SRC shell
+    $ echo 2 | sha256sum
+    53c234e5e8472b6ac...8977b010655bfdd3c3  -
+    #+END_SRC
+
+* But software building is more like...
+
+    x=source code
+    
+    y=build instructions
+
+    z=toolchain (compiler, linker, libraries, etc.)
+
+    r=other stuff (time of build, running OS, username building
+      software, environment variables, etc.)
+
+    x + y + z + r = ?
+
+* Independent verification
+
+    source code + build instructions + toolchain
+
+    =
+
+    bit-by-bit identical copies
+
+    *anyone* can verify the result
+
+https://reproducible-builds.org/docs/definition/
+
+* Trusting Trust
+
+  Reflections on Trusting Trust by Ken Thompson 1984
+
+- https://www.ece.cmu.edu/~ganger/712.fall02/papers/p761-thompson.pdf
+
+* Diverse Double-Compilation
+
+  Diverse Double-Compilation by David A. Wheeler 2005/2009
+
+- https://www.dwheeler.com/trusting-trust/
+
+* Reproducibility matters
+
+  What kind of security implications are we facing?
+
+  - *CVE-2002-0083*: Remote root exploit in OpenSSH,
+    caused by an off-by-one error
+
+  - 2015: *XcodeGhost*: malware variant of Apple's SDK Infected over
+    4,000 apps in Apple's App store
+
+
+
+
+* Freedoms: Use
+
+[[./images/use.png]]
+
+* Freedoms: Study
+
+[[./images/study.png]]
+
+* Freedoms: Improve
+
+[[./images/improve.png]]
+
+* Freedoms: Share
+
+[[./images/share.png]]
+
+
+
+
+* History in Debian
+
+  - Mentioned on lists as early as 2007
+
+  - Automated rebuilding of Debian's 25,000+ source packages began in
+    late 2014
+
+  - Currently rebuilding roughly 1,600-2,200 packages a day on each of
+    amd64, i386, arm64 and armhf
+
+* A plague of unreproducibility
+** text
+   :PROPERTIES:
+   :BEAMER_col: 0.4
+   :END:
+
+  Recent status:
+  - About 4,900 (19%) of software in Debian unstable
+  - About 1,300 (5%) of software in Debian testing
+  - Patches in Debian toolchains and packages, but patches are
+    swimming upstream
+
+** image
+   :PROPERTIES:
+   :BEAMER_col: 0.6
+   :END:
+
+[[./images/stats_pkg_state.png]]
+
+* timestamps
+
+  - Embedded timestamps:
+
+  U-Boot SPL 2016.01+dfsg1-3 (*Feb 21 2016 - 21:39:10*)
+
+* timestamps: Please No
+
+  - There's no timestamps like *NO* timestamps.
+
+* timestamps: SOURCE_DATE_EPOCH
+
+  - If you really must, use the SOURCE_DATE_EPOCH specification, which
+    specifies the timestamp to use in a standardized environment
+    variable.
+
+  https://reproducible-builds.org/specs/source-date-epoch/
+
+* Other Common problems
+
+  - timezone
+  - file sort order
+  - locales
+  - build path
+
+
+* Other projects
+
+It goes well beyond Debian:
+
+https://reproducible-builds.org/who/
+
+** os
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
+
+- NixOS
+- GNU Guix
+- Fedora
+- OpenSUSE
+- FreeBSD
+- Arch Linux
+
+** project
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
+
+- Tails
+- Bitcoin
+- Coreboot
+- Tor Browser
+- And more...
+
+* Future dreams
+
+- Give users a way to only install reproducible software
+- Make reproducible builds standard practice for Free Software
+  distributions
+
+
+* Thanks
+** organizations
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
+
+  - Core Infrastructure Initiative
+  - Profitbricks
+  - Codethink
+
+** other
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
+
+  All the great folks doing reproducible builds work!
+
+* Copyright
+
+  Copyright 2016-2017 Vagrant Cascadian <vagrant@debian.org>
+
+  Copyright of images included in this document are held by their
+  respective owners.
+
+  This work is licensed under the Creative Commons
+  Attribution-ShareAlike 4.0 International License.
+
+  To view a copy of this license, visit
+  https://creativecommons.org/licenses/by-sa/4.0/
