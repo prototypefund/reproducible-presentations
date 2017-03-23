@@ -101,8 +101,9 @@ from a given source}
             \centering
             Holger 'h01ger' Levsen
    }{h01ger}}
-\date[GUUG]{%
- GUUG in Darmstadt, Germany\\
+\date[GUUG 2017]{%
+ GUUG Frühjahrsfachgespräch 2017\\
+Darmstadt, Germany\\
  \small{2017-03-24}}
 
 \begin{document}
@@ -256,7 +257,7 @@ from a given source}
   physically alone? 
   \item<4-5> How much do you pay your admins? Enough to withstand a multi million
   dollar attack?
-  \item<5> Legal challanges. Could you be forced to backdoor (some of) your
+  \item<5> Legal challenges. Could you be forced to backdoor (some of) your
   software (for some customers)?
  \end{itemize}
 \end{frame}
@@ -303,8 +304,7 @@ from a given source}
  \begin{itemize}
  \item Build a package 5 times, get 5 .debs with different checksums
  \item Build a package 5 times, get 5 .debs with the same checksum\\
- \item<2-3>{Yes, it's really this simple.}
- \item<3>{And works the same with RPMs.}
+ \item<2>{Yes, it's really this simple.}
  \end{itemize}
 % show this once running in plain sid,
 % and then in sid with our modified toolchain.
@@ -505,8 +505,8 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item can be used instead of current date
   \item can also be used for random seeds etc.
   \item in Debian, set from the latest \texttt{debian/changelog} entry
-  \item can be set to the latest git commit too or the latest file
-  modification date
+  \item can be set based on the latest git commit or the latest file
+  modification date too
  \end{itemize}
 \end{frame}
 
@@ -648,7 +648,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item Canonical can take our work now and make Ubuntu 17.04
   (partyl) reproducible…
   \item<2-3> Debian 10, "buster", will be partly reproducible in 2019.
-  \item<3> We hope will have \texttt{debian-policy} will mandate 100\%
+  \item<3> We hope \texttt{debian-policy} will mandate 100\%
   reproducible builds for Debian 11, "bullseye", in 2021.
  \end{itemize}
 \end{frame}
@@ -738,8 +738,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{itemize}
 \end{frame}
 
-
-\section{Status RPM world: Fedora and openSUSE}
 
 \begin{frame}
  \frametitle{reproducible openSUSE}
@@ -841,7 +839,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item Individuelly signed checksums (think web of trust) could work in the
   Debian case (we have a gpg web of trust), but IMO won't scale.
   \item { Another idea: rebuilders, run by large organisations
-  (ACLU, CCC, Deutsche Bank, Greenpeace, NASA, NSA, US-Army).}
+  (ACLU, BSI, CCC, Deutsche Bank, Greenpeace, GUUG, NASA, NSA).}
   \item Fedora rebuilds Debian, Debian rebuilds openSUSE, openSUSE rebuilds
   NetBSD, etc…
   \item Big customers could just rebuild everything themselves.
@@ -898,21 +896,21 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \placelogotrue
 
 \begin{frame}
- \frametitle{Thanks to…! …and thank \textbf{you}, too!}
+ \frametitle{Thank You!}
 
  \begin{itemize}
   \item
     {All “Reproducible Builds” contributors \\
-        {\small (you are just \textbf{so} awesome!)}}
-  \item GUUG
+        {\small (You are just \textbf{so} awesome!)}}
+
 \end{itemize}
 
  \begin{center}
-  \includegraphics[height=0.1\paperheight]{images/linux_foundation_logo.png}
-  \hspace{0.1\paperwidth}
-  \includegraphics[height=0.1\paperheight]{images/cii_logo.png}
-  \hspace{0.1\paperwidth}
-  \includegraphics[height=0.1\paperheight]{images/profitbricks_logo.png}
+  \includegraphics[height=0.08\paperheight]{images/linux_foundation_logo.png}
+  \hspace{0.05\paperwidth}
+  \includegraphics[height=0.08\paperheight]{images/cii_logo.png}
+  \hspace{0.05\paperwidth}
+  \includegraphics[height=0.08\paperheight]{images/profitbricks_logo.png}
  \end{center}
 
  \vfill
