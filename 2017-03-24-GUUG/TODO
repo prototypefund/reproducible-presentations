@@ -4,13 +4,10 @@ meta:
 		Progress
 		Details
 		summary
-	variation misses arm64
-	update graphs
+	variation: maybe go back to devconf version…
 	add slide: the *100th* RBWN issue!
 		♥ Lunar
 	add slide: netbsd vs freebsd, mention electrobsd
-	add slide: fedora
-	add slide: openSUSE
 	add slide: coreboot, LEDE/OpenWrt
 	add slide: S_D_P_M
 	add slide: debian now. coccia, stretch. aim for buster. stretch is boring.
