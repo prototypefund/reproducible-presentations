@@ -1,5 +1,17 @@
 meta: 
-	thank people for their work, diffoscope, disorderfs, armhf, mattia, val, … - mention peoples names and thank them. there's time now.
+	update numbers
+	update graphs
+	add slide: the *100th* RBWN issue!
+		♥ Lunar
+	add slide: netbsd vs freebsd, mention electrobsd
+	add slide: fedora
+	add slide: openSUSE
+	add slide: coreboot, LEDE/OpenWrt
+	add slide: S_D_P_M
+	add slide: debian now. coccia, stretch. aim for buster. stretch is boring.
+	add slide: stretch is great, exciting, the most reproducible debian release ever! 
+	add slide: Hamburg Hackathon, mention LibrePlanet workshops
+	bigthanks to people for their work, diffoscope, strip-nd, disorderfs, reprotest, armhf, mattia, val, lamby, maria, ximin, S_D_E, B_P_P_M, Debian, LF, those who filed 1763 done and 547 open bugs val, … - mention peoples names and thank them. there's time now.
 
 
 build path proposal

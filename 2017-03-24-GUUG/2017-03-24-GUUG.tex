@@ -92,44 +92,24 @@
 \setbeamercolor{block title}{fg=debianblue}
 
 
-\title[Reproducible Builds and Fedora]{Reproducible
-builds everywhere \\ eg. in Debian and Fedora and everywhere}
+\title[Reproducible Builds everywhere]{Reproducible
+builds everywhere}
 \subtitle{Bit by bit identical binaries \\
 from a given source}
-\author[Dennis and h01ger]{%
+\author[h01ger]{%
    \texorpdfstring{
             \centering
-            Dennis Gilmore\\
             Holger 'h01ger' Levsen
-   }{Dennis and h01ger}}
-\date[DevConf.cz]{%
- DevConf.cz in Brno, Czech Republic\\
- \small{2017-01-27}}
+   }{h01ger}}
+\date[GUUG]{%
+ GUUG in Darmstadt, Germany\\
+ \small{2017-03-24}}
 
 \begin{document}
 \placelogofalse
 
 \begin{frame}[plain]
  \titlepage
-\end{frame}
-
-\placelogofalse
-
-\begin{frame}
- \frametitle{about Dennis}
-
- \begin{itemize}
-  \item \small{\texttt{28CA D001 51E6 21DA 1F2D  C13B 7EE5 B4E3 663C 50D1}}
-  \item Fedora user since Fedora Core 1 (2003)
-  \item Fedora contributor since fedora.us
-  \item Plattform lead at Red Hat
-  \item Day job for the last 8 years is Fedora Release Engineering
-  \end{itemize}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.07\paperwidth, 0.13\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.15\paperheight]{images/fedora.png}
-  };
- \end{tikzpicture}
 \end{frame}
 
 \placelogotrue
@@ -150,13 +130,12 @@ from a given source}
   \item Debian QA (quality assurance)
   \begin{itemize}
    \item \texttt{https://piuparts.debian.org}
-   \item \texttt{https://jenkins.debian.net} (~1200 jobs continously testing Debian)
+   \item \texttt{https://jenkins.debian.net} (~1400 jobs continously testing Debian)
   \end{itemize}
   \item Debian Reproducible builds team member
   \begin{itemize}
    \item since April 2015 funded by the Linux Foundation
  \end{itemize}
- \item<2> the Debian branding on these slides is obviously my fault…
  \end{itemize}
 \end{frame}
 
@@ -233,10 +212,11 @@ from a given source}
 \begin{frame}
  \frametitle{Who are you?}
  \begin{itemize}
-  \item<2-5> Seen a talk about reproducible builds?
-  \item<3-5> Contributed to the effort?
-  \item<4-5> Uses Debian or a Debian based system?
-  \item<5> Uses Fedora, RHEL, CentOS or a Fedora derivative based system?
+  \item<2-6> Seen a talk about reproducible builds?
+  \item<3-6> Contributed to the effort?
+  \item<4-6> Uses Debian or a Debian based systems?
+  \item<5-6> Uses Fedora, RHEL, CentOS or a Fedora derivative based systems?
+  \item<6> BSD?
  \end{itemize}
 \end{frame}
 
@@ -251,7 +231,7 @@ from a given source}
   \item<2-4> We study, modify and share source code.
   \item<2-4> We use binaries.
   \item<3-4> We need to believe our binaries come from the source code they are said to made from.
-  \item<4> \textbf{I don't want to believe.}
+  \item<4> \textbf{I do not want to believe.}
  
  \end{itemize}
 \end{frame}
@@ -323,9 +303,8 @@ from a given source}
  \begin{itemize}
  \item Build a package 5 times, get 5 .debs with different checksums
  \item Build a package 5 times, get 5 .debs with the same checksum\\
- \item<2-4>{Yes, it's really this simple.}
- \item<3-4>{And works the same with RPMs.}
- \item<4>{Signed RPMs are a bit more complicated but the principle stays the
+ \item<2-3>{Yes, it's really this simple.}
+ \item<3>{And works the same with RPMs.}
 same.}
  \end{itemize}
 % show this once running in plain sid,
@@ -684,14 +663,14 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{itemize}
   \item "We don't care about Debian (only), we care about free and open
    source software."
-  \item<2-4> 90 Weekly reports since May 2015
+  \item<2-4> 99 Weekly reports since May 2015
   \item<3-4> First Reproducible World Summit in December 2015 (Athens, Greece)
    \begin{itemize}
-    \item<3-4> \texttt{reproducible.debian.net} has become \texttt{tests.reproducible-builds.org}
+    \item<3-4> \texttt{reproducible.debian.net} became \texttt{tests.reproducible-builds.org}
    \end{itemize}
     \item<3-4> Second Reproducible World Summit in December 2016 in Berlin
-    \item<3-4> Third summit planned for 2017, probably a hackathon in spring
-    2017 too
+    \item<3-4> Reproducible Builds Hamburg Hackathon 2017, 5-7th of May
+    \item<3-4> Third summit in December 2017?
    \item<4> GSoC and Outreachy
  \end{itemize}
 \end{frame}
@@ -903,19 +882,19 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
     \item Every distribution should be reproducible!
     \item Learn something new everyday
     \item Change the (software) world!
-    \item \texttt{https://tests.reproducible-builds.org/fedora} needs \textbf{your} help
+    \item \texttt{https://tests.reproducible-builds.org/$distro} needs \textbf{your} help
    \end{itemize}
   \item How to get started?
    \begin{itemize}
-    \item Build something twice, run diffoscope on the results.
+    \item Build something twice, run \texttt{diffoscope} on the results.
     \item Experiment - learning by doing
     \item RTFM, there is lots of documentation
-    \item Talk to Dennis or h01ger here or talk to us on IRC or via mail.
+    \item Talk to me here or talk to us on IRC or via mail.
    \end{itemize}
  \end{itemize}
 \end{frame}
 
-\section{Questions, comments, ideas?}
+\section{Feedback}
 
 \placelogotrue
 
@@ -926,7 +905,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item
     {All “Reproducible Builds” contributors \\
         {\small (you are just \textbf{so} awesome!)}}
-  \item DevConf.cz
+  \item GUUG
 \end{itemize}
 
  \begin{center}
@@ -941,8 +920,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{center}
   \resizebox{0.9\textwidth}{!}{%
    \begin{tabular}{rl}
-    \texttt{dennis@ausil.us} & \texttt{28CA D001 51E6 21DA 1F2D} \\
-                               & \texttt{C13B 7EE5 B4E3 663C 50D1} \\
     \texttt{holger@debian.org} & \texttt{B8BF 5413 7B09 D35C F026} \\
                                & \texttt{FE9D 091A B856 069A AA1C}
 \end{tabular}

@@ -1,6 +1,6 @@
 .PHONY: all source images
 
-PRESENTATION = 2017-01-27-devconf.cz
+PRESENTATION = 2017-03-24-GUUG
 
 all: $(PRESENTATION).pdf
 
