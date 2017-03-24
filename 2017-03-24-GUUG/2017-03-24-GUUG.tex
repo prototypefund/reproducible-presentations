@@ -450,12 +450,15 @@ domainname & \texttt{debian.net} & \texttt{i-capture-the-domainname} \\
 uid & \texttt{1111} & \texttt{2222} \\
 gid & \texttt{1111} & \texttt{2222} \\
 UTS namespace & shared with the host & \textit{modified using \texttt{/usr/bin/unshare --uts}} \\
-kernel version & Linux 3.16 or 4.X & on amd64 and arm64 always varied, on armhf sometimes, 
-on i386 32/64bit kernel variation instead \\
+kernel version & Linux 3.16 or 4.X & on amd64 and arm64 always varied \\
+ & & on armhf sometimes \\
+ & & on i386 32/64bit kernel variation instead \\
 umask & 0022 & 0002 \\
-CPU type & \multicolumn{2}{l}{varied on i386} \\
- & on armhf varied a bit, not on amd64 nor arm64 & \\
-filesystem & \multicolumn{2}{l}{same for both builds on amd64, i386 and arm64: (\texttt{tmpfs}), on armhf \texttt{ext3/4}} \\
+CPU type & & varied on i386: Intel or AMD CPU \\
+ & & on armhf varied a bit \\
+ & & not varied on amd64 nor arm64 \\
+filesystem & \texttt{tmpfs} & same for both builds on amd64, i386 and arm64 \\
+ & & on armhf \texttt{ext3/4} \\
  & & \textit{(and we have} \texttt{disorderfs}\textit{, but the code is disabled)} \\
 year, month, date & \multicolumn{2}{l}{on amd64, arm64 and i386: 398 days variation, on armhf not yet} \\
 hour, minute & \multicolumn{2}{l}{hour and minute deterministically and non-deterministically varied… } \\
