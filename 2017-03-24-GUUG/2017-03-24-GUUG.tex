@@ -571,7 +571,7 @@ hour, minute & \multicolumn{2}{l}{hour and minute deterministically and non-dete
  \begin{itemize}
   \item Those 93.8\% in Stretch are nice, but…
   \item We want to be able to build in any path.
-  \item 15-20\% of the packages embed build-time pathes into generated files, evevn though these paths do not exist at runtime, nor do they exist in the source code.
+  \item 15-20\% of the packages embed build-time paths into generated files, evevn though these paths do not exist at runtime, nor do they exist in the source code.
   \item \texttt{BUILD\_PATH\_PREFIX\_MAP} spec available, though we have formally released it yet…
   \item \texttt{https://reproducible-builds.org/specs/}
   \item Example patches exist, though this is still work in progress.
@@ -629,11 +629,12 @@ hour, minute & \multicolumn{2}{l}{hour and minute deterministically and non-dete
 \begin{frame}
  \frametitle{Sending progress upstream}
  \begin{itemize}
- \item So we filed a lot of bugs… with patches…! 
+ \item So we filed a lot of bugs… with patches…! And 1763 were even closed.
  \item … but only in Debian and we rely on Debian maintainers sending them
  upstream.
- \item<2> Bernard Wiedemann (from openSUSE) thought that wasn't good enough
+ \item<2-3> Bernard Wiedemann (from openSUSE) thought that wasn't good enough
  and created \texttt{https://github.com/orgs/distropatches}
+ \item<3> Once Debian 10, "buster" development starts, we plan to tackle those 547 open bugs ones…
  \end{itemize}
 \end{frame}
 
