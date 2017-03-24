@@ -1,9 +1,6 @@
 meta: 
 	variation: maybe go back to devconf version…
-	probably mention LibrePlanet workshops
-	add slide: S_D_P_M next tp "build path variation" in unstable
-	improve slide: debian now. coccia, stretch. aim for buster. stretch is boring.
-	add slide: stretch is great, exciting, the most reproducible debian release ever! 
+	demo…
 	bigthanks to people for their work, diffoscope, strip-nd, disorderfs, reprotest, armhf, mattia, val, lamby, maria, ximin, S_D_E, B_P_P_M, Debian, LF, those who filed 1763 done and 547 open bugs val, … - mention peoples names and thank them. there's time now.
 	show demo?
 
