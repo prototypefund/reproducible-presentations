@@ -1,0 +1,125 @@
+-----------------------
+| General Information |
+-----------------------
+
+IRC:
+    reproducible-builds on OFTC
+general information: 
+    reproducible-builds.org
+test website: 
+    tests.reproducible-builds.org
+
+-------------------------
+| What you can work on! |
+-------------------------
+
+File reproducible bugs (with patches!) against Debian packages:
+
+	(1) Find an irreproducible package 
+	     These packages are all tagged with specific know issues. After navigating to a package page, click 
+	     "Notes" at the top of the left navigation:
+			https://tests.reproducible-builds.org/debian/unstable/amd64/index_notes.html
+	(2) Patch and submit a bug:
+        Please use this bug format and add user tags for tracking our work!
+        https://wiki.debian.org/ReproducibleBuilds/Contribute#How_to_report_bugs
+
+To see irreproducible packages with bugs presently file against them (for inspiration or out of curiousity), check out the packages in this list. Those with a red "#" have bugs filed against the package, linked from the package page:
+	https://tests.reproducible-builds.org/debian/unstable/amd64/index_notes.html
+
+Want something of NEXT LEVEL difficulty?
+Investigate packages with unknown sources of irreproducibility:
+
+These packages have no "notes" -- their source of irreproduciblity is UNKNOWN:
+https://tests.reproducible-builds.org/debian/unstable/amd64/index_no_notes.html
+
+They might have an existing issue:
+	*  https://tests.reproducible-builds.org/debian/index_issues.html
+Or, they might not! If you discover the issue:
+	* Talk to the people in the #reproducible-builds on the OFTC irc channel to create a new issue to tag the package with.
+	* Submit a bug+patch! 
+		https://wiki.debian.org/ReproducibleBuilds/Contribute#How_to_report_bugs
+
+
+Check the reproduciblity of your own binaries:
+
+	(1) Use diffiscope to compare binaries
+	    https://diffoscope.org/
+	(2) Optionally, check out reprotest to build you binaries or packages twice then compare the result
+		https://packages.debian.org/sid/reprotest
+
+----------------------------------------
+| Help achieving binary reproduciblity |
+----------------------------------------
+
+Need help identify sources of irreproducibility?
+
+	* See TIMESTAMPS?
+		* https://reproducible-builds.org/docs/timestamps/
+	* Differences due to different timezones?
+		* https://reproducible-builds.org/docs/timezones/
+	* Different locales?
+		* https://reproducible-builds.org/docs/locales/
+	* Random bits due to unitialized values?
+		* https://reproducible-builds.org/docs/value-initialization/
+	* Differences in file modifications dates, users or groups or numeric ids, file lists in documentation?
+		* https://reproducible-builds.org/docs/archives/
+	* Capturing the build path
+		* e.g. https://tests.reproducible-builds.org/debian/rb-pkg/unstable/amd64/music.html
+		* don't need to fix/analyse yet, awaiting some GCC patches which will fix most of these
+		* afterwards, some things might remain unfixed, but it would be easier to figure this out after the patches are applied
+	* Did you sort your inputs at each stage of the build process?
+		* https://reproducible-builds.org/docs/stable-inputs/
+	* Need (psuedo-)randomness in your build process?
+		* https://reproducible-builds.org/docs/randomness/
+	* Using perl, python or ruby? Remember to sort outputs!
+		* https://reproducible-builds.org/docs/stable-outputs/
+
+---------------------------
+| Diffoscope introduction |
+---------------------------
+
+Making specific tools reproducible
+	* Ideally, patch the tool that produces the unreproducibility
+		* But sometimes this is not possible for backwards-compat reasons and others
+	* More tool-specific options:
+		* https://wiki.debian.org/ReproducibleBuilds/Howto
+	* Our standardised environment variables
+		* SOURCE_DATE_EPOCH https://reproducible-builds.org/specs/source-date-epoch/
+		* more general info https://wiki.debian.org/ReproducibleBuilds/StandardEnvironmentVariables
+
+
+Go over examples unreproducible packages on tests.r-b.org
+	* https://tests.reproducible-builds.org/debian/unstable/amd64/pkg_set_required.html
+		* bash, perl, build-path, can ignore for the time being (until after our GCC patches)
+		* xz-utils: sorting/locale, $SHELL
+		* dash is hard, might be good as a manual example to demonstrate the diffoscope+rebuild workflow
+	* https://tests.reproducible-builds.org/debian/unstable/amd64/pkg_set_build-essential.html
+		* haven't seen these before, good to demonstrate "how to analyse"
+		* systemd, lots of differences but very similar issues
+
+
+Go through previous blog posts
+	* analyse chris' and others' patches on existing patches, usually they are smaller and easier to "digest"
+		* https://reproducible.alioth.debian.org/blog/
+
+
+More examples:
+  - https://tests.reproducible-builds.org/debian/rb-pkg/unstable/amd64/diffoscope-results/html2canvas.html
+    sorting, probably best to patch uglifyjs, might be locale-affected
+  - https://tests.reproducible-builds.org/debian/rb-pkg/testing/i386/diffoscope-results/naga.html
+    sorting, javadoc, might be locale-dependent
+
+
+== outline of talk ==
+
+- Introductions of people in the room, what projects they work on, what they would like to get out of the workshop
+- Introduction to Debian
+- Introduction to our test website
+  - What the icons mean
+  - Diffoscope output
+  - Notes / Issues
+- Vagrant introduces reprotest
+- Ximin's outline of how we approach making individual packages reproducible
+- Individual work time!
+
+
