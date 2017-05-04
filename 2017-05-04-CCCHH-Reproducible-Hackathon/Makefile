@@ -1,6 +1,6 @@
 .PHONY: all source images
 
-PRESENTATION = 2017-03-24-GUUG
+PRESENTATION = 2017-05-04-CCCHH-Reproducible-Hackathon
 
 all: $(PRESENTATION).pdf
 
