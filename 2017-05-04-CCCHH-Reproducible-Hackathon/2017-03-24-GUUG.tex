@@ -1,0 +1,1011 @@
+\documentclass[14pt]{beamer}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{:}
+\setbeamercolor{caption name}{fg=normal text.fg}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\usepackage{lmodern}
+\ifxetex
+  \usepackage{fontspec,xltxtra,xunicode}
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\else
+  \ifluatex
+    \usepackage{fontspec}
+    \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+    \newcommand{\euro}{€}
+  \else
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+      \fi
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{hyperref}
+\usepackage{ulem}
+
+% Comment these out if you don't want a slide with just the
+% part/section/subsection/subsubsection title:
+\AtBeginPart{
+  \let\insertpartnumber\relax
+  \let\partname\relax
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \let\insertsectionnumber\relax
+  \let\sectionname\relax
+  \begin{frame}[plain]
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+\AtBeginSubsection{
+  \let\insertsubsectionnumber\relax
+  \let\subsectionname\relax
+  \frame{\subsectionpage}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+% Thanks Richard Darst on how to get a nice Beamer theme.
+% See http://rkd.zgib.net/wiki/DebianBeamerThemes
+
+\usepackage{multicol}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{tikz}
+\usepackage{ctable}
+\usetikzlibrary{positioning}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{images/swirl-lightest.pdf}}
+\newif\ifplacelogo
+\placelogotrue
+\logo{\ifplacelogo\includegraphics[viewport=274 335 360 440,width=1cm]{images/openlogo-nd.pdf}\fi}
+
+\definecolor{debianred}{rgb}{.780,.000,.211} % 199,0,54
+\definecolor{debianblue}{rgb}{0,.208,.780} % 0,53,199
+\definecolor{debianlightbackgroundblue}{rgb}{.941,.941,.957} % 240,240,244
+\definecolor{debianbackgroundblue}{rgb}{.776,.784,.878} % 198,200,224
+
+\usetheme{Boadilla}
+\setbeamertemplate{navigation symbols}{}
+
+\usecolortheme[named=debianbackgroundblue]{structure}
+\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{titlelike}{fg=debianblue}
+\setbeamercolor{sidebar}{fg=debianred,bg=debianbackgroundblue}
+
+\setbeamercolor{palette sidebar primary}{fg=debianred}
+\setbeamercolor{palette sidebar secondary}{fg=debianred}
+\setbeamercolor{palette sidebar tertiary}{fg=debianred}
+\setbeamercolor{palette sidebar quaternary}{fg=debianred}
+
+\setbeamercolor{section in toc}{fg=debianred}
+\setbeamercolor{subsection in toc}{parent=debianred}
+
+\setbeamercolor{item}{fg=debianred}
+
+\setbeamercolor{block title}{fg=debianblue}
+
+
+\title[Reproducible Builds everywhere]{Reproducible
+builds everywhere}
+\subtitle{Bit by bit identical binaries \\
+from a given source}
+\author[h01ger]{%
+   \texorpdfstring{
+            \centering
+            Holger 'h01ger' Levsen
+   }{h01ger}}
+\date[GUUG 2017]{%
+ GUUG Frühjahrsfachgespräch 2017\\
+Darmstadt, Germany\\
+ \small{2017-03-24}}
+
+\begin{document}
+\placelogofalse
+
+\begin{frame}[plain]
+ \titlepage
+\end{frame}
+
+\placelogotrue
+
+\begin{frame}
+ \frametitle{about h01ger}
+
+ \begin{itemize}
+  \item \small{\texttt{B8BF 5413 7B09 D35C F026  FE9D 091A B856 069A AA1C}}
+  \item Debian user since 1995, contributor since 2001, official developer
+  status since 2007
+  \item DebConf organizer,
+  founded the DebConf video team
+   \begin{itemize}
+    \item \texttt{http://video.debian.net}
+   \end{itemize}
+ \item Debian-Edu (Debian for education)
+  \item Debian QA (quality assurance)
+  \begin{itemize}
+   \item \texttt{https://piuparts.debian.org}
+   \item \texttt{https://jenkins.debian.net} (~1400 jobs continously testing Debian)
+  \end{itemize}
+  \item Debian Reproducible builds team member
+  \begin{itemize}
+   \item since April 2015 funded by the Linux Foundation
+ \end{itemize}
+  \item<2> Ich spreche auch Deutsch… sometimes.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Debian reproducible builds contributors}
+ \begin{center}
+  \begin{columns}
+   \footnotesize
+   \column{.30\linewidth}
+    {akira} \\
+    {Alexis Bienvenüe} \\
+    {Andrew Ayer} \\
+    {Asheesh Laroia} \\
+    Boyuan Yang \\
+    {Ceridwen} \\
+    {Chris Lamb} \\
+    {Chris West} \\
+    {Christoph Berg} \\
+    Clint Adams \\
+    Dafydd Harries \\
+    {Daniel Kahn Gillmor} \\
+    {Daniel Shahaf} \\
+    Daniel Stender \\
+    David Suarez \\
+    {Dhole} \\
+    Drew Fisher \\
+    Emmanuel Bourg \\
+    \column{.30\linewidth}
+    Emanuel Bronshtein \\
+    Esa Peuha \\
+    {Fabian Wolff} \\
+    {Guillem Jover} \\
+    Hans-Christoph Steiner \\
+    Harlan Lieberman-Berg \\
+    {Helmut Grohne} \\
+    \only<1>{Holger Levsen}\only<2>{{\color{debianred} Holger Levsen}} \\
+    HW42 \\
+    Intrigeri \\
+    {Jelmer Vernooij} \\
+    {josch} \\
+    Juan Picca \\
+    {Lunar} \\
+    Maria Glukhova \\
+    Mathieu Bridon \\
+    {Mattia Rizzolo} \\
+    Nicolas Boulenguez \\
+    {Niels Thykier} \\
+   \column{.30\linewidth}
+    Niko Tyni \\
+    {Paul Wise} \\
+    Peter De Wachter \\
+    Philip Rinn \\
+    {Reiner Herrmann} \\
+    Robbie Harwood \\
+    {Santiago Vila} \\
+    {Sascha Steinbiss} \\
+    {Satyam Zode} \\
+    {Scarlett Clark} \\
+    {Stefano Rivera} \\
+    {Stéphane Glondu} \\
+    {Steven Chamberlain} \\
+    Tom Fitzhenry \\
+    {Valerie Young} \\
+    Valentin Lorentz \\
+    {Wookey} \\
+    {Ximin Luo} \\
+  \end{columns}
+ \end{center}
+\end{frame}
+
+
+\placelogofalse
+
+\begin{frame}
+ \frametitle{Who are you?}
+ \begin{itemize}
+  \item<2-6> Seen a talk about reproducible builds?
+  \item<3-6> Contributed to the effort?
+  \item<4-6> Uses Debian or a Debian based systems?
+  \item<5-6> Uses Fedora, RHEL, CentOS or a Fedora derivative based systems?
+  \item<6> BSD?
+ \end{itemize}
+\end{frame}
+
+
+
+\section{Motivation}
+
+\begin{frame}[fragile]
+ \frametitle{The problem: we need to believe}
+ \begin{itemize}
+  \item Free Software is great: one can study, modify, share and use it!
+  \item<2-4> We study, modify and share source code.
+  \item<2-4> We use binaries.
+  \item<3-4> We need to believe our binaries come from the source code they are said to made from.
+  \item<4> \textbf{I do not want to believe.}
+ 
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{The problem in greater detail}
+
+ \begin{center}
+  \includegraphics[width=0.7\textwidth]{images/31c3.png}
+
+  Available on \url{media.ccc.de}, 31c3
+ \end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{A few examples from that 31c3 talk}
+ \begin{itemize}
+  \item CVE-2002-0083: remote root exploit in \texttt{sshd}, a single bit difference in the binary
+  \item<2-5> 31c3 talk had a live demo with a kernel module modifying source code in memory only
+  \item<3-5> How can you be sure what's running on your machine or on a build
+  daemon network connected to the net? Do you ever leave your computers
+  physically alone? 
+  \item<4-5> How much do you pay your admins? Enough to withstand a multi million
+  dollar attack?
+  \item<5> Legal challenges. Could you be forced to backdoor (some of) your
+  software (for some customers)?
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Another example from real life}
+
+ At a CIA conference in 2012:
+ \begin{center}
+  \includegraphics[width=0.8\textwidth]{images/strawhorse.png}
+
+  {\footnotesize
+  \url{firstlook.org/theintercept/2015/03/10/ispy-cia-campaign-steal-apples-secrets/}
+  }
+ \end{center}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{The solution}
+
+ \begin{center}
+ \Large{
+ Promise that anyone can always and independently generate
+ identical binary packages from a given source}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{The solution}
+
+ \begin{center}
+ We call this:
+
+ \Huge{ “Reproducible builds” }
+ \end{center}
+\end{frame}
+
+\placelogotrue
+
+\begin{frame}
+ \frametitle{Debian demo}
+ \begin{itemize}
+ \item Build a package 5 times, get 5 .debs with different checksums
+ \item<2-3> Build a package 5 times, get 5 .debs with the same checksum\\
+ \item<3>{Yes, it's really this simple.}
+ \end{itemize}
+% show this once running in plain sid,
+% and then in sid with our modified toolchain.
+%
+% prepare demo:
+% mkdir demo ; cd demo ; apt-get source giftrans
+%
+% do demo:
+% PTH=$(mktemp -d); OPTH=$PWD; P=giftrans; cp ${P}_* $PTH/; cd $PTH ;
+%   dpkg-source -x ${P}*.dsc ; for X in 1 2 3 4 5 ; do (cd ${P}-*/;
+%   dpkg-buildpackage -b -uc -us); mkdir -p .$X ; cp $P_*.deb .$X; done ; rm
+%   *.deb ; echo; sha1sum *dsc *z .*/*.deb | grep -v giftrans-dbgsym ; cd - ;
+% rm -r $PTH
+\end{frame}
+
+\placelogofalse
+
+\begin{frame}[plain]
+\begin{center}
+ \Huge{This should become the \textbf{norm}.}
+
+ \visible<2>{\small{ We want to change the meaning of "free software":
+
+  it's only free software if it's reproducible!}}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{More benefits than "just" security…}
+ \begin{itemize}
+  \item Lots and lots of QA benefits - we've found so many subtile bugs.
+  \item<2-5> Google does reproducible builds, to save time and money.
+  \item<3-5> Smaller deltas, thus faster updates possible (for packages and
+  images).
+  \item<4-5> Side effect: meaningful binary diff between two versions.
+  \item<5> …
+ \end{itemize}
+\end{frame}
+
+
+\section{Common ressources}
+
+\begin{frame}
+ \frametitle{reproducible-builds.org}
+
+ \begin{itemize}
+  \item \texttt{https://reproducible-builds.org}
+  \item git repositories, IRC channels, mailinglists, webspace
+ \end{itemize}
+ \begin{center}
+ \includegraphics[width=0.7\textwidth]{images/rbwww1.png}
+ \end{center}
+\end{frame}
+
+
+{
+\usebackgroundtemplate{%
+ \begin{tikzpicture}[remember picture,overlay]%
+  \node[shift={(-0.1\paperwidth, 0.15\paperheight)},at=(current page.south east)] {
+    \includegraphics[width=0.2\paperwidth]{images/diffoscope_logo.png}
+  };
+ \end{tikzpicture}%
+}
+
+\begin{frame}{diffoscope}
+ \frametitle{Debugging problems: \texttt{https://try.diffoscope.org}}
+
+ \begin{itemize}
+  \item Examines differences \textbf{in depth}.
+  \item Recursively unpacks archives, uncompresses PDFs, disassembles
+  binaries, unpacks Gettext files, …
+  \item Easy to extend to new file formats.
+  \item Falls back to binary comparison.
+  \item Outputs HTML or plain text with human readable differences.
+  \item Available from \texttt{git}, PyPI, Debian, \\
+   Arch Linux, Guix, Homebrew, Fedora. Works on BSD.
+  \item Maintainers in other distros wanted.
+  \item \url{https://diffoscope.org/}
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{\texttt{diffoscope} example (HTML output)}
+ \begin{tikzpicture}[remember picture]
+  \node[at=(current page.center)] {
+   \includegraphics[width=0.9\paperwidth]{images/diffoscope_example_html.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{\texttt{diffoscope} is "just" for debugging}
+
+ \begin{itemize}
+  \item Reminder: \texttt{diffoscope} is for \textbf{debugging}
+  \item "reproducible" according to our definition means: \textbf{bit by bit
+  identical}. So the tools for testing whether something is reproducible are
+  either \texttt{diff} or \texttt{sha256sum}!
+  \item<2> \texttt{https://try.diffoscope.org}
+ \end{itemize}
+\end{frame}
+
+}
+
+
+
+\placelogotrue
+
+
+\begin{frame}
+ \frametitle{tests.reproducible-builds.org}
+
+ \begin{itemize}
+  \item Continuously testing Debian \texttt{testing}, \texttt{unstable} and
+  \texttt{experimental}
+  \item Also testing: coreboot, OpenWrt, LEDE, NetBSD, FreeBSD,
+  Arch Linux, Fedora and soon F-Droid too
+  \item 46 nodes (amd64/i386/arm64/armhf), >200 cores and >1 TB RAM
+  \item 502 jenkins jobs running on jenkins.debian.net
+  \item 43 scripts in Python and Bash, 283 lines of code in average
+  \item 37 contributors for \texttt{jenkins.debian.net.git}
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+ \frametitle{Variations (when testing Debian)}
+
+ \begin{center}
+  \begin{table}
+   \resizebox{0.95\textwidth}{!}{%
+    \begin{tabular}{l|ll}
+\textbf{variation} & \textbf{first build} & \textbf{second build} \\
+\hline
+hostname & \texttt{jenkins} & \texttt{i-capture-the-hostname} \\
+domainname & \texttt{debian.net} & \texttt{i-capture-the-domainname} \\
+\texttt{env TZ} & \texttt{GMT+12} & \texttt{GMT-14} \\
+\texttt{env LANG} & \texttt{C} & \texttt{fr\_CH.UTF-8} \\
+\texttt{env LC\_ALL} & not set & \texttt{fr\_CH.UTF-8} \\
+\texttt{env USER} & \texttt{pbuilder1} & \texttt{pbuilder2} \\
+uid & \texttt{1111} & \texttt{2222} \\
+gid & \texttt{1111} & \texttt{2222} \\
+UTS namespace & shared with the host & \textit{modified using \texttt{/usr/bin/unshare --uts}} \\
+kernel version & Linux 3.16 or 4.X & on amd64 and arm64 always varied \\
+ & & on armhf sometimes \\
+ & & on i386 32/64bit kernel variation instead \\
+umask & 0022 & 0002 \\
+CPU type & & varied on i386: Intel or AMD CPU \\
+ & & on armhf varied a bit \\
+ & & not varied on amd64 nor arm64 \\
+filesystem & \texttt{tmpfs} & same for both builds on amd64, i386 and arm64 \\
+ & & on armhf \texttt{ext3/4} \\
+ & & \textit{(and we have} \texttt{disorderfs}\textit{, but the code is disabled)} \\
+year, month, date & \multicolumn{2}{l}{on amd64, arm64 and i386: 398 days variation, on armhf not yet} \\
+hour, minute & \multicolumn{2}{l}{hour and minute deterministically and non-deterministically varied… } \\
+\textit{everything else} & \multicolumn{2}{l}{\textit{is likely the same…}}
+    \end{tabular}
+   }
+  \end{table}
+ \end{center}
+\end{frame}
+
+\placelogofalse
+
+\begin{frame}
+ \frametitle{Common problems}
+
+ \begin{itemize}
+  \item time stamps
+  \item timezones
+  \item locales
+  \item build paths
+  \item everything else (seperated into known issues and the blurry rest)
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Documentation about common problems}
+ \begin{itemize}
+  \item \texttt{https://reproducible-builds.org/docs}
+  \item Lunar's talk from CCCamp 2015 also on
+  \texttt{https://media.ccc.de}
+ \begin{tikzpicture}[remember picture]
+  \node[shift={(-1.05\paperwidth, -0.3\paperheight)},at=(current page.south east)] {
+    \includegraphics[width=0.83\textwidth]{images/cccamp2015_lunar_random.png}
+  };
+ \end{tikzpicture}
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
+
+ \begin{itemize}
+  \item Build date (timestamps) usually not useful for the user
+  \item \texttt{SOURCE\_DATE\_EPOCH} is defined as the last modification of
+  the source, since the epoch (1970-01-01)
+  \item can be used instead of current date
+  \item can also be used for random seeds etc.
+  \item in Debian, set from the latest \texttt{debian/changelog} entry
+  \item can be set based on the latest git commit or the latest file
+  modification date too
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{\texttt{SOURCE\_DATE\_EPOCH}}
+
+ \begin{itemize}
+  \item \texttt{SOURCE\_DATE\_EPOCH} spec available:
+  \item \url{https://reproducible-builds.org/specs/}
+  \item many upstreams support it already
+  \item has been adopted by other distributions
+  (openSUSE, OpenWrt, LEDE, NetBSD, FreeBSD, Arch Linux, coreboot, Guix, …) and many many
+  upstreams (GCC, dpkg, rpm, mkisofs, ghostscript, libxslt, sphinx,
+  texlive-bin, …)
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{two more tools}
+
+ \begin{itemize}
+  \item \texttt{strip-nondeterminism} 
+  \item<2> \texttt{reprotest} 
+ \end{itemize}
+\end{frame}
+
+\placelogotrue
+
+\section{Status Debian}
+
+\begin{frame}
+ \frametitle{Progress in Debian \texttt{testing} ("stretch")}
+ \begin{tikzpicture}[remember picture]
+  \node[shift={(-0.5\paperwidth, \paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.65\paperheight]{images/stats_pkg_state_testing.png}
+  };
+ \end{tikzpicture}
+ \begin{center}
+  \footnotesize{23,378 (93.8\%) out of 24,909 source packages are reproducible \\
+    in our test framework on \texttt{amd64}}
+  \vfill
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Progress in Debian \texttt{unstable}}
+ \begin{tikzpicture}[remember picture]
+  \node[shift={(-0.5\paperwidth, \paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.65\paperheight]{images/stats_pkg_state_unstable.png}
+  };
+ \end{tikzpicture}
+ \begin{center}
+  \footnotesize{20,597 (79.2\%) out of 25,982 source packages are reproducible \\
+    in our test framework on \texttt{amd64}} (difference due to build path variations)
+  \vfill
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{\texttt{BUILD\_PATH\_PREFIX\_MAP}}
+
+ \begin{itemize}
+  \item Those 93.8\% in Stretch are nice, but…
+  \item We want to be able to build in any path.
+  \item 15-20\% of the packages embed build-time paths into generated files, even though these paths do not exist at runtime, nor do they exist in the source code.
+  \item \texttt{BUILD\_PATH\_PREFIX\_MAP} spec available, though we have not formally released it yet…
+  \item \url{https://reproducible-builds.org/specs/}
+  \item Example patches exist, though this is still work in progress.
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Details on tests.reproducible-builds.org}
+
+ \begin{itemize}
+  \item \url{https://reproducible.debian.net/$src}
+  \item 48 package sets 
+  \item 292 categorised distinct issues
+  \item 6,604 notes
+  \item 1,473 unreproducible packages in \texttt{stretch/amd64} (testing), but only
+  90 without a note (5,253 in \texttt{unstable} but also only 149 without a
+  note)
+  \item maintained in \texttt{notes.git} by 49 contributors
+  \item currently Debian only, but cross distro notes are planned
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Debian \texttt{.buildinfo} files}
+
+ \begin{itemize}
+  \item Aggregates in the same file:
+   \begin{itemize}
+    \item Sources (checksums)
+    \item Generated binaries (checksums)
+    \item Packages used to build (with specific version, checksums coming soon)
+   \end{itemize}
+  \item Can be later used to exactly recreate environment
+  \item For Debian, all versions are available from \url{snapshot.debian.org}
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Progress in the Debian bug tracker}
+ \begin{tikzpicture}[remember picture]
+  \node[shift={(-0.5\paperwidth, \paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.65\paperheight]{images/stats_bugs_sin_ftbfs_state.png}
+  };
+ \end{tikzpicture}
+ \begin{center}
+  \footnotesize{As a rule, we file bugs with patches. \\
+  There are very few exceptions.}
+  \vfill
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Sending progress upstream}
+ \begin{itemize}
+ \item So we filed a lot of bugs… with patches…! And 1763 were even closed.
+ \item … but only in Debian and we rely on Debian maintainers sending them
+ upstream.
+ \item<2-3> Bernard Wiedemann (from openSUSE) thought that wasn't good enough
+ and created \texttt{https://github.com/orgs/distropatches}
+ \item<3> Once Debian 10, "buster" development starts, we plan to tackle those 547 open bugs too…
+ \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+ \frametitle{Debian summary / What's left to do}
+ \begin{itemize}
+  \item This is/was a proof-of-concept, Debian is neither 93.8\% reproducible nor
+  79.2\%. (and 10\% > 2,500 sources packages!)
+  \item<2-3> All our required changes are finally in Debian now!
+  \item<2-3> Debian 9, "stretch", has 93\% reproducible sources, but only one third of the binary packages are…
+  \item<2-3> Because, Debian does not (yet?) do full rebuilds before
+  releasing… so stuff is in the archive which is not reproducible unless it's
+  rebuild.
+  \item<3> And then we don't distribute \texttt{.buildinfo} files yet.
+   That (and user tools) still needs more \it{design} and code.
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Debian summary continued}
+ \begin{itemize}
+  \item Debian 9, "stretch", is mostly reproducible (from source).
+  \item Canonical can take our work now and make Ubuntu 17.04
+  (partyl) reproducible…
+  \item<2-4> Security updates for "stretch" can+should be reproducible!
+  \item<3-4> Debian 10, "buster", will be our first reproducible release, few exceptions expected.
+  \item<4> We hope \texttt{debian-policy} will mandate 100\%
+  reproducible builds for Debian 11, "bullseye", with development starting in 2019.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Tell the world \& collaborate}
+
+ \begin{itemize}
+  \item "We don't care about Debian (only), we care about free and open
+   source software."
+  \item<2-3> 99 Weekly reports since May 2015
+   \begin{itemize}
+    \item started by Lunar
+    \item nowadays published weekly by Chris and Ximin
+    \item \url{https://reproducible.alioth.debian.org/blog/}
+  \item<3> so next week will be the \textbf{100th} !!
+   \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+ \frametitle{Tell the world \& collaborate (continued)}
+
+ \begin{itemize}
+  \item First Reproducible World Summit in December 2015 (Athens, Greece)
+   \begin{itemize}
+    \item \texttt{reproducible.debian.net} became \texttt{tests.reproducible-builds.org}
+   \end{itemize}
+    \item Second Reproducible World Summit in December 2016 in Berlin
+    \item Reproducible Builds Hamburg Hackathon 2017, \textbf{5-7th of May}
+    \item Third summit in December 2017?
+   \item<2> GSoC and Outreachy
+ \end{itemize}
+\end{frame}
+
+
+
+\section{Status Non-Debian World}
+
+\placelogofalse
+
+\begin{frame}
+ \frametitle{Skipping some…}
+ \begin{itemize}
+  \item \texttt{https://tests.r-b.org/coreboot}
+  \item \texttt{https://tests.r-b.org/lede}
+  \item \texttt{https://tests.r-b.org/openwrt}
+  \item almost: \texttt{https://tests.r-b.org/f-droid}
+  \item paused: \texttt{https://tests.r-b.org/archlinux}
+ \end{itemize}
+ \begin{center}
+  \includegraphics[height=0.13\paperheight]{images/coreboot.png}
+  \hspace{0.05\paperwidth}
+  \includegraphics[height=0.15\paperheight]{images/lede.png}
+  \hspace{0.05\paperwidth}
+  \includegraphics[height=0.3\paperheight]{images/openwrt.png}
+  \hspace{0.05\paperwidth}
+  \includegraphics[height=0.13\paperheight]{images/f-droid.png}
+  \hspace{0.05\paperwidth}
+  \includegraphics[height=0.13\paperheight]{images/archlinux.png}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Skipping some more…}
+ \begin{itemize}
+\item Cygnus.com (1992)
+\item Bitcoin (2011)
+\item Torbrowser (2013)
+\item<2-3> NixOS, GNU Guix
+\item<2-3> ElectroBSD
+\item<2-3> webconverger, Tails
+\item<2-3> Google Bazil, Yocto, docker
+\item<3> ducible (build tool for Windows)
+\item<3> very few commercial, propietary software
+\item<3> Signal
+\item<3> Shim (secure-boot)
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Detour: what, reproducible commercial Software???}
+ \begin{itemize}
+\item Guess which
+\item <2-3>   windows? (the source is available)
+\item <2-3>   medical devices in your body?
+\item <2-3>   arms?
+\item <2-3>   critical infrastructure like in nuclear powerplants?
+\item <2-3>   cars?
+\item <3> Gambling machines!
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{FreeBSD vs NetBSD}
+ \begin{itemize}
+  \item \texttt{https://tests.r-b.org/freebsd} at 99.6\%
+  \item \texttt{https://tests.r-b.org/netbsd} reached 100\%
+  \item<2> only base system built so far
+  \item<2> NetBSD uses non-default settings to achieve this
+  \item<2> ports planned
+ \end{itemize}
+ \begin{center}
+  \includegraphics[height=0.13\paperheight]{images/freebsd.png}
+  \hspace{0.05\paperwidth}
+  \includegraphics[height=0.13\paperheight]{images/netbsd.png}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{reproducible openSUSE}
+ \begin{itemize}
+  \item
+  \small{\texttt{https://build.opensuse.org/package/show \\
+  /home:bmwiedemann:reproducible/rpm?expand=0}}
+  \item Bernhard Wiedemann has built openSUSE twice (with some variations):
+  \begin{itemize}
+   \item build-succeeded: 3172
+   \item bit-by-bit-identical: 2117
+   \item not-bit-by-bit-identical: 1055
+ \end{itemize}
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.1\paperwidth, 0.13\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.15\paperheight]{images/openSUSE.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+ \frametitle{tests.r-b.org/fedora}
+ \begin{itemize}
+  \item used to test Fedora 23, could be made working again
+  \item or build elsewhere and machine readable exported
+  \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.07\paperwidth, 0.13\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.15\paperheight]{images/fedora.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Fedora basics}
+ \begin{itemize}
+  \item \texttt{diffoscope} is available in Fedora
+  \item \texttt{yum} and \texttt{dnf} might create non-identical environments
+  \item \texttt{rpm}-4.13 has an option to override hostname via rpmmacros
+  \item signed RPMs -> re-apply signature, will match for identical builds
+  \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.07\paperwidth, 0.13\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.15\paperheight]{images/fedora.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+ \frametitle{TODO: design \texttt{.buildinfo} files from koji/mock/zypper}
+ \begin{itemize}
+  \item rfc822 format?
+  \item needs to define the environment
+  \item needs to define the sources (input)
+  \item needs to define the binaries (output)
+ \end{itemize}
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[shift={(-0.07\paperwidth, 0.13\paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.15\paperheight]{images/fedora.png}
+  };
+ \end{tikzpicture}
+\end{frame}
+
+
+
+\section{Future work}
+
+\begin{frame}
+ \frametitle{Future work}
+ \begin{itemize}
+ \item<1-3> So far we mostly worked on making reproducible builds possible…
+ \item<2-3> We'll need constant tests for future code.
+ \item<3> And then, this still needs tools, infrastructure and policies to become
+ meaningful and to be used in practice.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Rebuilds and sharing signed checksums}
+ \begin{itemize}
+  \item Almost no work has been done here yet. We are just at the first step:
+  being able to rebuild reproducibly…
+  \item Different projects, different solutions?
+ \begin{itemize}
+  \item<2> something like \texttt{.buildinfo} files (defining the environment,
+  the input and the output(s)) will be needed everywhere:
+  \item<2> implemented for Debian (both in sbuild and well as
+  buildinfo.debian.net)
+  \item<2> work has begun for coreboot, LEDE/OpenWrt and Fedora (mock/koji)
+  and maybe openSUSE (OpenBuildService)
+ \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Rebuilders and sharing signed checksums, cont.}
+ \begin{itemize}
+  \item Individuelly signed checksums (think web of trust) could work in the
+  Debian case (we have a gpg web of trust), but IMO won't scale.
+  \item { Another idea: rebuilders, run by large organisations,
+  eg. ACLU, BSI, CCC, Deutsche Bank, Greenpeace, GUUG, NASA, NSA, etc…}
+  \item Fedora rebuilds Debian, Debian rebuilds openSUSE, openSUSE rebuilds
+  NetBSD, etc…
+  \item Big customers could just rebuild everything themselves.
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Integration in user tools}
+ \begin{itemize}
+  \item "Do you really want to install this unreproducible software (y/N)"
+  \item<2-3> "Do you want to build those packages which have unconfirmed checksums,
+  before installing? (Y/n)"
+  \item<3>{ "How many signed checksums do you require to call a package
+  'reproducible'?" - and whom do you trust?}
+ \end{itemize}
+\end{frame}
+
+
+\section{Getting involved}
+
+\begin{frame}
+ \frametitle{As a software developer}
+ \begin{itemize}
+  \item Stop using build dates
+  \item Use \texttt{SOURCE\_DATE\_EPOCH} instead
+  \item See \url{https://reproducible-builds.org/specs/}
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Form your reproducible builds team!}
+ \begin{itemize}
+  \item Why?
+   \begin{itemize}
+    \item Every distribution should be reproducible!
+    \item Learn something new everyday
+    \item Change the (software) world!
+    \item \texttt{https://tests.reproducible-builds.org/\$distro} needs \textbf{your} help
+   \end{itemize}
+  \item How to get started?
+   \begin{itemize}
+    \item Build something twice, run \texttt{diffoscope} on the results.
+    \item Experiment - learning by doing
+    \item RTFM, there is lots of documentation
+    \item Talk to me here or talk to us on IRC or via mail.
+   \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\section{Feedback}
+
+\placelogotrue
+
+\begin{frame}
+ \frametitle{Thank You!}
+
+ \begin{itemize}
+  \item
+    {All “Reproducible Builds” contributors \\
+        {\small (You are just \textbf{so} awesome!)}}
+
+\end{itemize}
+
+ \begin{center}
+  \includegraphics[height=0.08\paperheight]{images/linux_foundation_logo.png}
+  \hspace{0.05\paperwidth}
+  \includegraphics[height=0.08\paperheight]{images/cii_logo.png}
+  \hspace{0.05\paperwidth}
+  \includegraphics[height=0.08\paperheight]{images/profitbricks_logo.png}
+ \end{center}
+
+ \vfill
+ \begin{center}
+  \resizebox{0.9\textwidth}{!}{%
+   \begin{tabular}{rl}
+    \texttt{holger@debian.org} & \texttt{B8BF 5413 7B09 D35C F026} \\
+                               & \texttt{FE9D 091A B856 069A AA1C}
+\end{tabular}
+  }
+ \end{center}
+\end{frame}
+
+\placelogofalse
+
+\begin{frame}
+ \frametitle{Questions, comments, ideas?}
+
+ \begin{itemize}
+  \item \url{https://reproducible-builds.org/}
+  \item \texttt{\#reproducible-builds} on \texttt{irc.OFTC.net}
+  \item \url{https://lists.reproducible-builds.org}
+  \item twitter: @ReproBuild
+  \item<2> Mike and Seth's talk from 31c3 about motivations
+  \item<2> Lunar's talk about fixing reproducible issues from CCCamp 15
+  \end{itemize}
+\end{frame}
+
+\placelogotrue
+
+\begin{frame}{}
+\begin{textblock}{12}(2, 6)
+    \tiny{
+      Copyright \copyright{} 2014--2017 \\
+         Holger Levsen \texttt{holger@layer-acht.org} and others.\\[3.0mm]
+      Copyright of images included in this document are held by
+      their respective owners.
+      \\[3.0mm]
+      This work is licensed under the \alert{Creative Commons
+        Attribution-Share Alike 3.0} License.  To view a copy of this
+      license, visit
+      \url{http://creativecommons.org/licenses/by-sa/3.0/} or send a
+      letter to Creative Commons, 171 Second Street, Suite 300, San
+      Francisco, California, 94105, USA.
+      \\[2.0mm]
+      % Give a link to the 'Transparent Copy', as per Section 3 of the GFDL.
+      The source of this document is available from
+      \url{https://anonscm.debian.org/git/reproducible/presentations.git}.
+    }
+  \end{textblock}
+\end{frame}
+
+\end{document}
