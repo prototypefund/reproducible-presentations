@@ -381,6 +381,16 @@ CCCHH, Germany\\
 \section{Common ressources}
 
 \begin{frame}
+ \frametitle{Disclaimer:}
+
+ \begin{itemize}
+  \item these slides contain 5 week old data.
+  \item …
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
  \frametitle{reproducible-builds.org}
 
  \begin{itemize}
@@ -597,6 +607,20 @@ hour, minute & \multicolumn{2}{l}{hour and minute deterministically and non-dete
  \begin{center}
   \footnotesize{20,597 (79.2\%) out of 25,982 source packages are reproducible \\
     in our test framework on \texttt{amd64}} (difference due to build path variations)
+  \vfill
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Progress in Debian \texttt{unstable} 5 weeks later}
+ \begin{tikzpicture}[remember picture]
+  \node[shift={(-0.5\paperwidth, \paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.65\paperheight]{images/stats_pkg_state_unstable_5_weeks_later.png}
+  };
+ \end{tikzpicture}
+ \begin{center}
+  \footnotesize{22,950 (87.6\%) out of 26,189 source packages are reproducible \\
+    in our test framework on \texttt{amd64}} (many build path variations resolved)
   \vfill
  \end{center}
 \end{frame}
@@ -964,7 +988,8 @@ hour, minute & \multicolumn{2}{l}{hour and minute deterministically and non-dete
     \item Experiment - learning by doing
     \item RTFM, there is lots of documentation
     \item Talk to me here or talk to us on IRC or via mail.
-   \end{itemize}
+    \item \textbf{Join the hackathon this weekend!}
+  \end{itemize}
  \end{itemize}
 \end{frame}
 
