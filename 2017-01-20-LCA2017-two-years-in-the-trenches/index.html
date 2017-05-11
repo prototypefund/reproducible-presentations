@@ -304,8 +304,13 @@ $build-&gt;config_data(OpenIDConsumerSecret=&gt;int(1e15*rand()));
         <h2>Random chars in manpages</h2>
 
         <ul>
-          <li class="fragment">Randomly generate "I" instead of literal tab</li>
+          <li class="fragment">Randomly inserts characters into generated manpages</li>
         </ul>
+
+<pre class="fragment"><code>
+-This manual page documents the usageoof WikipediaFS.
++This manual page documents the usage of WikipediaFS.
+</code></pre>
 
 <pre class="fragment"><code>
 memcpy(&amp;buf[1], &amp;buf[2], strlen(buf)-1);
