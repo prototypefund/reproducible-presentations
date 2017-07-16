@@ -452,7 +452,13 @@
     Reveal.initialize({
       controls: false,
       progress: false,
-      history: true
+      history: true,
+      keyboard: {
+        13: 'next',
+        38: 'next',
+         9: 'prev',
+        40: 'prev'
+      }
     });
   </script>
 </body>
