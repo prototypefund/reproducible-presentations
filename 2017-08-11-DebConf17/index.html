@@ -180,8 +180,7 @@
       </section>
 
       <section>
-        <h3>Side effects of reproducible builds effort</h3>
-        <h2> Catch crazy QA bugs </h2>
+        <h3>Technical &amp; other security benefits</h3>
       </section>
 
       <section>
@@ -191,7 +190,8 @@
 $build-&gt;config_data(OpenIDConsumerSecret=&gt;int(1e15*rand()));
 </code></pre>
 
-<pre class="fragment"><code># /usr/share/perl5/GBrowse/ConfigData.pm
+        <div class="fragment">
+          <pre><code># /usr/share/perl5/GBrowse/ConfigData.pm
 {
  'OpenIDConsumerSecret' =&gt; '639098210478536',
  'cgibin' =&gt; '/usr/lib/cgi-bin/gbrowse',
@@ -200,9 +200,10 @@ $build-&gt;config_data(OpenIDConsumerSecret=&gt;int(1e15*rand()));
 },
 </code></pre>
 
-        <ul>
-          <li class="fragment">Every installation of shares the same secret.</li>
-        </ul>
+          <ul>
+            <li>Every installation shares the same secret!</li>
+          </ul>
+        </div>
 
         <p class="fragment">
           <a href="https://bugs.debian.org/833885">#833885 (gbrowse)</a>
@@ -212,15 +213,13 @@ $build-&gt;config_data(OpenIDConsumerSecret=&gt;int(1e15*rand()));
       <section>
         <h3>Random chars in manpages</h3>
 
-        <ul>
-          <li class="fragment">Randomly inserts characters into generated manpages</li>
-        </ul>
-
         <pre class="fragment"><code>-This manual page documents the usageoof WikipediaFS.
 +This manual page documents the usage of WikipediaFS.
 </code></pre>
 
         <pre class="fragment"><code>memcpy(&amp;buf[1], &amp;buf[2], strlen(buf)-1);</code></pre>
+
+        <pre class="fragment"><code>memcpy(3): The memory areas must not overlap</code></pre>
 
         <ul>
           <li class="fragment">"<code> n\\011</code>" &rarr; "<code>\111</code>" &rarr; maps to capital "I"</li>
@@ -240,7 +239,7 @@ $build-&gt;config_data(OpenIDConsumerSecret=&gt;int(1e15*rand()));
 
 <pre class="fragment"><code>x = f(u('abc'), 16)
 y = f(u('abc'), 16)
-self.assertEqual(sorted(set(x)), [u('a'),u('b'),u('c')])
+self.assertEqual(sorted(set(x)), [u('a'), u('b'), u('c')])
 </code></pre>
 
 <pre class="fragment"><code>AssertionError: Lists differ: [u'a', u'b'] != [u'a', u'b', u'c']</code></pre>
