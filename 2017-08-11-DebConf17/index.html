@@ -86,21 +86,28 @@
       </section>
 
       <section>
-        <h3>Quick Introduction to R-B concept</h3>
+        <h3>What is the goal of Reproducible Builds?</h3>
+		Prove binary came from source code.
       </section>
 
       <section>
-        <h3>Examples</h3>
-        <ul>
-          <li>Examples of attacks</li>
-        </ul>
+        <h3>Why do we want to prove this?</h3>
+		The binary could have been..
+          - compiled by a malicious actor?
+          - compiled with a compromised compiler?
       </section>
 
+
       <section>
-        <h3>QA benefits</h3>
-        <ul>
-          <li>Examples of QA issues caught (from lamby's slides)</li>
-        </ul>
+        <h3>Two problems to solve!</h3>
+          (1) Compilation of binary package should be deterministic.
+          (2) Build enviorment of any binary package should be reproducible.
+      </section>
+
+
+      <section>
+        <h3>Side effects of reproducible builds effort</h3>
+		<h2> Catch crazy QA bugs </h2>
       </section>
 
       <section>
@@ -177,7 +184,6 @@ self.assertEqual(sorted(set(x)), [u('a'),u('b'),u('c')])
 
       <!-- ----------------------------------------------------------------- -->
 
-
       <section>
         <h3>How far we've come..!</h3>
         <table>
@@ -194,11 +200,11 @@ self.assertEqual(sorted(set(x)), [u('a'),u('b'),u('c')])
         </table>		
       </section>
 
-
       <section>
         <h3>Check the progress</h3>
         <h2>tests.reproducible-builds.org</h2>		
       </section>
+
 
       <section>
         <h2>Recent updates</h2>
