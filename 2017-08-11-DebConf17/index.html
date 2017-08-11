@@ -315,23 +315,25 @@ A build is <b>reproducible</b> if given the same <i>source code</i>, <i>build en
         <ul>
           <li>We had not been testing against actual archive binaries, hope to fix this soon.</li>
           <li>Recently, <em>required</em> packages NMU (by ximin), now all reproducible except GCC.</li>
-          <li>Next, plans for wider NMU campaign, decided but not started.</li>
+          <li>Next, begin our wider NMU campaign, for packages with long-pending patches.</li>
+          <li>Eventually aim for build-essential and <a href="https://anonscm.debian.org/git/collab-qa/udd.git/tree/scripts/update-key-packages.pl#n107">key-packages</a>.</li>
         </ul>
       </section>
 
       <section>
-        <h3>dak and Debian archive</h3>
+        <h3>FTP archive and dak</h3>
         <ul>
-          <li>publish buildinfo files</li>
-          <li>tests.r-b.org: perhaps run rebuilds against actual debian binaries (mention steven's talk)</li>
+          <li>Publish buildinfo files in the official archive, requires some dak patches.</li>
+          <li>Then, run tests.r-b.org rebuilds against actual Debian binaries, and encourage third parties to do the same.</li>
+          <li>(TODO: mention steven's talk and his work)</li>
         </ul>
       </section>
 
       <section>
         <h3>Policy and UI</h3>
         <ul>
-          <li>policy, to encourage people to make their packages reproducible (#844431)</li>
-          <li>apt UI, notify users about unreproducible stuff (#863622)</li>
+          <li>Encourage people to make their packages reproducible (#844431).</li>
+          <li>UI/workflow for APT to notify users about unreproducible packages (#863622).</li>
           <li>(and maybe other issues like security bugs)</li>
         </ul>
       </section>
