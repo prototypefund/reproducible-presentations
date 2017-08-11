@@ -52,6 +52,15 @@
     overflow: hidden;
     background-color: #3f3f3f;
   }
+
+  .reveal section code {
+    /* monospace font is pretty big on my computer, can adjust this back up if needed */
+    font-size: 75%;
+  }
+
+  .reveal section small {
+    font-size: 85%;
+  }
   </style>
 
   <!--[if lt IE 9]>
@@ -264,15 +273,20 @@ A build is <b>reproducible</b> if given the same <i>source code</i>, <i>build en
         </ul>
       </section>
 
-
       <section>
-        <h3>updates on buildpath</h3>
+        <h3>Updates on build path</h3>
         <ul>
-          <li>golang, rustc updates</li>
-          <li>gcc patch getting some resistance, might have to change approach</li>
+          <li>GCC <code>-fdebug-prefix-map</code>, <code>DW_AT_producer</code>, etc</li>
+          <li>golang <code>-trimpath</code>:
+          <a href="https://github.com/golang/go/issues/16860">golang/go#16860</a></li>
+          <li>rustc <code>--remap-path-prefix</code>:
+          <a href="https://github.com/rust-lang/rust/issues/41555">rust-lang/rust#41555</a>,
+          <a href="https://github.com/rust-lang/rust/issues/34902">#34902</a></li>
+          <li><code>BUILD_PATH_PREFIX_MAP</code>: <br/>
+          <small>https://reproducible-builds.org/specs/build-path-prefix-map/</small></li>
+          <li>GCC patch fixed 1800 packages but getting some resistance from upstream...</li>
         </ul>
       </section>
-
 
       <!-- ----------------------------------------------------------------- -->
 
