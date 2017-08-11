@@ -119,6 +119,32 @@ $build-&gt;config_data(OpenIDConsumerSecret=&gt;int(1e15*rand()));
       </section>
 
       <section>
+        <h3>Random chars in manpages</h3>
+
+        <ul>
+          <li class="fragment">Randomly inserts characters into generated manpages</li>
+        </ul>
+
+        <pre class="fragment"><code>-This manual page documents the usageoof WikipediaFS.
++This manual page documents the usage of WikipediaFS.
+</code></pre>
+
+        <pre class="fragment"><code>memcpy(&amp;buf[1], &amp;buf[2], strlen(buf)-1);</code></pre>
+
+        <ul>
+          <li class="fragment">"<code> n\\011</code>" &rarr; "<code>\111</code>" &rarr; maps to capital "I"</li>
+        </ul>
+
+        <pre class="fragment"><code>- memcpy(&amp;buf[1], &amp;buf[2], strlen(buf)-1);
++ memmove(&amp;buf[1], &amp;buf[2], strlen(buf)-1);
+</code></pre>
+
+        <p class="bug-link fragment">
+          <a href="https://bugs.debian.org/842635">#842635 (docbook2man)</a>
+        </p>
+      </section>
+
+      <section>
         <h3>Fails to build 0.46% of the time</h3>
 
 <pre class="fragment"><code>x = f(u('abc'), 16)
