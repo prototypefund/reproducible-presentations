@@ -1,12 +1,19 @@
 h01ger
 	basel / sfc logo
-	add thanks
 	policy
-	namelist
-		add justin cappos
-		bernhard
-	one third process
-	mention r.d.n
-		add graph?
+should
+
+define reproducibility
+
+reproducibile in a fairly controlled way / sane environment - not everywhere
+define requirements / exceptions
+        same build environment
+        same build options
+        same path
+
+mention .buildinfo files and missing processes+tools.
+
+
+ 	mention funding in thanks
 	(logo contest, SPI)
 
