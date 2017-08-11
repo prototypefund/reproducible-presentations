@@ -1,18 +1,5 @@
 h01ger
 	basel / sfc logo
-	policy
-should
-
-define reproducibility
-
-reproducibile in a fairly controlled way / sane environment - not everywhere
-define requirements / exceptions
-        same build environment
-        same build options
-        same path
-
-mention .buildinfo files and missing processes+tools.
-
 
  	mention funding in thanks
 	(logo contest, SPI)
