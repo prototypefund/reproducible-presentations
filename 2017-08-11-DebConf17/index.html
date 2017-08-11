@@ -413,21 +413,21 @@ A build is <b>reproducible</b> if given the same <i>source code</i>, <i>build en
       </section>
 
       <section>
+        <h3>FTP archive and dak</h3>
+        <ul>
+          <li>Publish buildinfo files in the official archive, requires some dak patches.</li>
+          <li>Then, run tests.r-b.org rebuilds against actual Debian binaries, and encourage third parties to do the same.</li>
+          <li>(TODO: mention steven's talk and his work)</li>
+        </ul>
+      </section>
+
+      <section>
         <h3>Debian buster</h3>
         <ul>
           <li>We had not been testing against actual archive binaries, hope to fix this soon.</li>
           <li>Recently, <em>required</em> packages NMU (by ximin), now all reproducible except GCC.</li>
           <li>Next, begin our wider NMU campaign, for packages with long-pending patches.</li>
           <li>Eventually aim for build-essential and <a href="https://anonscm.debian.org/git/collab-qa/udd.git/tree/scripts/update-key-packages.pl#n107">key-packages</a>.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h3>FTP archive and dak</h3>
-        <ul>
-          <li>Publish buildinfo files in the official archive, requires some dak patches.</li>
-          <li>Then, run tests.r-b.org rebuilds against actual Debian binaries, and encourage third parties to do the same.</li>
-          <li>(TODO: mention steven's talk and his work)</li>
         </ul>
       </section>
 
