@@ -228,16 +228,27 @@ A build is <b>reproducible</b> if given the same <i>source code</i>, <i>build en
         </ul>
       </section>
 
+      <!-- ----------------------------------------------------------------- -->
+
       <section>
-        <h3>Tools - reprotest</h3>
+        <h2>Reproducibility tools</h2>
+      </section>
+
+      <section>
+        <h3>reprotest - overview and updates</h3>
         <ul>
-          <li>reprotest make it distro-independent (sanjev)</li>
-          <li>perhaps deduplicate with autopkgtest (ximin)</li>
+          <li>What: run commands and check their output for reproducibility. Features:
+          <ul>
+            <li>Various virtual environments (e.g. ...)</li>
+            <li>Presets for convenience, atm only Deb packages</li>
+          </ul></li>
+          <li>Reduce diff with autopkgtest, aim to deduplicate (ximin)</li>
+          <li>Make it distro-independent, first ArchLinux (sanjev)</li>
         </ul>
       </section>
       
       <section>
-        <h3>Tools - diffoscope overview</h3>
+        <h3>diffoscope - overview</h3>
         <ul>
           <li>What exactly makes two files different?</li>
           <li>Recursively unpacks archives, uncompresses PDF files, disassembles binaries etc.</li>
@@ -247,16 +258,17 @@ A build is <b>reproducible</b> if given the same <i>source code</i>, <i>build en
       </section>
       
       <section>
-        <h3>Tools - diffoscope updates 1/2</h3>
+        <h3>diffoscope - updates 1/2</h3>
         <ul>
-          <li>html-dir rewrite, GCC diff (ximin)</li>
+          <li>Save json output, can be read back in. (ximin)</li>
+          <li>Rewrite html-dir output to support huge diffs, e.g. GCC.</li>
           <li>10s of speed optimisations (lamby, via Tails)</li>
-          <li>--exclude, --max-container-depth and other ways to control diffoscope behavior</li>
+          <li>--exclude, --max-container-depth and other ways to control behavior</li>
         </ul>
       </section>
       
       <section>
-        <h3>Tools - diffoscope updates 2/2</h3>
+        <h3>diffoscope - updates 2/2</h3>
         <ul>
           <li>New formats supported for comparison: OGG, .dtb, R object files (.rds, .rdb), PGP files, .docx, .odt, ...</li>
           <li>New output formats: RST, Markdown, JSON</li>
