@@ -93,6 +93,31 @@
         </ul>
       </section>
 
+      <section>
+        <h3>Predictable OpenID secret</h3>
+
+<pre class="fragment"><code># Build.PL
+$build-&gt;config_data(OpenIDConsumerSecret=&gt;int(1e15*rand()));
+</code></pre>
+
+<pre class="fragment"><code># /usr/share/perl5/GBrowse/ConfigData.pm
+{
+ 'OpenIDConsumerSecret' =&gt; '639098210478536',
+ 'cgibin' =&gt; '/usr/lib/cgi-bin/gbrowse',
+ 'conf' =&gt; '/etc/gbrowse',
+ [..]
+},
+</code></pre>
+
+        <ul>
+          <li class="fragment">Every installation of shares the same secret.</li>
+        </ul>
+
+        <p class="fragment">
+          <a href="https://bugs.debian.org/833885">#833885 (gbrowse)</a>
+        </p>
+      </section>
+
       <!-- ----------------------------------------------------------------- -->
 
 
