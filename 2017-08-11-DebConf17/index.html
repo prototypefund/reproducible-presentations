@@ -277,9 +277,9 @@ A build is <b>reproducible</b> if given the same <i>source code</i>, <i>build en
         <h3>diffoscope - overview</h3>
         <ul>
           <li>What exactly makes two files different?</li>
-          <li>Recursively unpacks archives, uncompresses PDF files, disassembles binaries etc.</li>
-          <li>Converts various file formats to human-readable form.</li>
-          <li>Reports differences in form of plain text, HTML, RST, JSON or Markdown.</li>
+          <li>Recursively unpacks archives, decompresses PDF files, disassembles binaries etc</li>
+          <li>Converts various file formats to human-readable form</li>
+          <li>Reports differences in form of plain text, HTML, RST, JSON or Markdown</li>
         </ul>
       </section>
       
@@ -289,14 +289,15 @@ A build is <b>reproducible</b> if given the same <i>source code</i>, <i>build en
           <li>Save json output, can be read back in. (ximin)</li>
           <li>Rewrite html-dir output to support huge diffs, e.g. GCC.</li>
           <li>10s of speed optimisations (lamby, via Tails)</li>
-          <li>--exclude, --max-container-depth and other ways to control behavior</li>
+          <li>--exclude, --max-container-depth and other ways to control behaviour</li>
         </ul>
       </section>
       
       <section>
         <h3>diffoscope - updates 2/2</h3>
         <ul>
-          <li>New formats supported for comparison: OGG, .dtb, R object files (.rds, .rdb), PGP files, .docx, .odt, ...</li>
+          <li>Better logging and debugging utilities
+          <li>New formats supported for comparison: APK, OGG, .dtb, R object files (.rds, .rdb), PGP files, .docx, .odt, ...</li>
           <li>New output formats: RST, Markdown, JSON</li>
           <li>Visual comparison of images (JPEG, ICO, PNG, GIF)</li>
         </ul>
