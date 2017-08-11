@@ -118,6 +118,27 @@ $build-&gt;config_data(OpenIDConsumerSecret=&gt;int(1e15*rand()));
         </p>
       </section>
 
+      <section>
+        <h3>Fails to build 0.46% of the time</h3>
+
+<pre class="fragment"><code>x = f(u('abc'), 16)
+y = f(u('abc'), 16)
+self.assertEqual(sorted(set(x)), [u('a'),u('b'),u('c')])
+</code></pre>
+
+<pre class="fragment"><code>AssertionError: Lists differ: [u'a', u'b'] != [u'a', u'b', u'c']</code></pre>
+
+        <ul>
+          <li class="fragment">
+            (3C2)*(2/3)^16 &ndash; (3C1)*(1/3)^16 =~ 0.46%
+          </li>
+        </ul>
+
+        <p class="fragment" style="margin-top: 1em;">
+          <a href="https://bugs.debian.org/844233">#844233 (python-passlib)</a>
+        </p>
+      </section>
+
       <!-- ----------------------------------------------------------------- -->
 
 
