@@ -326,9 +326,12 @@ A build is <b>reproducible</b> if given the same <i>source code</i>, <i>build en
       <section>
         <h3>diffoscope - updates 1/2</h3>
         <ul>
-          <li>Save json output, can be read back in. (ximin)</li>
-          <li>Rewrite html-dir output to support huge diffs, e.g. GCC.</li>
-          <li>10s of speed optimisations (lamby, via Tails)</li>
+          <li>Now works better with huge diffs (like GCC)
+          <ul>
+            <li>possible to control how detailed the output gets</li>
+            <li>reuse previously generated output saved in JSON format</li>
+          </ul></li>
+          <li>10s of speed optimisations</li>
           <li>--exclude, --max-container-depth and other ways to control behaviour</li>
         </ul>
       </section>
