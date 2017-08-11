@@ -85,6 +85,61 @@
         </h2>
       </section>
 
+
+       <section>
+        <h3>The incomplete team, with apologies to $YOU</h3>
+<p style="font-size: 90%">
+           akira
+    &bull; Alexis Bienvenüe
+    &bull; Alexander Couzens
+    &bull; Andrew Ayer
+    &bull; Asheesh Laroia
+    &bull; Bernhard M. Wiedemann
+    &bull; Boyuan Yang
+    &bull; Ceridwen
+    &bull; Chris Lamb
+    &bull; Chris West
+    &bull; Christoph Berg
+    &bull; Clint Adams
+    &bull; Dafydd Harries
+    &bull; Daniel Kahn Gillmor
+    &bull; Daniel Shahaf
+    &bull; Daniel Stender
+    &bull; David Suarez
+    &bull; Dhole
+    &bull; Drew Fisher
+    &bull; Emmanuel Bourg
+    &bull; Emanuel Bronshtein
+    &bull; Esa Peuha
+    &bull; Fabian Wolff
+    &bull; Guillem Jover
+    &bull; Hans-Christoph Steiner
+    &bull; Harlan Lieberman-Berg
+    &bull; Helmut Grohne
+    &bull; Holger Levsen
+    &bull; HW42
+    &bull; Intrigeri
+    &bull; Jelmer Vernooij
+    &bull; josch
+    &bull; Juan Picca
+    &bull; Justin Cappos
+    &bull; Lunar
+    &bull; Maria Glukhova
+    &bull; Mathieu Bridon
+    &bull; Mattia Rizzolo
+    &bull; Nicolas Boulenguez
+    &bull; Niels Thykier
+    &bull; Niko Tyni
+    &bull; Paul Wise
+    &bull; Peter De Wachter
+    &bull; Philip Rinn
+    &bull; Reiner Herrmann
+</p>
+  </section>
+
+
+
+
       <section>
         <h3>What is the goal of Reproducible Builds?</h3>
 		Prove binary came from source code.
@@ -92,22 +147,41 @@
 
       <section>
         <h3>Why do we want to prove this?</h3>
-		The binary could have been..
-          - compiled by a malicious actor?
-          - compiled with a compromised compiler?
+        <ul>
+		  <li>The binary could have been:</li>
+          <li>...compiled by a malicious actor.</li>
+          <li>...compiled with a compromised compiler.</li>
+        </ul>
       </section>
 
 
       <section>
-        <h3>Two problems to solve!</h3>
-          (1) Compilation of binary package should be deterministic.
-          (2) Build enviorment of any binary package should be reproducible.
+        <h3>Two problems to solve:</h3>
+        <ul>
+          <li>(1) Compilation of binary package should be deterministic.</li>
+          <li>(2) Build enviorment of any binary package should be reproducible.</li>
+		</ul>
       </section>
 
+
+      <!-- ----------------------------------------------------------------- -->
+
+      <section>
+        <h3>How far we've come..!</h3>
+        <table>
+          <tr><td>First rebuild in 2013</td><td>24% packages reproducible</td></tr>
+          <tr><td>June 2017</td><td>94% packages reproducible</td></tr>
+        </table>		
+      </section>
+
+      <section>
+        <h3>Check the progress</h3>
+        <h2>tests.reproducible-builds.org</h2>		
+      </section>
 
       <section>
         <h3>Side effects of reproducible builds effort</h3>
-		<h2> Catch crazy QA bugs </h2>
+        <h2> Catch crazy QA bugs </h2>
       </section>
 
       <section>
@@ -180,29 +254,6 @@ self.assertEqual(sorted(set(x)), [u('a'),u('b'),u('c')])
         <p class="fragment" style="margin-top: 1em;">
           <a href="https://bugs.debian.org/844233">#844233 (python-passlib)</a>
         </p>
-      </section>
-
-      <!-- ----------------------------------------------------------------- -->
-
-      <section>
-        <h3>How far we've come..!</h3>
-        <table>
-          <tr><td>First rebuild in 2013</td><td>24% packages reproducible</td></tr>
-          <tr><td>June 2017</td><td>94% packages reproducible</td></tr>
-        </table>		
-      </section>
-
-      <section>
-        <h3>How far we've come..!</h3>
-        <table>
-          <tr><td>First rebuild in 2013</td><td>24% packages reproducible</td></tr>
-          <tr><td>August 2017</td><td>88% packages reproducible</td></tr>
-        </table>		
-      </section>
-
-      <section>
-        <h3>Check the progress</h3>
-        <h2>tests.reproducible-builds.org</h2>		
       </section>
 
 
@@ -398,14 +449,22 @@ A build is <b>reproducible</b> if given the same <i>source code</i>, <i>build en
         </p>
       </section>
 
-      <section>
-        <h3>Thanks!</h3>
-        <ul>
-          <li>thanks to our sponsors:</li>
-          <li></li>
-          <li></li>
-        </ul>
+     <section data-background-color="white" data-background="images/rbo.png" data-background-size="25%" data-background-position="90% 10%">
+        <h2>Thanks to our sponsors:</h2>
+        <p style="text-align: center;">
+          <img src="images/lf.png">
+          &nbsp; &nbsp;
+          <img src="images/cii.png">
+          <br>
+          <img src="images/profitbricks.jpg">
+          <br>
+          <img src="images/codethink.png">
+          <br>
+          <img src="images/debian_logo.png">
+        </p>
       </section>
+
+
     </div>
   </div>
 
