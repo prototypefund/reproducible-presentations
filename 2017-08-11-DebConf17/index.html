@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Bits from the DPL</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+  <style type="text/css">
+  * {
+    text-transform: none !important;
+  }
+  li {
+    margin-top: 28px !important;
+    list-style-type: none !important;
+  }
+  ul ul li {
+    margin-top: 16px !important;
+  }
+  a {
+    color: inherit !important;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .pull-left {
+    float: left;
+  }
+
+  .pull-right {
+    float: right;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-background="images/debian_logo.png" data-background-size="7%" data-background-position="50% 20%">
+        <h1 style="margin: 250px 0 120px 0; font-size: 140%;">Reproducible Builds<br>Status Update</h1>
+        <h2 class="pull-left text-left" style="font-size: 80%">
+          Chris Lamb &bull; Holger Levsen &bull; Maria Glukhova<br>
+          Vagrant Cascadian &bull; Valerie Young &bull; Ximin Luo
+        </h2>
+        <h2 class="pull-right text-right" style="font-size: 80%">
+          DebConf17
+          <br>
+          Montréal, Canada
+        </h2>
+      </section>
+
+      <section>
+        <h3>Quick Introduction to R-B concept</h3>
+      </section>
+
+      <section>
+        <h3>Examples</h3>
+        <ul>
+          <li>Examples of attacks</li>
+          <li>Examples of QA issues caught (from lamby's slides)</li>
+        </ul>
+      </section>
+
+      <!-- ----------------------------------------------------------------- -->
+
+      <section>
+        <h2>Recent updates</h2>
+      </section>
+
+      <section>
+        <h3>reproducible builds summit</h3>
+        <ul>
+          <li>who attended</li>
+          <li>what happened</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>definition of reproducible builds</h3>
+      </section>
+
+      <section>
+        <h3>tests.r-b.org expansion</h3>
+        <ul>
+          <li>added arm64</li>
+          <li>expanded armhf</li>
+          <li>some arm64 boards building armhf</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>updates on buildpath</h3>
+        <ul>
+          <li>golang, rustc updates</li>
+          <li>gcc patch getting some resistance, might have to change approach</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>fedora on board</h3>
+        <ul>
+          <li>bernhard submitting a lot of patches upstream, pick some examples</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>tool updates</h3>
+        <ul>
+          <li>reprotest make it distro-independent (sanjev)</li>
+          <li>perhaps deduplicate with autopkgtest (ximin)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>diffoscope has new bells and whistles</h3>
+        <ul>
+          <li>brief overview on what diffoscope is<li>
+          <li>
+              add updates from maria
+              <ul>
+                <li>APK files</li>
+                <li>Pictures (visual compare)</li>
+              </ul>
+          </li>
+          <li>html-dir rewrite, GCC diff (ximin)</li>
+          <li>10s of speed optimisations (lamby, via Tails)</li>
+        </ul>
+      </section>
+
+      <!-- ----------------------------------------------------------------- -->
+
+      <section>
+        <h2>Future directions</h2>
+      </section>
+
+      <section>
+        <h3>stretch released, focusing on buster now</h3>
+        <ul>
+          <li>plans for NMU campaign, decided not started</li>
+          <li>"required" packages NMU (by ximin), now everything there is reproducible except GCC</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>dak and Debian archive</h3>
+        <ul>
+          <li>publish buildinfo files</li>
+          <li>tests.r-b.org: perhaps run rebuilds against actual debian binaries (mention steven's talk)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Policy and UI</h3>
+        <ul>
+          <li>policy, to encourage people to make their packages unreproducible</li>
+          <li>apt UI, notify users about unreproducible stuff (and maybe other issues like security bugs)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>How you can help?</h3>
+        <ul>
+          <li>tests.reproducible.org</li>
+          <li>(TODO, take stuff from above)</li>
+        </ul>
+      </section>
+
+      <section data-background-image="images/debian.jpg">
+        <h4 class="pull-left text-left" style="font-size: 60%;" >
+          #debian-reproducible (OFTC)<br>
+          reproducible-builds@lists.alioth.debian.org
+        </h4>
+        <h4 class="pull-right text-right" style="font-size: 60%;">
+          #reproducible-builds (OFTC)
+          <br>
+          reproducible-builds.org
+        </h4>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: false,
+      progress: false,
+      history: true,
+      keyboard: {
+        13: 'next',
+        38: 'next',
+         9: 'prev',
+        40: 'prev'
+      }
+    });
+  </script>
+</body>
+</html>
