@@ -460,6 +460,38 @@ A build is <b>reproducible</b> if given the same <i>source code</i>, <i>build en
         </ul>
       </section>
 
+      <section><h3>Policy</h3>
+<pre>
+Reproducibility
+---------------
+
+Packages should build reproducibly, which for the purposes of this
+document [#]_ means that given
+
+- a version of a source package unpacked at a given path;
+- a set of versions of installed build dependencies;
+- a set of environment variable values;
+- a build architecture; and
+- a host architecture,
+
+repeatedly building the source package for the build architecture on
+any machine of the host architecture with those versions of the build
+dependencies installed and exactly those environment variable values
+set will produce bit-for-bit identical binary packages.
+
+It is recommended that packages produce bit-for-bit identical binaries
+even if most environment variables and build paths are varied.  It is
+intended for this stricter standard to replace the above when it is
+easier for packages to meet it.
+
+.. [#]
+   This is Debian's precisification of the `reproducible-builds.org
+   definition <https://reproducible-builds.org/docs/definition/>`_.
+
+</pre>
+
+      </section>
+
       <section>
         <h3>User interfaces</h3>
         <ul>
