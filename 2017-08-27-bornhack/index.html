@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Reproducible Builds Status Update</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+  <style type="text/css">
+  * {
+    text-transform: none !important;
+  }
+  li {
+    margin-top: 28px !important;
+    list-style-type: none !important;
+  }
+  ul ul li {
+    margin-top: 16px !important;
+  }
+  a {
+    color: inherit !important;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .pull-left {
+    float: left;
+  }
+
+  .pull-right {
+    float: right;
+  }
+
+  .reveal pre code {
+    padding: 20px;
+    overflow: hidden;
+    background-color: #3f3f3f;
+  }
+
+  .reveal section code {
+    /* monospace font is pretty big on my computer, can adjust this back up if needed */
+    font-size: 75%;
+  }
+
+  .reveal section small {
+    font-size: 85%;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-background="images/debian_logo.png" data-background-size="7%" data-background-position="50% 20%">
+        <h1 style="margin: 250px 0 120px 0; font-size: 140%;">Reproducible Builds<br>Status Update</h1>
+        <h2 class="pull-left text-left" style="font-size: 80%">
+          Chris Lamb &bull; Holger Levsen &bull; Maria Glukhova &bull;<br>
+          Steven Chamberlain &bull; Vagrant Cascadian &bull;<br>
+          Valerie Young &bull; Ximin Luo
+        </h2>
+        <h2 class="pull-right text-right" style="font-size: 80%">
+          DebConf17
+          <br>
+          Montréal, Canada
+        </h2>
+      </section>
+
+
+       <section>
+        <h3>The incomplete team, with apologies to $YOU</h3>
+<p style="font-size: 90%">
+           akira
+    &bull; Alexis Bienvenüe
+    &bull; Alexander Couzens
+    &bull; Andrew Ayer
+    &bull; Asheesh Laroia
+    &bull; Bernhard M. Wiedemann
+    &bull; Boyuan Yang
+    &bull; Ceridwen
+    &bull; Chris Lamb
+    &bull; Chris West
+    &bull; Christoph Berg
+    &bull; Clint Adams
+    &bull; Dafydd Harries
+    &bull; Daniel Kahn Gillmor
+    &bull; Daniel Shahaf
+    &bull; Daniel Stender
+    &bull; David Suarez
+    &bull; Dhole
+    &bull; Drew Fisher
+    &bull; Emmanuel Bourg
+    &bull; Emanuel Bronshtein
+    &bull; Esa Peuha
+    &bull; Fabian Wolff
+    &bull; Guillem Jover
+    &bull; Hans-Christoph Steiner
+    &bull; Harlan Lieberman-Berg
+    &bull; Helmut Grohne
+    &bull; Holger Levsen
+    &bull; HW42
+    &bull; Intrigeri
+    &bull; Jelmer Vernooij
+    &bull; josch
+    &bull; Juan Picca
+    &bull; Justin Cappos
+    &bull; Lunar
+    &bull; Maria Glukhova
+    &bull; Mathieu Bridon
+    &bull; Mattia Rizzolo
+    &bull; Nicolas Boulenguez
+    &bull; Niels Thykier
+    &bull; Niko Tyni
+    &bull; Paul Wise
+    &bull; Peter De Wachter
+    &bull; Philip Rinn
+    &bull; Reiner Herrmann
+</p>
+  </section>
+
+
+      <section>
+        <h3>What is the goal of Reproducible Builds?</h3>
+      </section>
+
+      <section>
+		Prove binary came from source code.
+      </section>
+
+      <section>
+        <h3>Why do we want to prove this?</h3>
+      </section>
+
+	  <section>
+		<h3>The binary could have been:</h3>
+        <ul>
+          <li>...compiled by a malicious actor.</li>
+          <li>...compiled with a compromised compiler.</li>
+        </ul>
+	  </section>
+
+      <section>
+        <h3>How do we achieve Reproducible Builds?</h3>
+      </section>
+
+      <section>
+        <h3>In Debian, two branches of work:</h3>
+        <ul>
+          <li> 1. Compilation of binary program should be deterministic.</li>
+          <li> 2. Build environment of any binary program should be reproducible.</li>
+		</ul>
+      </section>
+
+
+      <!-- ----------------------------------------------------------------- -->
+
+      <section>
+        <h3>How far we've come..!</h3>
+        <table>
+          <tr><td>First rebuild in 2013</td><td>24% packages reproducible</td></tr>
+          <tr><td>June 2017</td><td>94% packages reproducible</td></tr>
+        </table>		
+      </section>
+
+      <section>
+        <h3>How far we'll need to go..!</h3>
+        <table>
+          <tr><td>sometime</td><td>100% packages reproducible</td></tr>
+          <tr><td>sometime</td><td>tools to actually verify that in practice</td></tr>
+        </table>		
+      </section>
+
+
+      <section>
+        <h3>Check the progress</h3>
+        <h2>tests.reproducible-builds.org</h2>	
+	<p>(reproducible.debian.net)</p>
+      </section>
+
+      <section>
+        <h3>Technical &amp; other security benefits</h3>
+      </section>
+
+      <section>
+        <h3>Predictable OpenID secret</h3>
+
+<pre class="fragment"><code># Build.PL
+$build-&gt;config_data(OpenIDConsumerSecret=&gt;int(1e15*rand()));
+</code></pre>
+
+        <div class="fragment">
+          <pre><code># /usr/share/perl5/GBrowse/ConfigData.pm
+{
+ 'OpenIDConsumerSecret' =&gt; '639098210478536',
+ 'cgibin' =&gt; '/usr/lib/cgi-bin/gbrowse',
+ 'conf' =&gt; '/etc/gbrowse',
+ [..]
+},
+</code></pre>
+
+          <ul>
+            <li>Every installation shares the same secret!</li>
+          </ul>
+        </div>
+
+        <p class="fragment">
+          <a href="https://bugs.debian.org/833885">#833885 (gbrowse)</a>
+        </p>
+      </section>
+
+      <section>
+        <h3>Random chars in manpages</h3>
+
+        <pre class="fragment"><code>-This manual page documents the usageoof WikipediaFS.
++This manual page documents the usage of WikipediaFS.
+</code></pre>
+
+        <pre class="fragment"><code>memcpy(&amp;buf[1], &amp;buf[2], strlen(buf)-1);</code></pre>
+
+        <pre class="fragment"><code>memcpy(3): The memory areas must not overlap</code></pre>
+
+        <ul>
+          <li class="fragment">"<code> n\\011</code>" &rarr; "<code>\111</code>" &rarr; maps to capital "I"</li>
+        </ul>
+
+        <pre class="fragment"><code>- memcpy(&amp;buf[1], &amp;buf[2], strlen(buf)-1);
++ memmove(&amp;buf[1], &amp;buf[2], strlen(buf)-1);
+</code></pre>
+
+        <p class="bug-link fragment">
+          <a href="https://bugs.debian.org/842635">#842635 (docbook2man)</a>
+        </p>
+      </section>
+
+      <section>
+        <h3>Fails to build 0.46% of the time</h3>
+
+<pre class="fragment"><code>x = f(u('abc'), 16)
+y = f(u('abc'), 16)
+self.assertEqual(sorted(set(x)), [u('a'), u('b'), u('c')])
+</code></pre>
+
+<pre class="fragment"><code>AssertionError: Lists differ: [u'a', u'b'] != [u'a', u'b', u'c']</code></pre>
+
+        <ul>
+          <li class="fragment">
+            (<sub>3</sub>C<sub>2</sub>)*(2/3)<sup>16</sup> &ndash; (<sub>3</sub>C<sub>1</sub>)*(1/3)<sup>16</sup> =~ 0.46%
+          </li>
+        </ul>
+
+        <p class="fragment" style="margin-top: 1em;">
+          <a href="https://bugs.debian.org/844233">#844233 (python-passlib)</a>
+        </p>
+      </section>
+
+
+      <section>
+        <h2>Recent updates</h2>
+      </section>
+
+      <section>
+        <h3>Reproducible Builds Summit</h3>
+        <h3>December 2016, Berlin</h3>
+		<h4>Who Attended?</h4>
+      </section>
+
+      <section data-background-color="white">
+        <img src="images/who/archlinux.png">
+        <img src="images/who/coreboot.png">
+        <img src="images/who/electrobsd.png">
+        <img src="images/who/f-droid.png">
+        <img src="images/who/freebsd.png">
+        <img src="images/who/fedora.png">
+        <img src="images/who/guix.png">
+        <img src="images/who/lede.png">
+        <img src="images/who/netbsd.png">
+        <img src="images/who/nixos.png">
+        <img src="images/who/openSUSE.png">
+        <img src="images/who/openwrt.png">
+        <img src="images/who/tails.png">
+        <img src="images/who/tor.png">
+		<ul>
+		<li>Software Freedom Conservancy<li>
+		<li>Bazel<li>
+		</ul>
+      </section>
+
+
+
+      <section>
+        <h3>reproducible-builds.org/docs/definition</h3>
+A build is <b>reproducible</b> if given the same <i>source code</i>, <i>build environment and build instructions</i>, any party can recreate bit-by-bit identical copies of all specified <i>artifacts</i>.
+<div>...</div>
+      </section>
+
+      <section>
+        <h3>Reproducible Builds Summit 2016</h3>
+		<h4>Other work</h4>
+		<ul>
+		<li>.buildinfo files for RPMs<li>
+		<li>Cross Distro Collaboration<li>
+		</ul>
+      </section>
+
+      <section>
+        <h3>tests.r-b.org expansion</h3>
+        <ul>
+	  <li>increased amd64+i386 ressources</li>
+          <li>added arm64</li>
+          <li>expanded armhf, up to 29 boards!</li>
+          <li>some arm64 boards building armhf, with <em>issues</em></li>
+	  <li>some more projects, more collaboration</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>OpenSuSE on board</h3>
+        <ul>
+          <li>Bernhard submitting a lot of patches upstream, pick some examples</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Examples of more active distros/projects</h3>
+        <ul>
+          <li>Guix, Fdroid, LEDE, Coreboot, but also in-toto, Tails…</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Updates on build path</h3>
+        <ul>
+          <li>GCC <code>-fdebug-prefix-map</code>, <code>DW_AT_producer</code>, etc</li>
+          <li>golang <code>-trimpath</code>:
+          <a href="https://github.com/golang/go/issues/16860">golang/go#16860</a></li>
+          <li>rustc <code>--remap-path-prefix</code>:
+          <a href="https://github.com/rust-lang/rust/issues/41555">rust-lang/rust#41555</a>,
+          <a href="https://github.com/rust-lang/rust/issues/34902">#34902</a></li>
+          <li><code>BUILD_PATH_PREFIX_MAP</code>: <br/>
+          <small>https://reproducible-builds.org/specs/build-path-prefix-map/</small></li>
+          <li>GCC patch fixed 1800 packages but getting some resistance from upstream...</li>
+        </ul>
+      </section>
+
+      <!-- ----------------------------------------------------------------- -->
+
+      <section>
+        <h2>Reproducibility tools</h2>
+      </section>
+
+      <section>
+        <h3>reprotest - overview and updates</h3>
+        <ul>
+          <li>What: run commands under varying build environments and check
+          their output for reproducibility. Features:
+          <ul>
+            <li>Running inside virtual containers (e.g. ...)</li>
+            <li>Presets for convenience, atm only Deb packages</li>
+          </ul></li>
+          <li>Reduce diff with autopkgtest, aim to deduplicate (ximin)</li>
+          <li>Make it distro-independent, first ArchLinux (santiago)</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h3>diffoscope - overview</h3>
+        <a href="https://diffoscope.org/">diffoscope.org</a>
+        <ul>
+          <li>What exactly makes two files different?</li>
+          <li>Recursively unpacks archives, decompresses PDF files, disassembles binaries etc</li>
+          <li>Converts various file formats to human-readable form</li>
+          <li>Reports differences in form of plain text, HTML, RST, JSON or Markdown</li>
+          <li>Try it online: <a href="https://try.diffoscope.org/">try.diffoscope.org</a></li>
+        </ul>
+      </section>
+      
+      <section>
+        <h3>diffoscope - updates 1/2</h3>
+        <ul>
+          <li>Now works better with huge diffs (like GCC)
+          <ul>
+            <li>possible to control how detailed the output gets</li>
+            <li>reuse previously generated output saved in JSON format</li>
+          </ul></li>
+          <li>10s of speed optimisations (via Tails)
+          <ul>
+            <li> from 3 hours → 8 minutes </li>
+          </ul></li>
+          <li>Progress bar displayed when diffoscope runs in terminal</li>
+          <li>--exclude, --max-container-depth and other ways to control behaviour</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h3>diffoscope - updates 2/2</h3>
+        <ul>
+          <li>Better logging and debugging utilities
+          <li>New formats supported for comparison: APK, OGG, .dtb, R object files (.rds, .rdb), PGP files, .docx, .odt, ...</li>
+          <li>New output formats: RST, Markdown, JSON</li>
+          <li>Visual comparison of images (JPEG, ICO, PNG, GIF)</li>
+        </ul>
+      </section>
+
+      <!-- ----------------------------------------------------------------- -->
+
+      <section>
+        <h2>Future directions</h2>
+      </section>
+
+      <section>
+        <h3>FTP archive and dak</h3>
+        <ul>
+          <li>Publish buildinfo files in the official archive, requires some dak patches.</li>
+          <li>Then, run tests.r-b.org rebuilds against actual Debian binaries, and encourage third parties to do the same.</li>
+          <li>steven began to work in this area with repro-build.pl (the topic of his "Fun with .buildinfo" talk yesterday)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Debian buster</h3>
+        <ul>
+          <li>We had not been testing against actual archive binaries, hope to fix this soon.</li>
+          <li>Recently, <em>required</em> packages NMU (by ximin), now all reproducible except GCC.</li>
+          <li>Next, begin our wider NMU campaign, for packages with long-pending patches.</li>
+          <li>Eventually aim for build-essential and <a href="https://anonscm.debian.org/git/collab-qa/udd.git/tree/scripts/update-key-packages.pl#n107">key-packages</a>.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Policy</h3>
+        <ul>
+          <li>"Packages <b>should</b> be reproducible" (#844431).</li>
+	 <ul>
+	  <li> we'll need to define reproducibilty</li>
+	  <li> reproducibile in a fairly controlled way / sane environment - not everywhere</li>
+	  <li>define requirements / exceptions: same buld environment + same options + same path</li>
+	  <li>mention .buildinfo files and missing processes+tools</li>
+	</ul>
+	<li class="fragment">Should we have this in policy now? Do we agree that Debian is ready for this, as a <i>should</i> which still needs work and non complying is a normal bug for now…</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>User interfaces</h3>
+        <ul>
+          <li>UI/workflow for APT to notify users about unreproducible packages (#863622).</li>
+	  <li>sbuild, pbuilder</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>How can I help?</h3>
+        <ul>
+          <li><em>Join our lovely team!</em></li>
+          <li>Check your packages on <code>qa.debian.org/developer.php</code></li>
+          <li>Merge patches &amp; push them upstream</li>
+          <li>Fix toolchain issues (Java, TeX, <code>dvips</code>, <code>graphviz</code>, etc.)</li>
+        </ul>
+      </section>
+
+      <section data-background-image="images/debian.jpg">
+        <p style="font-size: 80%;">
+          <code>#debian-reproducible</code><br>
+          <code>#reproducible-builds</code>
+        </p>
+        <p style="font-size: 80%;">
+          <code>reproducible-builds.org</code><br>
+          <code>reproducible-builds@lists.alioth.debian.org</code>
+        </p>
+      </section>
+
+     <section data-background-color="white" data-background="images/rbo.png" data-background-size="25%" data-background-position="90% 10%">
+        <h2>Thanks to our sponsors:</h2>
+        <p style="text-align: center;">
+          <img src="images/lf.png">
+          &nbsp; &nbsp;
+          <img src="images/cii.png">
+          <br>
+          <img src="images/profitbricks.jpg">
+          <br>
+          <img src="images/codethink.png">
+          <br>
+          <img src="images/debian_logo.png">
+        </p>
+      </section>
+
+
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: false,
+      progress: false,
+      history: true,
+      keyboard: {
+        13: 'next',
+        38: 'next',
+         9: 'prev',
+        40: 'prev'
+      }
+    });
+  </script>
+</body>
+</html>
