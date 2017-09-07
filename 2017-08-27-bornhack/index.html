@@ -157,6 +157,28 @@
 	</ul>
       </section>
 
+      <section data-background="images/h01ger.png" data-background-size="15%" data-background-color="black">
+        <h2>about me</h2>
+        <ul class="fragment">
+          <li>Debian user since 1995, contributing since 2001</li>
+          <li>Debian-Edu (Debian for Education), since 2003</li>
+          <li>DebConf organizer, founded the DebConf video team in 2005</li>
+          <li>Debian developer since 2007, <code>holger@debian.og</code></li>
+          <li>Freelancer since 2004</li>
+        </ul>
+      </section>
+
+      <section data-background="images/h01ger.png" data-background-size="15%" data-background-color="black">
+        <h2>more about Debian QA and me</h2>
+        <ul>
+          <li class="fragment"><code>https://piuparts.debian.org</code> since 2009 - today (Nov 2016) juggling with 648988 logs from 53158 packages in 28 suites with Andreas Beckmann</li>
+          <li class="fragment"><code>https://jenkins.debian.net</code> since 2012</li>
+          <li class="fragment"><code>https://reproducible.debian.net</code> since 2014</li>
+          <li class="fragment">since 2015 funded by the Linux Foundation for working on <code>https://reproducible-builds.org</code></li>
+        </ul>
+      </section>
+
+
 
       <section>
         <h3>What is the goal of Reproducible Builds?</h3>
@@ -168,6 +190,9 @@
 
       <section>
         <h3>Why do we want to prove this?</h3>
+	<ul>
+	<li class="fragment">We don't want to believe, we want to know…</li>
+	</ul>
       </section>
 
 	  <section>
@@ -456,7 +481,7 @@ A build is <b>reproducible</b> if given the same <i>source code</i>, <i>build en
       </section>
 
       <section>
-        <h3>Distributing .buildinfo files</h3>
+        <h3>Distributing Debian .buildinfo files</h3>
         <ul>
           <li>Publish buildinfo files in the official archive, requires some dak ("Debian Archive Kit") patches.</li>
           <li>Then, run tests.r-b.org rebuilds against actual Debian binaries, and encourage third parties to do the same.</li>
@@ -476,7 +501,7 @@ A build is <b>reproducible</b> if given the same <i>source code</i>, <i>build en
       </section>
 
       <section>
-        <h3>Policy</h3>
+        <h3>Debian Policy</h3>
         <ul>
           <li>"Packages <b>should</b> be reproducible" (#844431).</li>
 	 <ul>
@@ -489,7 +514,7 @@ A build is <b>reproducible</b> if given the same <i>source code</i>, <i>build en
         </ul>
       </section>
 
-      <section><h3>Policy</h3>
+      <section><h3>Debian Policy</h3>
 <pre>
 Reproducibility
 ---------------
@@ -530,25 +555,50 @@ easier for packages to meet it.
       </section>
 
       <section>
+        <h2>tests.reproducible-builds.org</h2>
+        <ul>
+          <li>Parse JSON results from other tests setups and put them in our DB</li>
+        <li>Store our non-Debian tests results in DB</li>
+        <li>Generate web pages for other distros & projects and also create statistics and graphs</li>
+        </ul>
+      </section>
+
+      <section>
         <h3>How can I help?</h3>
         <ul>
           <li><em>Join our lovely team!</em></li>
           <li>Check your packages on <code>qa.debian.org/developer.php</code></li>
+          <ul><li>or reproducible.debian.net/$srcpkg</li></ul>
           <li>Merge patches &amp; push them upstream</li>
           <li>Fix toolchain issues (Java, TeX, <code>dvips</code>, <code>graphviz</code>, etc.)</li>
         </ul>
       </section>
 
       <section data-background-image="images/debian.jpg">
-        <p style="font-size: 80%;">
-          <code>#debian-reproducible</code><br>
-          <code>#reproducible-builds</code>
-        </p>
-        <p style="font-size: 80%;">
+        <p style="font-size: 100%;">
           <code>reproducible-builds.org</code><br>
           <code>reproducible-builds@lists.alioth.debian.org</code>
         </p>
-      </section>
+	<br />
+        <p style="font-size: 120%;">
+          <code>#debian-reproducible</code><br>
+          <code>#reproducible-builds</code>
+	</p>
+        <p style="font-size: 80%;">
+	  (on irc.OFTC.net)<br />
+        </p>
+       	<br />
+	<br />
+ <table>
+        <tr>
+          <td>
+            <a href="mailto:holger@debian.org">holger@debian.org</a>
+          </td>
+          <td style="text-align: right;">
+            <code>B8BF 5413 7B09 D35C F026<br />FE9D 091A B856 069A AA1C</code>
+          </td>
+	</table>
+     </section>
 
      <section data-background-color="white" data-background="images/rbo.png" data-background-size="25%" data-background-position="90% 10%">
         <h2>Thanks to our sponsors:</h2>
