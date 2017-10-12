@@ -1,0 +1,16 @@
+title: Reproducible Builds - why aren't we there yet?
+subtitle: It all depends on how "we" and "there" are defined…!
+
+abstract:
+
+Reproducible Builds had the second big introduction to the world at Fosdem 2014 and Debian has reached 95% they say, so some people are expecting "us" to have reached reproducible builds and safer software distribution already or really soon now. And while this is true for "small ecosystems" like Tails or coreboot, there are still some major obstacles until all free software in a major distro will be reproducible and until all users can benefit from it.
+
+full description:
+
+Reproducible builds enable everyone to verify that a given binary is made from the source it is claimed to be made from, by enabling anyone to create bit by bit identical binaries.
+
+Reproducible Builds are a complex topic (whether you look at one distro only or the whole software as we do here) and thus the talk will be structured in:
+ * briefly explain why and how reproducible builds are an important link in the chain of how secure software is delivered to users.
+ * followed by various reports on the state of reproducible builds in various distributions (Debian, FreeBSD; F-Droid, SuSE, Guix, coreboot, Archlinux, Guix, Fedora and Qubes OS - to name some) and thus should be interesting and insightful for anyone working on any free software project.
+ * an overview of the existing test infrastructures, remaining classes of problems and possible solutions.
+ * how to enable users to benefit from Reproducible Builds.
