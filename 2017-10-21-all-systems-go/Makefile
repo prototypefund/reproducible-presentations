@@ -1,6 +1,6 @@
 .PHONY: all source images
 
-PRESENTATION = 2017-01-27-devconf.cz
+PRESENTATION = 2017-10-21-all-systems-go
 
 all: $(PRESENTATION).pdf
 
@@ -27,3 +27,4 @@ clean:
 
 distclean:
 	rm -f $(PRESENTATION).pdf
+

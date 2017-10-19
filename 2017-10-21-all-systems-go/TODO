@@ -1,9 +1,22 @@
 meta: 
 	thank people for their work, diffoscope, disorderfs, armhf, mattia, val, … - mention peoples names and thank them. there's time now.
 
-
-build path proposal
-binary transparency
-backslash in tex?
+start somewhere with "this is mostly about debian" and i fear this *is* becoming a problem
+	we are at 93%, that is true - and misleading
+change (and shorten) description of t.r-b.o into a (boring^wshort) "review about status quo"
+	then emphasize we need funding for all teh cool things planned
+status golang
+status arch
+update suse
+update list of contriburs
+update graphs
+update numbers
+new slide: rws3 with pic from rws2
+next big shiny thing, needs funding too
+tell a story or 3
+BUILD_PATH_PREFIX_MAP
+	quote: " This specification describes the environment variable BUILD_PATH_PREFIX_MAP for build tools to exchange information about the build-time filesystem layout, to generate reproducible output where all embedded paths are independent of that layout."
+	https://reproducible-builds.org/specs/build-path-prefix-map/
+how to do a backslash in tex?
 
 
