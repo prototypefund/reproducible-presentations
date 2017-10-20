@@ -22,16 +22,30 @@ update suse - at 93% too!
         no user tooling yet, no infrastructure.
 	no wide commitment yet
 
+update Fedora
+
 update list of contriburs
+	or add a slide: those are only Debian people and not updated since half a year
 update graphs
 update numbers
 new slide: rws3 with pic from rws2
 next big shiny thing, needs funding too
 
 maybe start talk with / got somthing similar now
-        reproducible in debian are my example, its the most advanced and thats a problem actually
-        because i know of no other distro that commited
-        all others are lagging behind :/
+
+start with a summary of debians success
+	and explain this
+	(those are the slides from the end of the debian part)
+	then "misleading success"
+	then reproducible in debian are my example, its the most advanced and thats a problem actually
+	        because i know of no other distro that commited
+        	all others are lagging behind :/
+		but you can start catching up now, but the challange is not to get to the 94%
+			its the 100% 
+			the infrastrctuzre
+			the user tools
+then explain what we have
+	prefaced by this needs maintenance, which needs funding too
 
 
 
