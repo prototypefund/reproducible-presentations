@@ -1,16 +1,11 @@
 meta: 
 	thank people for their work, diffoscope, disorderfs, armhf, mattia, val, … - mention peoples names and thank them. there's time now.
 
-change (and shorten) description of t.r-b.o into a (boring^wshort) "review about status quo"
-	then emphasize we need funding for all teh cool things planned
-
-funding situation unclear, help welcome
-emphasize maintaince needs funding too, mayne also at the beginning?
-
-start talk with
-        reproducible in debian are my example, its the most advanced and thats a problem actually
-        because i know of no other distro that commited
-        all others are lagging behind :/
+shorten debian summary
+	change (and shorten) description of t.r-b.o into a (boring^wshort) "review about status quo"
+		then emphasize we need funding for all teh cool things planned
+	funding situation unclear, help welcome
+		emphasize maintaince needs funding too, mayne also at the beginning?
 
 status golang
         works
@@ -22,15 +17,6 @@ status golang
 		quote: " This specification describes the environment variable BUILD_PATH_PREFIX_MAP for build tools to exchange information about the build-time filesystem layout, to generate reproducible output where all embedded paths are independent of that layout."
 		https://reproducible-builds.org/specs/build-path-prefix-map/
 
-status arch
-        needed patches merged into pacman.git/master
-        also needs devtools changes which are prepared in anthraxx local git clone
-                SOURCE_DATE_EPOCH is set to an arbitrary date during build (=not derived from source code)
-        will release when its ready ;)
-        .buildinfo files are part of Arch linux binary packages (.pkg.xz)
-                (=dont contain checksums of binaries nor depends
-		do contain checksum of PKGBUILD file which contains checksums of upstream sources
-        no user tooling yet, no infrastructure.
 
 update suse - at 93% too!
         no user tooling yet, no infrastructure.
@@ -41,7 +27,25 @@ update graphs
 update numbers
 new slide: rws3 with pic from rws2
 next big shiny thing, needs funding too
+
+maybe start talk with / got somthing similar now
+        reproducible in debian are my example, its the most advanced and thats a problem actually
+        because i know of no other distro that commited
+        all others are lagging behind :/
+
+
+
 tell a story or 3
 how to do a backslash in tex?
 
+put this into the weekly blog:
+	status arch
+	        needed patches merged into pacman.git/master
+        	also needs devtools changes which are prepared in anthraxx local git clone
+                	SOURCE_DATE_EPOCH is set to an arbitrary date during build (=not derived from source code)
+        	will release when its ready ;)
+       		 .buildinfo files are part of Arch linux binary packages (.pkg.xz)
+                	(=dont contain checksums of binaries nor depends
+			do contain checksum of PKGBUILD file which contains checksums of upstream sources
+	        no user tooling yet, no infrastructure.
 
