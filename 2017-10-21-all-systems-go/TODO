@@ -3,20 +3,45 @@ meta:
 
 change (and shorten) description of t.r-b.o into a (boring^wshort) "review about status quo"
 	then emphasize we need funding for all teh cool things planned
+
 funding situation unclear, help welcome
 emphasize maintaince needs funding too, mayne also at the beginning?
+
+start talk with
+        reproducible in debian are my example, its the most advanced and thats a problem actually
+        because i know of no other distro that commited
+        all others are lagging behind :/
+
 status golang
+        works
+        except build path…
+        https://anonscm.debian.org/cgit/pkg-golang/golang.git/tree/debian/patches/0002-reproducible-BUILD_PATH_PREFIX_MAP.patch?h=golang-1.9
+                depends on gcc patch, which is not upstream
+                so this hasnt been tried
+	BUILD_PATH_PREFIX_MAP
+		quote: " This specification describes the environment variable BUILD_PATH_PREFIX_MAP for build tools to exchange information about the build-time filesystem layout, to generate reproducible output where all embedded paths are independent of that layout."
+		https://reproducible-builds.org/specs/build-path-prefix-map/
+
 status arch
+        needed patches merged into pacman.git/master
+        also needs devtools changes which are prepared in anthraxx local git clone
+                SOURCE_DATE_EPOCH is set to an arbitrary date during build (=not derived from source code)
+        will release when its ready ;)
+        .buildinfo files are part of Arch linux binary packages (.pkg.xz)
+                (=dont contain checksums of binaries nor depends
+		do contain checksum of PKGBUILD file which contains checksums of upstream sources
+        no user tooling yet, no infrastructure.
+
 update suse - at 93% too!
+        no user tooling yet, no infrastructure.
+	no wide commitment yet
+
 update list of contriburs
 update graphs
 update numbers
 new slide: rws3 with pic from rws2
 next big shiny thing, needs funding too
 tell a story or 3
-BUILD_PATH_PREFIX_MAP
-	quote: " This specification describes the environment variable BUILD_PATH_PREFIX_MAP for build tools to exchange information about the build-time filesystem layout, to generate reproducible output where all embedded paths are independent of that layout."
-	https://reproducible-builds.org/specs/build-path-prefix-map/
 how to do a backslash in tex?
 
 
