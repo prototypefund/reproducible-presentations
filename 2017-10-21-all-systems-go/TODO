@@ -1,11 +1,10 @@
 meta: 
 	thank people for their work, diffoscope, disorderfs, armhf, mattia, val, … - mention peoples names and thank them. there's time now.
 
-start somewhere with "this is mostly about debian" and i fear this *is* becoming a problem
-	we are at 93%, that is true - and misleading
 change (and shorten) description of t.r-b.o into a (boring^wshort) "review about status quo"
 	then emphasize we need funding for all teh cool things planned
 funding situation unclear, help welcome
+emphasize maintaince needs funding too, mayne also at the beginning?
 status golang
 status arch
 update suse - at 93% too!
