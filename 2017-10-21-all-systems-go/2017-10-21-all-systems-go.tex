@@ -616,9 +616,35 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{itemize}
 \end{frame}
 
+\section{Status Debian}
+
+\begin{frame}
+ \frametitle{Status golang}
+
+ \begin{itemize}
+  \item<2-4> Golang binaries are bit by bit reproducible!
+  \item<3-4> Except when the build path is varied…
+  \item<4> \url{https://anonscm.debian.org/cgit/pkg-golang/golang.git/tree/debian/patches/0002-reproducible-BUILD\_PATH\_PREFIX\_MAP.patch?h=golang-1.9}
+
+ \end{itemize}
+ \begin{center}
+  \includegraphics[height=0.2\paperheight]{images/golang.png}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{\texttt{BUILD\_PATH\_PREFIX\_MAP}}
+ \begin{itemize}
+  \item "This specification describes the environment variable BUILD\_PATH\_PREFIX\_MAP for build tools to exchange information about the build-time filesystem layout, to generate reproducible output where all embedded paths are independent of that layout."
+  \item \url{https://reproducible-builds.org/specs/build-path-prefix-map/}
+  \item<2-3> Build path variations only enabled when testing Debian \texttt{unstable}.
+  \item<3> The easy workaround today is to rebuild in the same path. But it is a workaround, why should the path be embedded in the binary?
+ \end{itemize}
+\end{frame}
+
+
 \placelogotrue
 
-\section{Status Debian}
 
 
 \begin{frame}
@@ -689,17 +715,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{center}
 \end{frame}
 
-\begin{frame}
- \frametitle{Sending progress upstream}
- \begin{itemize}
- \item So we filed a lot of bugs… with patches…! 
- \item … but only in Debian and we rely on Debian maintainers sending them
- upstream.
- \item<2> Bernard Wiedemann (from openSUSE) thought that wasn't good enough
- and created \texttt{https://github.com/orgs/distropatches}
- \end{itemize}
-\end{frame}
-
 
 
 \begin{frame}
@@ -725,9 +740,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item So eg Canonical can take our work now and make Ubuntu 17.10
   (partly) reproducible…
   \item<2-4> Debian 10, "buster", will be partly reproducible in 2019.
-  \item<3-4> Since August 2017 \texttt{debian-policy} says that packages should be reproducible.
+  \item<3-4> Since August 2017 \texttt{debian-policy} mandates that packages \textbf{should} be reproducible.
   \item<4> We hope \texttt{debian-policy} will mandate 100\%
-  reproducible builds for Debian 11, "bullseye", in 2021.
+	  reproducible builds ("\textbf{must}") for Debian 11, "bullseye", in 2021. And even then, there can be exceptions…
  \end{itemize}
 \end{frame}
 
@@ -818,15 +833,21 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \begin{frame}
  \frametitle{reproducible openSUSE}
  \begin{itemize}
-  \item
-  \small{\texttt{https://build.opensuse.org/package/show \\
-  /home:bmwiedemann:reproducible/rpm?expand=0}}
-  \item Bernhard Wiedemann has built openSUSE twice (with some variations):
+	 \item \url{https://en.opensuse.org/openSUSE:Reproducible\_Builds}
+  \item Bernhard Wiedemann started this in 2016
   \begin{itemize}
-   \item build-succeeded: 3172
-   \item bit-by-bit-identical: 2117
-   \item not-bit-by-bit-identical: 1055
+   \item build-succeeded: 11594
+   \item bit-by-bit-identical: 11111
+   \item not-bit-by-bit-identical: 478
  \end{itemize}
+  \begin{itemize}
+   \item<2-4> 102 undeterministic from javadoc output
+   \item<2-4> 22 undeterministic from latex
+   \item<2-4> 12 undeterministic from mono
+   \item<2-4> 20 undeterministic from Qt
+ \end{itemize}
+ \item<3-4> Results not included into \url{tests.r-b.o} yet.
+ \item<4> Bernhard also deserves credit for creating \texttt{https://github.com/orgs/distropatches} and sending many patches upstream.
  \end{itemize}
  \begin{tikzpicture}[remember picture,overlay]
   \node[shift={(-0.1\paperwidth, 0.13\paperheight)},at=(current page.south east)] {
@@ -835,48 +856,58 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \end{tikzpicture}
 \end{frame}
 
-\begin{frame}
- \frametitle{tests.r-b.org/fedora}
- \begin{itemize}
-  \item used to test Fedora 23, could be made working again
-  \item or build elsewhere and machine readable exported
-  \end{itemize}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.07\paperwidth, 0.13\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.15\paperheight]{images/fedora.png}
-  };
- \end{tikzpicture}
-\end{frame}
 
 \begin{frame}
- \frametitle{Fedora basics}
+ \frametitle{What's going well in the rpmworld}
  \begin{itemize}
-  \item \texttt{diffoscope} is available in Fedora
+  \item \texttt{rpm} respects SOURCE\_DATE\_EPOCH.
   \item \texttt{yum} and \texttt{dnf} might create non-identical environments
-  \item \texttt{rpm}-4.13 has an option to override hostname via rpmmacros
+  \item \texttt{diffoscope} is available in Fedora and openSUSE:
   \item signed RPMs -> re-apply signature, will match for identical builds
+  \item<2> Bernhard.
   \end{itemize}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.07\paperwidth, 0.13\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.15\paperheight]{images/fedora.png}
-  };
- \end{tikzpicture}
+ \begin{center}
+  \includegraphics[height=0.1\paperheight]{images/openSUSE.png}
+  \hspace{0.1\paperwidth}
+ \includegraphics[height=0.1\paperheight]{images/fedora.png}
+  \hspace{0.1\paperwidth}
+ \end{center}
+
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Not going so well in the rpmworld yet}
+ \begin{itemize}
+  \item Bernhard.
+  \end{itemize}
+ \begin{center}
+  \includegraphics[height=0.1\paperheight]{images/openSUSE.png}
+  \hspace{0.1\paperwidth}
+ \includegraphics[height=0.1\paperheight]{images/fedora.png}
+  \hspace{0.1\paperwidth}
+ \end{center}
+
 \end{frame}
 
 \begin{frame}
- \frametitle{TODO: design \texttt{.buildinfo} files from koji/mock/zypper}
+ \frametitle{Not going so well in the rpmworld…}
  \begin{itemize}
-  \item rfc822 format?
-  \item needs to define the environment
-  \item needs to define the sources (input)
-  \item needs to define the binaries (output)
- \end{itemize}
- \begin{tikzpicture}[remember picture,overlay]
-  \node[shift={(-0.07\paperwidth, 0.13\paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.15\paperheight]{images/fedora.png}
-  };
- \end{tikzpicture}
+	 \item No wide / community commitment.
+	 \item<2-3> no (\texttt{.buildinfo} files, thus no tools to use them…
+	 \item<2-3> no user tooling yet.	 
+	\item<3> This is not unique to the rpmworld.
+  \end{itemize}
+ \begin{center}
+  \includegraphics[height=0.1\paperheight]{images/openSUSE.png}
+  \hspace{0.1\paperwidth}
+ \includegraphics[height=0.1\paperheight]{images/fedora.png}
+  \hspace{0.1\paperwidth}
+ \end{center}
+
 \end{frame}
+
+
 
 
 
