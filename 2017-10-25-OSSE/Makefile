@@ -1,6 +1,6 @@
 .PHONY: all source images
 
-PRESENTATION = 2017-10-21-all-systems-go
+PRESENTATION = 2017-10-25-OSSE
 
 all: $(PRESENTATION).pdf
 
