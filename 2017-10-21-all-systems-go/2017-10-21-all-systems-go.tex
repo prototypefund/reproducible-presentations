@@ -214,8 +214,8 @@ of changing the (software) world.}
  \frametitle{Who are you?}
  \begin{itemize}
   \item<2-4> Seen a talk about reproducible builds?
-  \item<3-4> Contributed to the effort?
-  \item<4> Has verified locally running software (but which was built elsewhere) to be actually reproducible?
+  \item<3-4> Contributed to these efforts?
+  \item<4> Used reproducible builds as a user?
  \end{itemize}
 \end{frame}
 
@@ -223,8 +223,8 @@ of changing the (software) world.}
  \frametitle{Who are you?}
  \begin{itemize}
   \item Seen a talk about reproducible builds?
-  \item Contributed to the effort?
-  \item Used our work for real?
+  \item Contributed to these efforts?
+  \item Has verified locally running software (but which was built elsewhere) to actually be reproducible? IOW: Did a rebuilt and got the exact same bits?
  \end{itemize}
 \end{frame}
 
@@ -343,6 +343,17 @@ same.}
 \end{frame}
 
 \begin{frame}[fragile]
+ \frametitle{An important link in the chain of secure software distribution}
+ \begin{itemize}
+  \item But it's just one link in a big chain.
+  \item Software security consists of more than secure distribution. I won't go into detail here, but think software lifecycle management.
+  \item<2> It's a critical link though, linking sources to binaries and vice versa. The problem with randomness is, that one can never be sure. The problem with reproducible builds is, that it's a lot of efford to prove something, which we used to believe and take for granted.
+  \item<2> Reproducible Builds are just one link in a big chain, turning that chain into a foundation to build trust upon. There are many ways to subvert this trust, but that's no excuse to stay a believer.
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
  \frametitle{More benefits than "just" security…}
  \begin{itemize}
   \item Lots and lots of QA benefits - we've found so many subtile bugs.
@@ -353,6 +364,7 @@ same.}
   \item<5> …
  \end{itemize}
 \end{frame}
+
 
 \begin{frame}
  \frametitle{Some milestones in history}
@@ -367,11 +379,29 @@ same.}
  \end{itemize}
 \end{frame}
 
+\placelogotrue
+
+\begin{frame}
+ \frametitle{2017: Stretch at 94\% and in \texttt{debian-policy}}
+ \begin{tikzpicture}[remember picture]
+  \node[shift={(-0.5\paperwidth, \paperheight)},at=(current page.south east)] {
+    \includegraphics[height=0.65\paperheight]{images/stats_pkg_state_testing.png}
+  };
+ \end{tikzpicture}
+ \begin{center}
+  \footnotesize{23,344 (94.0\%) out of 24,821 source packages are reproducible \\
+    in our test framework on \texttt{amd64}}
+  \vfill
+ \end{center}
+\end{frame}
+
+\placelogotrue
+
 \begin{frame}
  \frametitle{"Misleading success"}
  \begin{itemize}
-	 \item<2-4> So in Debian in 2017 Reproducible Builds went into \texttt{debian-policy} and hopefully by 2019 we'll have \textbf{some} infrastructure and \textbf{some} user tools. But definitly we will not have reached 100\% Reproducible Builds before 2021, if not later. 94\% is a lot if you're talking about 25000 packages but people seem to forget this.
-	 \item<3-4> Despite the Debian developer community strongly supporting this, progress is difficult: it really get's complicated again on the last miles. (Think: 94\%, infrastructure \& user tools.)
+	 \item<2-4> In Debian in 2017 Reproducible Builds went into \texttt{debian-policy} and hopefully by 2019 we'll have \textbf{some} infrastructure and \textbf{some} user tools. But definitly we will not have reached 100\% Reproducible Builds before 2021, hopefully by then. 6\% is a lot if you're talking about 25000 packages but people seem to forget this.
+	 \item<3-4> Despite the Debian developer community strongly supporting this, progress is difficult: it really get's complicated again on the last miles. (Think: 6\%, infrastructure \& user tools.)
 	 \item<4> I might be wrong, I hope I am, but I only know of two other ("big or relevant", sorry) projects with similar commitment: Tails and Tor. But for them, a small How-To is sufficient.
  \end{itemize}
 \end{frame}
@@ -455,7 +485,7 @@ same.}
 
 
 
-\placelogotrue
+\placelogofalse
 
 
 \begin{frame}
@@ -463,16 +493,27 @@ same.}
 
  \begin{itemize}
   \item Continuously testing Debian \texttt{testing}, \texttt{unstable} and
-  \texttt{experimental}
+  \texttt{experimental} 
   \item Also testing: coreboot, LEDE, NetBSD, FreeBSD and F-Droid.
   Unmaintained tests: Arch Linux, Fedora and OpenWrt.
-  \item 51 nodes (amd64/i386/arm64/armhf), 300 cores and 1 TB RAM
-  \item 286 jenkins jobs running on jenkins.debian.net
-  \item 43 scripts in Python and Bash, 283 lines of code in average
-  \item 37 contributors for \texttt{jenkins.debian.net.git}
+  \item 51 nodes (amd64/i386/arm64/armhf), 500 cores and 1 TB RAM
+  \item 513 jenkins jobs running on jenkins.debian.net
+  \item 51 scripts in Python and Bash, 357 lines of code in average
+  \item 39 contributors for \texttt{jenkins.debian.net.git}
  \end{itemize}
+ \begin{center}
+  \includegraphics[height=0.1\paperheight]{images/profitbricks_logo.png}
+  \hspace{0.1\paperwidth}
+  \includegraphics[height=0.1\paperheight]{images/profitbricks_logo.png}
+  \hspace{0.1\paperwidth}
+  \includegraphics[height=0.1\paperheight]{images/codethink.png}
+  \hspace{0.1\paperwidth}
+ \includegraphics[height=0.1\paperheight]{images/debian_logo.png}
+  \hspace{0.1\paperwidth}
+ \end{center}
 \end{frame}
 
+\placelogotrue
 
 \begin{frame}[fragile]
  \frametitle{Variations (when testing Debian)}
@@ -579,19 +620,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 \section{Status Debian}
 
-\begin{frame}
- \frametitle{Progress in Debian \texttt{testing} ("stretch")}
- \begin{tikzpicture}[remember picture]
-  \node[shift={(-0.5\paperwidth, \paperheight)},at=(current page.south east)] {
-    \includegraphics[height=0.65\paperheight]{images/stats_pkg_state_testing.png}
-  };
- \end{tikzpicture}
- \begin{center}
-  \footnotesize{23,405 (93.3\%) out of 25,067 source packages are reproducible \\
-    in our test framework on \texttt{amd64}}
-  \vfill
- \end{center}
-\end{frame}
 
 \begin{frame}
  \frametitle{Progress in Debian \texttt{unstable}}
@@ -601,7 +629,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   };
  \end{tikzpicture}
  \begin{center}
-  \footnotesize{20,309 (78.9\%) out of 25,734 source packages are reproducible \\
+  \footnotesize{23,243 (86.2\%) out of 26,957 source packages are reproducible \\
     in our test framework on \texttt{amd64}} (difference due to build path variations)
   \vfill
  \end{center}
@@ -612,7 +640,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
  \begin{itemize}
   \item \url{https://reproducible.debian.net/$src}
-  \item 48 package sets 
+  \item<2> 49 package sets 
  \end{itemize}
 \end{frame}
 
@@ -620,12 +648,12 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 	\frametitle{Debian notes \& issues on tests.reproducible-builds.org}
 
  \begin{itemize}
-  \item 282 categorised distinct issues
-  \item 7,413 notes
-  \item 1,595 unreproducible packages in \texttt{stretch/amd64} (testing), but only
-  111 without a note (5,288 in \texttt{unstable} but also only 154 without a
+  \item 283 categorised distinct issues
+  \item 6,220 notes
+  \item 1,594 unreproducible packages in \texttt{buster/amd64} (testing), but only
+  263 without a note (3,433 in \texttt{unstable} but also only 378 without a
   note)
-  \item maintained in \texttt{notes.git} by 49 contributors
+  \item maintained in \texttt{notes.git} by 58 contributors
   \item currently Debian only, but cross distro notes are planned
  \end{itemize}
 \end{frame}
@@ -678,9 +706,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 	\frametitle{Debian summary - situation in Stretch (Debian 9)}
  \begin{itemize}
   \item This is/was a proof-of-concept, Debian is neither 94\% reproducible nor
-  79\%. (and 10\% > 2,500 sources packages!)
+  86\%. (and 10\% > 2,500 sources packages!)
   \item<2-3> All our required changes have been included in Stretch!
-  \item<2-3> 93\% of the source packages in Stretch build packages reproducibly. But less than 20\% of the released binaries…
+  \item<2-3> 94\% of the source packages in Stretch build packages reproducibly. But less than 20\% of the released binaries…
   \item<2-3> Because, Debian does not (yet?) do full rebuilds before
   releasing… so stuff is in the archive which is not reproducible unless it's
   rebuild.
