@@ -12,27 +12,11 @@ shorten debian summary
 	funding situation unclear, help welcome
 		emphasize maintaince needs funding too, mayne also at the beginning?
 
-status golang
-        works
-        except build path…
-        https://anonscm.debian.org/cgit/pkg-golang/golang.git/tree/debian/patches/0002-reproducible-BUILD_PATH_PREFIX_MAP.patch?h=golang-1.9
-                depends on gcc patch, which is not upstream
-                so this hasnt been tried
-	BUILD_PATH_PREFIX_MAP
-		quote: " This specification describes the environment variable BUILD_PATH_PREFIX_MAP for build tools to exchange information about the build-time filesystem layout, to generate reproducible output where all embedded paths are independent of that layout."
-		https://reproducible-builds.org/specs/build-path-prefix-map/
 
 
-update suse - at 93% too!
-        no user tooling yet, no infrastructure.
-	no wide commitment yet
-
-update Fedora
 
 update list of contriburs
 	or add a slide: those are only Debian people and not updated since half a year
-update graphs
-update numbers
 new slide: rws3 with pic from rws2
 next big shiny thing, needs funding too
 
