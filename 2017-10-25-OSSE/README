@@ -1,0 +1,4 @@
+Build instructions
+------------------
+sudo apt install make texlive-fonts-extra texlive texlive-luatex
+make
