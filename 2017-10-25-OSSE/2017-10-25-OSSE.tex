@@ -254,7 +254,7 @@ of changing the (software) world.}
  \begin{center}
  \Large{
  Promise that anyone can always and independently generate
- identical binary packages from a given source}
+ bit by bit identical binary packages from a given source}
 \end{center}
 \end{frame}
 
@@ -342,7 +342,7 @@ same.}
 
  \begin{center}
  \Large{
- Promise that anyone can always and independently generate
+ Promise that \textbf{anyone} can \textbf{always} and \textbf{independently} generate
  bit by bit identical binary packages from a given source}
 \end{center}
 \end{frame}
@@ -416,7 +416,7 @@ same.}
 \begin{frame}
  \frametitle{"Misleading success"}
  \begin{itemize}
-	 \item<2-4> In Debian in 2017 Reproducible Builds went into \texttt{debian-policy} and hopefully by 2019 we'll have \textbf{some} infrastructure and \textbf{some} user tools. But definitly we will not have reached 100\% Reproducible Builds before 2021, hopefully by then. 6\% is a lot if you're talking about 25000 packages but people seem to forget this.
+	 \item<2-4> In Debian in 2017 Reproducible Builds went into \texttt{debian-policy} and hopefully by 2019 we'll have \textbf{some} infrastructure and \textbf{some} user tools in Debian \texttt{stable}. Even reaching 100\% Reproducible Builds by 2021 is ambitious. 6\% is a lot if you're talking about 25000 packages but people seem to forget this.
 	 \item<3-4> Despite the Debian developer community strongly supporting this, progress is difficult: it really get's complicated again on the last miles. (Think: 6\%, infrastructure \& user tools.)
 	 \item<4> I might be wrong, I hope I am, but I only know of two other ("big or relevant", sorry) projects with similar commitment: Tails and Tor. But for them, a small How-To is sufficient.
  \end{itemize}
@@ -425,9 +425,9 @@ same.}
 \begin{frame}
  \frametitle{"Misleading success, cont."}
  \begin{itemize}
- \item Let me try to explain the problem: we are at 94\% of \textbf{theoretically} being able to do Reproducible Builds. Which means: the software supports it, in theory! What's lacking is infrastructure (think distribution of all those hashes) and user tools, so users can benefit from it.
+ \item To sum this up: we are at 94\% of \textbf{theoretically} being able to do Reproducible Builds. Which means: the software supports it, in theory! What's lacking is infrastructure (think distribution of all those hashes) and user tools, so users can benefit from it.
  \item<2-4> Debian is the most advanced (big distro) here. The others haven't even started.
- \item<3-4> We need to keep doing what we have been doing (and which I'm going to explain in more detail) and we need to do more and new things. And we need \textbf{you} to join this efford, especially if you are not using Debian!
+ \item<3-4> We need to keep doing what we have been doing (and which I'm going to explain in more detail now) and we need to do more and new things. And we need \textbf{you} to join this efford, especially if you are not using Debian!
  \item<4> First 90\% take 90\% of the time \& last 9\% take another 90\%…
 
  \end{itemize}
@@ -736,9 +736,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \begin{frame}
 	\frametitle{Debian summary - situation in Stretch (Debian 9)}
  \begin{itemize}
-  \item This is/was a proof-of-concept, Debian is neither 94\% reproducible nor
-  86\%. (and 10\% > 2,500 sources packages!)
-  \item<2-4> All our required changes have been included in Stretch!
+   \item All our required changes to build reproducible packages are included in Stretch, released in June 2017!
+ \item<2-4> This is/was a proof-of-concept, Debian is neither 94\% reproducible nor
+  86\%. (and 10\% = 2,500 sources packages!)
   \item<3-4> 94\% of the source packages in Stretch can build reproducible packages. But less than 20\% of the released binaries are reproducible…
   \item<3-4> Because, Debian does not (yet?) do full rebuilds before
   releasing… so stuff is in the archive which is not reproducible unless it's
@@ -758,7 +758,8 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item<2-4> Debian 10, "buster", will be partly reproducible in 2019.
   \item<3-4> Since August 2017 \texttt{debian-policy} mandates that packages \textbf{should} be reproducible.
   \item<4> We hope \texttt{debian-policy} will mandate 100\%
-	  reproducible builds ("\textbf{must}") for Debian 11, "bullseye", in 2021. And even then, there can be exceptions…
+	  reproducible builds ("\textbf{must}") for Debian 11, "bullseye", in 2021.
+  \item<4> And even then, there can be exceptions…
  \end{itemize}
 \end{frame}
 
@@ -791,10 +792,10 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item \texttt{https://tests.r-b.org/coreboot}
   \item \texttt{https://tests.r-b.org/netbsd}
   \item \texttt{https://tests.r-b.org/freebsd}
-  \item paused: \texttt{https://tests.r-b.org/archlinux}
-  \item almost there: \texttt{https://tests.r-b.org/f-droid}
-  \item paused: {https://tests.r-b.org/openwrt}
   \item \texttt{https://tests.r-b.org/lede}
+  \item almost there: \texttt{https://tests.r-b.org/f-droid}
+  \item paused: \texttt{https://tests.r-b.org/archlinux}
+  \item paused: {https://tests.r-b.org/openwrt}
  \end{itemize}
  \begin{center}
   \includegraphics[height=0.13\paperheight]{images/coreboot.png}
@@ -803,13 +804,11 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \hspace{0.05\paperwidth}
   \includegraphics[height=0.13\paperheight]{images/freebsd.png}
   \hspace{0.05\paperwidth}
+  \includegraphics[height=0.15\paperheight]{images/lede.png}
+  \hspace{0.05\paperwidth}
   \includegraphics[height=0.13\paperheight]{images/f-droid.png}
   \hspace{0.05\paperwidth}
   \includegraphics[height=0.13\paperheight]{images/archlinux.png}
-  \hspace{0.05\paperwidth}
-  \includegraphics[height=0.3\paperheight]{images/openwrt.png}
-  \hspace{0.05\paperwidth}
-  \includegraphics[height=0.15\paperheight]{images/lede.png}
 \end{center}
 \end{frame}
 
@@ -817,13 +816,12 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \begin{frame}
  \frametitle{Skipping some more…}
  \begin{itemize}
-\item Cygnus.com (1992)
-\item Bitcoin (2011)
-\item Tor (2013)
-\item NixOS, GNU Guix, ElectroBSD
-\item openSUSE
+\item Bitcoin
+\item Tor
+\item NixOS, GNU Guix, ElectroBSD, Yocto
 \item Qubes, Tails, webconverger
-\item Google Bazil
+\item Google Bazel
+\item Signal
 \item ducible (build tool for Windows)
 \item very few commercial, propietary software
  \end{itemize}
@@ -932,8 +930,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \begin{frame}
  \frametitle{Future work}
  \begin{itemize}
- \item<1-3> So far we mostly worked on making reproducible builds possible…
- \item<2-3> We'll need constant tests for future code.
+ \item<1-3> So far we mostly worked on making reproducible builds possible… and we need to keep doing this until we reached 100\%.
+ \item<2-3> We'll need constant tests for future code. So we need to keep our tests running, forever? And we need external rebuilders too.
+
  \item<3> And then, this still needs tools, infrastructure and policies to become
  meaningful and to be used in practice.
  \end{itemize}
@@ -942,9 +941,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \begin{frame}
  \frametitle{Rebuilds and sharing signed checksums}
  \begin{itemize}
-  \item Almost no work has been done here yet. We are just at the first step:
+  \item Almost no work has been done here yet. We mostly were busy with the first step:
   being able to rebuild reproducibly…
-  \item Different projects, different solutions?
+  \item Different projects, different solutions:
  \begin{itemize}
   \item<2> something like \texttt{.buildinfo} files (defining the environment,
   the input and the output(s)) will be needed everywhere:
@@ -984,12 +983,6 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 
 \section{Getting involved}
 
-\begin{frame}
- \frametitle{Attend the summit}
- \begin{itemize}
-  \item Attend the summit in Berlin? (31 Oct. + 1+2 Nov)
- \end{itemize}
-\end{frame}
 
 \begin{frame}
  \frametitle{As a software developer}
@@ -1018,6 +1011,13 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
     \item RTFM, there is lots of documentation
     \item Talk to us (or myself) on IRC or via mail.
    \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Attend the summit}
+ \begin{itemize}
+  \item Attend the summit in Berlin! (31 Oct. + 1+2 Nov)
  \end{itemize}
 \end{frame}
 
