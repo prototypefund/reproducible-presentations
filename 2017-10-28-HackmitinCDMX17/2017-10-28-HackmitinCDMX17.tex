@@ -87,7 +87,7 @@
 
 \setbeamercolor{block title}{fg=debianblue}
 
-\title[Reproducible Builds]{Compilaciones reproducibles en Debian\\
+\title[Reproducible Builds]{Construcciones reproducibles en Debian\\
 (Debian Reproducible Builds)}
 \subtitle{Un camino verificable desde el origen hasta el binario}
 \author[Jathan]{%
@@ -206,7 +206,7 @@
 \draw (-2,0) node[font=\LARGE] (Origen) { Origen };
 \draw (2,0) node[font=\LARGE] (Binario) { Binario };
 \draw[->,very thick] (Origen) -- (Binario) node[midway] (midbuild) {};
-\draw (midbuild) node [above,color=debianred,font=\small] (Compilación) {Compilación};
+\draw (midbuild) node [above,color=debianred,font=\small] (Construcción) {Construcción};
 \visible<2>{
 \draw (0,2) node[font=\LARGE,color=debianblue] (fs) { Software Libre };
 % font= specification is required to work-around a bug in md->latex conversion
@@ -300,7 +300,7 @@ idénticos de un origen dado.
 Nosotros llamamos a esto:
 
 \Huge
-«Compilaciones reproducibles»
+«Construcciones reproducibles»
 \begin{huge}
 (Reproducible Builds)
 \end{huge}
@@ -340,22 +340,22 @@ Nosotros llamamos a esto:
 \frametitle{Múltiples aspectos}
 
 \begin{itemize}
-\item Sistema de compilación determinista \\
+\item Sistema de construcción determinista \\
   \textit{\small Para aquellos que escriben código fuente}
-\item Entorno de compilación reproducible \\
+\item Entorno de construcción reproducible \\
   \textit{\small Para aquellos que crean binarios para otros}
-\item Distribuir el entorno de compilación \\
+\item Distribuir el entorno de construcción \\
   \textit{\small Para aquellos que distribuyen binarios al mundo}
-\item \color{gray}{Realizar una recompilación y verificar los resultados} \\
+\item \color{gray}{Realizar una reconstrucción y verificar los resultados} \\
   \textit{\small Para cada uno de nosotros}
 \end{itemize}
 
 \end{frame}
 
-\section{Sistema de compilación determinista}
+\section{Sistema de construcción determinista}
 
 \begin{frame}
-\frametitle{Sistema de compilación determinista}
+\frametitle{Sistema de construcción determinista}
 
 En una palabra:
 
@@ -383,7 +383,7 @@ En una palabra:
     \item Optimizaciones de código para la clase actual de CPU
     \item Registro de direcciones de memoria
    \end{itemize}
-  \item Ruta de la compilación
+  \item Ruta de la construcción
   \item Configuración regional y zona horaria
  \end{itemize}
 \end{frame}
@@ -505,7 +505,7 @@ static int write_binary(FILE *out, FILE *in, struct bimg_header *hdr)
  \frametitle{Utiliza información de una versión determinista}
 
  \begin{itemize}
-  \item No generes un número de versión en cada compilación
+  \item No generes un número de versión en cada construcción
   \item<2> En su lugar, extrae información del origen:
     \begin{itemize}
       \item Revisión del sistema de control de versiones
@@ -567,7 +567,7 @@ muchos upstreams (GCC, dpkg, rpm, mkisofs, ghostscript, libxslt,
 sphinx, texlive-bin,. . . )
        \item Parches listos para GCC, \texttt{txt2man}, \texttt{libxslt}, Gettext…
      \end{itemize}
-   \item<2-> Configura \texttt{SOURCE\_DATE\_EPOCH} en tu sistema de compilación
+   \item<2-> Configura \texttt{SOURCE\_DATE\_EPOCH} en tu sistema de construcción
    \item<3> Agrega soporte en cualquier herramienta que escriba sellos de tiempo
  \end{itemize}
 
@@ -589,7 +589,7 @@ sphinx, texlive-bin,. . . )
 
  \begin{itemize}
   \item Los archivos mantienen los tiempos de modificación en los metadatos
-  \item Almacenar un archivo puede registrar el tiempo de compilación
+  \item Almacenar un archivo puede registrar el tiempo de construcción
   \item<2-> Soluciones:
    \begin{itemize}
     \item Almacenar un valor arbitrario
@@ -683,12 +683,12 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
 \end{frame}
 
 \begin{frame}
- \frametitle{Deja de registrar la información del sistema de compilación}
+ \frametitle{Deja de registrar la información del sistema de construcción}
 
  \begin{itemize}
-  \item No registres la información sobre el sistema de compilación, como:
+  \item No registres la información sobre el sistema de construcción, como:
    \begin{itemize}
-    \item fecha y hora de la compilación
+    \item fecha y hora de la construcción
     \item nombre de equipo (hostname)
     \item ruta
     \item configuración de la red
@@ -700,29 +700,29 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
  \end{itemize}
 \end{frame}
 
-\section{Entorno de compilación reproducible}
+\section{Entorno de construcción reproducible}
 
 \begin{frame}
- \frametitle{¿Qué hay en un entorno de compilación?}
+ \frametitle{¿Qué hay en un entorno de construcción?}
 
  \begin{itemize}
-  \item Al menos herramientas de compilación y sus versiones específicas
-  \item<2> Depende de ti, dependiendo del sistema de compilación:
+  \item Al menos herramientas de construcción y sus versiones específicas
+  \item<2> Depende de ti, dependiendo del sistema de construcción:
    \begin{itemize}
-    \item arquitectura de la compilación
+    \item arquitectura de la construcción
     \item sistema operativo
-    \item \textit{ruta de la compilación}
-    \item \textit{fecha y hora de la compilación}
+    \item \textit{ruta de la construcción}
+    \item \textit{fecha y hora de la construcción}
     \item …
    \end{itemize}
  \end{itemize}
 \end{frame}
 
 \begin{frame}
- \frametitle{Compila desde el origen}
+ \frametitle{Construye desde el origen}
 
  \begin{itemize}
-  \item Herramientas de compilación que afectan la salida del origen
+  \item Herramientas de construcción que afectan la salida del origen
   \item Registrar la versión / tag / git commit
   \item Enfoque usado por Coreboot, OpenWrt, \textit{Navegador Tor}
  \end{itemize}
@@ -755,7 +755,7 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
  \end{itemize}
 \end{frame}
 
-\section{Distribuir el entorno de compilación}
+\section{Distribuir el entorno de construcción}
 
 \begin{frame}
  \frametitle{Buen Makefile}
@@ -763,7 +763,7 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
  \begin{itemize}
   \item Descarga archivos conocidos de las cadenas de herramientas
   \item Compara sumas de verificación de referencia
-  \item Compila y configura
+  \item Construye y configura
   \item Coreboot: \texttt{make crossgcc}
  \end{itemize}
 \end{frame}
@@ -782,10 +782,10 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
 \end{frame}
 
 \begin{frame}[fragile]
- \frametitle{Envía la cadena de herramientas como un producto de compilación}
+ \frametitle{Envía la cadena de herramientas como un producto de construcción}
 
  \begin{itemize}
-  \item Haz la cadena de herramientas como un producto de compilación
+  \item Haz la cadena de herramientas como un producto de construcción
   \item OpenWrt:
     \url{http://wiki.openwrt.org/doc/howto/obtain.firmware.sdk}
  \end{itemize}
@@ -806,13 +806,13 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
  \begin{itemize}
   \item Utilizado por Bitcoin, Navegador Tor
   \item Maneja LXC o KVM
-  \item «Descriptores» que describen la compilación utilizando:
+  \item «Descriptores» que describen la construcción utilizando:
    \begin{itemize}
     \item Distribución base
     \item Paquetes
     \item Controles remotos de Git
     \item Otros archivos de entrada
-    \item Script de compilación
+    \item Script de construcción
    \end{itemize}
  \end{itemize}
 
@@ -829,9 +829,9 @@ for module in \only<2>{\alert{sorted(}}dependencies.keys()\only<2>{\alert{)}}:
 
  \begin{itemize}
   \item Proporciona una forma de describir imágenes especializadas de contenedores de Linux
-  \item Compila en un entorno controlado
+  \item Construye en un entorno controlado
   \item Las imágenes de Docker se pueden tratar con un hash de su contenido
-  \item Bazel tiene soporte para compilar imágenes Docker reproducibles
+  \item Bazel tiene soporte para construir imágenes Docker reproducibles
  \end{itemize}
 
  \begin{block}{\footnotesize \url{https://github.com/tianon/gosu/blob/master/Dockerfile}}\footnotesize
@@ -852,7 +852,7 @@ RUN GOARCH=amd64 go build -v -ldflags -d -o /go/bin/gosu-amd64
 
  \begin{itemize}
   \item Maneja VirtualBox usando Ruby y otros scripts
-  \item Compila en un ambiente controlado
+  \item Construye en un ambiente controlado
   \item También funciona en OS X y Windows
  \end{itemize}
 
@@ -870,7 +870,7 @@ RUN GOARCH=amd64 go build -v -ldflags -d -o /go/bin/gosu-amd64
    \begin{itemize}
     \item Orígenes
     \item Binarios generados
-    \item Paquetes utilizados para compilar (con una versión específica)
+    \item Paquetes utilizados para construir (con una versión específica)
    \end{itemize}
   \item Puede ser procesado posteriormente para reinstalar el entorno
   \item Todas las versiones están disponibles desde \url{snapshot.debian.org}
@@ -907,10 +907,10 @@ Build-Environment:
  \frametitle{Probando variantes}
 
  \begin{itemize}
-  \item Compila una primera vez
+  \item Construye una primera vez
   \item Guarda el resultado
   \item Realiza cambios al entorno
-  \item Compila una segunda vez
+  \item Construye una segunda vez
   \item Compara resultados
  \end{itemize}
 \end{frame}
@@ -1057,9 +1057,9 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
    \url{https://wiki.debian.org/ReproducibleBuilds/Howto}
   \item<2-> Wiki de Debian Reproducible Builds \\
    \url{https://wiki.debian.org/ReproducibleBuilds}
-   \item<2-> Descripción general de estadísticas sobre compilaciones reproducibles \\
+   \item<2-> Descripción general de estadísticas sobre construcciones reproducibles \\
    \url{https://tests.reproducible-builds.org/debian/reproducible.html}
-  \item<3> Compilación doble diversa \\
+  \item<3> Construcción doble diversa \\
    \url{http://www.dwheeler.com/trusting-trust/}
  \end{itemize}
 \end{frame}
@@ -1072,10 +1072,10 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item Esto es/fue una prueba de concepto, Debian no es ni 94\% reproducible ni
   86\% (10\% > ¡2,500 paquetes fuente!).
   \item<2-4> ¡Todos nuestros cambios requeridos han sido incluidos en Stretch!
-  \item<3-4> El 94\% de los paquetes fuente en Stretch pueden compilar paquetes reproducibles.. Pero menos del 20\% de los binarios publicados son reproducibles...
-  \item<3-4> Porque, Debian no (¿todavía?) hace recompilaciones completas antes de
+  \item<3-4> El 94\% de los paquetes fuente en Stretch pueden construir paquetes reproducibles.. Pero menos del 20\% de los binarios publicados son reproducibles...
+  \item<3-4> Porque, Debian no (¿todavía?) hace reconstrucciones completas antes de
    liberar una nueva versión... así las cosas estarían en el archivo que no es reproducible a menos que sea
-   recompilado.
+   reconstruido.
   \item<4> Y después entonces no distribuiríamos archivos \texttt{.buildinfo} todavía.
    Eso (y las herramientas de usuario) aún necesitan más \it{diseño} y código.
  \end{itemize}
@@ -1090,7 +1090,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
   \item<2-4> Debian 10 Buster, será parcialmente reproducible en 2019.
   \item<3-4> Desde agosto de 2017 \texttt{debian-policy} establece que los paquetes \textbf{deben} ser reproducibles.
   \item<4> Esperamos que \texttt{debian-policy} establezca 100\%
-	  compilaciones reproducibles («\textbf{deben de serlo}») para Debian 11 Bullseye en 2021. Y aún así, ahí pueden ser excepciones...
+	  construcciones reproducibles («\textbf{deben de serlo}») para Debian 11 Bullseye en 2021. Y aún así, ahí pueden ser excepciones...
  \end{itemize}
 \end{frame}
 
@@ -1099,7 +1099,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
 \begin{frame}
  \frametitle{Como desarrollador}
  \begin{itemize}
-  \item Deja de usar las fechas de compilación
+  \item Deja de usar las fechas de construcción
   \item Utiliza \texttt{SOURCE\_DATE\_EPOCH} en su lugar
   \item Visita \url{https://reproducible-builds.org/specs/}
  \end{itemize}
@@ -1111,7 +1111,7 @@ hour, minute & \multicolumn{2}{l}{hour is usually the same… usually, the minut
  \begin{itemize}
   \item Prueba por ti mismo:
    \begin{itemize}
-    \item Compila algo dos veces, ejecuta Diffoscope en los resultados
+    \item Construye algo dos veces, ejecuta Diffoscope en los resultados
     \begin{itemize}
      \item Para obtener mejores resultados, usa nuestro repositorio "reproducible", \texttt{pbuilder} y una configuración personalizada
     \end{itemize}
