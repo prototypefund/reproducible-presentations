@@ -151,9 +151,6 @@
         </h4>
       </section>
 
-      <section></section>
-      <section></section>
-
       <section>
         <h2>My name is&hellip;</h2>
       </section>
@@ -162,16 +159,14 @@
         <p class="fragment">went to CCCongress before Linux existed</p>
         <p class="fragment">Debian user since 1995</p>
         <p class="fragment">Free software contributor for 15+ years</p>
-        <p class="fragment">Freelancer / Consultant</p>
+        <p class="fragment">Freelancer / Consultant / Researcher</p>
       </section>
 
-      <section></section>
-
-      <section data-background-color="white">
+      <section data-background-color="white" data-transition="none">
         <img src="images/sudoku.png" style="width: 60%;">
       </section>
 
-      <section data-background-color="white">
+      <section data-background-color="white" data-transition="none">
         <img src="images/wget.png">
       </section>
 
@@ -179,11 +174,7 @@
       </section>
 
       <section>
-        <img src="images/lute.jpg" style="width: 40%; margin-right: 1em;">
-        <img src="images/gamba.jpg" style="width: 40%">
       </section>
-
-      <section></section>
 
       <section>
         <h2>Three developers&hellip;</h2>
@@ -213,8 +204,6 @@
         <img src="images/story/browser2.png">
       </section>
 
-      <section></section>
-
       <section data-background="images/story/1.jpg">
         <h1>Bob</h1>
         <!--
@@ -230,10 +219,8 @@
       <section data-background="images/story/8.jpg"></section>
       <section data-background="images/story/5b.jpg"></section>
 
-      <section></section>
-
       <section data-background="images/story/10.jpg">
-        <h1 style="margin-right: -800px">&larr; Eve</h1>
+        <h1 style="margin-right: -800px">&larr; Carol</h1>
         <!--
          - This is Eve.
          - No, *this* is Eve, that is actually Carol
@@ -247,20 +234,19 @@
       </section>
       <section data-background="images/story/9.jpg"></section>
       <section data-background="images/story/11.jpg"></section>
-      <section data-background-color="white"><img src="images/story/11a.png" style="width: 150%; height: 140%;"></section>
 
-      <section></section>
+      <section data-background-color="white" data-transition="none">
+        <img src="images/story/11a.png">
+      </section>
 
       <section data-background="images/install.jpg" data-background-size="80%" data-background-color="black">
         <h2>General problem</h2>
         <br>
         <p class="fragment">Can view source code for malicious flaws</p>
-        <p class="fragment">But Users install pre-compiled packages</p>
+        <p class="fragment">But users install pre-compiled packages</p>
         <br>
-        <p class="fragment text-center" style="color: red; font-weight: bold;">Can we trust the compilation process?</p>
+        <p class="fragment text-center" style="font-weight: bold;"><u>Can we trust the compilation process?</u></p>
       </section>
-
-      <section></section>
 
       <!--
       <section>
@@ -272,14 +258,11 @@
       </section>
       -->
 
-      <section></section>
-
       <section data-background="images/screenshots/15.png"></section>
       <section data-background="images/screenshots/11.png"></section>
       <section data-background="images/screenshots/01.png"></section>
       <section data-background="images/screenshots/05.png"></section>
       <section data-background="images/screenshots/02.png"></section>
-      <section data-background="images/screenshots/03.png"></section>
       <section data-background="images/screenshots/07.png"></section>
       <section data-background="images/screenshots/08.png"></section>
       <section data-background="images/screenshots/09.png"></section>
@@ -290,37 +273,36 @@
       <section data-background="images/screenshots/evilmaid.png"></section>
       <section data-background="images/screenshots/calgary.png"></section>
       <section data-background="images/screenshots/06.png"></section>
-      <section data-background="images/screenshots/nhs.png"></section>
-
-      <section></section>
-      <section></section>
-      <section></section>
-      <section></section>
 
       <section class="text-left">
         <h2>Solution?</h2>
 
         <br>
+        <p class="fragment">1. Starts with the same source and the same build environment</p>
+        <p class="fragment">2. Ensure builds always have <u>identical results</u></p>
+        <p class="fragment">3. Compare results</p>
+      </section>
 
-        <p class="fragment">1. Ensure builds always have identical results</p>
-        <p class="fragment">2. Multiple parties compare results</p>
-        <br>
-        <p class="fragment text-center">
-          <big><strong style="color: lightgreen;">Attacker must infect everybody simultaneously</strong></big>
-        </p>
+      <section data-transition="none">
+        <img src="images/sharing/01.png">
+      </section>
+      <section data-transition="none">
+        <img src="images/sharing/02.png">
+      </section>
+      <section data-transition="none">
+        <img src="images/sharing/03.png">
       </section>
 
       <section class="text-left">
         <h2>How does this help?</h2>
 
         <br>
-
-        <p class="fragment text-center">Alice &rarr; Blackmail will be discovered</p>
-        <p class="fragment text-center">Bob &rarr; Compromise will be detected</p>
+        <p class="fragment text-center">Alice &rarr; Blackmail will be uncovered</p>
+        <p class="fragment text-center">Bob &rarr; Compromise detected</p>
         <p class="fragment text-center">Carol &rarr; Tampered laptop will be discovered</p>
         <br>
         <p class="fragment text-center">
-          <big><strong style="color: lightgreen;">Removes incentive to attack in the first place</strong></big>
+          <big><strong style="color: lightgreen;">Reduces incentive to attack in the first place</strong></big>
         </p>
       </section>
 
@@ -332,8 +314,6 @@
       </section>
 
 
-      <section></section>
-
       <section class="text-left">
         <p class="fragment">"Builds with the same dependencies"... ✖</p>
         <p class="fragment">"Reliable" builds... ✖</p>
@@ -344,40 +324,17 @@
       </section>
 
       <section>
-        <code># sha1sum ./my-binary</code>
-        <br>
-        <br>
-        <br>
-
-        <table class="hash-example">
-          <tr class="fragment good">
-            <td>Alice</td>
-            <td><code>7a482b984883990bd4ab2ac5985630886cc252c</code></td>
-          </tr>
-          <tr class="fragment good">
-            <td>Bob</td>
-            <td><code>7a482b984883990bd4ab2ac5985630886cc252c</code></td>
-          </tr>
-          <tr class="fragment bad">
-            <td>Carol</td>
-            <td><code>d0f65b7de7a49e818b8095538d3a0f783cc9c27</code></td>
-          </tr>
-        </table>
-      </section>
-
-      <section>
-        <h2>Wait, software isn't reproducible&nbsp;already?</h2>
+        <h2>Wait&hellip;</h2>
       </section>
 
       <section>
         <ul>
-          <li class="fragment">Timestamps</li>
-          <li class="fragment">Timezones &amp; locales</li>
           <li class="fragment">Dictionary/hash/database ordering</li>
+          <li class="fragment">Parallelism in builds</li>
+          <li class="fragment">Timestamps</li>
           <li class="fragment">Build paths</li>
           <li class="fragment">Non-deterministic file ordering</li>
-          <li class="fragment">Build parallelism</li>
-          <li class="fragment">Users, groups, <code>umask</code>, environment variables</li>
+          <li class="fragment">Users, groups, <code>umask</code>, environment variables, etc.</li>
         </ul>
       </section>
 
@@ -388,28 +345,27 @@
       <section>
         <ul>
         <ul>
-          <li class="fragment">Easier to test changes &mdash; minimal diffs</li>
+          <li class="fragment">Minimal diffs on "deliberate" changes</li>
           <li class="fragment">Cache ratio &mdash; save time, money &amp; CO<sub>2</sub></li>
           <li class="fragment">Detect corrupted build environments</li>
+          <li class="fragment">Remove build-dependencies</li>
           <li class="fragment">Finds bugs!</li>
         </ul>
         </ul>
       </section>
 
       <section>
-      </section>
-
-      <section>
         <h3>Predictable OpenID secret</h3>
+        <br>
 
 <pre class="fragment"><code># Build.PL
-$build-&gt;config_data(OpenIDConsumerSecret=&gt;int(1e15*rand()));
+$build-&gt;config_data(OpenIDConsumerSecret=&gt;int(<u>1e15*rand()</u>));
 </code></pre>
 
         <div class="fragment">
           <pre><code># /usr/share/perl5/GBrowse/ConfigData.pm
 {
- 'OpenIDConsumerSecret' =&gt; '639098210478536',
+ 'OpenIDConsumerSecret' =&gt; '<u>639098210478536</u>',
  'cgibin' =&gt; '/usr/lib/cgi-bin/gbrowse',
  'conf' =&gt; '/etc/gbrowse',
  [..]
@@ -417,13 +373,14 @@ $build-&gt;config_data(OpenIDConsumerSecret=&gt;int(1e15*rand()));
 </code></pre>
 
           <ul>
-            <li>Every installation shares the same secret!</li>
+            <li>Every installation of this build shares the same secret.</li>
           </ul>
         </div>
       </section>
 
       <section>
-        <h3>Random characters in manpages</h3>
+        <h3>Random characters in manpages?</h3>
+        <br>
 
         <pre class="fragment"><code>-This manual page documents the usageoof WikipediaFS.
 +This manual page documents the usage of WikipediaFS.
@@ -433,17 +390,14 @@ $build-&gt;config_data(OpenIDConsumerSecret=&gt;int(1e15*rand()));
 
         <pre class="fragment"><code>memcpy(3): The memory areas must not overlap</code></pre>
 
-        <ul>
-          <li class="fragment">"<code> n\\011</code>" &rarr; "<code>\111</code>" &rarr; maps to capital "I"</li>
-        </ul>
-
         <pre class="fragment"><code>- memcpy(&amp;buf[1], &amp;buf[2], strlen(buf)-1);
 + memmove(&amp;buf[1], &amp;buf[2], strlen(buf)-1);
 </code></pre>
       </section>
 
       <section>
-        <h3>Fails to build 0.46% of the time</h3>
+        <h3>Fails to build 0.46% of the time?</h3>
+        <br>
 
 <pre class="fragment"><code>x = f(u('abc'), 16)
 y = f(u('abc'), 16)
@@ -458,8 +412,6 @@ self.assertEqual(sorted(set(x)), [u('a'), u('b'), u('c')])
           </li>
         </ul>
       </section>
-
-      <section></section>
 
       <section data-background="images/debian.jpg" data-background-color="black">
         <h2>Debian &amp; reproducible builds</h2>
@@ -501,19 +453,16 @@ self.assertEqual(sorted(set(x)), [u('a'), u('b'), u('c')])
       <section>
         <h2>Beyond Debian&hellip;</h2>
         <ul>
-          <li class="fragment">coreboot, OpenSuSE, OpenWRT, NetBSD, FreeBSD, Archlinux, Tails, Qubes, F-Droid, NixOS, Guix, etc.</li>
-          <li class="fragment">Other projects now using Debian's testing framework</li>
+          <li class="fragment">coreboot, OpenSUSE, OpenWRT, NetBSD, FreeBSD, Archlinux, Tails, Qubes, F-Droid, NixOS, Guix, Basel, Meson, etc.</li>
+          <li class="fragment">Other projects using "Debian"'s testing framework</li>
           <li class="fragment">Reproducible Builds summits (Athens, Berlin)</li>
           <!-- <li class="fragment">Generic tools (diffoscope, disorderfs, strip-nondeterminism, reprotest, etc.)</li> -->
         </ul>
       </section>
 
-      <section></section>
-      <section></section>
-
       <section>
         <pre style="font-size: 85%;"><code>
-<span style="color: grey;"># diff -urNad file1 file2</span>
+<span style="color: white;"># diff -urNad file1 file2</span>
 --- file1  2017-06-18 12:37:03.179186661 +0800
 +++ file2  2017-06-18 12:37:04.811193648 +0800
 @@ -1 +1 @@
@@ -530,7 +479,7 @@ self.assertEqual(sorted(set(x)), [u('a'), u('b'), u('c')])
         <img src="images/cat.png">
       </section>
 
-      <section data-background-color="white">
+      <section data-background-color="white" data-transition="none">
         <img src="images/diffoscope-homepage.png">
         <p><code>https://diffoscope.org/</code></p>
       </section>
@@ -571,30 +520,51 @@ self.assertEqual(sorted(set(x)), [u('a'), u('b'), u('c')])
        <h2><code>try.diffoscope.org</code></h2>
       </section>
 
-      <section></section>
-
-      <!--
       <section>
-        <h2>Code provenance</h2>
-
         <ul>
-          <li class="fragment">Medical software</li>
-          <li class="fragment">Government software</li>
-          <li class="fragment">License compliance</li>
+          <li class="fragment">Show differences in security uploads</li>
+          <li class="fragment">diffoscope != definition of reproducible!</li>
+          <li class="fragment">Binary blobs (eg. router images)</li>
         </ul>
       </section>
-      -->
 
       <section>
-        <h2>Future work</h2>
+        <h2>What's left to do?</h2>
+      </section>
+
+
+      <section>
+        <h3>Source code</h3>
+        <br>
+
+        <p class="fragment">Programming errors</p>
+        <p class="fragment">Backdoors / obfusticated code</p>
+        <p class="fragment">Weak algorithms</p>
+        <p class="fragment">Code with "testing" modes</p>
       </section>
 
       <section class="text-left">
-        <p class="fragment">Communicating concept to end-users?</p>
-        <p class="fragment">Toolchain fixes</p>
+        <code><pre style="font-size: 80%">
+$ apt install python-pywt-doc
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following NEW packages will be installed:
+  python-pywt-doc
+0 upgraded, 1 newly installed, 0 to remove and 4 not upgraded.
+Need to get 102 kB of archives.
+After this operation, 978 kB of additional disk space will be used.
+<b>WARNING: The following packages are not reproducible!</b>
+<b>  python-pywt-doc</b>
+<b><u>Install these packages anyway? [y/N]</u></b>
+        </pre></code>
+      </section>
+
+      <section class="text-left">
+        <p class="fragment">Toolchain fixes (GCC!)</p>
         <p class="fragment">Improving developer tools</p>
         <p class="fragment">Mandating Debian packages be reproducible?</p>
-        <p class="fragment">Source code remains vulnerable</p>
+        <p class="fragment">Defeating <em>Trusting Trust</em>&hellip;?</p>
       </section>
 
       <section>
@@ -607,8 +577,6 @@ self.assertEqual(sorted(set(x)), [u('a'), u('b'), u('c')])
         </table>
 
       </section>
-
-      <section></section>
 
       <section data-background="images/debian.jpg" data-background-color="black">
         <br>
