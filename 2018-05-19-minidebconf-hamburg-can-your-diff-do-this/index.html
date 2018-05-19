@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Can your diff(1) do this?!</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+  <style type="text/css">
+  li {
+    margin-top: 28px !important;
+    list-style-type: none !important;
+  }
+  ul ul li {
+    margin-top: 16px !important;
+  }
+  * {
+    text-transform: none !important;
+  }
+  a {
+    color: inherit !important;
+  }
+  code {
+    font-size: 90% !important;
+  }
+  .text-center {
+    text-align: center;
+  }
+
+  .reveal section img {
+    border: none;
+    box-shadow: none;
+    background-color: inherit;
+  }
+  .reveal pre code {
+    overflow: inherit !important;
+    max-height: inherit !important;
+    padding: 0 0 20px 20px;
+  }
+
+  .thanks {
+    width: 100%;
+    margin-top: 120px !important;
+    border-radius: 5px;
+    background-color: white;
+  }
+
+  .thanks img {
+    border: 0;
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .pull-left {
+    float: left;
+  }
+
+  .pull-right {
+    float: right;
+  }
+
+  section.title h4 {
+    font-weight: normal;
+    font-size: 80%;
+  }
+
+  table.hash-example td {
+    border: none;
+    padding-right: 2em;
+    padding-bottom: 0.8em;
+  }
+
+  table.hash-example tr.good code {
+    color: lightgreen;
+  }
+
+  table.hash-example tr.bad code {
+    color: red;
+  }
+
+  table.involved {
+    margin-top: 2em;
+  }
+
+  table.involved td {
+    border: none;
+    padding-left: 3em;
+    padding-bottom: 0.4em;
+  }
+  .pics td {
+    border-bottom: 0 !important;
+    padding: 0 15px 0 15px !important;
+  }
+
+  .pics img {
+    height: 190px;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <script>
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+  document.getElementsByTagName('head')[0].appendChild( link );
+</script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class="title">
+        <img src="images/logo.png" style="height: 100px; padding-bottom: 20px;">
+        <h2>
+          Can your diff(1) do this?!
+        </h2>
+        <h4>
+          Improving software review & QA with diffoscope
+        </h4>
+        <br>
+        <br>
+        <h4 class="pull-left text-left">
+          Chris Lamb
+          <br>
+          (lamby)
+        </h4>
+        <h4 class="pull-right text-right">
+          MiniDebConf Hamburg
+          <br>
+          19th May 2018
+        </h4>
+      </section>
+
+      <section></section>
+      <section></section>
+
+      <section>
+        <h1>Moin!</h1>
+      </section>
+        <section><img src="images/about-me/5155.jpg"></section>
+        <section><img src="images/about-me/potato.jpg"></section>
+        <section><img src="images/about-me/1st_contribution.png" style="height: 500px"><br>#400550</section>
+        <section><img src="images/about-me/1st_contribution_reply.png" style="height: 500px"></section>
+        <section></section>
+      <section></section>
+        <section></section>
+        <section>
+          <h2>Why diffoscope?</h2>
+        </section>
+        <section>
+          <p>Source code available for free software&hellip;</p>
+          <p class="fragment">&hellip; everyone runs binaries</p>
+          <br>
+          <p class="fragment"><strong>Do they correspond?</strong></p>
+        </section>
+        <section>
+          <p>Build farms</p>
+          <p class="fragment">Developer's machines</p>
+          <p class="fragment">Blackmail, law-enforcement&hellip;</p>
+        </section>
+        <section>
+          <p>1. Ensure build have identical results</p>
+          <p class="fragment">2. Multiple parties compare results</p>
+          <p class="fragment">3. Attacker must infect everybody simultaneously</p>
+        </section>
+        <section>
+          <h2>Identical results?</h2>
+        </section>
+        <section>
+        </section>
+        <section>
+          <img src="images/why/sha1sum.png">
+        </section>
+        <section>
+          <img src="images/why/bindiff.png">
+        </section>
+        <section>
+          <img src="images/why/xxddiff.png">
+        </section>
+        <section>
+          <img src="images/why/ar.png">
+        </section>
+        <section>
+          <img src="images/why/xz.png">
+        </section>
+        <section>
+          <img src="images/why/tar.png">
+        </section>
+        <section>
+          <img src="images/why/datatarball.png">
+        </section>
+        <section>
+          <img src="images/cat.png">
+        </section>
+        <section>
+<pre>
+commit 89839110981250378de1276ba8fb8a9c75f65df2
+Author: <strong>Jérémy Bobbio &lt;lunar@debian.org&gt;</strong>
+Date:   Sun Sep 28 17:44:06 2014 +0200
+
+    Initial commit for debbindiff
+
+    The version is successfully able to report differences in two
+    .changes file. Not with much interesting details, but it's a start.
+</pre>
+        </section>
+        <section>
+        </section>
+
+      <section></section>
+      </section>
+        <section>
+          <img src="images/examples/simple.png">
+        </section>
+        <section>
+          <h3>Archive formats</h3>
+          <img src="images/examples/archive.png">
+        </section>
+        <section>
+          <h3>Compressed formats</h3>
+          <img src="images/examples/gzip.png">
+        </section>
+        <section>
+          <h3>Recursive</h3>
+          <img src="images/examples/recursive.png">
+        </section>
+        <section>
+          <h2>Line ordering</h2>
+          <img src="images/examples/ordering.png">
+        </section>
+        <section data-background-color="white">
+          <h2>HTML output</h2>
+          <img src="images/demos/sqlite3.png">
+        </section>
+
+        <section>
+        </section>
+
+        <section>
+          <p style="font-size: 90%;">
+            Android boot ROMs, Android APKs, ar archives, bzip2 files, Coreboot cbfs, CPIO archives, Dalvik dex file, Debian packages, device (mknod), device tree globs, directories, docx, ELF binaries, ext filesystem images, fontconfig cache dirs, fonts, gettext catalogues, GIF images, Git repositories, GZip files, Haskell binaries, ICC colour profiles, ISO images, Java, bytecode, Javascript, JSON, LLVM binaries, Macho binaries, Mono executables, odt documentens, Ogg borbis, OpenSSH keys, Pascal binaries, PDF files, PGP/GPG keys, PNG images, PostScript, RPM images, R statistical data, Rust binaries, SQLite databases, squashfs images, symlinks, tar archives, tcpdump dumps, text files, XML documents, XZ files, ZIP archives &hellip;
+          </p>
+        </section>
+        <section data-background-color="white">
+          <h2>Android images</h2>
+          <img src="images/demos/apk.png">
+        </section>
+        <section data-background-color="white">
+          <h2>Berkeley DB databases</h2>
+          <img src="images/demos/db.png">
+        </section>
+        <section data-background-color="white">
+          <h2>Microsoft Word <tt>.docx</tt></h2>
+          <img src="images/demos/docx.png">
+        </section>
+        <section data-background-color="white">
+          <h2>E-books</h2>
+          <img src="images/demos/epub.png">
+        </section>
+        <section data-background-color="white">
+          <h2>Mono binaries</h2>
+          <img src="images/demos/exe.png">
+        </section>
+        <section data-background-color="white">
+          <h2><code>git(1)</code> repositories</h2>
+          <img src="images/demos/git-index.png">
+        </section>
+        <section data-background-color="white">
+          <h2>Gnumeric spreadsheets</h2>
+          <img src="images/demos/gnumeric.png">
+        </section>
+        <section data-background-color="white">
+          <h3>ISO images</h3>
+          <img src="images/examples/iso.png">
+        </section>
+        <section data-background-color="#56347c">
+          <img src="images/examples/tails.png">
+        </section>
+        <section data-background-color="white">
+          <img src="images/examples/image.png">
+        </section>
+        <!--
+        <section>
+          <img src="images/examples/flicker.gif">
+        </section>
+        -->
+        <section>
+          <h2>JSON</h2>
+          <img src="images/examples/json.png">
+        </section>
+        <section data-background-color="white">
+          <h2>OpenDocument text documents</h2>
+          <img src="images/demos/odt.png">
+        </section>
+        <section data-background-color="white">
+          <h2>Ogg audio files</h2>
+          <img src="images/demos/ogg.png">
+        </section>
+        <section data-background-color="white">
+          <h2><code>tcpdump(1)</code> capture files</h2>
+          <img src="images/demos/pcap.png">
+        </section>
+        <section data-background-color="white">
+          <h2>PDF</h2>
+          <img src="images/demos/pdf.png">
+        </section>
+        <section data-background-color="white">
+          <h2>XML documents</h2>
+          <img src="images/demos/xml.png">
+        </section>
+
+        <section></section>
+
+      <section></section>
+
+      <section>
+        <h2>Getting started</h2>
+      </section>
+        <section data-background-color="#110022">
+          <h2><code>try.diffoscope.org</code></h2>
+          <img src="images/trydiffoscope.png">
+        </section>
+        <section>
+<pre>
+$ sudo apt install trydiffoscope
+
+$ trydiffoscope /path/to/file1 /path/to/file2 [--webbrowser]
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>or</em>
+
+$ trydiffoscope --webbrowser /path/to/file1 /path/to/file2
+</pre>
+        </section>
+        <section>
+<pre>
+$ sudo apt install diffoscope --install-recommends=no
+
+$ diffoscope /path/to/file1 /path/to/file2
+</pre>
+        </section>
+
+      <section></section>
+      <section>
+        <h2>Using diffoscope for QA, etc.</h2>
+      </section>
+        <section>
+          <h2>Just see changes you expect</h2>
+        </section>
+        <section>
+          (demo)
+        </section>
+        <section>
+          <h2>Seeing "no" changes</h2>
+        </section>
+        <section>
+          <h2>Security "releases"</h2>
+        </section>
+        <section>
+          <img src="images/qa/firmware.png">
+        </section>
+
+      <section></section>
+
+      <section>
+        <h2>Current status</h2>
+      </section>
+        <section>
+          <img src="images/github.png">
+        </section>
+        <section data-background-color="white">
+          <img src="images/reproducible.png">
+        </section>
+
+        <section></section>
+
+        <section>
+          <img src="images/optimisations.png">
+        </section>
+        <section>
+          <h3>Parallel processing</h3>
+          <p class="fragment">Multiple previous attempts&hellip;</p>
+          <p class="fragment">&hellip; Juliana working on this now</p>
+        </section>
+
+        <section></section>
+
+        <section>
+          <h1><code>diffoscope.org</code></h1>
+        </section>
+
+      <section data-background="images/debian.jpg" data-background-color="black">
+        <br>
+
+        <h2><em>Danke schön!</em></h2>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h4 class="pull-left text-left" style="font-size: 90%;">
+          <a href="https://chris-lamb.co.uk/">Chris Lamb</a>
+          <br>
+          <a href="mailto:lamby@debian.org">lamby@debian.org</a>
+        </h4>
+        <h4 class="pull-right text-right" style="font-size: 90%;">
+          <a href="https://diffoscope.org/">diffoscope.org</a>
+          <br>
+          <a href="https://chris-lamb.co.uk/">chris-lamb.co.uk</a>
+        </h4>
+      </section>
+
+      <section>
+        <img src="images/examples/features.png" style="height: 500px;">
+        <br>
+
+        <h4 class="pull-left text-left" style="font-size: 70%;">
+          <a href="https://chris-lamb.co.uk/">Chris Lamb</a>
+          <br>
+          <a href="mailto:lamby@debian.org">lamby@debian.org</a>
+        </h4>
+        <h4 class="pull-right text-right" style="font-size: 70%;">
+          <a href="https://diffoscope.org/">diffoscope.org</a>
+          <br>
+          <a href="https://chris-lamb.co.uk/">chris-lamb.co.uk</a>
+        </h4>
+      </section>
+
+        <section>
+        </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: false,
+      progress: false,
+      history: true,
+      keyboard: {
+        13: 'next',
+        38: 'next',
+         9: 'prev',
+        40: 'prev'
+      }
+    });
+  </script>
+</body>
+</html>

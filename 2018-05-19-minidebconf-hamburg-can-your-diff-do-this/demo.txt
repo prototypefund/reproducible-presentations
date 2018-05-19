@@ -1,0 +1,13 @@
+sid
+
+ags libnetx-java && bd
+
+dpkg-buildpackage -b 
+
+dch --distribution=stretch-security --force-distribution --no-auto-nmu --urgency=high --local=+deb9u
+
+vi src/netx/jnlp/Parser.java
+
+dpkg-buildpackage -b
+
+diffoscope --html=output.html ../*.deb

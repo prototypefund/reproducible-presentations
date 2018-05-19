@@ -1,0 +1,51 @@
+#!/bin/sh
+
+set -eu
+
+DIFFOSCOPE_DIR="${1}"
+
+TARGET="images/demos"
+OUTPUT="$(pwd)/output.html"
+
+rm -rf "${TARGET}"
+mkdir -p "${TARGET}"
+
+find "${DIFFOSCOPE_DIR}/tests/data" -name 'test1.*' | sort | while read X
+do
+	EXT="${X##*.}"
+
+	echo "I: Comparing test{1,2}.${EXT}"
+
+	(
+		cd "${DIFFOSCOPE_DIR}/tests/data"
+		${DIFFOSCOPE_DIR}/bin/diffoscope \
+			--html="${OUTPUT}" \
+			test1.${EXT} \
+			test2.${EXT} || true
+	)
+
+	google-chrome \
+		--headless \
+		--screenshot \
+		--disable-gpu \
+		--window-size=1024,768 \
+		"${OUTPUT}"
+
+	rm -f "${OUTPUT}"
+
+	convert "screenshot.png" -trim -gravity South -crop +0+13 +repage "${TARGET}/${EXT}.png"
+	rm -f screenshot.png
+done
+
+echo
+
+for X in "${TARGET}"/*
+do
+        cat <<EOF
+        <section data-background-color="white">
+          <h2>$(basename ${X} .png)</h2>
+          <img src="${X}">
+        </section>
+EOF
+	
+done
