@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+  <style type="text/css">
+  li {
+    margin-top: 28px !important;
+    list-style-type: none !important;
+  }
+  ul ul li {
+    margin-top: 16px !important;
+  }
+  * {
+    text-transform: none !important;
+  }
+  a {
+    color: inherit !important;
+  }
+  code {
+    font-size: 90% !important;
+  }
+  .text-center {
+    text-align: center;
+  }
+
+  .reveal section img {
+    border: none;
+    box-shadow: none;
+    background-color: inherit;
+  }
+  .reveal pre code {
+    overflow: inherit !important;
+    max-height: inherit !important;
+    padding: 0 0 20px 20px;
+  }
+
+  .thanks {
+    width: 100%;
+    margin-top: 120px !important;
+    border-radius: 5px;
+    background-color: white;
+  }
+
+  .thanks img {
+    border: 0;
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .pull-left {
+    float: left;
+  }
+
+  .pull-right {
+    float: right;
+  }
+
+  section.title h4 {
+    font-weight: normal;
+    font-size: 80%;
+  }
+
+  table.hash-example td {
+    border: none;
+    padding-right: 2em;
+    padding-bottom: 0.8em;
+  }
+
+  table.hash-example tr.good code {
+    color: lightgreen;
+  }
+
+  table.hash-example tr.bad code {
+    color: #ff2222;
+  }
+
+  table.involved {
+    margin-top: 2em;
+  }
+
+  table.involved td {
+    border: none;
+    padding-left: 3em;
+    padding-bottom: 0.4em;
+  }
+  .pics td {
+    border-bottom: 0 !important;
+    padding: 0 15px 0 15px !important;
+  }
+
+  .pics img {
+    height: 190px;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <script>
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+  document.getElementsByTagName('head')[0].appendChild( link );
+</script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class="title" data-background="images/minidebconf-front1.svg" data-background-size="77%" data-background-position="50% 15%">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h3>
+         Reproducible <em>buster</em>
+	 <br>
+        </h3>
+        <br>
+        <br>
+        <h4 class="pull-left text-left">
+          Holger Levsen<br />
+          Jonathan Bustillos Osornio<br />
+          Chris Lamb<br />
+          Steven Chamberlain
+        </h4>
+        <h4 class="pull-right text-right">
+		20 May 2018
+        </h4>
+      </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg" data-background-size="23%" data-background-position="90% 10%">
+	<h3>Hello, world!</h3>
+        <p>foo</p>
+	<p class="fragment">bar</p>
+    	<p class="fragment">baz</p>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: false,
+      progress: false,
+      history: true,
+      keyboard: {
+        13: 'next',
+        38: 'next',
+         9: 'prev',
+        40: 'prev'
+      }
+    });
+  </script>
+</body>
+</html>
