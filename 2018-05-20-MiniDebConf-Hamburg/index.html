@@ -182,13 +182,54 @@
       <!-- review blog posts from past ~30 weeks -->
 
       <section class="title" data-background="images/minidebconf-front1.svg" data-background-size="23%" data-background-position="90% 10%">
-        <h3>News since DebConf17 Montreal</h3>
+        <h3>New since DebConf17 Montreal</h3>
+        <p class="fragment">migration to salsa.d.o</p><!-- was blog hosting also moved? -->
         <p class="fragment">3rd Reproducible Builds Summit, in Berlin</p>
         <p class="fragment">logo discussion</p>
-        <p class="fragment">migration to salsa.d.o</p>
-        <!-- was blog hosting also moved? -->
-        <p class="fragment">GCC -fmacro-prefix-map</p>
-        <p class="fragment">#890195 &ndash; testing for unnecessary Build-Depends</p>
+        <img class="fragment" src="images/logo.jpg" width="584" height="154">
+      </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg" data-background-size="23%" data-background-position="90% 10%">
+        <h3>New since DebConf17 Montreal</h3>
+        <p>GCC -fmacro-prefix-map</p>
+        <pre class="fragment">#include &lt;stdio.h&gt;
+int main() {
+  fprintf(stderr, "error at %s line %l", __FILE__, __LINE__); return 1;
+}
+</pre>
+        <div class="fragment" />
+        <hr />
+        <pre>$ /usr/lib/gcc-snapshot/bin/gcc -o main <strong>/home/user</strong>/main.c
+</pre></div>
+        <div class="fragment" />
+        <pre>$ strings main | grep ^/
+/lib64/ld-linux-x86-64.so.2
+<strong>/home/user</strong>/main.c
+</pre></div>
+      </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg" data-background-size="23%" data-background-position="90% 10%">
+        <h3>New since DebConf17 Montreal</h3>
+        <p>GCC -fmacro-prefix-map</p>
+        <pre>#include &lt;stdio.h&gt;
+int main() {
+  fprintf(stderr, "error at %s line %l", __FILE__, __LINE__); return 1;
+}
+</pre>
+        <div class="fragment" />
+        <hr />
+        <pre>$ /usr/lib/gcc-snapshot/bin/gcc -o main <strong>-fmacro-prefix-map=/home/user=/build</strong> /home/user/main.c
+</pre></div>
+        <div class="fragment" />
+        <pre>$ strings main | grep ^/
+/lib64/ld-linux-x86-64.so.2
+<strong>/build</strong>/main.c
+</pre></div>
+      </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg" data-background-size="23%" data-background-position="90% 10%">
+        <h3>New since DebConf17 Montreal</h3>
+        <p>#890195 &ndash; testing for unnecessary Build-Depends</p>
       </section>
 
       <section class="title" data-background="images/minidebconf-front1.svg" data-background-size="23%" data-background-position="90% 10%">
