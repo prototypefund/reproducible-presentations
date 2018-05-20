@@ -209,6 +209,26 @@ int main() {
       </section>
 
       <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>New since DebConf17 Montreal</h3>
+        <p>GCC -fmacro-prefix-map</p>
+        <pre>#include &lt;stdio.h&gt;
+int main() {
+  fprintf(stderr, "error at %s line %l", __FILE__, __LINE__); return 1;
+}
+</pre>
+        <div class="fragment" />
+        <hr />
+        <pre>$ /usr/lib/gcc-snapshot/bin/gcc -o main <strong>-fmacro-prefix-map=/home/user=/build</strong> /home/user/main.c
+</pre></div>
+        <div class="fragment" />
+        <pre>$ strings main | grep ^/
+/lib64/ld-linux-x86-64.so.2
+<strong>/build</strong>/main.c
+</pre></div>
+      </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>New since DebConf17 Montreal</h3>
         <p>#890195: Testing for unnecessary Build-Depends</p>
       </section>
 
