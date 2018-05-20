@@ -261,11 +261,24 @@ int main() {
       </section>
 
       <!-- issues in-depth -->
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>Debian is wrong</h3>
+	<p>93% is a lie. We need infrastructure, processes and policies. (And testing. Currently we only have testing and a vague goal.)<p>
+	<p class="fragment">With the upcoming list of bugs we
+	don't want to fingerpoint at individual teams, 
+	instead I think we can only solve this if we as Debian
+	decide we want to solve with for Buster.
+	<br />
+	I think this is not happening because people believe
+	things have been sorted out and we take care of them.
+	But we are not, we can't do this alone.</p>
+
+      </section>
 
       <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
-        <h3>Major blockers, how to help</h3>
-        <p>#869184: sbuild, dpkg policy</p>
-        <p>#894441: binNMUs, mtimes and <code>rsync(1)</code></p>
+        <h3>Major blockers, where to help</h3>
+	<p>#869184: sbuild, dput, dpkg: source uploads including _amd64.buildinfo cause problems</p>
+        <p class="fragment">#894441: binNMUs, mtimes and <code>rsync(1)</code>cause problems and binNMUs should be replaced by easy "no-change-except-debian/changelog-uploads"</p>
       </section>
 
       <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
