@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+  <style type="text/css">
+  li {
+    margin-top: 28px !important;
+    list-style-type: none !important;
+  }
+  ul ul li {
+    margin-top: 16px !important;
+  }
+  * {
+    text-transform: none !important;
+  }
+  a {
+    color: inherit !important;
+  }
+  code {
+    font-size: 90% !important;
+  }
+  .text-center {
+    text-align: center;
+  }
+
+  .reveal section img {
+    border: none;
+    box-shadow: none;
+    background-color: inherit;
+  }
+  .reveal pre code {
+    overflow: inherit !important;
+    max-height: inherit !important;
+    padding: 0 0 20px 20px;
+  }
+
+  .thanks {
+    width: 100%;
+    margin-top: 120px !important;
+    border-radius: 5px;
+    background-color: white;
+  }
+
+  .thanks img {
+    border: 0;
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .pull-left {
+    float: left;
+  }
+
+  .pull-right {
+    float: right;
+  }
+
+  section.title h4 {
+    font-weight: normal;
+    font-size: 80%;
+  }
+
+  table.hash-example td {
+    border: none;
+    padding-right: 2em;
+    padding-bottom: 0.8em;
+  }
+
+  table.hash-example tr.good code {
+    color: lightgreen;
+  }
+
+  table.hash-example tr.bad code {
+    color: #ff2222;
+  }
+
+  table.involved {
+    margin-top: 2em;
+  }
+
+  table.involved td {
+    border: none;
+    padding-left: 3em;
+    padding-bottom: 0.4em;
+  }
+  .pics td {
+    border-bottom: 0 !important;
+    padding: 0 15px 0 15px !important;
+  }
+
+  .pics img {
+    height: 190px;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <script>
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+  document.getElementsByTagName('head')[0].appendChild( link );
+</script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class="title" >
+        <p style="text-align: center; margin-top: 90px"><img src="images/debian_logo.png"></p>
+        <h3>
+          Reproducible <em>Buster</em><br>and beyond&hellip;
+        </h3>
+        <br>
+        <br>
+        <h4 class="pull-left text-left">
+          Benjamin Hof
+          <br>
+          Chris Lamb
+          <br>
+          Holger Levsen
+          <br>
+          Vagrant Cascadian
+        </h4>
+        <h4 class="pull-right text-right">
+          DebConf18
+          <br>
+          Hsinshu, Taiwan
+          <br>
+          新竹市, 中華民國
+        </h4>
+      </section>
+
+      <section></section>
+      <section></section>
+      <section data-transition="none"></section>
+
+      <section></section>
+
+      <section data-background="images/install.jpg" data-background-size="80%" data-background-color="black">
+        <h2>General problem</h2>
+        <br>
+        <p class="fragment">Can view source code for malicious flaws</p>
+        <p class="fragment">But users install pre-compiled packages</p>
+        <br>
+        <p class="fragment text-center" style="font-weight: bold;"><u>Can we trust the compilation process?</u></p>
+      </section>
+
+      <section></section>
+
+      <!--
+      <section>
+        <ul>
+          <li>Developers</li>
+          <li>Build/server farms</li>
+          <li>Developers' machines</li>
+        </ul>
+      </section>
+      -->
+
+      <section></section>
+      <section></section>
+
+      <section class="text-left">
+        <h2>Solution?</h2>
+        <br>
+        <p class="fragment">1. Start with the same source</p>
+        <p class="fragment">2. Ensure builds always have <u>identical results</u></p>
+        <p class="fragment">3. Compare results</p>
+      </section>
+
+      <section data-transition="none">
+        <img src="images/sharing/01.png">
+      </section>
+      <section data-transition="none">
+        <img src="images/sharing/02.png">
+      </section>
+      <section data-transition="none">
+        <img src="images/sharing/03.png">
+      </section>
+
+      <section></section>
+
+      <section class="text-left">
+        <p class="fragment">"Builds with the same dependencies"... ✖</p>
+        <p class="fragment">"Reliable" builds... ✖</p>
+        <br>
+        <p class="fragment text-center">
+          <big><strong style="color: lightgreen;">Identical build results</strong></big>
+        </p>
+      </section>
+
+
+      <section>
+        <h2>Wait&hellip;</h2>
+      </section>
+
+      <section>
+        <ul>
+          <li class="fragment">Dictionary/hash/database ordering</li>
+          <li class="fragment">Parallelism in builds</li>
+          <li class="fragment">Timestamps</li>
+          <li class="fragment">Build paths</li>
+          <li class="fragment">Non-deterministic file ordering</li>
+          <li class="fragment">Users, groups, <code>umask</code>, environment variables, etc.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Other advantages?</h2>
+      </section>
+
+      <section>
+        <ul>
+        <ul>
+          <li class="fragment">Minimal diffs on "deliberate" changes</li>
+          <li class="fragment">Cache ratio &mdash; save time, money &amp; CO<sub>2</sub></li>
+          <li class="fragment">Remove build-dependencies</li>
+          <li class="fragment">Finds bugs!</li>
+        </ul>
+        </ul>
+      </section>
+
+      <section>
+      </section>
+
+      <section data-background="images/debian.jpg" data-background-color="black">
+        <h2>Debian &amp; Reproducible Builds</h2>
+      </section>
+
+      <section data-background="images/debian.jpg" data-background-color="black">
+        <h2 class="fragment">
+          "Torture test"
+        </h2>
+
+        <ul class="fragment">
+          <ul>
+            <li>Time &amp; date</li>
+            <li>Hostname &amp; domain name</li>
+            <li>Filesystem (<code>disorderfs</code>)</li>
+            <li>Timezone &amp; locale</li>
+            <li><code>uid</code> &amp; <code>gid</code></li>
+            <li>Kernel &amp; CPU type</li>
+          </ul>
+        </ul>
+      </section>
+
+      <section data-background="images/debian.jpg" data-background-color="black">
+        <table>
+          <tr><td>First rebuild in 2013</td><td>24% packages reproducible</td></tr>
+          <tr><td>March 2018</td><td>93% packages reproducible</td></tr>
+        </table>
+      </section>
+
+      <!-- wget -Oimages/status.png https://tests.reproducible-builds.org/debian/unstable/amd64/stats_pkg_state.png -->
+      <section data-background="images/status.png">
+        &nbsp;
+      </section>
+
+      <section data-background="images/debian.jpg" data-background-color="black">
+        <h2><code>isdebianreproducibleyet.com</code></h2>
+      </section>
+
+      <section></section>
+      <section></section>
+
+      <section>
+        <pre style="font-size: 85%;"><code>
+<span style="color: white;"># diff -urNad file1 file2</span>
+--- file1  2017-06-18 12:37:03.179186661 +0800
++++ file2  2017-06-18 12:37:04.811193648 +0800
+@@ -1 +1 @@
+<span style="color: #ff6666;">-This is the first file.</span>
+<span style="color: lightgreen;">+This is the second file.</span>
+        </code></pre>
+      </section>
+
+      <section>
+        <img src="images/bindiff.png">
+      </section>
+
+      <section>
+        <img src="images/cat.png">
+      </section>
+
+      <section data-background-color="white" data-transition="none">
+        <img src="images/diffoscope-homepage.png">
+        <p><code>https://diffoscope.org/</code></p>
+      </section>
+
+      <section>
+        <pre style="font-size: 57%;"><code>
+├── aspell-de_20131206-5_all.deb
+│   ├── metadata
+│   │  rw-r--r-- 0/0      4 Jun 11 16:19 2014 debian-binary
+│   │ <span style="color: #ff6666;">-rw-r--r-- 0/0   2893 Jun 11 16:19 2014 control.tar.gz</span>
+│   │ <span style="color: #ff6666;">-rw-r--r-- 0/0 329600 Jun 11 16:19 2014 data.tar.xz</span>
+│   │ <span style="color: lightgreen;">+rw-r--r-- 0/0   2875 Jun 11 16:19 2014 control.tar.gz</span>
+│   │ <span style="color: lightgreen;">+rw-r--r-- 0/0 329596 Jun 11 16:19 2014 data.tar.xz</span>
+│   ├── control.tar.gz
+│   │   ├── control.tar
+│   │   │   ├── md5sums
+│   │   │   │┄ <span style="color: #ff6666;">Files in package differ</span>
+│   ├── data.tar.xz
+│   │   ├── data.tar
+│   │   │   ├── ./usr/lib/aspell/de_affix.dat
+│   │   │   │  #
+│   │   │   │ <span style="color: #ff6666;">-# Version: 20131206 (build 20150801)</span>
+│   │   │   │ <span style="color: lightgreen;">+# Version: 20131206 (build 20150802)</span>
+│   │   │   │  #
+│   │   │   ├── ./usr/share/aspell/de-common.cwl.gz
+│   │   │   │   ├── metadata
+│   │   │   │   │ <span style="color: #ff6666;">-gzip compressed data, last modified: Sat Aug  1 18:21:34 2015</span>
+│   │   │   │   │ <span style="color: lightgreen;">+gzip compressed data, last modified: Sat Aug  1 18:24:36 2015</span>
+        </code></pre>
+      </section>
+
+      <section data-background-color="white">
+        <h2>HTML output</h2>
+        <img src="images/demos/sqlite3.png">
+      </section>
+      <section>
+        <p style="font-size: 75%">Android APK files, Android boot images, Ar(1) archives, Berkeley DB database files, Bzip2 archives, Character/block devices, ColorSync colour profiles (.icc), Coreboot CBFS filesystem images, Cpio archives, Dalvik .dex files, Debian .buildinfo files, Debian .changes files, Debian source packages (.dsc), Device Tree Compiler blob files, Directories, ELF binaries, Ext2/ext3/ext4/btrfs filesystems, FreeDesktop Fontconfig cache files, FreePascal files (.ppu), Gettext message catalogues, GHC Haskell .hi files, GIF image files, Git repositories, GNU R database files (.rdb), GNU R Rscript files (.rds), Gnumeric spreadsheets, Gzipped files, ISO 9660 CD images, Java .class files, JavaScript files, JPEG images, JSON files, LLVM IR bitcode files, MacOS binaries, Microsoft Windows icon files, Microsoft Word .docx files, Mono 'Portable Executable' files, Ogg Vorbis audio files, OpenOffice .odt files, OpenSSH public keys, OpenWRT package archives (.ipk), PDF documents, PGP signed/encrypted messages, PNG images, PostScript documents, RPM archives, Rust object files (.deflate), SQLite databases, SquashFS filesystems, Statically-linked binaries, Symlinks, Tape archives (.tar), Tcpdump capture files (.pcap), Text files, TrueType font files, XML binary schemas (.xsb), XML files, XZ compressed files, etc.</p>
+      </section>
+
+      <section data-background-color="#110022">
+       <img src="images/trydiffoscope.png">
+       <h2><code>try.diffoscope.org</code></h2>
+      </section>
+
+      <section>
+        <ul>
+          <li class="fragment">Show differences in security uploads</li>
+          <li class="fragment">diffoscope ≠ definition of reproducible!</li>
+          <li class="fragment">Binary blobs (eg. router images)</li>
+        </ul>
+      </section>
+
+      <section></section>
+      <!-------------------------------------------------------------- -->
+      <section></section>
+
+      <section>
+        <h2>What's new since DebConf17?</h2>
+      </section>
+
+      <section>
+        <ul>
+          <li class="fragment">Migration to <em>salsa.debian.org</em></li>
+          <li class="fragment">3rd Reproducible Builds summit in Berlin</li>
+          <li class="fragment">GCC <code>-fmacro-prefix-map</code></li>
+          <li class="fragment">Logo discussion / vote</li>
+        </ul>
+
+        <br>
+        <br>
+        <br>
+        <img class="fragment" src="images/logo.jpg" width="584" height="154">
+      </section>
+
+      <section>
+        <p>GCC <code>-fmacro-prefix-map</code></p>
+        <br>
+        <pre class="fragment">#include &lt;stdio.h&gt;
+int main() {
+  fprintf(stderr, "error at %s line %l", __FILE__, __LINE__); return 1;
+}
+</pre>
+        <div class="fragment" />
+        <hr />
+        <pre>$ /usr/lib/gcc-snapshot/bin/gcc -o main <strong>/home/user</strong>/main.c
+</pre></div>
+        <div class="fragment" />
+        <pre>$ strings main | grep ^/
+/lib64/ld-linux-x86-64.so.2
+<strong>/home/user</strong>/main.c
+</pre></div>
+      </section>
+
+      <section>
+        <pre>#include &lt;stdio.h&gt;
+int main() {
+  fprintf(stderr, "error at %s line %l", __FILE__, __LINE__); return 1;
+}
+</pre>
+        <div class="fragment" />
+        <br />
+        <pre>$ /usr/lib/gcc-snapshot/bin/gcc -o main <strong>-fmacro-prefix-map=/home/user=/build</strong> /home/user/main.c
+</pre></div>
+        <div class="fragment" />
+        <pre>$ strings main | grep ^/
+/lib64/ld-linux-x86-64.so.2
+<strong>/build</strong>/main.c
+</pre></div>
+      </section>
+
+      <section>
+        <p><tt>#890195</tt>: Testing for unnecessary Build-Depends</p>
+      </section>
+
+      <section>
+        <h3>Other projects</h3>
+        <ul>
+          <li class="fragment">Arch Linux reached ~80% reproducible packages</li><!-- with modified tools -->
+          <li class="fragment">openSUSE reached 93%</li>
+          <li class="fragment">NetBSD and FreeBSD base systems reached 100%</li>
+          <li class="fragment">Tails 3.3, 3.6.1 &rarr; 100% reproducible ISO images</li>
+          <li class="fragment">OpenWrt images (for at least some targets)<li>
+          <li class="fragment">Yocto, AngularJS, Please.build, &hellip;</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Debian <em>buster</em></h3>
+        <p>
+          “Packages should build reproducibly” added in Debian Policy 4.1.0.0
+        </p>
+      </section>
+
+      <section></section>
+      <!-------------------------------------------------------------- -->
+      <section></section>
+
+      <section>
+        <h3>What's missing?</h3>
+      </section>
+
+      <section>
+        <ul>
+          <li class="fragment">Debian installer images (<tt>#900918</tt>)</li>
+          <li class="fragment" class="fragment">Comparing against packages from the archive</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Funding</h3>
+
+        <ul>
+          <li class="fragment">New progress is slowing down&hellip;</li>
+          <li class="fragment">Some things go backwards&hellip;</li>
+          <li class="fragment">Impact on collaboration / community&hellip;</li>
+          <li class="fragment">We kept up the weekly blog, which could be misleading&hellip;</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Funding</h3>
+        <ul>
+          <li class="fragment">New progress is slowing down&hellip;</li>
+          <li class="fragment">Some things go backwards&hellip;</li>
+          <li class="fragment">Impact on collaboration / community&hellip;</li>
+          <li class="fragment">We kept up the weekly blog, which could be misleading&hellip;</li>
+        </ul>
+      </section>
+
+      <!-- issues in-depth -->
+      <section class="title">
+        <h3>Debian is wrong</h3>
+        <ul>
+          <li class="fragment">
+            93% is a lie. We need infrastructure, processes and policies. (And
+            testing. Currently we only have testing and a vague goal.)
+          </li>
+          <li class="fragment">
+            With the upcoming list of bugs we
+            don't want to fingerpoint at individual teams, 
+            instead I think we can only solve this if we as Debian
+            decide we want to solve it for <em>buster</em>.
+            <br />
+            I think this is not happening because people believe
+            things have been sorted out and we take care of them.
+            But we are not, we can't do this alone.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Major blockers, where to help</h3>
+
+        <ul>
+          <li class="fragment">
+            #869184<br>sbuild, dput, dpkg: source uploads including
+            <code>_amd64.buildinfo</code> causes problems
+          </li>
+          <li class="fragment">
+            #894441<br>binNMUs, mtimes and <code>rsync(1)</code> causes problems
+            and binNMUs should be replaced by easy
+            "no-change-except-debian/changelog-uploads"
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3><code>.buildinfo</code> files</h3>
+        <ul>
+          <li class="fragment">#862073<br>ftp.debian.org: Please POST .buildinfo files to buildinfo.debian.net</li>
+          <li class="fragment" class="fragment">#763822<br>ftp.debian.org: please include .buildinfo file in the archive</li>
+          <li class="fragment" class="fragment">#862538<br>security.debian.org: Please POST .buildinfo files to buildinfo.debian.net</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3><em>stretch</em></h3>
+        <p>The &ldquo;Reproducible in theory but not in practice&rdquo; release</p>
+        <br>
+
+        <h3><em>buster</em></h3>
+        <p>The &ldquo;We should be reproducible but we are not&rdquo; release?</p>
+        <br>
+
+        <h3><em>bullseye</em></h3>
+        <p>The &ldquo;we are almost there but still haven't sorted out...&rdquo; release???</p>
+      </section>
+
+      <section>
+        <h3>Debian <em>buster</em></h3>
+        <ul>
+          <li class="fragment">The release is still far away and we haven't frozen yet! :-)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Get involved!</h2>
+        <table class="involved">
+          <tr class="fragment"><td>Visit:</td><td><code><a href="https://reproducible-builds.org/">reproducible-builds.org</a></code></td></tr>
+          <tr class="fragment"><td>Join:</td><td><code>#reproducible-builds</code> (OFTC)</td></tr>
+        </table>
+
+      </section>
+
+      <section></section>
+
+      <section data-background="images/debian.jpg" data-background-color="black">
+        <br>
+
+        <h1 style="font-size: 1.5em;"><em>谢谢</em></h1>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h4 style="font-size: 90%;">
+          <code>reproducible-builds.org</code>
+          <br>
+          <br>
+          <code>#reproducible-builds</code> (OFTC)
+          <br>
+          <br>
+          <code>rb-general@lists.reproducible-builds.org</code>
+        </h4>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: false,
+      progress: false,
+      history: true,
+      keyboard: {
+        13: 'next',
+        38: 'next',
+         9: 'prev',
+        40: 'prev'
+      }
+    });
+  </script>
+</body>
+</html>
