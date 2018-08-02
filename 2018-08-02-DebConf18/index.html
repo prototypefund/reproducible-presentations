@@ -430,7 +430,67 @@ int main() {
       </section>
 
       <section>
-        <h3>FIXME: Benjamin Hof's stuff here?</h3>
+        <h3>How can we automate the assurance of reproducibility?</h3>
+
+        <p>
+            Idea:
+        </p>
+        <ul>
+            <li>
+                Make sure every installation sees same meta data and packages
+            </li>
+            <li>
+                Even when central infrastructure (archive signing keys) is
+                compromised
+            </li>
+        </ul>
+
+        <p>
+            ⇒ verifications are directly transferrable to all installations
+        </p>
+      </section>
+
+      <section>
+          <h3>
+              Approach: some additional infrastructure
+          </h3>
+
+          <ul>
+              <li>
+                  Central Certificate Transparency-like log server
+              </li>
+              <li>
+                  Distributed “monitor” for verification of reproducible builds
+              </li>
+          </ul>
+          <p>
+              ⇒ any monitor detects reproduciblity problem, everybody benefits
+          </p>
+
+          <!--
+              solve the problem: how can we verify the archive builds
+              reproducibly and make this information useful for every user
+          -->
+      </section>
+
+      <section>
+          <h3>More information on this idea
+          </h3>
+
+          <ul>
+              <li>
+                  DebConf '18 slides:
+                  <a href="https://home.in.tum.de/~hof/debconf18.pdf">
+                      https://home.in.tum.de/~hof/debconf18.pdf
+                  </a>
+              </li>
+              <li>
+                  Prototype code: git://git.net.in.tum.de/hof/strans
+              </li>
+              <li>
+                  Ideas/Feedback: <a href="mailto:hof@cs.tum.edu"> hof@cs.tum.edu </a>
+              </li>
+          </ul>
       </section>
 
       <section>
