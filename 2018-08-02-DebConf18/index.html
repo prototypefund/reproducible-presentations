@@ -459,6 +459,11 @@ int main() {
       </section>
 
       <section>
+        <p>DPKG patch to make use of -ffile-prefix-map</p>
+        <p>https://lists.debian.org/debian-dpkg/2018/07/msg00010.html</p>
+      </section>
+
+      <section>
         <pre>#include &lt;stdio.h&gt;
 int main() {
   fprintf(stderr, "error at %s line %l", __FILE__, __LINE__); return 1;
