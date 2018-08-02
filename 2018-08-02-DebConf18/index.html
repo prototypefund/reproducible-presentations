@@ -387,7 +387,7 @@ int main() {
 </pre>
         <div class="fragment" />
         <hr />
-        <pre>$ /usr/lib/gcc-snapshot/bin/gcc -o main <strong>/home/user</strong>/main.c
+        <pre>$ gcc -o main <strong>/home/user</strong>/main.c
 </pre></div>
         <div class="fragment" />
         <pre>$ strings main | grep ^/
@@ -404,7 +404,7 @@ int main() {
 </pre>
         <div class="fragment" />
         <br />
-        <pre>$ /usr/lib/gcc-snapshot/bin/gcc -o main <strong>-fmacro-prefix-map=/home/user=/build</strong> /home/user/main.c
+        <pre>$ gcc -o main <strong>-fmacro-prefix-map=/home/user=/build</strong> /home/user/main.c
 </pre></div>
         <div class="fragment" />
         <pre>$ strings main | grep ^/
