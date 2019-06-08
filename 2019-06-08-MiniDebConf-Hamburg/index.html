@@ -125,15 +125,16 @@
 <body>
   <div class="reveal">
     <div class="slides">
-      <section class="title" data-background="images/minidebconf-front1.svg" data-background-size="15%" data-background-position="50% 15%">
+      <section class="title" data-background="images/reprobuilds-display.jpeg" data-background-size="50%" data-background-position="50% 15%">
         <br>
         <br>
         <br>
         <br>
+	<br>
         <h3>
-         Reproducible Builds - aiming for <em>bullseye</em>?
+         aiming for <em>bullseye</em>!
         </h3>
-        <br>
+ <br>
         <br>
         <h4 class="pull-left text-left">
           Holger Levsen<br />
@@ -288,7 +289,7 @@ int main() {
 	<p class="fragment">54% on March 5th 2019.</p>
 	<p class="fragment">31% today.</p>
     	<p class="fragment">We can still improve this, though 24% (6804) of our source packages have not been uploaded nor binNMUed since December 2016.</p>
-	<p class="fragment">I'm not sure I want to upload &gt;5000 source packages in the next 2 years. So mass binNMU for the rescue?</p>
+	<p class="fragment">I'm not sure I want to / we should upload &gt;5000 source packages in the next 2 years. So mass binNMUs for the rescue?</p>
 
   </section>
 
@@ -297,7 +298,7 @@ int main() {
         <h3>Major blockers, where to help</h3>
 	<p>#869184<br>sbuild, dput, dpkg: source uploads including <code>_amd64.buildinfo</code> causes problems</p>
         <p class="fragment">#894441<br>binNMUs, mtimes and <code>rsync(1)</code> causes problems and binNMUs should be replaced by easy "no-change-except-debian/changelog-uploads"</p>
-	<p class="fragment">blocker for #900837<br>release.debian.org: Mass-rebuild of packages for reproducible buildsebian/changelog-uploads"</p>
+	<p class="fragment">blocker for #900837<br>release.debian.org: Mass-rebuild of packages for reproducible builds"</p>
  </section>
 
       <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
@@ -332,6 +333,7 @@ int main() {
 	<p class="fragment">#863622<br> apt: warn when installing packages that are not reproducible</p>
         <p class="fragment">that would be great for bullseye, but...</p>
         <p class="fragment">the goal should be to not install nor to run unreproducible software.</p>
+        <p class="fragment">in-toto (see Lukas' talk before) brings this to the next level...</p>
       </section>
 
       <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
