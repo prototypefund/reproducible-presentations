@@ -184,10 +184,45 @@ It’s only Free Software if it’s reproducible!</p>
         <p>We have a logo:</p>
 	<img class="fragment" src="images/logo.png" width="584">
         <p class="fragment">4th Reproducible Builds Summit in Paris</p>
-        <p class="fragment">R-B now a Software Freedom Conservancy project</p>
+     </section>
+
+  	<section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+     	<img  src="images/sfc.png" width="584">
+   <p class="fragment">R-B now a Software Freedom Conservancy project</p>
       </section>
 
       <!-- stevenc -->
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>Other projects</h3>
+        <p class="fragment">Arch Linux still at ~80% reproducible packages</p><!-- with modified tools -->
+        <p class="fragment">openSUSE at 93%</p>
+        <p class="fragment">openSUSE and Arch Linux now included in tests.r-b.o database</p>
+        <p class="fragment">Alpine being tested since yesterday</p>
+        <p class="fragment">NetBSD and FreeBSD base systems at 100% for the base install</p>
+        <p class="fragment">Tails 3.3, 3.6.1 &rarr; 100% reproducible ISO images</p>
+        <p class="fragment">OpenWrt images (for at least some targets)<p>
+        <p class="fragment">coreboot at 100% for most images<p>
+      </section>
+
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>Debian <em>buster</em></h3>
+        <p>“Packages should build reproducibly” added in Debian Policy 4.1.0.0<p>
+      </section>
+
+      <!-- h01ger, lamby -->
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <p>Debian installer images</p>
+        <p class="fragment">Comparing against packages from the archive</p>
+        <p class="fragment">Lots of progress in the last 3 months</p>
+        <p class="fragment">Need verification, might reach it for buster.1 "only"</p>
+      </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>What's missing?</h3>
+      </section>
 
       <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
         <p>GCC <code>-fmacro-prefix-map</code></p>
@@ -226,37 +261,6 @@ int main() {
 </pre></div>
       </section>
 
-      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
-        <h3>Other projects</h3>
-        <p class="fragment">Arch Linux still at ~80% reproducible packages</p><!-- with modified tools -->
-        <p class="fragment">openSUSE at 93%</p>
-        <p class="fragment">openSUSE and Arch Linux now included in tests.r-b.o database</p>
-        <p class="fragment">Alpine being tested since yesterday</p>
-        <p class="fragment">NetBSD and FreeBSD base systems at 100% for the base install</p>
-        <p class="fragment">Tails 3.3, 3.6.1 &rarr; 100% reproducible ISO images</p>
-        <p class="fragment">OpenWrt images (for at least some targets)<p>
-        <p class="fragment">coreboot at 100% for most images<p>
-      </section>
-
-      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
-        <h3>Debian <em>buster</em></h3>
-        <p>“Packages should build reproducibly” added in Debian Policy 4.1.0.0<p>
-      </section>
-
-      <!-- h01ger, lamby -->
-
-      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
-        <h3>What's missing?</h3>
-      </section>
-
-      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
-        <p>Debian installer images</p>
-        <p class="fragment">Comparing against packages from the archive</p>
-        <p class="fragment">Lots of progress in the last 3 months</p>
-        <p class="fragment">Need verification, might reach it for buster.1 "only"</p>
-      </section>
-
-
 
       <!-- issues in-depth -->
       <section class="title">
@@ -276,7 +280,8 @@ int main() {
         <h3>Major blockers, where to help</h3>
 	<p>#869184<br>sbuild, dput, dpkg: source uploads including <code>_amd64.buildinfo</code> causes problems</p>
         <p class="fragment">#894441<br>binNMUs, mtimes and <code>rsync(1)</code> causes problems and binNMUs should be replaced by easy "no-change-except-debian/changelog-uploads"</p>
-      </section>
+	<p class="fragment">blocker for #900837<br>release.debian.org: Mass-rebuild of packages for reproducible buildsebian/changelog-uploads"</p>
+ </section>
 
       <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
         <h3><code>.buildinfo</code> files</h3>
@@ -291,6 +296,14 @@ int main() {
         <p class="fragment">buildinfos.debian.net</p>
 	<p class="fragment">There should be a debian.org machine serving <code>.buildinfo</code> files to the public.</p>
       </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>user facing interface</h3>
+	<p class="fragment">#863622<br> apt: warn when installing packages that are not reproducible</p>
+        <p class="fragment">that would be great for bullseye, but...</p>
+        <p class="fragment">the goal should be to not install nor to run unreproducible software.</p>
+      </section>
+
 
       <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
         <h3>Debian <em>stretch</em></h3>
