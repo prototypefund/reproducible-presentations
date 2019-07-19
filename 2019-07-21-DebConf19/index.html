@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Reproducible buster</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+  <style type="text/css">
+  li {
+    margin-top: 28px !important;
+    list-style-type: none !important;
+  }
+  ul ul li {
+    margin-top: 16px !important;
+  }
+  * {
+    text-transform: none !important;
+  }
+  a {
+    color: inherit !important;
+  }
+  code {
+    font-size: 90% !important;
+  }
+  .text-center {
+    text-align: center;
+  }
+
+  .reveal section img {
+    border: none;
+    box-shadow: none;
+    background-color: inherit;
+  }
+  .reveal pre code {
+    overflow: inherit !important;
+    max-height: inherit !important;
+    padding: 0 0 20px 20px;
+  }
+
+  .thanks {
+    width: 100%;
+    margin-top: 120px !important;
+    border-radius: 5px;
+    background-color: white;
+  }
+
+  .thanks img {
+    border: 0;
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .pull-left {
+    float: left;
+  }
+
+  .pull-right {
+    float: right;
+  }
+
+  section.title h4 {
+    font-weight: normal;
+    font-size: 80%;
+  }
+
+  table.hash-example td {
+    border: none;
+    padding-right: 2em;
+    padding-bottom: 0.8em;
+  }
+
+  table.hash-example tr.good code {
+    color: lightgreen;
+  }
+
+  table.hash-example tr.bad code {
+    color: #ff2222;
+  }
+
+  table.involved {
+    margin-top: 2em;
+  }
+
+  table.involved td {
+    border: none;
+    padding-left: 3em;
+    padding-bottom: 0.4em;
+  }
+  .pics td {
+    border-bottom: 0 !important;
+    padding: 0 15px 0 15px !important;
+  }
+
+  .pics img {
+    height: 190px;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <script>
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+  document.getElementsByTagName('head')[0].appendChild( link );
+</script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class="title" data-background="images/reprobuilds-display.jpeg" data-background-size="50%" data-background-position="50% 15%">
+        <br>
+        <br>
+        <br>
+        <br>
+	<br>
+        <h3>
+         aiming for <em>bullseye</em>!
+        </h3>
+ <br>
+        <br>
+        <h4 class="pull-left text-left">
+          Holger Levsen<br />
+        </h4>
+        <h4 class="pull-right text-right">
+          Jelle@archlinux.org<br />
+        </h4>
+      </section>
+
+      <!-- outline -->
+      <section>
+        <ol>
+          <li>Introduction</li>
+          <li>Status update</li>
+          <li>Issues in detail</li>
+        </ol>
+      </section>
+
+      <!-- basic introduction for those in the room not fully familiar with reproducible builds -->
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>Introduction</h3>
+        <p class="fragment">Reproducible Builds have the purpose to enable anyone to reproduce identical binary packages from a given source.</p>
+      </section>
+
+ <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>Project goals</h3>
+        <p class="fragment">Ensure builds have identical results.</p>
+        <p class="fragment">We want to change the meaning of ”Free Software”:
+It’s only Free Software if it’s reproducible!</p>
+      </section>
+      
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>Other talks</h3>
+        <br>
+        <p>Bornhack, All Systems Go, All ThingsOpen, OSSE, Hackmit, FreeNode Live, CubaConf, Open Compliance Summit, Linux.conf.au, FOSDEM, Scale, NYLUG, LibrePlanet, Easterhegg, MiniDebConf Curitiba, Foss-North, FLOSSUK, Uni Dakar, Prototype Fund demo day, mentioned in several talks at 3xC3...</p>
+      </section>
+
+      <!-- review blog posts from past ~30 weeks -->
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h2>New since DebConf18 Taipeh</h2>
+      </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <p>We have a logo:</p>
+	<img class="fragment" src="images/logo.png" width="584">
+        <p class="fragment">4th Reproducible Builds Summit in Paris</p>
+     </section>
+
+  	<section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+     	<img  src="images/sfc.png" width="584">
+   <p class="fragment">R-B now a Software Freedom Conservancy project</p>
+      </section>
+
+      <!-- stevenc -->
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>Other projects</h3>
+        <p class="fragment">Arch Linux at ~80% reproducible packages</p>
+        <p class="fragment">openSUSE at 93%</p>
+        <p class="fragment">openSUSE and Arch Linux now included in tests.r-b.o database</p>
+        <p class="fragment">Alpine being tested since yesterday</p>
+        <p class="fragment">NetBSD and FreeBSD base systems at 100% for the base install</p>
+        <p class="fragment">Tails 3.3, 3.6.1 &rarr; 100% reproducible ISO images</p>
+        <p class="fragment">OpenWrt images (most targets)<p>
+      </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>Collaboration is great</h3>
+        <p>lots of very nice, unexpected results...</p>
+	<img class="fragment" src="images/reprobuilds-display.jpeg" width=100%">
+     </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>Arch Linux Status</h3>
+        <p class="fragment">In test framework ~80%, [core] repository 85%, in real life...</p>
+        <p class="fragment">Recording filesize of a package not reproducible on every filesystem (btrfs, ext4)</p>
+        <p class="fragment">Infrastructure changes for reproducibility (archive, BUILDINFO)</p>
+				<p class="fragment">Developed a tool to reproduce our repository packages</p>
+        <p class="fragment">Making more packages reproducible (which are already fixed in Debian by using the changelog date)</p>
+        <p class="fragment">Displaying reproducible-builds progress on our website (JSON endpoint)</p>
+     </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>Debian <em>buster</em></h3>
+        <p>“Packages should build reproducibly” added in Debian Policy 4.1.0.0<p>
+      </section>
+
+      <!-- h01ger, lamby -->
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <p>Debian installer images</p>
+        <p class="fragment">Comparing against packages from the archive</p>
+        <p class="fragment">Lots of progress in the last 3 months</p>
+        <p class="fragment">Need verification, might reach it for buster.1 "only"</p>
+      </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <p>Applied and unapplied patches</p>
+	<img class="fragment" src="images/stats_bugs_sin_ftbfs_state.png" width="120%">
+     </section>
+
+
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>What (else) is missing?</h3>
+      </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <p>GCC <code>-fmacro-prefix-map</code></p>
+        <pre class="fragment">#include &lt;stdio.h&gt;
+int main() {
+  fprintf(stderr, "error at %s line %l", __FILE__, __LINE__); return 1;
+}
+</pre>
+        <div class="fragment" />
+        <hr />
+        <pre>$ /usr/lib/gcc-snapshot/bin/gcc -o main <strong>/home/user</strong>/main.c
+</pre></div>
+        <div class="fragment" />
+        <pre>$ strings main | grep ^/
+/lib64/ld-linux-x86-64.so.2
+<strong>/home/user</strong>/main.c
+</pre></div>
+      </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>macro-prefix-map not accepted by upstream (yet)</h3>
+       	      <p>so we tag this <em>buster-ignore</em> and (probably) <em>bullseye-ignore</em> as well</p>
+ 	      <p>simple workaround: rebuild in recorded path</p>
+        <p class="fragment">needs someone to drive $this</p>
+  </section>
+
+      <!-- issues in-depth -->
+      <section class="title">
+        <h3>Debian is wrong</h3>
+	<p>93% is a lie. We need infrastructure, processes and policies. (And testing. Currently we only have testing and a vague goal.)<p>
+	<p class="fragment">With the upcoming list of bugs we
+	don't want to fingerpoint at individual teams, 
+	instead I think we can only solve this if we as Debian
+	decide we want to solve it for <em>buster</em>.
+	<br />
+	I think this is not happening because people believe
+	things have been sorted out and we take care of them.
+	But we are not, we can't do this alone.</p>
+      </section>
+
+      <section class="title">
+        <h3>The difference between theory and practice</h3>
+	<p>93% is a lie.</p>
+	<p class="fragment">54% on March 5th 2019.</p>
+	<p class="fragment">31% today.</p>
+    	<p class="fragment">We can still improve this, though 24% (6804) of our source packages have not been uploaded nor binNMUed since December 2016.</p>
+	<p class="fragment">I'm not sure I want to / we should upload &gt;5000 source packages in the next 2 years. So mass binNMUs for the rescue?</p>
+
+  </section>
+
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>Major blockers, where to help</h3>
+	<p>#869184<br>sbuild, dput, dpkg: source uploads including <code>_amd64.buildinfo</code> causes problems</p>
+        <p class="fragment">#894441<br>binNMUs, mtimes and <code>rsync(1)</code> causes problems and binNMUs should be replaced by easy "no-change-except-debian/changelog-uploads"</p>
+	<p class="fragment">blocker for #900837<br>release.debian.org: Mass-rebuild of packages for reproducible builds"</p>
+ </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3><code>.buildinfo</code> files</h3>
+        <p>#862073<br>ftp.debian.org: Please POST .buildinfo files to buildinfo.debian.net</p>
+        <p class="fragment">#763822<br>ftp.debian.org: please include .buildinfo file in the archive</p>
+        <p class="fragment">#862538<br>security.debian.org: Please POST .buildinfo files to buildinfo.debian.net</p>
+      </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3><code>.buildinfo</code> files</h3>
+        <p>buildinfo.debian.net</p>
+        <p class="fragment">buildinfos.debian.net</p> 
+ </section>
+
+ <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3><code>.buildinfo</code> files</h3>
+        <p>buildinfo.debian.net: allows submissions from everyone</p>
+        <p class="fragment">buildinfos.debian.net: ftp view with pool structure and build date based</p> 
+ </section>
+
+
+ <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+	 <h3><code>.buildinfo</code> files from an unofficial service?</h3>
+	<p class="fragment">there should be a debian.org machine serving <code>.buildinfo</code> files to the public.</p>
+	<p class="fragment">since December 2016: 965333 files in total, eg 118195 amd64 related.</p>
+     	<p class="fragment">12 GB files, 4 GB links.</p>
+ </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>user facing interface</h3>
+	<p class="fragment">#863622<br> apt: warn when installing packages that are not reproducible</p>
+        <p class="fragment">that would be great for bullseye, but...</p>
+        <p class="fragment">the goal should be to not install nor to run unreproducible software.</p>
+        <p class="fragment">in-toto (see Lukas' talk before) brings this to the next level...</p>
+      </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>tests.reproducible-builds.org</h3>
+	<p>results saved in common database</p>
+     	<p>json for Debian, openSUSE, Arch Linux, OpenWrt, Alpine</p>
+	<p  class="fragment">shared notes, cross distro links</p>
+	<p  class="fragment">two kinds of tests: CI tests (like we have now) and tests against what's on "ftp.(debian|archlinux|...).org"</p>
+ </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>Debian <em>stretch</em></h3>
+	<p>the 'reproducibly in theory but not in practice' release</p>
+        <h3>Debian <em>buster</em></h3>
+	<p>the 'we could be reproducible but we are not' release?</p>
+        <h3>Debian <em>bullseye</em></h3>
+	<p>the 'we are almost there but still haven't sorted out...' release???</p>
+      </section>
+
+      <section class="title" data-background="images/minidebconf-front1.svg.png" data-background-size="15%" data-background-position="90% 10%">
+        <h3>Debian <em>bullseye</em></h3>
+	<p>the release is still far away and we haven't frozen yet! :-)</p>
+	<img class="fragment" src="images/hc_fdroid_fosdem16-idea.png" width="584">
+      </section>
+
+
+      <section class="title" data-background="images/minidebconf-front1.svg" data-background-size="15%" data-background-position="50% 15%">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h3>
+          Thank you and to all the contributors out there!)
+        </h3>
+        <br>
+        <br>
+        <h4 class="pull-left text-left">
+          Holger Levsen<br />
+        </h4>
+        <h4 class="pull-right text-right">
+          Jelle@archlinux.org<br />
+        </h4>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: false,
+      progress: false,
+      history: true,
+      keyboard: {
+        13: 'next',
+        38: 'next',
+         9: 'prev',
+        40: 'prev'
+      }
+    });
+  </script>
+</body>
+</html>
