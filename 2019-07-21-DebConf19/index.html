@@ -199,13 +199,6 @@
       </section>
 
       <section data-background="images/800px-Debconf19-horizontal.png" data-background-size="8%" data-background-position="90% 10%">
-        <p><code>dpkg-buildflags</code> (1.19.1/Sep 2018)</p>
-        <br>
-        <p><code>DEB_BUILD_OPTIONS="reproducible=+fixfilepath"</code></p>
-        <p>Adds <code>-ffile-prefix-map=BUILD_PATH=.</code> to default GCC flags</p>
-      </section>
-
-      <section data-background="images/800px-Debconf19-horizontal.png" data-background-size="8%" data-background-position="90% 10%">
         <h3>Other projects</h3>
         <p class="fragment">Arch Linux at ~80% reproducible packages</p>
         <p class="fragment">openSUSE at 93%</p>
@@ -295,7 +288,7 @@
       </section>
 
       <section data-background="images/800px-Debconf19-horizontal.png" data-background-size="8%" data-background-position="90% 10%">
-        <p>Build Path Variations</p>
+        <h3>Build Path Variations</h3>
         <p>GCC <code>-fmacro-prefix-map</code></p>
         <pre class="fragment">#include &lt;stdio.h&gt;
 int main() {
@@ -311,6 +304,13 @@ int main() {
 /lib64/ld-linux-x86-64.so.2
 <strong>/home/user</strong>/main.c
 </pre></div>
+      </section>
+
+      <section data-background="images/800px-Debconf19-horizontal.png" data-background-size="8%" data-background-position="90% 10%">
+        <p><code>dpkg-buildflags</code> (1.19.1/Sep 2018)</p>
+        <br>
+        <p><code>DEB_BUILD_OPTIONS="reproducible=+fixfilepath"</code></p>
+        <p>Adds <code>-ffile-prefix-map=BUILD_PATH=.</code> to default GCC flags</p>
       </section>
 
       <section data-background="images/800px-Debconf19-horizontal.png" data-background-size="8%" data-background-position="90% 10%">
