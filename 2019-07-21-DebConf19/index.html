@@ -191,6 +191,10 @@ It’s only Free Software if it’s reproducible!</p>
    <p class="fragment">Reproducible Builds is now a Software Freedom Conservancy project</p>
       </section>
 
+      <section class="title" data-background="images/800px-Debconf19-horizontal.png" data-background-size="15%" data-background-position="90% 10%">
+        <p>FIXME: gcc/dpkg-dev foo:</p>
+     </section>
+
       <!-- stevenc -->
 
       <section class="title" data-background="images/800px-Debconf19-horizontal.png" data-background-size="15%" data-background-position="90% 10%">
@@ -201,7 +205,7 @@ It’s only Free Software if it’s reproducible!</p>
         <p class="fragment">Alpine being tested since MiniDebConf Hamburg 2019</p>
         <p class="fragment">NetBSD and FreeBSD base systems at 100% for the base install</p>
         <p class="fragment">Tails 3.3, 3.6.1 &rarr; 100% reproducible ISO images</p>
-        <p class="fragment">OpenWrt images (most targets)<p>
+        <p class="fragment">OpenWrt and coreboot images (most targets)<p>
       </section>
 
       <section class="title" data-background="images/800px-Debconf19-horizontal.png" data-background-size="15%" data-background-position="90% 10%">
@@ -220,8 +224,8 @@ It’s only Free Software if it’s reproducible!</p>
       <section class="title" data-background="images/800px-Debconf19-horizontal.png" data-background-size="15%" data-background-position="90% 10%">
         <p>Debian installer images</p>
         <p class="fragment">Comparing against packages from the archive</p>
-        <p class="fragment">Lots of progress in the last 3 months</p>
-        <p class="fragment">Need verification, might reach it for buster.1 "only"</p>
+        <p class="fragment">Lots of progress this year - thanks KiBi!</p>
+        <p class="fragment">#FIXME, something missing for 10.1</p>
       </section>
 
       <section class="title" data-background="images/800px-Debconf19-horizontal.png" data-background-size="15%" data-background-position="90% 10%">
@@ -254,11 +258,13 @@ int main() {
       </section>
 
       <section class="title" data-background="images/800px-Debconf19-horizontal.png" data-background-size="15%" data-background-position="90% 10%">
-        <h3>macro-prefix-map not accepted by upstream (yet)</h3>
-                     <p>so we tag this <em>buster-ignore</em> and (probably) <em>bullseye-ignore</em> as well</p>
+        <h3>macro-prefix-map is upstream but not used by dpkg by default</h3>
+                     <p>so we tag this <em>bullseye-ignore</em> and (hopefully not) <em>bookworm-ignore</em> as well</p>
                <p>simple workaround: rebuild in recorded path</p>
         <p class="fragment">needs someone to drive $this</p>
-        <p class="fragment">https://wiki.debian.org/ReproducibleBuilds/GCC-build-path</p>
+	
+        <p class="fragment">FIXME: https://wiki.debian.org/ReproducibleBuilds/GCC-build-path</p>
+        <p class="fragment">and then this issue (build path variation) also needs to be fixed in other tools </p>
   </section>
 
       <!-- issues in-depth -->
@@ -281,7 +287,7 @@ int main() {
         <p class="fragment">54% on March 5th 2019.</p>
         <p class="fragment">31% today.</p>
             <p class="fragment">We can still improve this, though 24% (6804) of our source packages have not been uploaded nor binNMUed since December 2016.</p>
-        <p class="fragment">I'm not sure I want to / we should upload &gt;5000 source packages in the next 2 years. So mass binNMUs for the rescue?</p>
+        <p class="fragment">FIXME: I'm not sure I want to / we should upload &gt;5000 source packages in the next 2 years. So mass binNMUs for the rescue?  maybe do those mass uploads to experimental first? contra: more work</p>
 
   </section>
 
@@ -325,7 +331,7 @@ int main() {
         <p class="fragment">#863622<br> apt: warn when installing packages that are not reproducible</p>
         <p class="fragment">that would be great for bullseye, but...</p>
         <p class="fragment">the goal should be to not install nor to run unreproducible software.</p>
-        <p class="fragment">in-toto brings this to the next level...</p>
+        <p class="fragment">FIXME wording: in-toto brings this to the next level...(and is about to land in NEW)</p>
       </section>
 
       <section class="title" data-background="images/800px-Debconf19-horizontal.png" data-background-size="15%" data-background-position="90% 10%">
