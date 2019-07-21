@@ -289,7 +289,7 @@
 
       <section data-background="images/800px-Debconf19-horizontal.png" data-background-size="8%" data-background-position="90% 10%">
         <h3>Build Path Variations</h3>
-        <p>GCC <code>-fmacro-prefix-map</code></p>
+        <p>GCC <code>-fmacro-prefix-map</code> and <code>-ffile-prefix-map</code></p>
         <pre class="fragment">#include &lt;stdio.h&gt;
 int main() {
   fprintf(stderr, "error at %s line %l", __FILE__, __LINE__); return 1;
