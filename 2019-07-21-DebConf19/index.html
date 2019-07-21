@@ -303,9 +303,9 @@ int main() {
       </section>
 
       <section data-background="images/800px-Debconf19-horizontal.png" data-background-size="8%" data-background-position="90% 10%">
-        <h3>macro-prefix-map is upstream but not used by dpkg by default</h3>
+        <h3>macro-prefix-map is in gcc-8, but not enabled in dpkg-buildflags by default</h3>
         <p>We tag this <em>bullseye-ignore</em> and (hopefully not) <em>bookworm-ignore</em> as well</p>
-        <p>Simple workaround: rebuild in recorded path</p>
+        <p>Simple workaround: rebuild in recorded path (testing/stable)</p>
         <p class="fragment">Needs someone to drive $this</p>
         <p class="fragment">FIXME: https://wiki.debian.org/ReproducibleBuilds/GCC-build-path</p>
         <p class="fragment">This issue (build path variation) also needs to be fixed in other tools</p>
