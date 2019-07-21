@@ -295,6 +295,7 @@
       </section>
 
       <section data-background="images/800px-Debconf19-horizontal.png" data-background-size="8%" data-background-position="90% 10%">
+        <p>Build Path Variations</p>
         <p>GCC <code>-fmacro-prefix-map</code></p>
         <pre class="fragment">#include &lt;stdio.h&gt;
 int main() {
@@ -313,13 +314,19 @@ int main() {
       </section>
 
       <section data-background="images/800px-Debconf19-horizontal.png" data-background-size="8%" data-background-position="90% 10%">
-        <h3>macro-prefix-map is in gcc-8, but not enabled in dpkg-buildflags by default</h3>
-        <p>We tag this <em>bullseye-ignore</em> and (hopefully not) <em>bookworm-ignore</em> as well</p>
-        <p>Simple workaround: rebuild in recorded path (testing/stable)</p>
-        <p class="fragment">Needs someone to drive $this</p>
+        <h3>Build Path Variations</h3>
+        <p>macro-prefix-map is in gcc-8</p>
+        <p class="fragment">... not enabled by default in dpkg-buildflags</p>
+        <p class="fragment">Some buildsystems embed gcc commandline, defeating reproducibility.</p>
+        <p class="fragment">Some test suites rely on full paths</p>
+        <p class="fragment">Only works with gcc, needs to be fixed in other tools</p>
+        <p class="fragment">Simple workaround: rebuild in recorded path (testing/stable)</p>
+        <p class="fragment">Ignore these issues for <em>bullseye</em></p>
+      </section>
+      <section data-background="images/800px-Debconf19-horizontal.png" data-background-size="8%" data-background-position="90% 10%">
+        <h3>Build Path Variations: The Future</h3>
         <p class="fragment">FIXME: https://wiki.debian.org/ReproducibleBuilds/GCC-build-path</p>
-        <p class="fragment">FIXME: history/status of BUILD_PATH_PREFIX_MAP: https://reproducible-builds.org/specs/build-path-prefix-map/</p>
-        <p class="fragment">This issue (build path variation) also needs to be fixed in other tools</p>
+        <p class="fragment">BUILD_PATH_PREFIX_MAP: https://reproducible-builds.org/specs/build-path-prefix-map/</p>
       </section>
 
       <!-- issues in-depth -->
