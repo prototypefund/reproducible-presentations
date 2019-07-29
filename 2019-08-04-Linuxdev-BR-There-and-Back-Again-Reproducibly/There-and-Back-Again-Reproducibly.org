@@ -15,6 +15,25 @@
 #+latex_header: \mode<beamer>{\usetheme{Madrid}}
 #+LaTeX_CLASS_OPTIONS: [aspectratio=169]
 #+BEGIN_comment
+There and back again, reproducibly! (in English)
+2019-08-04, 14:45–15:25, Radisson Madrid
+
+There is an epic journey from reviewed source code to the code you
+actually run on your computer, and things can go quietly wrong along
+the way!
+
+We can't do absolutely everything ourselves by hand, so we necessarily
+put trust into something somewhere along the way.
+
+What happens to your code as it passes through dark forests,
+trecherous mountain passes, or deep forboding caverns? What if
+something is quietly corrupting an otherwise trustworthy ally? Help
+showing up, but with it's own motives?
+
+Reproducible Builds gives a project confidence that the journey from
+source code to binary code gets you there and back again.
+
+https://reproducible-builds.org
 #+END_comment
 
 * Who are we
