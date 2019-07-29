@@ -1,6 +1,6 @@
 # thanks to dima for walking me through this!
 #
-# needs: apt install emcas texlive-latex-extra org-mode
+# needs: apt install emacs texlive-latex-extra org-mode
 
 all: $(patsubst %.org,%.pdf,$(wildcard *.org))
 
