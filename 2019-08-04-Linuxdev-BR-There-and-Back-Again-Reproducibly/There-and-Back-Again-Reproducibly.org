@@ -38,24 +38,31 @@ https://reproducible-builds.org
 
 * Who are we
 
-** text
+** image
     :PROPERTIES:
-    :BEAMER_col: 0.5
+    :BEAMER_col: 0.2
     :END:
 
-  |             | Vagrant | Holger |
-  |-------------+---------+--------|
-  | user        |    2001 |        |
-  | contributor |    2004 |        |
-  | maintainer  |    2008 |        |
-  | developer   |    2010 |        |
+[[./images/vagrantupsidedown.png]]
 
-** image
+
+** text
     :PROPERTIES:
     :BEAMER_col: 0.4
     :END:
 
-[[./images/vagrantupsidedown.png]]
+  |                     | Vagrant | Holger |
+  |---------------------+---------+--------|
+  | debian user         |    2001 |   1995 |
+  | debian developer    |    2010 |   2007 |
+  | reproducible builds |    2015 |   2014 |
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.2
+    :END:
+
+[[./images/holger.png]]
 
 * Humble beginnings
 
