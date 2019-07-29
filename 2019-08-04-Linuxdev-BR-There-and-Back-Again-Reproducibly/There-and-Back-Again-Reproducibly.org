@@ -1,0 +1,75 @@
+#+TITLE: There and Back Again, Reproducibly!
+#+AUTHOR: Vagrant Cascadian and Holger Levsen
+#+EMAIL: vagrant@reproducible-builds.org 
+#+DATE: Linux Developers Conference Brazil 2019-08-04
+#+LANGUAGE:  en
+#+OPTIONS:   H:1 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+OPTIONS: ^:nil
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger]
+#+latex_header: \mode<beamer>{\usetheme{Madrid}}
+#+LaTeX_CLASS_OPTIONS: [aspectratio=169]
+#+BEGIN_comment
+#+END_comment
+
+* Who are we
+
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.5
+    :END:
+
+  |             | Vagrant | Holger |
+  |-------------+---------+--------|
+  | user        |    2001 |        |
+  | contributor |    2004 |        |
+  | maintainer  |    2008 |        |
+  | developer   |    2010 |        |
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+
+[[./images/vagrantupsidedown.png]]
+
+* Humble beginnings
+
+[[./images/800px-Hobbit_holes_reflected_in_water.jpg]]
+
+* Dangerous Journeys
+
+* First Breakfast? Second Breakfast? Elevensies?
+
+./images/firstbreakfast
+
+* obvious and/or hidden adversaries in hiding
+
+[[./images/640px-The_Hobbit_-_Smaug.jpg]]
+
+* Trusted Hardware
+
+./images/image_of_RING
+
+* Copyright
+
+  Copyright 2019 Vagrant Cascadian <vagrant@reproducible-builds.org>
+
+  This work is licensed under the Creative Commons
+  Attribution-ShareAlike 4.0 International License.
+
+  To view a copy of this license, visit
+  https://creativecommons.org/licenses/by-sa/4.0/
+
+  Images downloaded from commons.wikimedia.org and licensed under the
+  Creative Commons Attribution 2.0 Generic license:
+
+  https://creativecommons.org/licenses/by/2.0/deed.en
+
+  https://commons.wikimedia.org/wiki/File:Hobbit_holes_reflected_in_water.jpg
+  https://commons.wikimedia.org/wiki/File:The_Hobbit_-_Smaug.jpg
