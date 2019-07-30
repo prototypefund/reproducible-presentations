@@ -78,7 +78,12 @@ https://reproducible-builds.org
 * forests
 * spiders
 * caves
-* Trusted Hardware
+* Who does your hardware serve?
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.6
+    :END:
 
 [[./images/887px-Unico_Anello.png]]
 
