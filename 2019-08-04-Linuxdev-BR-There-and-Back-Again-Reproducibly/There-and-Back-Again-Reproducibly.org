@@ -67,23 +67,23 @@ https://reproducible-builds.org
 
 * When we say reproducible
 
-** image
-    :PROPERTIES:
-    :BEAMER_col: 0.3
-    :END:
-
-[[./images/reproducible-builds.png]]
+ https://reproducible-builds.org/docs/definition/
 
 ** text
     :PROPERTIES:
     :BEAMER_col: 0.7
     :END:
 
-https://reproducible-builds.org/docs/definition/
-
 A build is reproducible if given the same source code, build
 environment and build instructions, any party can recreate bit-by-bit
 identical copies of all specified artifacts.
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.3
+    :END:
+
+[[./images/reproducible-builds.png]]
 
 * Humble beginnings
 
