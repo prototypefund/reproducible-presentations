@@ -80,7 +80,7 @@ https://reproducible-builds.org
 * caves
 * Trusted Hardware
 
-./images/image_of_RING
+[[./images/887px-Unico_Anello.png]]
 
 * obvious and/or hidden adversaries in hiding
 
@@ -103,3 +103,7 @@ https://reproducible-builds.org
 
   https://commons.wikimedia.org/wiki/File:Hobbit_holes_reflected_in_water.jpg
   https://commons.wikimedia.org/wiki/File:The_Hobbit_-_Smaug.jpg
+
+  Except the ring, which is public domain and/or very, very permissive:
+
+  https://commons.wikimedia.org/wiki/File:Unico_Anello.png
