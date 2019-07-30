@@ -76,7 +76,15 @@ https://reproducible-builds.org
 ./images/firstbreakfast
 
 * trolls
-* forests
+* Dark and forboding places
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+
+[[./images/345px-Mirkwood_-_entrance.jpg]]
+
 * spiders
 * caves
 * Who does your hardware serve?
@@ -113,3 +121,8 @@ https://reproducible-builds.org
   Except the ring, which is public domain and/or very, very permissive:
 
   https://commons.wikimedia.org/wiki/File:Unico_Anello.png
+
+  And mirkwood, licensed under:
+
+  https://creativecommons.org/licenses/by-sa/3.0/deed.en
+  https://commons.wikimedia.org/wiki/File:Mirkwood_-_entrance.jpg
