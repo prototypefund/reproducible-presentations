@@ -74,13 +74,17 @@ https://reproducible-builds.org
 
 ./images/firstbreakfast
 
-* obvious and/or hidden adversaries in hiding
-
-[[./images/640px-The_Hobbit_-_Smaug.jpg]]
-
+* trolls
+* forests
+* spiders
+* caves
 * Trusted Hardware
 
 ./images/image_of_RING
+
+* obvious and/or hidden adversaries in hiding
+
+[[./images/640px-The_Hobbit_-_Smaug.jpg]]
 
 * Copyright
 
