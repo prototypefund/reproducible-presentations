@@ -1,0 +1,92 @@
+#+TITLE: Reproducible Toolchains For The Win!
+#+AUTHOR: Vagrant Cascadian
+#+EMAIL: vagrant@reproducible-builds.org 
+#+DATE: Cauldron 2019, 2019-09-XX
+#+LANGUAGE:  en
+#+OPTIONS:   H:1 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+OPTIONS: ^:nil
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger]
+#+latex_header: \mode<beamer>{\usetheme{Madrid}}
+#+LaTeX_CLASS_OPTIONS: [aspectratio=169]
+#+BEGIN_comment
+Proposal for Cauldron2019
+https://gcc.gnu.org/wiki/cauldron2019
+
+Reproducible Toolchains For The Win!
+
+The Reproducible Builds project promotes a set of software development
+practices that create an independently-verifiable path from source to
+binary code, by providing bit-for-bit identical results.
+
+A key component in building software are the toolchains used. Solving
+reproducibility issues at the toolchain level can sometimes fix
+thousands of bugs in a single place, rather than patching each
+individual affected package.
+
+As an interesting side-effect, Reproducible Builds can also assist in
+verifying license compliance.
+
+This talk will mention some of the past and current issues in
+toolchains needed to realize Reproducible Builds in the real world.
+Let's work together to fix outstanding issues and further these
+efforts!
+
+https://reproducible-builds.org
+#+END_comment
+
+* Who
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.2
+    :END:
+
+[[./images/vagrantupsidedown.png]]
+
+
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+
+  |                     | Vagrant |
+  |---------------------+---------|
+  | debian user         |    2001 |
+  | debian developer    |    2010 |
+  | reproducible builds |    2015 |
+
+* When we say reproducible
+
+  https://reproducible-builds.org/docs/definition/
+
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.7
+    :END:
+
+A build is reproducible if given the same source code, build
+environment and build instructions, any party can recreate bit-by-bit
+identical copies of all specified artifacts.
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.3
+    :END:
+
+[[./images/reproducible-builds.png]]
+
+* Copyright
+
+  Copyright 2019 Vagrant Cascadian <vagrant@reproducible-builds.org>
+
+  This work is licensed under the Creative Commons
+  Attribution-ShareAlike 4.0 International License.
+
+  To view a copy of this license, visit
+  https://creativecommons.org/licenses/by-sa/4.0/
