@@ -95,7 +95,7 @@ identical copies of all specified artifacts.
 
 * First Breakfast? Second Breakfast? Elevensies?
 
-./images/firstbreakfast
+[[./images/tapioca_in_the_shadow_of_mordor.jpg]]
 
 * First Breakfast? Second Breakfast? Elevensies?
 
