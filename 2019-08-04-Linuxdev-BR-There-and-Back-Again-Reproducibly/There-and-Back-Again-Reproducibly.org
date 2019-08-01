@@ -95,6 +95,10 @@ identical copies of all specified artifacts.
 
 ./images/firstbreakfast
 
+* First Breakfast? Second Breakfast? Elevensies?
+
+[[./images/r-b-projects.png]]
+
 * trolls
 * Dark and forboding places
 
