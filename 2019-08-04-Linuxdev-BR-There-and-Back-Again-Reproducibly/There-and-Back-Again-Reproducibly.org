@@ -112,6 +112,9 @@ identical copies of all specified artifacts.
 [[./images/345px-Mirkwood_-_entrance.jpg]]
 
 * spiders
+
+[[./images/aranha.jpg]]
+
 * caves
 * Who does your hardware serve?
 
