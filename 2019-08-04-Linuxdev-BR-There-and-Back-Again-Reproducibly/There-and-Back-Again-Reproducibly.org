@@ -116,6 +116,9 @@ identical copies of all specified artifacts.
 [[./images/aranha.jpg]]
 
 * caves
+
+[[./images/320px-Caverna-Morro-Preto-Parque_Estadual_Alto_Ribeira-Iporanga-Brasil.JPG]]
+
 * Who does your hardware serve?
 
 ** image
@@ -168,9 +171,10 @@ https://reproducible-builds.org
 
   https://commons.wikimedia.org/wiki/File:Unico_Anello.png
 
-  And mirkwood, licensed under:
+  Mirkwood and the Caverna Morro ..., licensed under:
 
   https://creativecommons.org/licenses/by-sa/3.0/deed.en
   https://commons.wikimedia.org/wiki/File:Mirkwood_-_entrance.jpg
+  https://commons.wikimedia.org/wiki/File:Caverna-Morro-Preto-Parque_Estadual_Alto_Ribeira-Iporanga-Brasil.JPG
 
   And the logos, which are under their respective licenses. The compilation made by Holger is CC-SA 4.0 intl.
