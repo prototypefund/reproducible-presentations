@@ -101,6 +101,7 @@ identical copies of all specified artifacts.
 
 [[./images/r-b-projects.png]]
 
+* Dangerous Journeys
 * trolls
 * caves
 
