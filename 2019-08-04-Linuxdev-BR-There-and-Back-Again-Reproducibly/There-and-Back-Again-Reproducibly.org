@@ -120,6 +120,12 @@ identical copies of all specified artifacts.
 
 [[./images/640px-The_Hobbit_-_Smaug.jpg]]
 
+* The End
+
+[[./images/reproducible-builds.png]]
+
+https://reproducible-builds.org
+
 * Copyright
 
   Copyright 2019 Vagrant Cascadian <vagrant@reproducible-builds.org>
