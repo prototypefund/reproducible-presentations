@@ -129,7 +129,7 @@ identical copies of all specified artifacts.
 
 [[./images/640px-The_Hobbit_-_Smaug.jpg]]
 
-* The End
+* The End ... Or the Beginning?
 
 [[./images/reproducible-builds.png]]
 
