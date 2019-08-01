@@ -145,7 +145,7 @@ https://reproducible-builds.org
 
 * Copyright
 
-\small
+\tiny
 
   Copyright 2019 Vagrant Cascadian <vagrant@reproducible-builds.org>
 
