@@ -134,6 +134,8 @@ https://reproducible-builds.org
 
   Copyright 2019 Vagrant Cascadian <vagrant@reproducible-builds.org>
 
+  Copyright 2019 Holger Levsen <holger@reproducible-builds.org>
+
   This work is licensed under the Creative Commons
   Attribution-ShareAlike 4.0 International License.
 
@@ -156,3 +158,5 @@ https://reproducible-builds.org
 
   https://creativecommons.org/licenses/by-sa/3.0/deed.en
   https://commons.wikimedia.org/wiki/File:Mirkwood_-_entrance.jpg
+
+  And the logos, which are under their respective licenses. The compilation made by Holger is CC-SA 4.0 intl.
