@@ -137,6 +137,8 @@ https://reproducible-builds.org
 
 * Copyright
 
+\small
+
   Copyright 2019 Vagrant Cascadian <vagrant@reproducible-builds.org>
 
   Copyright 2019 Holger Levsen <holger@reproducible-builds.org>
