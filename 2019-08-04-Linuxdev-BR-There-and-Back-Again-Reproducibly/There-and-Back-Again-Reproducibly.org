@@ -67,12 +67,14 @@ https://reproducible-builds.org
 
 * When we say reproducible
 
- https://reproducible-builds.org/docs/definition/
-
 ** text
     :PROPERTIES:
     :BEAMER_col: 0.7
     :END:
+
+https://reproducible-builds.org/docs/definition/
+
+\vspace{\baselineskip}
 
 A build is reproducible if given the same source code, build
 environment and build instructions, any party can recreate bit-by-bit
@@ -148,6 +150,8 @@ https://reproducible-builds.org
 
   To view a copy of this license, visit
   https://creativecommons.org/licenses/by-sa/4.0/
+
+\vspace{\baselineskip}
 
   Images downloaded from commons.wikimedia.org and licensed under the
   Creative Commons Attribution 2.0 Generic license:
