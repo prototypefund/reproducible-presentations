@@ -128,6 +128,11 @@ identical copies of all specified artifacts.
 
 [[./images/reproducible-builds.png]]
 
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.67
+    :END:
+
 https://reproducible-builds.org
 
 * Copyright
