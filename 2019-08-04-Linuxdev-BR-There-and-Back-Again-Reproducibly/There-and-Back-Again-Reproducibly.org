@@ -102,19 +102,6 @@ identical copies of all specified artifacts.
 [[./images/r-b-projects.png]]
 
 * trolls
-* Dark and forboding places
-
-** image
-    :PROPERTIES:
-    :BEAMER_col: 0.4
-    :END:
-
-[[./images/345px-Mirkwood_-_entrance.jpg]]
-
-* spiders
-
-[[./images/aranha.jpg]]
-
 * caves
 
 [[./images/1280px-Caverna-Morro-Preto-Parque_Estadual_Alto_Ribeira-Iporanga-Brasil.JPG]]
@@ -127,6 +114,19 @@ identical copies of all specified artifacts.
     :END:
 
 [[./images/887px-Unico_Anello.png]]
+
+* Dark and forboding places
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+
+[[./images/345px-Mirkwood_-_entrance.jpg]]
+
+* spiders
+
+[[./images/aranha.jpg]]
 
 * obvious and/or hidden adversaries in hiding
 
