@@ -132,6 +132,15 @@ identical copies of all specified artifacts.
 
 [[./images/640px-The_Hobbit_-_Smaug.jpg]]
 
+* Who watches
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+
+[[./images/Ring-eye-sauron.png]]
+
 * The End ... Or the Beginning?
 
 [[./images/reproducible-builds.png]]
@@ -178,3 +187,8 @@ https://reproducible-builds.org
   https://commons.wikimedia.org/wiki/File:Caverna-Morro-Preto-Parque_Estadual_Alto_Ribeira-Iporanga-Brasil.JPG
 
   And the logos, which are under their respective licenses. The compilation made by Holger is CC-SA 4.0 intl.
+
+  Eye of sauron:
+
+  https://creativecommons.org/licenses/by-sa/4.0/deed.en
+  https://en.wikipedia.org/wiki/File:Ring-eye-sauron.gif
