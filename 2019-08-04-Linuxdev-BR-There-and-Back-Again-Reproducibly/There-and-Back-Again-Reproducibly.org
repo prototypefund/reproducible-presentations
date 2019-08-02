@@ -187,7 +187,7 @@ https://reproducible-builds.org
 
 #+ATTR_BEAMER: :overlay <+->
 - Test/research setup for many but not all projects.
-- Since end of 2018 shared db for some of those.
+- Since end of 2018 shared database for some of those.
 - Sharing issues, patches and upstreaming them.
 - Shared public blog, now called monthly report.
 - More collaboration is possible!
@@ -254,9 +254,19 @@ Thank you for your time and contributions.
 
 It's been a long journey but we will get there. And back again, on to new journeys!
 
+[[./images/reproducible-builds.png]]
+
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.67
+    :END:
+
+https://reproducible-builds.org
+
+https://try.diffoscope.org
 
 * Copyright
-
+\addtocounter{framenumber}{-1}
 \tiny
 
   Copyright 2019 Vagrant Cascadian <vagrant@reproducible-builds.org>
@@ -309,6 +319,7 @@ It's been a long journey but we will get there. And back again, on to new journe
   https://tests.reproducible-builds.org/debian/unstable/amd64/stats_pkg_state.png
 
 * Still hungry?
+\addtocounter{framenumber}{-1}
 
 We could offer pizza...
 
