@@ -158,53 +158,55 @@ https://reproducible-builds.org
 
 * Once upon a time
 
-in 2011 and 2012, Bitcoin and Torbrowser were made reproducible.
+#+ATTR_BEAMER: :overlay <+->
+- a list mail in 1997, very few more in 2001 and 2003.
+- Then, in 2011 and 2012, Bitcoin and Torbrowser were made reproducible.
+- Wow.
 
 * Debian
 
-then Debian started to investigate this
-
-and kicked it off
-
-then CII came in
-
-since 2017 in Debian Policy, as a "should" directive, not "must".
-
-2023 with "must"?
+#+ATTR_BEAMER: :overlay <+->
+- then in 2013 Debian started to investigate this
+- and kicked it off in 2014.
+- then CII came in in 2015.
+- since 2017 in Debian Policy, as a "should" directive, not "must".
+- 2023 with "must"?
 
 * Four summits so far
 
-Athens 2015
-
-Berlin 2016
-
-Berlin 2017
-
-Paris 2018
-
-Marrakesh 2019
+- Athens 2015
+- Berlin 2016
+- Berlin 2017
+- Paris 2018
+#+ATTR_BEAMER: :overlay <+->
+- Marrakesh 2019
 
 * Collaboration is great
 
-Show jelle's light
+FIXME: Show jelle's light
 
 * Collaboration is great
 
-Debian, SuSE, Archlinux, OpenWrt, Guix, Nix, FreeBSD, NetBSD, 'random' 'strangers', ...
+#+ATTR_BEAMER: :overlay <+->
+- Debian, SuSE, Archlinux, OpenWrt, Guix, Nix, FreeBSD, NetBSD, 'random' 'strangers', ...
+- we welcome you.
+- we welcome free software.
 
 * Why unreproducibilities exist
 
-Historically software was reproducible!
+#+ATTR_BEAMER: :overlay <+->
+- Historically software was reproducible! Every bit counted.
+- GNU toolchain in the early 90s on 10(?) architectures
 
 * Why unreproducibilities exist
 
-timestamps timestamps timestamps
-
-buildpaths
-
-timezones
-
-more crap
+#+ATTR_BEAMER: :overlay <+->
+- timestamps
+- timestamps 
+- timestamps
+- build paths
+- timezones, locales
+- hundries different other reasons
 
 * A light at the end of the forest?
 
@@ -212,22 +214,23 @@ Diffoscope!
 
 * Theory vs Praxis
 
-93% is a lie
-
-Getting software reproducible in theory is 33% of the way.
-
-The next 33% is to do it in practice.
-
-And the last mile is on the users machines. "Enable everyone to independently..."
+#+ATTR_BEAMER: :overlay <+->
+- 93% is a lie
+- Getting software reproducible in theory is 33% of the way.
+- The next 33% is to do it in practice.
+- And the last mile is on the users machines. "Enable everyone to independently..."
 
 * The end
 
-We made 93% of the first 33%.
+#+ATTR_BEAMER: :overlay <+->
+- We made 93% of the first 33%.
+- And for some distros, half or a third of the 2nd 33%.
+- in-toto or Benjamin's Hof stuff or a combination / something new got us partly on the last 33%, but we can't go on that path without the 2nd 33%
+- *There is a lot to do. Please. Help.*
 
-And for some distros, half or a third of the 2nd 33%.
+* Questions
 
-in-toto or Benjamin's Hof stuff or a combination / something new got us partly on the last 33%, but we can't go on that path without the 2nd 33%
-
+Thank you for your time and contributions.
 
 * Copyright
 
