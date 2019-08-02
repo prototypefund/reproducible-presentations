@@ -103,6 +103,9 @@ identical copies of all specified artifacts.
 
 * Dangerous Journeys
 * trolls
+
+[[./images/Trollschild.jpg]]
+
 * caves
 
 [[./images/1280px-Caverna-Morro-Preto-Parque_Estadual_Alto_Ribeira-Iporanga-Brasil.JPG]]
@@ -259,6 +262,10 @@ in-toto or Benjamin's Hof stuff or a combination / something new got us partly o
   https://creativecommons.org/licenses/by-sa/3.0/deed.en
   https://commons.wikimedia.org/wiki/File:Mirkwood_-_entrance.jpg
   https://commons.wikimedia.org/wiki/File:Caverna-Morro-Preto-Parque_Estadual_Alto_Ribeira-Iporanga-Brasil.JPG
+
+  The Troll sign ispublic domain:
+
+  https://de.wikipedia.org/wiki/Datei:Trollschild.jpg
 
   And the logos, which are under their respective licenses. The compilation made by Holger is CC-SA 4.0 intl.
 
