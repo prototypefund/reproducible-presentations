@@ -97,7 +97,7 @@ identical copies of all specified artifacts.
 
 [[./images/tapioca_in_the_shadow_of_mordor.jpg]]
 
-* Elevensies? Hundries!
+* Elevensies!
 
 [[./images/r-b-projects.png]]
 
@@ -204,7 +204,7 @@ https://reproducible-builds.org
 - timestamps
 - build paths
 - timezones, locales
-- hundries different classes of causes !
+- hundreds of classes of causes !
 - It's fun to discover these! Well, mostly.
 
 * A light at the end of the forest?
