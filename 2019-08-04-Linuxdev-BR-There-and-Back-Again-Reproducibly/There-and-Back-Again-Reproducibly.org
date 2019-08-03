@@ -240,7 +240,7 @@ https://reproducible-builds.org
 - And women, men and others,
 - And elves and dwarves, 
 - And wizards and hobbits,
-- And beings beyond our imagination,
+- And beings beyond our current imagination,
 - And we welcome you.
 - And we welcome Free Software.
 
