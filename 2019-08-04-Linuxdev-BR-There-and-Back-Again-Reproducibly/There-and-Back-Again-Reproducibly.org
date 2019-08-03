@@ -237,7 +237,10 @@ https://reproducible-builds.org
 
 #+ATTR_BEAMER: :overlay <+->
 - We stand on the shoulders of giants.
-- And elves and dwarfs, unicorns, women and men, and some witches and magicans.
+- And women, men and others,
+- And elves and dwarves, 
+- And wizards and hobbits,
+- And beings beyond our imagination,
 - And we welcome you.
 - And we welcome Free Software.
 
