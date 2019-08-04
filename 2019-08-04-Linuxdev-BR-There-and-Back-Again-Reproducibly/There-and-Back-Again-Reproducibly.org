@@ -177,6 +177,8 @@ https://reproducible-builds.org
 
 * Motivation for reproducible builds
 
+#+ATTR_BEAMER: :overlay <+->
+- Why do we care?
 - reproducible builds:
   - can detect backdoored build environments on developer systems or project build machines
   - cannot detect flaws in sources
