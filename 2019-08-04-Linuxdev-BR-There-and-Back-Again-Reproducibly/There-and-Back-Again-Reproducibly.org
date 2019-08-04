@@ -196,7 +196,7 @@ https://reproducible-builds.org
 - Shared public blog, now called monthly report.
 - More collaboration is possible!
 
-* Why unreproducibilities exist
+* What's causing unreproducibilities
 
 #+ATTR_BEAMER: :overlay <+->
 - timestamps
@@ -207,20 +207,47 @@ https://reproducible-builds.org
 - hundreds of classes of causes !
 - It's fun to discover these! Well, mostly.
 
-* A light at the end of the forest?
+* A light at the end of the forest!
 
-https://try.diffoscope.org
+https://diffoscope.org
 
-** image
-    :PROPERTIES:
-    :BEAMER_col: 0.6
-    :END:
+\vspace{\baselineskip}
+
+#+ATTR_BEAMER: :overlay <+->
+- Recursive and human-readable "diff" 
+  - locates and diagnoses reproducibility issues
+  - *not* used for determining whether something is reproducible!
+  - used for analysing *why*
+- available for Debian, Fedora, OpenSUSE, Archlinux, GNU Guix, NixOS, FreeBSD, NetBSD, PypI, ...
+
+* diffoscope example
 
 [[./images/diffoscope.png]]
 
+* diffoscope, supported file types
+
+Android APK files, Android boot images, Ar(1) archives, Berkeley DB database files, Bzip2 archives, Character/block devices, ColorSync colour profiles (.icc), Coreboot CBFS filesystem images, Cpio archives, Dalvik .dex files, Debian .buildinfo files, Debian .changes files, Debian source packages (.dsc), Device Tree Compiler blob files, Directories, ELF binaries, Ext2/ext3/ext4/btrfs filesystems, FreeDesktop Fontconfig cache files, FreePascal files (.ppu), Gettext message catalogues, GHC Haskell .hi files, GIF image files, Git repositories, GNU R database files (.rdb), GNU R Rscript files (.rds), Gnumeric spreadsheets, Gzipped files, ISO 9660 CD images, Java .class files, JavaScript files, JPEG images, JSON files, LLVM IR bitcode files, MacOS binaries, Microsoft Windows icon files, Microsoft Word .docx files, Mono 'Portable Executable' files, Ogg Vorbis audio files, OpenOffice .odt files, OpenSSH public keys, OpenWRT package archives (.ipk), PDF documents, PGP signed/encrypted messages, PNG images, PostScript documents, RPM archives, Rust object files (.deflate), SQLite databases, SquashFS filesystems, Statically-linked binaries, Symlinks, Tape archives (.tar), Tcpdump capture files (.pcap), Text files, TrueType font files, XML binary schemas (.xsb), XML files, XZ compressed files, etc.
+
+* Try diffoscope!
+
+https://try.diffoscope.org
+
+\vspace{\baselineskip}
+
+#+ATTR_BEAMER: :overlay <+->
+- diffoscope is useful beyond reproducible builds, eg.
+  - for checking security updates only change what should be changed
+  - for development too
+
 * A barrel in the river
 
-- https://salsa.debian.org/reproducible/reprotest.git
+reprotest: builds something twice with many variations
+
+\vspace{\baselineskip}
+
+#+ATTR_BEAMER: :overlay <+->
+- https://salsa.debian.org/reproducible/reprotest
+- if unreproducible: reduce variations until (hopefully) the cause has been identified
 - *Please help!*
 
 * Theory vs Praxis
