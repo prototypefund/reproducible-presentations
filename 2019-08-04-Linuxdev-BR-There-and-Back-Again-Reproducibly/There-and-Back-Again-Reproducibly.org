@@ -175,6 +175,13 @@ https://reproducible-builds.org
 - Bit for bit reproducible GNU toolchain in the early 90s on 10(?) architectures.
 - *And then we all forgot.*
 
+* Motivation for reproducible builds
+
+- FIXME:
+- can detect backdoored build environments on developer systems or project build machines
+- cannot detect flaws in sources
+- FIXME this slide needs more work
+
 * Debian
 
 #+ATTR_BEAMER: :overlay <+->
