@@ -209,8 +209,14 @@ https://reproducible-builds.org
 
 * A light at the end of the forest?
 
-- https://try.diffoscope.org
-- FIXME. explain. pics. urls.
+https://try.diffoscope.org
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.6
+    :END:
+
+[[./images/diffoscope.png]]
 
 * A barrel in the river
 
