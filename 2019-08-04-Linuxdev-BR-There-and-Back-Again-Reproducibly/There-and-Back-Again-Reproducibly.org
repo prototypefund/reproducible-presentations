@@ -209,8 +209,13 @@ https://reproducible-builds.org
 
 * A light at the end of the forest?
 
-- Diffoscope!
+- https://try.diffoscope.org
 - FIXME. explain. pics. urls.
+
+* A barrel in the river
+
+- https://salsa.debian.org/reproducible/reprotest.git
+- *Please help!*
 
 * Theory vs Praxis
 
