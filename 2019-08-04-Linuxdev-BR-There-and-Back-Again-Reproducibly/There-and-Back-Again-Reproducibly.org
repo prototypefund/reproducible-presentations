@@ -218,7 +218,7 @@ https://diffoscope.org
   - locates and diagnoses reproducibility issues
   - *not* used for determining whether something is reproducible!
   - used for analysing *why*
-- available for Debian, Fedora, OpenSUSE, Archlinux, GNU Guix, NixOS, FreeBSD, NetBSD, PypI, ...
+- available for Debian, Fedora, OpenSUSE, Archlinux, GNU Guix, NixOS, FreeBSD, NetBSD, Homebrew, PypI, ...
 
 * diffoscope example
 
@@ -268,6 +268,7 @@ reprotest: builds something twice with many variations
 - Berlin 2017
 - Paris 2018
 - Marrakesh 2019
+- ...
 
 * Collaboration is so great, again.
 
@@ -288,9 +289,10 @@ reprotest: builds something twice with many variations
 
 #+ATTR_BEAMER: :overlay <+->
 - We made 93% of the first 33%.
+- Sounds good, but 7% of 30000 source packages means 2100 unreproducible source packages.
 - Currently. There's new software every hour.
 - The 2nd 33% are more blurry, some small projects made it, no big one yet.
-- There are ideas and even code for the last 33%, but we can't go on that path without the 2nd 33%...
+- There are ideas and even code for the last 33%, but we can't go on that path without the first 66%...
 - *There is a lot to do. Please. Help.*
 
 * Questions?
