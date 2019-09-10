@@ -1,7 +1,7 @@
 #+TITLE: Reproducible Toolchains For The Win!
 #+AUTHOR: Vagrant Cascadian
 #+EMAIL: vagrant@reproducible-builds.org 
-#+DATE: Cauldron 2019, 2019-09-XX
+#+DATE: Cauldron 2019, 2019-09-13
 #+LANGUAGE:  en
 #+OPTIONS:   H:1 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
