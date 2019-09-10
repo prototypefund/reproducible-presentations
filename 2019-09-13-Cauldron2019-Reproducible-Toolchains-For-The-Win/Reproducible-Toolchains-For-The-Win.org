@@ -81,6 +81,45 @@ identical copies of all specified artifacts.
 
 [[./images/reproducible-builds.png]]
 
+* The problem is one of Time
+
+https://reproducible-builds.org/docs/source-date-epoch/
+
+* gcc: time
+
+Support for SOURCE_DATE_EPOCH added to gcc 2019-04:
+
+https://gcc.gnu.org/git/?p=gcc.git;a=commitdiff;h=e3e8c48c4a494d9da741c1c8ea6c4c0b7c4ff934
+
+* Build Paths
+
+https://reproducible-builds.org/specs/build-path-prefix-map/
+
+* gcc: build paths
+
+https://tests.reproducible-builds.org/debian/issues/unstable/gcc_captures_build_path_issue.html
+
+618: reproducible (possibly due to -ffile-prefix-map)
+
+1015: still unreproducible
+
+* gcc: build paths
+
+-debug-prefix-map
+
+* gcc: moar build paths
+
+-fmacro-prefix-map
+-ffile-prefix-map
+
+https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70268
+
+* gcc: a block in the road, a line in the sand
+
+https://gcc.gnu.org/ml/gcc-patches/2016-11/msg00182.html
+https://gcc.gnu.org/ml/gcc-patches/2017-04/msg00513.html
+https://gcc.gnu.org/ml/gcc-patches/2017-07/msg01315.html
+
 * Copyright
 
   Copyright 2019 Vagrant Cascadian <vagrant@reproducible-builds.org>
@@ -90,3 +129,34 @@ identical copies of all specified artifacts.
 
   To view a copy of this license, visit
   https://creativecommons.org/licenses/by-sa/4.0/
+
+* TODO
+
+solved:
+
+https://debbugs.gnu.org/cgi/bugreport.cgi?bug=32342 gzip
+https://gitlab.kitware.com/cmake/cmake/merge_requests/432
+https://github.com/rpm-software-management/rpm/pull/536
+https://github.com/rpm-software-management/rpm/pull/485
+https://bugreports.qt.io/browse/QTBUG-62511
+https://git.savannah.gnu.org/cgit/make.git/commit/?id=eedea52afb2069e54188508cd87cb7724b30dd6a
+
+open:
+
+https://github.com/ImageMagick/ImageMagick/pull/1270
+https://github.com/python/cpython/pull/12341
+https://issues.apache.org/jira/browse/MJAVADOC-619 maven-javadoc-plugin
+plus more missing java patches
+and there is still the whole python py_compile mess left
+
+>> https://debbugs.gnu.org/cgi/bugreport.cgi?bug=32342 gzip
+>> https://git.savannah.gnu.org/cgit/make.git/commit/?id=eedea52afb2069e54188508cd87cb7724b30dd6a
+
+[gcc/nvme-cli](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=91307 report
+LTO-induced indeterminism from global constructors
+
+> _reports/2019-06.md:* Richard Biener submitted a patch for the [GCC
+GNU Compiler Collection](https://gcc.gnu.org/) to [fix differences in
+the runtime debugging info between
+builds](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=90778) in its D
+programming language support.
