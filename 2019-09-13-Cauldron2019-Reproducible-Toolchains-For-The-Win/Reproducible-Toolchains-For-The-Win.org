@@ -327,34 +327,3 @@ C and a Nyacc-based C compiler written in Scheme.
   https://creativecommons.org/licenses/by-sa/4.0/
 
 
-* TODO
-
-solved:
-
-https://debbugs.gnu.org/cgi/bugreport.cgi?bug=32342 gzip
-https://gitlab.kitware.com/cmake/cmake/merge_requests/432
-https://github.com/rpm-software-management/rpm/pull/536
-https://github.com/rpm-software-management/rpm/pull/485
-https://bugreports.qt.io/browse/QTBUG-62511
-https://git.savannah.gnu.org/cgit/make.git/commit/?id=eedea52afb2069e54188508cd87cb7724b30dd6a
-
-open:
-
-https://github.com/ImageMagick/ImageMagick/pull/1270
-https://github.com/python/cpython/pull/12341
-https://issues.apache.org/jira/browse/MJAVADOC-619 maven-javadoc-plugin
-plus more missing java patches
-and there is still the whole python py_compile mess left
-
->> https://debbugs.gnu.org/cgi/bugreport.cgi?bug=32342 gzip
->> https://git.savannah.gnu.org/cgit/make.git/commit/?id=eedea52afb2069e54188508cd87cb7724b30dd6a
-
-[gcc/nvme-cli](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=91307 report
-LTO-induced indeterminism from global constructors
-
-> _reports/2019-06.md:* Richard Biener submitted a patch for the [GCC
-GNU Compiler Collection](https://gcc.gnu.org/) to [fix differences in
-the runtime debugging info between
-builds](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=90778) in its D
-programming language support.
-
