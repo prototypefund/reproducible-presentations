@@ -382,6 +382,17 @@ reprotest: builds something twice with many variations
 - if unreproducible: reduce variations until (hopefully) the cause has been identified
 - *Please help!*
 
+
+* How to help
+
+https://reproducible-builds.org/contribute/
+
+#+ATTR_BEAMER: :overlay <+->
+- rb-general@lists.reproducible-builds.org
+- irc.oftc.net #reproducible-builds
+- code hosting: https://salsa.debian.org/reproducible-builds
+- test infrastructure: https://tests.reproducible-builds.org
+
 * Copyright
 
   Copyright 2019 Vagrant Cascadian <vagrant@reproducible-builds.org>
