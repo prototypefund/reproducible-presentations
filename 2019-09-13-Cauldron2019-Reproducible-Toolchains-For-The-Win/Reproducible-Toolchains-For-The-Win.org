@@ -196,6 +196,24 @@ GNU make
 
   https://git.savannah.gnu.org/cgit/make.git/commit/?id=eedea52afb2069e54188508cd87cb7724b30dd6a
 
+* There is so much more to think about
+
+https://reproducible-builds.org/docs/
+
+#+ATTR_BEAMER: :overlay <+->
+- Volatile inputs can disappear
+- Value initialization
+- Locales
+- Archive metadata
+- Stable order for outputs
+- Randomness
+- Build path
+- System images
+- Time
+- Timezones
+- Time
+- Time again
+
 * build essential: debian unstable
 
 https://tests.reproducible-builds.org/debian/unstable/amd64/pkg_set_build-essential.html
