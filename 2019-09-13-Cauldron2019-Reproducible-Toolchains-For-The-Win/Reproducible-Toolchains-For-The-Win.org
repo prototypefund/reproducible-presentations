@@ -358,6 +358,18 @@ Android APK files, Android boot images, Ar(1) archives, Berkeley DB database fil
 
 https://try.diffoscope.org
 
+
+* Reprotest
+
+reprotest: builds something twice with many variations
+
+\vspace{\baselineskip}
+
+#+ATTR_BEAMER: :overlay <+->
+- https://salsa.debian.org/reproducible/reprotest
+- if unreproducible: reduce variations until (hopefully) the cause has been identified
+- *Please help!*
+
 * Copyright
 
   Copyright 2019 Vagrant Cascadian <vagrant@reproducible-builds.org>
