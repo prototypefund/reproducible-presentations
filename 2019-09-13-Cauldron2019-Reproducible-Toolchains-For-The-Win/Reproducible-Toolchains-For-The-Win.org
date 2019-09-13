@@ -138,8 +138,9 @@ https://gcc.gnu.org/git/?p=gcc.git;a=commitdiff;h=e3e8c48c4a494d9da741c1c8ea6c4c
 
 * gzip: time
 
+gzip --no-name (a.k.a. -n)
+
 #+ATTR_BEAMER: :overlay <+->
-- gzip --no-name (a.k.a. -n)
 - [PATCH] Do not store mtime when compressing stdin
   https://debbugs.gnu.org/cgi/bugreport.cgi?bug=32342
 
