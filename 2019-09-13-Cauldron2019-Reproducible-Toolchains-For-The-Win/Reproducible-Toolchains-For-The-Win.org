@@ -134,9 +134,14 @@ https://gcc.gnu.org/ml/gcc-patches/2017-07/msg01315.html
 
 GNU make
 
-src/read.c (parse_file_seq): [SV 52076] Sort wildcard results.
+#+ATTR_BEAMER: :overlay <+->
+- wildcard/glob should be sorted
 
-https://git.savannah.gnu.org/cgit/make.git/commit/?id=eedea52afb2069e54188508cd87cb7724b30dd6a
+  https://savannah.gnu.org/bugs/index.php?52076
+
+- src/read.c (parse_file_seq): [SV 52076] Sort wildcard results.
+
+  https://git.savannah.gnu.org/cgit/make.git/commit/?id=eedea52afb2069e54188508cd87cb7724b30dd6a
 
 * build essential: debian unstable
 
