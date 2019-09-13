@@ -327,6 +327,18 @@ https://bootstrappable.org/
 
 What compiler do you use to compile your compiler?
 
+* Trusting Trust
+
+  Reflections on Trusting Trust by Ken Thompson 1984
+
+- https://www.ece.cmu.edu/~ganger/712.fall02/papers/p761-thompson.pdf
+
+* Diverse Double-Compilation
+
+  Diverse Double-Compilation by David A. Wheeler 2005/2009
+
+- https://www.dwheeler.com/trusting-trust/
+
 * Untangling the bootstraping Mes
 
 https://savannah.gnu.org/projects/mes
