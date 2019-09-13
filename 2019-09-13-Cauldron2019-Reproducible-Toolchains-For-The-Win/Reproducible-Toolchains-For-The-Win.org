@@ -93,15 +93,18 @@ identical copies of all specified artifacts.
 * Motivation for reproducible builds
 
 #+ATTR_BEAMER: :overlay <+->
-- Why do we care?
-- reproducible builds:
+- Why do we care about reproducible builds?
 
-  - can detect backdoored build environments on developer systems or
+  - Can detect backdoored build environments on developer systems or
     project build machines
 
-  - cannot detect flaws in sources
+  - Optimize build cache, limiting rebuilds
 
-- See previous talks where we explain motivation in greater detail, eg. look for 'a tale of three developers'
+  - It just feels right
+
+- What will reproducible builds not do for you?
+
+  - Cannot detect flaws in sources
 
 * The problem is one of Time
 
