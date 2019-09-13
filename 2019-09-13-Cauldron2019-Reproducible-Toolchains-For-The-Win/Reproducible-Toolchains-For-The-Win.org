@@ -100,11 +100,31 @@ identical copies of all specified artifacts.
 
   - Optimize build cache, limiting rebuilds
 
+  - License compliance verification
+
   - It just feels right
 
 - What will reproducible builds not do for you?
 
   - Cannot detect flaws in sources
+
+* License compliance: GPL
+
+GPL compliance
+
+#+ATTR_BEAMER: :overlay <+->
+  - source code is what it used to write free software
+  - binary code is what is actually used
+  - How can you prove that the binaries used are the result of the source code?
+
+* License compliance: hardware
+
+https://www.fsf.org/resources/hw/endorsement/respects-your-freedom
+
+#+ATTR_BEAMER: :overlay <+->
+- Firmware
+- Operating system
+- Other software
 
 * The problem is one of Time
 
