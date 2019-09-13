@@ -191,6 +191,7 @@ of 54 packages:
 
 45 (83.3%) reproducible: ...
 
+
 * build essential: debian bullseye
 
 https://tests.reproducible-builds.org/debian/bullseye/amd64/pkg_set_build-essential.html
@@ -216,3 +217,55 @@ https://tests.reproducible-builds.org/debian/bullseye/amd64/pkg_set_build-essent
 1 (1.9%) other problems: libgcrypt20
 
 50 (94.3%) reproducible:: ...
+
+* build essential build depends: debian unstable
+
+https://tests.reproducible-builds.org/debian/unstable/amd64/pkg_set_build-essential-depends.html
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.5
+    :END:
+
+[[./images/unstable-build-essential-depends.png]]
+
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.5
+    :END:
+
+of 3061 packages:
+
+312 (10.2%) unreproducible
+
+83 (2.7%) failed to build
+
+4 (0.1%) misc issues
+
+2662 (87.0%) reproducible
+
+* build essential build depends: debian bullseye
+
+https://tests.reproducible-builds.org/debian/bullseye/amd64/pkg_set_build-essential-depends.html
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.5
+    :END:
+
+[[./images/bullseye-build-essential-depends.png]]
+
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.5
+    :END:
+
+of 3144 packages:
+
+100 (3.2%) unreproducible
+
+69 (2.2%) failed to build
+
+13 (0.4%) misc issues
+
+2962 (94.2%) reproducible
