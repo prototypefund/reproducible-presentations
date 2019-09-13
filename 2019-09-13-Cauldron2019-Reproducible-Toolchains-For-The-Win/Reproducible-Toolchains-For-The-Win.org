@@ -148,9 +148,14 @@ gzip --no-name (a.k.a. -n)
 
 https://reproducible-builds.org/specs/build-path-prefix-map/
 
-* gcc: build paths
+* gcc: build paths: debug symbols
 
--debug-prefix-map
+debug symbols
+
+-fdebug-prefix-map
+
+#+ATTR_BEAMER: :overlay <+->
+- Debian: dpkg support 2016-05, 1.18.5 
 
 * gcc: moar build paths
 
