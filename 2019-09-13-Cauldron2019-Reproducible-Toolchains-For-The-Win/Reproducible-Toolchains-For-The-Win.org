@@ -130,6 +130,14 @@ https://gcc.gnu.org/ml/gcc-patches/2017-04/msg00513.html
 https://gcc.gnu.org/ml/gcc-patches/2017-07/msg01315.html
 
 
+* Sort your wildcards
+
+GNU make
+
+src/read.c (parse_file_seq): [SV 52076] Sort wildcard results.
+
+https://git.savannah.gnu.org/cgit/make.git/commit/?id=eedea52afb2069e54188508cd87cb7724b30dd6a
+
 * build essential: debian unstable
 
 https://tests.reproducible-builds.org/debian/unstable/amd64/pkg_set_build-essential.html
