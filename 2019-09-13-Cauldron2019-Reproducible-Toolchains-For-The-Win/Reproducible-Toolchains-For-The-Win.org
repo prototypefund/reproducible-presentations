@@ -251,11 +251,18 @@ of 3144 packages:
 
 * bootstrapping
 
+https://bootstrappable.org/
+
+What compiler do you use to compile your compiler?
+
+* A bit of a Mes
+
 https://savannah.gnu.org/projects/mes
 
 GNU Mes
 
-
+Mutual self-hosting Scheme interpreter written in ~5,000 LOC of simple
+C and a Nyacc-based C compiler written in Scheme.
 
 * Copyright
 
