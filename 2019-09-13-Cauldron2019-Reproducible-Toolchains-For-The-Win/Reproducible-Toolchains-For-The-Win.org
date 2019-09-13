@@ -152,9 +152,8 @@ https://reproducible-builds.org/specs/build-path-prefix-map/
 
 debug symbols
 
--fdebug-prefix-map
-
 #+ATTR_BEAMER: :overlay <+->
+- -fdebug-prefix-map
 - Debian: dpkg support 2016-05, 1.18.5 
 
 * gcc: moar build paths
@@ -164,7 +163,7 @@ debug symbols
 
 https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70268
 
-* gcc: build paths
+* gcc: build paths: results
 
 https://tests.reproducible-builds.org/debian/issues/unstable/gcc_captures_build_path_issue.html
 
@@ -174,10 +173,8 @@ https://tests.reproducible-builds.org/debian/issues/unstable/gcc_captures_build_
 
 
 
-* gcc: a block in the road, a line in the sand
+* gcc: build paths: unresolved
 
-https://gcc.gnu.org/ml/gcc-patches/2016-11/msg00182.html
-https://gcc.gnu.org/ml/gcc-patches/2017-04/msg00513.html
 https://gcc.gnu.org/ml/gcc-patches/2017-07/msg01315.html
 
 * gcc: LTO
