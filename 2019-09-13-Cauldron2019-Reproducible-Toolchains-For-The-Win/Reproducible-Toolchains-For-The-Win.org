@@ -104,14 +104,6 @@ https://reproducible-builds.org/specs/build-path-prefix-map/
 
 * gcc: build paths
 
-https://tests.reproducible-builds.org/debian/issues/unstable/gcc_captures_build_path_issue.html
-
-618: reproducible (possibly due to -ffile-prefix-map)
-
-1015: still unreproducible
-
-* gcc: build paths
-
 -debug-prefix-map
 
 * gcc: moar build paths
@@ -120,6 +112,16 @@ https://tests.reproducible-builds.org/debian/issues/unstable/gcc_captures_build_
 -ffile-prefix-map
 
 https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70268
+
+* gcc: build paths
+
+https://tests.reproducible-builds.org/debian/issues/unstable/gcc_captures_build_path_issue.html
+
+618: reproducible (possibly due to -ffile-prefix-map)
+
+1015: still unreproducible
+
+
 
 * gcc: a block in the road, a line in the sand
 
