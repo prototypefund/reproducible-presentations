@@ -81,6 +81,28 @@ identical copies of all specified artifacts.
 
 [[./images/reproducible-builds.png]]
 
+
+* Why unreproducibilities exist (prehistorically)
+
+#+ATTR_BEAMER: :overlay <+->
+- Historically software was reproducible! Every bit counted.
+- And every bit was known.
+- Bit for bit reproducible GNU toolchain in the early 90s on 10(?) architectures.
+- *And then we all forgot.*
+
+* Motivation for reproducible builds
+
+#+ATTR_BEAMER: :overlay <+->
+- Why do we care?
+- reproducible builds:
+
+  - can detect backdoored build environments on developer systems or
+    project build machines
+
+  - cannot detect flaws in sources
+
+- See previous talks where we explain motivation in greater detail, eg. look for 'a tale of three developers'
+
 * The problem is one of Time
 
 https://reproducible-builds.org/docs/source-date-epoch/
@@ -267,6 +289,8 @@ C and a Nyacc-based C compiler written in Scheme.
 * Copyright
 
   Copyright 2019 Vagrant Cascadian <vagrant@reproducible-builds.org>
+
+  Copyright 2019 Holger Levsen <holger@layer-acht.org>
 
   This work is licensed under the Creative Commons
   Attribution-ShareAlike 4.0 International License.
