@@ -1,5 +1,5 @@
-#+TITLE: Reproducible Toolchains For The Win!
 #+AUTHOR: Vagrant Cascadian
+#+TITLE: Reproducible Toolchains For The Win!
 #+EMAIL: vagrant@reproducible-builds.org 
 #+DATE: Cauldron 2019, 2019-09-13
 #+LANGUAGE:  en
@@ -166,3 +166,53 @@ GNU Compiler Collection](https://gcc.gnu.org/) to [fix differences in
 the runtime debugging info between
 builds](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=90778) in its D
 programming language support.
+
+* build essential: debian unstable
+
+https://tests.reproducible-builds.org/debian/unstable/amd64/pkg_set_build-essential.html
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.5
+    :END:
+
+[[./images/unstable-build-essential.png]]
+
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.5
+    :END:
+
+of 54 packages:
+
+6 (11.1%) unreproducible: bash+ linux perl# gmp gcc-9 binutils
+
+3 (5.6%) failed to build: pcre2 glibc xz-utils
+
+45 (83.3%) reproducible: ...
+
+* build essential: debian bullseye
+
+https://tests.reproducible-builds.org/debian/bullseye/amd64/pkg_set_build-essential.html
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.5
+    :END:
+
+[[./images/bullseye-build-essential.png]]
+
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.5
+    :END:
+
+53 packages:
+
+1 (1.9%) unreproducible: gcc-9
+
+1 (1.9%) failed to build: xz-utils
+
+1 (1.9%) other problems: libgcrypt20
+
+50 (94.3%) reproducible:: ...
