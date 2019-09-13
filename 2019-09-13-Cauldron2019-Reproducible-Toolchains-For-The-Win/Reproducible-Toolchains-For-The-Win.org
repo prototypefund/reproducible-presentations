@@ -140,6 +140,7 @@ https://gcc.gnu.org/git/?p=gcc.git;a=commitdiff;h=e3e8c48c4a494d9da741c1c8ea6c4c
 
 
 gzip
+
 #+ATTR_BEAMER: :overlay <+->
 - --no-name (a.k.a. -n)
 - [PATCH] Do not store mtime when compressing stdin
@@ -177,6 +178,19 @@ https://tests.reproducible-builds.org/debian/issues/unstable/gcc_captures_build_
 * gcc: build paths: unresolved
 
 https://gcc.gnu.org/ml/gcc-patches/2017-07/msg01315.html
+
+#+ATTR_BEAMER: :overlay <+->
+- Use BUILD_PATH_PREFIX_MAP environment variable instead of -ffile-prefix-map
+- commandline arguments sometimes get embedded in build results
+- REJECTED on premise of taking data from environment variable
+
+* gcc: build paths: way forward
+
+gcc build path proposals?
+
+#+ATTR_BEAMER: :overlay <+->
+- -ffile-prefix-map-from-env BUILD_PATH_PREFIX_MAP
+- Workaround build in same directory
 
 * gcc: LTO
 
