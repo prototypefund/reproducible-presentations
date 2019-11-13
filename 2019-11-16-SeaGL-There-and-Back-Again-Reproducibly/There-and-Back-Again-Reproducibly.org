@@ -1,0 +1,375 @@
+#+TITLE: There and Back Again, Reproducibly!
+#+AUTHOR: Vagrant Cascadian
+#+EMAIL: vagrant@reproducible-builds.org 
+#+DATE: SeaGL.org, 2019-11-16
+#+LANGUAGE:  en
+#+OPTIONS:   H:1 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+OPTIONS: ^:nil
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger]
+#+latex_header: \mode<beamer>{\usetheme{Madrid}}
+#+LaTeX_CLASS_OPTIONS: [aspectratio=169]
+#+BEGIN_comment
+There and Back Again, Reproducibly!
+SeaGL.org, Seattle
+2019-11-16
+
+There is an epic journey from reviewed source code to the code you
+actually run on your computer, and things can go quietly wrong along
+the way!
+
+We can't do absolutely everything ourselves by hand, so we necessarily
+put trust into something or someone along the way. Will you join us on
+our journey, brave adventurer?
+
+What happens to your code as it passes through dark forests,
+trecherous mountain passes, or deep forboding caverns? What if
+something is quietly corrupting an otherwise trustworthy ally? Help
+showing up, but with it's own motives?
+
+Reproducible Builds gives a project confidence that the journey from
+source code to binary code gets you there and back again.
+
+https://reproducible-builds.org
+#+END_comment
+
+* Who are we
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.2
+    :END:
+
+[[./images/vagrantupsidedown.png]]
+
+
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+
+  |                     | Vagrant | Holger |
+  |---------------------+---------+--------|
+  | debian user         |    2001 |   1995 |
+  | debian developer    |    2010 |   2007 |
+  | reproducible builds |    2015 |   2014 |
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.2
+    :END:
+
+[[./images/holger.png]]
+
+* When we say reproducible
+
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.7
+    :END:
+
+https://reproducible-builds.org/docs/definition/
+
+\vspace{\baselineskip}
+
+A build is reproducible if given the same source code, build
+environment and build instructions, any party can recreate bit-by-bit
+identical copies of all specified artifacts.
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.3
+    :END:
+
+[[./images/reproducible-builds.png]]
+
+* Humble beginnings
+
+[[./images/800px-Hobbit_holes_reflected_in_water.jpg]]
+
+* Unexpected guests
+
+* First Breakfast! Second Breakfast? Elevensies?
+
+[[./images/tapioca_in_the_shadow_of_mordor.jpg]]
+
+* Elevensies!
+
+[[./images/r-b-projects.png]]
+
+* Dangerous Journeys
+* trolls
+
+[[./images/Trollschild.jpg]]
+
+* caves
+
+[[./images/1280px-Caverna-Morro-Preto-Parque_Estadual_Alto_Ribeira-Iporanga-Brasil.JPG]]
+
+* Who does your hardware serve?
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.6
+    :END:
+
+[[./images/887px-Unico_Anello.png]]
+
+* Dark and forboding places
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+
+[[./images/345px-Mirkwood_-_entrance.jpg]]
+
+* spiders
+
+[[./images/aranha.jpg]]
+
+* Under the mountain
+
+[[./images/640px-The_Hobbit_-_Smaug.jpg]]
+
+* And back again
+
+[[./images/800px-Hobbit_holes_reflected_in_water.jpg]]
+
+* Who watches
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+
+[[./images/Ring-eye-sauron.png]]
+
+* The End ... Or the Beginning?
+
+[[./images/reproducible-builds.png]]
+
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.67
+    :END:
+
+https://reproducible-builds.org
+
+* Once upon a time
+
+#+ATTR_BEAMER: :overlay <+->
+- A list mail in 1997, very few more in 2001 and 2003.
+- Then, in 2011 and 2012, Bitcoin and Torbrowser were made reproducible.
+- Wow.
+
+* Why unreproducibilities exist (historically)
+
+#+ATTR_BEAMER: :overlay <+->
+- Historically software was reproducible! Every bit counted.
+- And every bit was known.
+- Bit for bit reproducible GNU toolchain in the early 90s on 10(?) architectures.
+- *And then we all forgot.*
+
+* Debian
+
+#+ATTR_BEAMER: :overlay <+->
+- In 2013 some people in Debian began to investigate this.
+- And kicked it off in 2014 by introducing systematic testing, classifications and weekly blogs.
+- Since 2017 in Debian Policy, as a "should" directive, not "must".
+- 2023 with "must"?
+
+* Debian main unstable/amd64, since October 2014
+
+[[./images/stats_pkg_state.png]]
+
+* Shared research and developments / WIP
+
+#+ATTR_BEAMER: :overlay <+->
+- Test/research setup for many but not all projects.
+- Since end of 2018 shared database for some of those.
+- Sharing issues, patches and upstreaming them.
+- Shared public blog, now called monthly report.
+- More collaboration is possible!
+
+* What's causing unreproducibilities
+
+#+ATTR_BEAMER: :overlay <+->
+- timestamps
+- timestamps 
+- timestamps
+- build paths
+- timezones, locales
+- hundreds of classes of causes !
+- It's fun to discover these! Well, mostly.
+
+* A light at the end of the forest!
+
+https://diffoscope.org
+
+\vspace{\baselineskip}
+
+#+ATTR_BEAMER: :overlay <+->
+- Recursive and human-readable "diff" 
+  - locates and diagnoses reproducibility issues
+  - *not* used for determining whether something is reproducible!
+  - used for analysing *why*
+- available for Debian, Fedora, OpenSUSE, Archlinux, GNU Guix, NixOS, FreeBSD, NetBSD, Homebrew, PypI, ...
+
+* diffoscope example
+
+[[./images/diffoscope.png]]
+
+* diffoscope, supported file types
+
+Android APK files, Android boot images, Ar(1) archives, Berkeley DB database files, Bzip2 archives, Character/block devices, ColorSync colour profiles (.icc), Coreboot CBFS filesystem images, Cpio archives, Dalvik .dex files, Debian .buildinfo files, Debian .changes files, Debian source packages (.dsc), Device Tree Compiler blob files, Directories, ELF binaries, Ext2/ext3/ext4/btrfs filesystems, FreeDesktop Fontconfig cache files, FreePascal files (.ppu), Gettext message catalogues, GHC Haskell .hi files, GIF image files, Git repositories, GNU R database files (.rdb), GNU R Rscript files (.rds), Gnumeric spreadsheets, Gzipped files, ISO 9660 CD images, Java .class files, JavaScript files, JPEG images, JSON files, LLVM IR bitcode files, MacOS binaries, Microsoft Windows icon files, Microsoft Word .docx files, Mono 'Portable Executable' files, Ogg Vorbis audio files, OpenOffice .odt files, OpenSSH public keys, OpenWRT package archives (.ipk), PDF documents, PGP signed/encrypted messages, PNG images, PostScript documents, RPM archives, Rust object files (.deflate), SQLite databases, SquashFS filesystems, Statically-linked binaries, Symlinks, Tape archives (.tar), Tcpdump capture files (.pcap), Text files, TrueType font files, XML binary schemas (.xsb), XML files, XZ compressed files, etc.
+
+* Try diffoscope!
+
+https://try.diffoscope.org
+
+\vspace{\baselineskip}
+
+#+ATTR_BEAMER: :overlay <+->
+- diffoscope is useful beyond reproducible builds, eg.
+  - for checking security updates only change what should be changed
+  - for development too
+
+* A barrel in the river
+
+reprotest: builds something twice with many variations
+
+\vspace{\baselineskip}
+
+#+ATTR_BEAMER: :overlay <+->
+- https://salsa.debian.org/reproducible/reprotest
+- if unreproducible: reduce variations until (hopefully) the cause has been identified
+- *Please help!*
+
+* Theory vs Praxis
+
+#+ATTR_BEAMER: :overlay <+->
+- 93% is a lie.
+- Getting software reproducible in theory is 33% of the way.
+- The next 33% are about reproducible builds in practice, which means changing distro tools and workflows. Technically easy...
+- The last 33% are again different for each distro and divided into these questions:
+  - distributing trust 
+  - how to "Enable everyone to independently..." in practice. (eg for Debian there are two designs with code, but...)
+
+* Four summits so far
+
+#+ATTR_BEAMER: :overlay <+->
+- Athens 2015
+- Berlin 2016
+- Berlin 2017
+- Paris 2018
+- Marrakesh 2019
+- ...
+
+* Collaboration is so great, again.
+
+[[./images/reprobuilds-display.jpeg]]
+
+* Collaboration, again.
+
+#+ATTR_BEAMER: :overlay <+->
+- We stand on the shoulders of giants.
+- And women, men and others,
+- And elves and dwarves, 
+- And wizards and hobbits,
+- And beings beyond our current imagination,
+- And we welcome you.
+- And we welcome Free Software.
+
+* The end / summary
+
+#+ATTR_BEAMER: :overlay <+->
+- We made 93% of the first 33%.
+- Sounds good, but 7% of 30000 source packages means 2100 unreproducible source packages.
+- Currently. There's new software every hour.
+- The 2nd 33% are more blurry, some small projects made it, no big one yet.
+- There are ideas and even code for the last 33%, but we can't go on that path without the first 66%...
+- *There is a lot to do. Please. Help.*
+
+* Questions?
+
+Thank you for your time and contributions. 
+
+\vspace{\baselineskip}
+
+It's been a long journey but we will get there. And back again, on to new journeys!
+
+[[./images/reproducible-builds.png]]
+
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.67
+    :END:
+
+https://reproducible-builds.org
+
+https://try.diffoscope.org
+
+* Copyright
+\addtocounter{framenumber}{-1}
+\tiny
+
+  Copyright 2019 Vagrant Cascadian <vagrant@reproducible-builds.org>
+
+  Copyright 2019 Holger Levsen <holger@layer-acht.org>
+
+  This work is licensed under the Creative Commons
+  Attribution-ShareAlike 4.0 International License.
+
+  To view a copy of this license, visit
+  https://creativecommons.org/licenses/by-sa/4.0/
+
+\vspace{\baselineskip}
+
+  Images downloaded from commons.wikimedia.org and licensed under the
+  Creative Commons Attribution 2.0 Generic license:
+
+  https://creativecommons.org/licenses/by/2.0/deed.en
+
+  https://commons.wikimedia.org/wiki/File:Hobbit_holes_reflected_in_water.jpg
+  https://commons.wikimedia.org/wiki/File:The_Hobbit_-_Smaug.jpg
+
+  Except the ring, which is public domain and/or very, very permissive:
+
+  https://commons.wikimedia.org/wiki/File:Unico_Anello.png
+
+  Mirkwood and the Caverna Morro ..., licensed under:
+
+  https://creativecommons.org/licenses/by-sa/3.0/deed.en
+  https://commons.wikimedia.org/wiki/File:Mirkwood_-_entrance.jpg
+  https://commons.wikimedia.org/wiki/File:Caverna-Morro-Preto-Parque_Estadual_Alto_Ribeira-Iporanga-Brasil.JPG
+
+  The Troll sign ispublic domain:
+
+  https://de.wikipedia.org/wiki/Datei:Trollschild.jpg
+
+  And the logos, which are under their respective licenses. The compilation made by Holger is CC-SA 4.0 intl.
+
+  Eye of sauron:
+
+  https://creativecommons.org/licenses/by-sa/4.0/deed.en
+  https://en.wikipedia.org/wiki/File:Ring-eye-sauron.gif
+
+  reprobuilds-display from Jelle is under MIT:
+
+  https://github.com/jelly/reproduciblebuilds-display
+
+  stats_pkg_state has been generated by code licensed under GPL2, written by Holger and was downloaded from:
+
+  https://tests.reproducible-builds.org/debian/unstable/amd64/stats_pkg_state.png
+
+* Still hungry?
+\addtocounter{framenumber}{-1}
+
+We could offer pizza...
+
