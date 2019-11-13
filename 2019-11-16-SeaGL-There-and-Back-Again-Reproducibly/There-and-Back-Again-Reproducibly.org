@@ -361,8 +361,3 @@ https://try.diffoscope.org
 
   https://tests.reproducible-builds.org/debian/unstable/amd64/stats_pkg_state.png
 
-* Still hungry?
-\addtocounter{framenumber}{-1}
-
-We could offer pizza...
-
