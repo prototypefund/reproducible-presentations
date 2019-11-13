@@ -38,11 +38,11 @@ source code to binary code gets you there and back again.
 https://reproducible-builds.org
 #+END_comment
 
-* Who are we
+* Who am I
 
 ** image
     :PROPERTIES:
-    :BEAMER_col: 0.2
+    :BEAMER_col: 0.4
     :END:
 
 [[./images/vagrantupsidedown.png]]
@@ -53,18 +53,11 @@ https://reproducible-builds.org
     :BEAMER_col: 0.4
     :END:
 
-  |                     | Vagrant | Holger |
-  |---------------------+---------+--------|
-  | debian user         |    2001 |   1995 |
-  | debian developer    |    2010 |   2007 |
-  | reproducible builds |    2015 |   2014 |
-
-** image
-    :PROPERTIES:
-    :BEAMER_col: 0.2
-    :END:
-
-[[./images/holger.png]]
+  |                     | Vagrant |
+  |---------------------+---------|
+  | debian user         |    2001 |
+  | debian developer    |    2010 |
+  | reproducible builds |    2015 |
 
 * When we say reproducible
 
