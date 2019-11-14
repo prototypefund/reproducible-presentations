@@ -237,16 +237,18 @@ reprotest: builds something twice with many variations
 
 https://reproducible-builds.org
 
-
 * Theory vs Praxis
 
 #+ATTR_BEAMER: :overlay <+->
-- 93% is a lie.
+- 93% is a wonderful fantasy
+- 7% of 30000 source packages means 2100 unreproducible source packages.
+- And there's new software every hour
 - Getting software reproducible in theory is 33% of the way.
 - The next 33% are about reproducible builds in practice, which means changing distro tools and workflows. Technically easy...
 - The last 33% are again different for each distro and divided into these questions:
   - distributing trust 
   - how to "Enable everyone to independently..." in practice. (eg for Debian there are two designs with code, but...)
+- *There is a lot to do. Please. Help.*
 
 * Four summits so far
 
@@ -281,15 +283,6 @@ https://reproducible-builds.org
 - And we welcome you.
 - And we welcome Free Software.
 
-* The end / summary
-
-#+ATTR_BEAMER: :overlay <+->
-- We made 93% of the first 33%.
-- Sounds good, but 7% of 30000 source packages means 2100 unreproducible source packages.
-- Currently. There's new software every hour.
-- The 2nd 33% are more blurry, some small projects made it, no big one yet.
-- There are ideas and even code for the last 33%, but we can't go on that path without the first 66%...
-- *There is a lot to do. Please. Help.*
 
 * Questions?
 
