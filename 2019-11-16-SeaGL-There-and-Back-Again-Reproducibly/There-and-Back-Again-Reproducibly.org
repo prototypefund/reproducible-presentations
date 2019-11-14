@@ -258,9 +258,19 @@ https://reproducible-builds.org
 - Marrakesh 2019
 - ...
 
-* Collaboration, again.
+* Collaboration
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
 
 [[./images/reprobuilds-display.jpeg]]
+
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.6
+    :END:
 
 #+ATTR_BEAMER: :overlay <+->
 - We stand on the shoulders of giants.
