@@ -81,11 +81,50 @@ identical copies of all specified artifacts.
 
 [[./images/reproducible-builds.png]]
 
+* Once upon a time
+
+#+ATTR_BEAMER: :overlay <+->
+- Historically software was reproducible! Every bit counted.
+- And every bit was known.
+- Bit for bit reproducible GNU toolchain in the early 90s on 10(?) architectures.
+- *And then we all forgot.*
+- A list mail in 1997, very few more in 2001 and 2003.
+- Then, in 2011 and 2012, Bitcoin and Torbrowser were made reproducible.
+
+* Debian
+
+#+ATTR_BEAMER: :overlay <+->
+- In 2013 some people in Debian began to investigate this.
+- And kicked it off in 2014 by introducing systematic testing, classifications and weekly blogs.
+- Since 2017 in Debian Policy
+
+* Debian main unstable/amd64, since October 2014
+
+[[./images/stats_pkg_state.png]]
+
+* Shared research and developments / WIP
+
+#+ATTR_BEAMER: :overlay <+->
+- Test/research setup for many but not all projects.
+- Since end of 2018 shared database for some of those.
+- Sharing issues, patches and upstreaming them.
+- Shared public blog, now called monthly report.
+- More collaboration is possible!
+
 * Humble beginnings
 
 [[./images/800px-Hobbit_holes_reflected_in_water.jpg]]
 
 * Unexpected guests
+
+#+ATTR_BEAMER: :overlay <+->
+- timestamps
+- timestamps 
+- timestamps
+- build paths
+- timezones, locales
+- hundreds of classes of causes !
+- It's fun to discover these! Well, mostly.
 
 * First Breakfast! Second Breakfast? Elevensies?
 
@@ -95,7 +134,6 @@ identical copies of all specified artifacts.
 
 [[./images/r-b-projects.png]]
 
-* Dangerous Journeys
 * trolls
 
 [[./images/Trollschild.jpg]]
@@ -122,86 +160,7 @@ identical copies of all specified artifacts.
 
 [[./images/345px-Mirkwood_-_entrance.jpg]]
 
-* spiders
-
-[[./images/aranha.jpg]]
-
-* Under the mountain
-
-[[./images/640px-The_Hobbit_-_Smaug.jpg]]
-
-* And back again
-
-[[./images/800px-Hobbit_holes_reflected_in_water.jpg]]
-
-* Who watches
-
-** image
-    :PROPERTIES:
-    :BEAMER_col: 0.4
-    :END:
-
-[[./images/Ring-eye-sauron.png]]
-
-* The End ... Or the Beginning?
-
-[[./images/reproducible-builds.png]]
-
-** text
-    :PROPERTIES:
-    :BEAMER_col: 0.67
-    :END:
-
-https://reproducible-builds.org
-
-* Once upon a time
-
-#+ATTR_BEAMER: :overlay <+->
-- A list mail in 1997, very few more in 2001 and 2003.
-- Then, in 2011 and 2012, Bitcoin and Torbrowser were made reproducible.
-- Wow.
-
-* Why unreproducibilities exist (historically)
-
-#+ATTR_BEAMER: :overlay <+->
-- Historically software was reproducible! Every bit counted.
-- And every bit was known.
-- Bit for bit reproducible GNU toolchain in the early 90s on 10(?) architectures.
-- *And then we all forgot.*
-
-* Debian
-
-#+ATTR_BEAMER: :overlay <+->
-- In 2013 some people in Debian began to investigate this.
-- And kicked it off in 2014 by introducing systematic testing, classifications and weekly blogs.
-- Since 2017 in Debian Policy, as a "should" directive, not "must".
-- 2023 with "must"?
-
-* Debian main unstable/amd64, since October 2014
-
-[[./images/stats_pkg_state.png]]
-
-* Shared research and developments / WIP
-
-#+ATTR_BEAMER: :overlay <+->
-- Test/research setup for many but not all projects.
-- Since end of 2018 shared database for some of those.
-- Sharing issues, patches and upstreaming them.
-- Shared public blog, now called monthly report.
-- More collaboration is possible!
-
-* What's causing unreproducibilities
-
-#+ATTR_BEAMER: :overlay <+->
-- timestamps
-- timestamps 
-- timestamps
-- build paths
-- timezones, locales
-- hundreds of classes of causes !
-- It's fun to discover these! Well, mostly.
-
-* A light at the end of the forest!
+* What can you see, burglar?
 
 https://diffoscope.org
 
@@ -233,6 +192,11 @@ https://try.diffoscope.org
   - for checking security updates only change what should be changed
   - for development too
 
+
+* spiders
+
+[[./images/aranha.jpg]]
+
 * A barrel in the river
 
 reprotest: builds something twice with many variations
@@ -243,6 +207,36 @@ reprotest: builds something twice with many variations
 - https://salsa.debian.org/reproducible/reprotest
 - if unreproducible: reduce variations until (hopefully) the cause has been identified
 - *Please help!*
+
+
+* Under the mountain
+
+[[./images/640px-The_Hobbit_-_Smaug.jpg]]
+
+* And back again
+
+[[./images/800px-Hobbit_holes_reflected_in_water.jpg]]
+
+* Who watches
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+
+[[./images/Ring-eye-sauron.png]]
+
+* The End ... Or the Beginning?
+
+[[./images/reproducible-builds.png]]
+
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.67
+    :END:
+
+https://reproducible-builds.org
+
 
 * Theory vs Praxis
 
@@ -264,11 +258,9 @@ reprotest: builds something twice with many variations
 - Marrakesh 2019
 - ...
 
-* Collaboration is so great, again.
+* Collaboration, again.
 
 [[./images/reprobuilds-display.jpeg]]
-
-* Collaboration, again.
 
 #+ATTR_BEAMER: :overlay <+->
 - We stand on the shoulders of giants.
