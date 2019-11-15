@@ -217,15 +217,6 @@ reprotest: builds something twice with many variations
 
 [[./images/800px-Hobbit_holes_reflected_in_water.jpg]]
 
-* Who watches
-
-** image
-    :PROPERTIES:
-    :BEAMER_col: 0.4
-    :END:
-
-[[./images/Ring-eye-sauron.png]]
-
 * The End ... Or the Beginning?
 
 [[./images/reproducible-builds.png]]
@@ -283,6 +274,14 @@ https://reproducible-builds.org
 - And we welcome you.
 - And we welcome Free Software.
 
+* Who watches
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+
+[[./images/Ring-eye-sauron.png]]
 
 * Questions?
 
