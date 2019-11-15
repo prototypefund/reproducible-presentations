@@ -88,12 +88,12 @@ identical copies of all specified artifacts.
 - And every bit was known.
 - Bit for bit reproducible GNU toolchain in the early 90s on 10(?) architectures.
 - *And then we all forgot.*
-- A list mail in 1997, very few more in 2001 and 2003.
-- Then, in 2011 and 2012, Bitcoin and Torbrowser were made reproducible.
 
 * Debian
 
 #+ATTR_BEAMER: :overlay <+->
+- A list mail in 1997, very few more in 2001 and 2003.
+- Then, in 2011 and 2012, Bitcoin and Torbrowser were made reproducible.
 - In 2013 some people in Debian began to investigate this.
 - And kicked it off in 2014 by introducing systematic testing, classifications and weekly blogs.
 - Since 2017 in Debian Policy
