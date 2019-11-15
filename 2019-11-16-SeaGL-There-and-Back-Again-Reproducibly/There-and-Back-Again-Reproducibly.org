@@ -120,10 +120,10 @@ identical copies of all specified artifacts.
 #+ATTR_BEAMER: :overlay <+->
 - timestamps
 - timestamps 
-- timestamps
 - build paths
 - timezones, locales
 - hundreds of classes of causes !
+- timestamps
 - It's fun to discover these! Well, mostly.
 
 * First Breakfast! Second Breakfast?
