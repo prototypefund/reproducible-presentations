@@ -208,15 +208,25 @@ https://try.diffoscope.org
 
 * A barrel in the river
 
-reprotest: builds something twice with many variations
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.3
+    :END:
 
-\vspace{\baselineskip}
+[[./images/hobbit-on-a-barrel.jpeg]]
+
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.6
+    :END:
+
+reprotest
 
 #+ATTR_BEAMER: :overlay <+->
+- builds something twice with many variations
 - https://salsa.debian.org/reproducible/reprotest
-- if unreproducible: reduce variations until (hopefully) the cause has been identified
+- if unreproducible: "bisect" the variations
 - *Please help!*
-
 
 * Under the mountain
 
@@ -354,3 +364,4 @@ https://try.diffoscope.org
 
   https://tests.reproducible-builds.org/debian/unstable/amd64/stats_pkg_state.png
 
+  hobbit-on-a-barrel.jpeg used under fair use.
