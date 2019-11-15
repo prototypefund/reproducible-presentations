@@ -160,6 +160,15 @@ identical copies of all specified artifacts.
 
 [[./images/345px-Mirkwood_-_entrance.jpg]]
 
+* Councils of the Wise
+
+#+ATTR_BEAMER: :overlay <+->
+- Athens 2015
+- Berlin 2016
+- Berlin 2017
+- Paris 2018
+- Marrakesh 2019
+
 * What can you see, burglar?
 
 https://diffoscope.org
@@ -240,16 +249,6 @@ https://reproducible-builds.org
   - distributing trust 
   - how to "Enable everyone to independently..." in practice. (eg for Debian there are two designs with code, but...)
 - *There is a lot to do. Please. Help.*
-
-* Four summits so far
-
-#+ATTR_BEAMER: :overlay <+->
-- Athens 2015
-- Berlin 2016
-- Berlin 2017
-- Paris 2018
-- Marrakesh 2019
-- ...
 
 * Collaboration
 
