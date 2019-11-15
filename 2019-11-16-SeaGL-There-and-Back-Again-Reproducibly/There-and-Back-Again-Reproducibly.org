@@ -126,7 +126,7 @@ identical copies of all specified artifacts.
 - hundreds of classes of causes !
 - It's fun to discover these! Well, mostly.
 
-* First Breakfast! Second Breakfast? Elevensies?
+* First Breakfast! Second Breakfast?
 
 [[./images/tapioca_in_the_shadow_of_mordor.jpg]]
 
