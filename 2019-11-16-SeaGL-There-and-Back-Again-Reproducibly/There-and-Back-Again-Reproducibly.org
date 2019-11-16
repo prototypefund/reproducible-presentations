@@ -282,11 +282,10 @@ https://reproducible-builds.org
 - 93% is a wonderful fantasy
 - 7% of 30000 source packages means 2100 unreproducible source packages.
 - And there's new software every hour
-- Getting software reproducible in theory is 33% of the way.
-- The next 33% are about reproducible builds in practice, which means changing distro tools and workflows. Technically easy...
-- The last 33% are again different for each distro and divided into these questions:
-  - distributing trust 
-  - how to "Enable everyone to independently..." in practice. (eg for Debian there are two designs with code, but...)
+- Getting software reproducible in theory is only part of the way
+- Hard work begins making reproducible builds in practice
+  - distributed multi-party verification
+  - meaningful end-user interfaces
 - *There is a lot to do. Please. Help.*
 
 * Collaboration
