@@ -206,7 +206,7 @@ Reproducible builds summits:
 - Paris 2018
 - Marrakesh 2019
 
-* What can you see, burglar?
+* Forest for the trees
 
 https://diffoscope.org
 
