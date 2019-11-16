@@ -166,10 +166,21 @@ Time! I need more Time!
 
 ** image
     :PROPERTIES:
-    :BEAMER_col: 0.6
+    :BEAMER_col: 0.5
     :END:
 
 [[./images/887px-Unico_Anello.png]]
+
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+
+#+ATTR_BEAMER: :overlay <+->
+- Highly portable! Always keep close to you.
+- Magic powers (e.g. invisibility)
+- Precious
+- May use *you* for it's own ends
 
 * Dark and forboding places
 
