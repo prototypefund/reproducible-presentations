@@ -299,6 +299,10 @@ https://reproducible-builds.org
 
 * Collaboration
 
+https://reproducible-builds.org/contribute/
+
+\vspace{\baselineskip}
+
 ** image
     :PROPERTIES:
     :BEAMER_col: 0.4
