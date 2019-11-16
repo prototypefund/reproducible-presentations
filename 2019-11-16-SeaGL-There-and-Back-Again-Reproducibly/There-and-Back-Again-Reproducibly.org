@@ -85,10 +85,9 @@ identical copies of all specified artifacts.
 
 #+ATTR_BEAMER: :overlay <+->
 - Historically software was reproducible! Every bit counted.
-- And every bit was known.
+- Things eventually got more complicated...
 - Bit for bit reproducible GNU toolchain in the early 90s on 10(?) architectures.
 - *And then we all forgot.*
-- Well, things also just got more complicated...
 - Then, in 2011 and 2012, Bitcoin and Torbrowser were made reproducible.
 
 * Debian
