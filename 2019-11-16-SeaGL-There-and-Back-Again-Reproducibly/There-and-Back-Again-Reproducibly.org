@@ -191,21 +191,6 @@ Time! I need more Time!
 
 [[./images/345px-Mirkwood_-_entrance.jpg]]
 
-* Councils of the Wise
-
-https://reproducible-builds.org/events/
-
-\vspace{\baselineskip}
-
-Reproducible builds summits:
-
-#+ATTR_BEAMER: :overlay <+->
-- Athens 2015
-- Berlin 2016
-- Berlin 2017
-- Paris 2018
-- Marrakesh 2019
-
 * Forest for the trees
 
 https://diffoscope.org
@@ -296,6 +281,21 @@ https://reproducible-builds.org
   - distributed multi-party verification
   - meaningful end-user interfaces
 - *There is a lot to do. Please. Help.*
+
+* Councils of the Wise
+
+https://reproducible-builds.org/events/
+
+\vspace{\baselineskip}
+
+Reproducible builds summits:
+
+#+ATTR_BEAMER: :overlay <+->
+- Athens 2015
+- Berlin 2016
+- Berlin 2017
+- Paris 2018
+- Marrakesh 2019
 
 * Collaboration
 
