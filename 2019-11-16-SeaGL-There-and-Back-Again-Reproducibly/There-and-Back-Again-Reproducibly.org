@@ -189,6 +189,10 @@ https://diffoscope.org
   - *not* used for determining whether something is reproducible!
   - used for analysing *why*
 - available for Debian, Fedora, OpenSUSE, Archlinux, GNU Guix, NixOS, FreeBSD, NetBSD, Homebrew, PypI, ...
+- and on the web: https://try.diffoscope.org
+- useful beyond reproducible builds, eg.
+  - security updates
+  - code refactoring
 
 * diffoscope example
 
@@ -197,18 +201,6 @@ https://diffoscope.org
 * diffoscope, supported file types
 
 Android APK files, Android boot images, Ar(1) archives, Berkeley DB database files, Bzip2 archives, Character/block devices, ColorSync colour profiles (.icc), Coreboot CBFS filesystem images, Cpio archives, Dalvik .dex files, Debian .buildinfo files, Debian .changes files, Debian source packages (.dsc), Device Tree Compiler blob files, Directories, ELF binaries, Ext2/ext3/ext4/btrfs filesystems, FreeDesktop Fontconfig cache files, FreePascal files (.ppu), Gettext message catalogues, GHC Haskell .hi files, GIF image files, Git repositories, GNU R database files (.rdb), GNU R Rscript files (.rds), Gnumeric spreadsheets, Gzipped files, ISO 9660 CD images, Java .class files, JavaScript files, JPEG images, JSON files, LLVM IR bitcode files, MacOS binaries, Microsoft Windows icon files, Microsoft Word .docx files, Mono 'Portable Executable' files, Ogg Vorbis audio files, OpenOffice .odt files, OpenSSH public keys, OpenWRT package archives (.ipk), PDF documents, PGP signed/encrypted messages, PNG images, PostScript documents, RPM archives, Rust object files (.deflate), SQLite databases, SquashFS filesystems, Statically-linked binaries, Symlinks, Tape archives (.tar), Tcpdump capture files (.pcap), Text files, TrueType font files, XML binary schemas (.xsb), XML files, XZ compressed files, etc.
-
-* Try diffoscope!
-
-https://try.diffoscope.org
-
-\vspace{\baselineskip}
-
-#+ATTR_BEAMER: :overlay <+->
-- diffoscope is useful beyond reproducible builds, eg.
-  - for checking security updates only change what should be changed
-  - for development too
-
 
 * spiders
 
