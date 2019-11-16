@@ -339,7 +339,7 @@ https://reproducible-builds.org
 
 https://try.diffoscope.org
 
-* Copyright
+* Copyright and attributions
 \addtocounter{framenumber}{-1}
 \tiny
 
