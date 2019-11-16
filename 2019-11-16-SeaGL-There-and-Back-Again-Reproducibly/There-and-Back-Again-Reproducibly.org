@@ -125,21 +125,6 @@ identical copies of all specified artifacts.
 
 * Unexpected guests
 
-#+ATTR_BEAMER: :overlay <+->
-- timestamps
-- timestamps 
-- build paths
-- timezones, locales
-- hundreds of classes of causes !
-- timestamps
-- It's fun to discover these! Well, mostly.
-
-* First Breakfast! Second Breakfast?
-
-[[./images/tapioca_in_the_shadow_of_mordor.jpg]]
-
-* Elevensies!
-
 [[./images/r-b-projects.png]]
 
 * trolls
@@ -149,6 +134,26 @@ identical copies of all specified artifacts.
 * caves
 
 [[./images/1280px-Caverna-Morro-Preto-Parque_Estadual_Alto_Ribeira-Iporanga-Brasil.JPG]]
+
+* Does it like riddles?
+
+This thing all things devours;
+Birds, beasts, trees, flowers;
+Gnaws iron, bites steel;
+Grinds hard stones to meal;
+Slays king, ruins town,
+And beats mountain down.
+
+* And more riddles
+
+#+ATTR_BEAMER: :overlay <+->
+- timestamps
+- timestamps 
+- build paths
+- timezones, locales
+- hundreds of classes of causes !
+- timestamps
+- It's fun to discover these! Well, mostly.
 
 * Who does your hardware serve?
 
