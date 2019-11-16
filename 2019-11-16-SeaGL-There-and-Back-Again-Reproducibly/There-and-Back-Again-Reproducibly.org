@@ -91,14 +91,22 @@ identical copies of all specified artifacts.
 
 * Debian
 
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.60
+    :END:
+
 #+ATTR_BEAMER: :overlay <+->
 - A list mail in 1997, very few more in 2001 and 2003.
 - Then, in 2011 and 2012, Bitcoin and Torbrowser were made reproducible.
-- In 2013 some people in Debian began to investigate this.
-- And kicked it off in 2014 by introducing systematic testing, classifications and weekly blogs.
+- In 2013 people in Debian began to investigate
+- In 2014 systematic testing, classifications and weekly blogs.
 - Since 2017 in Debian Policy
 
-* Debian main unstable/amd64, since October 2014
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.40
+    :END:
 
 [[./images/stats_pkg_state.png]]
 
