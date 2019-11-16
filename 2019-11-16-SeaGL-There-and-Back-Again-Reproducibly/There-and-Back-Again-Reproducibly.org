@@ -159,11 +159,11 @@ Time! I need more Time!
 
 #+ATTR_BEAMER: :overlay <+->
 - timestamps
-- timestamps 
 - build paths
 - timezones, locales
-- hundreds of classes of causes !
 - timestamps
+- hundreds of classes of causes !
+- also timestamps
 - It's fun to discover these! Well, mostly.
 
 * Who does your hardware serve?
