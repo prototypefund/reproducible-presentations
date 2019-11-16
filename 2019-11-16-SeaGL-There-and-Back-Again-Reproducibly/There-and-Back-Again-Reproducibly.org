@@ -121,6 +121,10 @@ identical copies of all specified artifacts.
 
 * Shared research and developments
 
+https://tests.reproducible-builds.org
+
+\vspace{\baselineskip}
+
 #+ATTR_BEAMER: :overlay <+->
 - Test/research setup for many but not all projects.
 - Since end of 2018 shared database for some of those.
