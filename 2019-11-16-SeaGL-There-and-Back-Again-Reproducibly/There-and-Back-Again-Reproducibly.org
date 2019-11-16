@@ -110,15 +110,6 @@ identical copies of all specified artifacts.
 
 [[./images/stats_pkg_state.png]]
 
-* Shared research and developments / WIP
-
-#+ATTR_BEAMER: :overlay <+->
-- Test/research setup for many but not all projects.
-- Since end of 2018 shared database for some of those.
-- Sharing issues, patches and upstreaming them.
-- Shared public blog, now called monthly report.
-- More collaboration is possible!
-
 * Humble beginnings
 
 [[./images/800px-Hobbit_holes_reflected_in_water.jpg]]
@@ -126,6 +117,15 @@ identical copies of all specified artifacts.
 * Unexpected guests
 
 [[./images/r-b-projects.png]]
+
+* Shared research and developments
+
+#+ATTR_BEAMER: :overlay <+->
+- Test/research setup for many but not all projects.
+- Since end of 2018 shared database for some of those.
+- Sharing issues, patches and upstreaming them.
+- Shared public blog, now called monthly report.
+- More collaboration is possible!
 
 * trolls
 
