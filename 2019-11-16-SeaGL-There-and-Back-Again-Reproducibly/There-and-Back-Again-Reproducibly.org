@@ -276,6 +276,15 @@ reprotest
 
 https://reproducible-builds.org
 
+* Who watches
+
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+
+[[./images/Ring-eye-sauron.png]]
+
 * Theory vs Praxis
 
 #+ATTR_BEAMER: :overlay <+->
@@ -310,15 +319,6 @@ https://reproducible-builds.org
 - And beings beyond our current imagination,
 - And we welcome you.
 - And we welcome Free Software.
-
-* Who watches
-
-** image
-    :PROPERTIES:
-    :BEAMER_col: 0.4
-    :END:
-
-[[./images/Ring-eye-sauron.png]]
 
 * Questions?
 
