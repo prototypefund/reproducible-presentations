@@ -348,8 +348,6 @@ It's been a long journey but we will get there. And back again, on to new journe
 
 https://reproducible-builds.org
 
-https://try.diffoscope.org
-
 * Copyright and attributions
 \addtocounter{framenumber}{-1}
 \tiny
