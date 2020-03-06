@@ -302,6 +302,7 @@ Reproducible builds summits:
 - Berlin 2017
 - Paris 2018
 - Marrakesh 2019
+- ??? 2020
 
 * Collaboration
 
