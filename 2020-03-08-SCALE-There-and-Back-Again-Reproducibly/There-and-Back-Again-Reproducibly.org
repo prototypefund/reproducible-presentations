@@ -219,7 +219,9 @@ https://diffoscope.org
 
 \vspace{\baselineskip}
 
-- useful beyond reproducible builds, eg.
+useful beyond reproducible builds, eg.
+
+#+ATTR_BEAMER: :overlay <+->
   - security updates
   - code refactoring
 
