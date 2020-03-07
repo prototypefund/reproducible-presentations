@@ -261,7 +261,6 @@ reprotest
 - builds something twice with many variations
 - https://salsa.debian.org/reproducible/reprotest
 - if unreproducible: "bisect" the variations
-- *Please help!*
 
 * Under the mountain
 
