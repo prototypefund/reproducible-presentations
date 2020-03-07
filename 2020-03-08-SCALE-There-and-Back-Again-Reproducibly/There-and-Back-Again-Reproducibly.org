@@ -340,7 +340,7 @@ https://reproducible-builds.org/contribute/
 
 #+ATTR_BEAMER: :overlay <+->
 - We stand on the shoulders of giants.
-- And women, men and others,
+- And women, men and people of all genders,
 - And elves and dwarves,
 - And wizards and hobbits,
 - And beings beyond our current imagination,
