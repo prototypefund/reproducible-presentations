@@ -266,10 +266,22 @@ reprotest
 
 * Looking for back doors
 
+** image
+    :PROPERTIES:
+    :BEAMER_col: 0.3
+    :END:
+
+[[./images/Psophocichla_litsitsirupa_(Etosha).jpg]]
+
+** text
+    :PROPERTIES:
+    :BEAMER_col: 0.6
+    :END:
+
 “Stand by the grey stone when the thrush knocks, and the setting sun
 with the last light of Durin’s Day will shine upon the key-hole.”
 
- J.R.R. Tolkien, The Hobbit, or There and Back Again
+J.R.R. Tolkien, The Hobbit, or There and Back Again
 
 * Under the mountain
 
@@ -425,3 +437,8 @@ https://reproducible-builds.org
   https://tests.reproducible-builds.org/debian/unstable/amd64/stats_pkg_state.png
 
   hobbit-on-a-barrel.jpeg used under fair use.
+
+  Psophocichla_litsitsirupa_%28Etosha%29.jpg:
+
+  https://creativecommons.org/licenses/by-sa/3.0/deed.en
+  https://commons.wikimedia.org/wiki/File:Psophocichla_litsitsirupa_(Etosha).jpg
