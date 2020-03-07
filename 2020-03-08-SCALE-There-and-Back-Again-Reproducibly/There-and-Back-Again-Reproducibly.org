@@ -311,13 +311,17 @@ https://reproducible-builds.org
 
 [[./images/Ring-eye-sauron.png]]
 
-* Theory vs Praxis
+* Theory
 
 #+ATTR_BEAMER: :overlay <+->
 - 93% is a wonderful fantasy
 - 7% of 30000 source packages means 2100 unreproducible source packages.
 - And there's new software every hour
 - Getting software reproducible in theory is only part of the way
+
+* Praxis
+
+#+ATTR_BEAMER: :overlay <+->
 - Hard work begins making reproducible builds in practice
   - distributed multi-party verification
   - meaningful end-user interfaces
