@@ -3,7 +3,7 @@
 # needs: apt install emacs texlive-latex-extra org-mode
 
 export FORCE_SOURCE_DATE = 1
-export SOURCE_DATE_EPOCH := $(shell date --utc --date '2020-03-08 16:30' +%s)
+export SOURCE_DATE_EPOCH := $(shell date --utc --date '2020-03-08 16:30 PDT' +%s)
 
 all: $(patsubst %.org,%.pdf,$(wildcard *.org))
 
